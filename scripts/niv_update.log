@@ -1,0 +1,93 @@
+Starting NIV update at 2025-12-01T03:27:18.949Z
+[2025-12-01T03:27:18.950Z] Starting NIV update process...
+[2025-12-01T03:27:18.954Z] Connecting to source database...
+[2025-12-01T03:27:18.959Z] Connecting to target database...
+[2025-12-01T03:27:18.959Z] Verifying key_english table...
+[2025-12-01T03:27:18.961Z] Key English table columns: id, name, abbreviation, chapters
+[2025-12-01T03:27:18.961Z] Found 66 valid book IDs in key_english
+[2025-12-01T03:27:18.964Z] Source book numbers: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 190, 220, 230, 240, 250, 260, 290, 300, 310, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590, 600, 610, 620, 630, 640, 650, 660, 670, 680, 690, 700, 710, 720, 730
+[2025-12-01T03:27:18.964Z] Found 31102 verses in source database
+[2025-12-01T03:27:18.965Z] Starting transaction...
+[2025-12-01T03:27:18.965Z] Clearing existing NIV data...
+[2025-12-01T03:27:18.966Z] Fetching and inserting verses...
+[2025-12-01T03:27:18.968Z] Processing batch 1 (verses 1 to 1000)
+[2025-12-01T03:27:18.971Z] Processed 1000 of 31102 verses (3%) - 1000 inserted in this batch
+[2025-12-01T03:27:18.973Z] Processing batch 2 (verses 1001 to 2000)
+[2025-12-01T03:27:18.974Z] Processed 2000 of 31102 verses (6%) - 1000 inserted in this batch
+[2025-12-01T03:27:18.976Z] Processing batch 3 (verses 2001 to 3000)
+[2025-12-01T03:27:18.977Z] Processed 3000 of 31102 verses (10%) - 1000 inserted in this batch
+[2025-12-01T03:27:18.978Z] Processing batch 4 (verses 3001 to 4000)
+[2025-12-01T03:27:18.980Z] Processed 4000 of 31102 verses (13%) - 1000 inserted in this batch
+[2025-12-01T03:27:18.982Z] Processing batch 5 (verses 4001 to 5000)
+[2025-12-01T03:27:18.984Z] Processed 5000 of 31102 verses (16%) - 1000 inserted in this batch
+[2025-12-01T03:27:18.984Z] Taking a short break...
+[2025-12-01T03:27:19.985Z] Processing batch 6 (verses 5001 to 6000)
+[2025-12-01T03:27:19.987Z] Processed 6000 of 31102 verses (19%) - 1000 inserted in this batch
+[2025-12-01T03:27:19.988Z] Processing batch 7 (verses 6001 to 7000)
+[2025-12-01T03:27:19.990Z] Processed 7000 of 31102 verses (23%) - 1000 inserted in this batch
+[2025-12-01T03:27:19.992Z] Processing batch 8 (verses 7001 to 8000)
+[2025-12-01T03:27:19.994Z] Processed 8000 of 31102 verses (26%) - 1000 inserted in this batch
+[2025-12-01T03:27:19.996Z] Processing batch 9 (verses 8001 to 9000)
+[2025-12-01T03:27:19.998Z] Processed 9000 of 31102 verses (29%) - 1000 inserted in this batch
+[2025-12-01T03:27:20.000Z] Processing batch 10 (verses 9001 to 10000)
+[2025-12-01T03:27:20.002Z] Processed 10000 of 31102 verses (32%) - 1000 inserted in this batch
+[2025-12-01T03:27:20.002Z] Taking a short break...
+[2025-12-01T03:27:21.003Z] Processing batch 11 (verses 10001 to 11000)
+[2025-12-01T03:27:21.005Z] Processed 11000 of 31102 verses (35%) - 1000 inserted in this batch
+[2025-12-01T03:27:21.006Z] Processing batch 12 (verses 11001 to 12000)
+[2025-12-01T03:27:21.008Z] Processed 12000 of 31102 verses (39%) - 1000 inserted in this batch
+[2025-12-01T03:27:21.010Z] Processing batch 13 (verses 12001 to 13000)
+[2025-12-01T03:27:21.011Z] Processed 13000 of 31102 verses (42%) - 1000 inserted in this batch
+[2025-12-01T03:27:21.012Z] Processing batch 14 (verses 13001 to 14000)
+[2025-12-01T03:27:21.014Z] Processed 14000 of 31102 verses (45%) - 1000 inserted in this batch
+[2025-12-01T03:27:21.016Z] Processing batch 15 (verses 14001 to 15000)
+[2025-12-01T03:27:21.017Z] Processed 15000 of 31102 verses (48%) - 1000 inserted in this batch
+[2025-12-01T03:27:21.018Z] Taking a short break...
+[2025-12-01T03:27:22.019Z] Processing batch 16 (verses 15001 to 16000)
+[2025-12-01T03:27:22.021Z] Processed 16000 of 31102 verses (51%) - 1000 inserted in this batch
+[2025-12-01T03:27:22.023Z] Processing batch 17 (verses 16001 to 17000)
+[2025-12-01T03:27:22.024Z] Processed 17000 of 31102 verses (55%) - 1000 inserted in this batch
+[2025-12-01T03:27:22.026Z] Processing batch 18 (verses 17001 to 18000)
+[2025-12-01T03:27:22.027Z] Processed 18000 of 31102 verses (58%) - 1000 inserted in this batch
+[2025-12-01T03:27:22.029Z] Processing batch 19 (verses 18001 to 19000)
+[2025-12-01T03:27:22.031Z] Processed 19000 of 31102 verses (61%) - 1000 inserted in this batch
+[2025-12-01T03:27:22.032Z] Processing batch 20 (verses 19001 to 20000)
+[2025-12-01T03:27:22.034Z] Processed 20000 of 31102 verses (64%) - 1000 inserted in this batch
+[2025-12-01T03:27:22.034Z] Taking a short break...
+[2025-12-01T03:27:23.036Z] Processing batch 21 (verses 20001 to 21000)
+[2025-12-01T03:27:23.038Z] Processed 21000 of 31102 verses (68%) - 1000 inserted in this batch
+[2025-12-01T03:27:23.041Z] Processing batch 22 (verses 21001 to 22000)
+[2025-12-01T03:27:23.043Z] Processed 22000 of 31102 verses (71%) - 1000 inserted in this batch
+[2025-12-01T03:27:23.045Z] Processing batch 23 (verses 22001 to 23000)
+[2025-12-01T03:27:23.047Z] Processed 23000 of 31102 verses (74%) - 1000 inserted in this batch
+[2025-12-01T03:27:23.049Z] Processing batch 24 (verses 23001 to 24000)
+[2025-12-01T03:27:23.050Z] Processed 24000 of 31102 verses (77%) - 1000 inserted in this batch
+[2025-12-01T03:27:23.052Z] Processing batch 25 (verses 24001 to 25000)
+[2025-12-01T03:27:23.054Z] Processed 25000 of 31102 verses (80%) - 1000 inserted in this batch
+[2025-12-01T03:27:23.054Z] Taking a short break...
+[2025-12-01T03:27:24.055Z] Processing batch 26 (verses 25001 to 26000)
+[2025-12-01T03:27:24.057Z] Processed 26000 of 31102 verses (84%) - 1000 inserted in this batch
+[2025-12-01T03:27:24.059Z] Processing batch 27 (verses 26001 to 27000)
+[2025-12-01T03:27:24.061Z] Processed 27000 of 31102 verses (87%) - 1000 inserted in this batch
+[2025-12-01T03:27:24.063Z] Processing batch 28 (verses 27001 to 28000)
+[2025-12-01T03:27:24.065Z] Processed 28000 of 31102 verses (90%) - 1000 inserted in this batch
+[2025-12-01T03:27:24.067Z] Processing batch 29 (verses 28001 to 29000)
+[2025-12-01T03:27:24.068Z] Processed 29000 of 31102 verses (93%) - 1000 inserted in this batch
+[2025-12-01T03:27:24.070Z] Processing batch 30 (verses 29001 to 30000)
+[2025-12-01T03:27:24.072Z] Processed 30000 of 31102 verses (96%) - 1000 inserted in this batch
+[2025-12-01T03:27:24.072Z] Taking a short break...
+[2025-12-01T03:27:25.074Z] Processing batch 31 (verses 30001 to 31000)
+[2025-12-01T03:27:25.076Z] Processed 31000 of 31102 verses (100%) - 1000 inserted in this batch
+[2025-12-01T03:27:25.077Z] Processing batch 32 (verses 31001 to 31102)
+[2025-12-01T03:27:25.077Z] Processed 31102 of 31102 verses (100%) - 102 inserted in this batch
+[2025-12-01T03:27:25.078Z] Checking for last_updated column in Translation table...
+[2025-12-01T03:27:25.078Z] Adding last_updated column to Translation table...
+[2025-12-01T03:27:25.079Z] Updating version information...
+[2025-12-01T03:27:25.079Z] Committing transaction...
+[2025-12-01T03:27:25.109Z] 
+Successfully imported 31102 verses
+[2025-12-01T03:27:25.109Z] Final count in t_new_international_version: 31102 verses
+[2025-12-01T03:27:25.110Z] NIV update completed successfully!
+[2025-12-01T03:27:25.111Z] Source database connection closed
+[2025-12-01T03:27:25.112Z] Target database connection closed
+[2025-12-01T03:27:25.113Z] Update process completed.

@@ -1,0 +1,351 @@
+'use client';
+
+import { useState, useEffect, useRef, useCallback } from 'react';
+import HeroSection from '@/components/HeroSection';
+import { FiExternalLink, FiAlertCircle, FiLoader, FiRefreshCw } from 'react-icons/fi';
+
+// Constants
+const ZEFFY_FORM_URL = 'https://www.zeffy.com/en-US/donation-form/gifts-and-offerings';
+const ZEFFY_EMBED_URL = 'https://www.zeffy.com/embed/donation-form/gifts-and-offerings';
+const ZEFFY_DOMAINS = [
+  'https://www.zeffy.com',
+  'https://api.zeffy.com',
+  'https://js.stripe.com',
+  'https://m.stripe.network'
+];
+
+// Inline styles
+const styles = `
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  .donate-button {
+    transition: all 0.2s ease;
+  }
+  .donate-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+interface ConnectionInfo {
+  effectiveType?: string;
+  saveData?: boolean;
+}
+
+declare global {
+  interface Navigator {
+    connection?: ConnectionInfo;
+  }
+  interface Window {
+    gtag?: (event: string, action: string, params: Record<string, unknown>) => void;
+  }
+}
+
+const GivePage = () => {
+  // State management
+  const [showForm, setShowForm] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [hasError, setHasError] = useState<boolean>(false);
+  const [isIframeLoaded, setIsIframeLoaded] = useState<boolean>(false);
+  const [retryCount, setRetryCount] = useState<number>(0);
+  const [iframeSrc, setIframeSrc] = useState<string>('');
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  
+  // Refs
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const loadingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  
+  // Constants
+  const MAX_RETRIES = 3;
+  
+  // Check if we should show the loading state
+  const showLoadingState = isLoading || (!isIframeLoaded && !hasError);
+  
+  // Generate iframe URL with parameters
+  const getIframeUrl = useCallback((): string => {
+    const params = new URLSearchParams();
+    const isMobileView = typeof window !== 'undefined' && window.innerWidth < 768;
+    const connection = (navigator as any)?.connection as ConnectionInfo | undefined;
+    
+    // Standard parameters
+    params.append('embed', 'true');
+    params.append('hideTitle', 'true');
+    params.append('noHeader', 'true');
+    params.append('t', Date.now().toString());
+    
+    if (typeof window !== 'undefined') {
+      // Device info
+      params.append('isMobile', String(isMobileView));
+      params.append('viewportWidth', String(window.innerWidth));
+      
+      // Connection info
+      if (connection) {
+        if (connection.saveData) params.append('saveData', 'true');
+        if (connection.effectiveType) {
+          params.append('effectiveType', connection.effectiveType);
+        }
+      }
+      
+      // Performance optimizations
+      params.append('lazy', 'true');
+      params.append('optimizeForMobile', String(isMobileView));
+      params.append('fastLoad', 'true');
+      params.append('minimalUI', 'true');
+      
+      // Accessibility
+      params.append('noAriaHidden', 'true');
+      params.append('noAriaLive', 'true');
+      params.append('noAriaModal', 'true');
+    }
+    
+    return `${ZEFFY_EMBED_URL}?${params.toString()}`;
+  }, []);
+
+  // Handle loading the iframe
+  const handleLoadIframe = useCallback(() => {
+    setIsIframeLoaded(true);
+    setIsLoading(false);
+    setHasError(false);
+    
+    // Track successful load in analytics if available
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'iframe_loaded', {
+        event_category: 'engagement',
+        event_label: 'Zeffy Donation Form Loaded'
+      });
+    }
+  }, []);
+
+  // Handle iframe error
+  const handleIframeError = useCallback(() => {
+    setIsLoading(false);
+    setHasError(true);
+    
+    // Track error in analytics if available
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'iframe_error', {
+        event_category: 'error',
+        event_label: 'Zeffy Donation Form Failed to Load',
+        value: retryCount + 1
+      });
+    }
+  }, [retryCount]);
+
+  // Handle retry loading the iframe
+  const handleRetry = useCallback(() => {
+    if (retryCount >= MAX_RETRIES) return;
+    
+    setRetryCount(prev => prev + 1);
+    setHasError(false);
+    setIsLoading(true);
+    
+    // Force a fresh URL to prevent caching issues
+    const newUrl = getIframeUrl();
+    setIframeSrc(newUrl);
+  }, [getIframeUrl, retryCount]);
+
+  // Handle showing the form
+  const handleShowForm = useCallback(() => {
+    setShowForm(true);
+    setIsLoading(true);
+    
+    // Set the iframe source when showing the form
+    const url = getIframeUrl();
+    setIframeSrc(url);
+  }, [getIframeUrl]);
+
+  // Set up intersection observer for lazy loading
+  useEffect(() => {
+    if (typeof IntersectionObserver === 'undefined' || !containerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' }
+    );
+
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // Load the iframe when it becomes visible
+  useEffect(() => {
+    if (isVisible && !iframeSrc) {
+      const url = getIframeUrl();
+      setIframeSrc(url);
+    }
+  }, [isVisible, iframeSrc, getIframeUrl]);
+
+  // Set up loading timeout
+  useEffect(() => {
+    if (isLoading) {
+      loadingTimeoutRef.current = setTimeout(() => {
+        if (!isIframeLoaded) {
+          handleIframeError();
+        }
+      }, 10000); // 10 second timeout
+    }
+
+    return () => {
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
+      }
+    };
+  }, [isLoading, isIframeLoaded, handleIframeError]);
+
+  // Add resource hints for performance
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+
+    const links = ZEFFY_DOMAINS.map(domain => {
+      // Preconnect
+      const preconnect = document.createElement('link');
+      preconnect.rel = 'preconnect';
+      preconnect.href = domain;
+      preconnect.crossOrigin = 'anonymous';
+      
+      // DNS prefetch
+      const dnsPrefetch = document.createElement('link');
+      dnsPrefetch.rel = 'dns-prefetch';
+      dnsPrefetch.href = domain.replace('https://', '//');
+      
+      document.head.appendChild(preconnect);
+      document.head.appendChild(dnsPrefetch);
+      
+      return { preconnect, dnsPrefetch };
+    });
+
+    // Add styles
+    const styleElement = document.createElement('style');
+    styleElement.textContent = styles;
+    document.head.appendChild(styleElement);
+
+    // Cleanup function
+    return () => {
+      links.forEach(({ preconnect, dnsPrefetch }) => {
+        if (document.head.contains(preconnect)) {
+          document.head.removeChild(preconnect);
+        }
+        if (document.head.contains(dnsPrefetch)) {
+          document.head.removeChild(dnsPrefetch);
+        }
+      });
+      
+      if (document.head.contains(styleElement)) {
+        document.head.removeChild(styleElement);
+      }
+    };
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <HeroSection 
+        title="Support Our Ministry"
+        subtitle="Your generous donation helps us continue our mission"
+      />
+      
+      <div className="container mx-auto px-4 py-12 max-w-4xl">
+        <div className="bg-white rounded-lg shadow-md overflow-hidden">
+          <div className="p-6 md:p-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Make a Donation</h2>
+            <p className="text-gray-600 mb-6">
+              Thank you for considering a donation to support our ministry. Your generosity helps us continue our work and reach more people with the message of hope.
+            </p>
+            
+            {!showForm ? (
+              <div className="text-center py-8">
+                <button
+                  onClick={handleShowForm}
+                  className="px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                >
+                  Donate Now
+                </button>
+                
+                <p className="mt-4 text-sm text-gray-500">
+                  You'll be redirected to our secure donation form powered by Zeffy.
+                </p>
+              </div>
+            ) : (
+              <div className="relative min-h-[500px]" ref={containerRef}>
+                {showLoadingState && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-80">
+                    <div className="text-center">
+                      <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto mb-4"></div>
+                      <p className="text-gray-600">Loading donation form...</p>
+                      {hasError && (
+                        <button
+                          onClick={handleRetry}
+                          className="mt-4 px-4 py-2 text-sm text-blue-600 hover:text-blue-800 font-medium flex items-center mx-auto"
+                        >
+                          <FiRefreshCw className="mr-2" /> Try Again
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                )}
+                
+                {hasError && retryCount >= MAX_RETRIES ? (
+                  <div className="text-center py-12">
+                    <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <FiAlertCircle className="w-8 h-8 text-red-600" />
+                    </div>
+                    <h3 className="text-lg font-medium text-gray-900 mb-2">Unable to load donation form</h3>
+                    <p className="text-gray-600 mb-6">
+                      We're having trouble loading the donation form. Please try again later or visit our donation page directly.
+                    </p>
+                    <a
+                      href={ZEFFY_FORM_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    >
+                      Go to Donation Page
+                      <FiExternalLink className="ml-2" />
+                    </a>
+                  </div>
+                ) : (
+                  <iframe
+                    ref={iframeRef}
+                    src={iframeSrc}
+                    title="Donation Form"
+                    className="w-full min-h-[500px] border-0"
+                    onLoad={handleLoadIframe}
+                    onError={handleIframeError}
+                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                    loading="lazy"
+                  />
+                )}
+              </div>
+            )}
+            
+            <div className="mt-8 pt-6 border-t border-gray-200">
+              <h3 className="text-sm font-medium text-gray-500 mb-2">Donation Information</h3>
+              <ul className="text-sm text-gray-500 space-y-1">
+                <li>• All donations are securely processed by Zeffy</li>
+                <li>• Your donation is tax-deductible as allowed by law</li>
+                <li>• You'll receive a receipt for your records</li>
+              </ul>
+              
+              <div className="mt-6 flex items-center text-sm text-gray-500">
+                <span className="mr-2">Need help?</span>
+                <a href="/contact" className="text-blue-600 hover:text-blue-800 font-medium">Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default GivePage;

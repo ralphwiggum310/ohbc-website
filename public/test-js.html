@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .pass {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .fail {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Environment Test</h1>
+    
+    <div class="test">
+        <h2>Test 1: Basic JavaScript</h2>
+        <p>This test checks if basic JavaScript is working.</p>
+        <button onclick="runTest1()">Run Test 1</button>
+        <div id="test1" class="result">Not run yet</div>
+    </div>
+
+    <div class="test">
+        <h2>Test 2: Fetch API</h2>
+        <p>This test checks if the Fetch API is working by making a request to a test endpoint.</p>
+        <button onclick="runTest2()">Run Test 2</button>
+        <div id="test2" class="result">Not run yet</div>
+    </div>
+
+    <div class="test">
+        <h2>Test 3: Local Storage</h2>
+        <p>This test checks if local storage is available.</p>
+        <button onclick="runTest3()">Run Test 3</button>
+        <div id="test3" class="result">Not run yet</div>
+    </div>
+
+    <script>
+        function setResult(testId, passed, message) {
+            const result = document.getElementById(testId);
+            result.textContent = message;
+            result.className = 'result ' + (passed ? 'pass' : 'fail');
+        }
+
+        function runTest1() {
+            try {
+                const testValue = 'Test ' + Math.random();
+                const testElement = document.createElement('div');
+                testElement.textContent = testValue;
+                
+                if (testElement.textContent === testValue) {
+                    setResult('test1', true, '✅ Basic JavaScript is working!');
+                } else {
+                    setResult('test1', false, '❌ Basic JavaScript test failed');
+                }
+            } catch (error) {
+                setResult('test1', false, '❌ Error: ' + error.message);
+            }
+        }
+
+        function runTest2() {
+            const test2Result = document.getElementById('test2');
+            test2Result.textContent = 'Testing...';
+            
+            fetch('/api/bible/v1/versions')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    setResult('test2', true, '✅ Fetch API is working!');
+                    console.log('API Response:', data);
+                })
+                .catch(error => {
+                    setResult('test2', false, '❌ Fetch API test failed: ' + error.message);
+                });
+        }
+
+        function runTest3() {
+            try {
+                const testKey = 'test_' + Date.now();
+                const testValue = 'Test ' + Math.random();
+                
+                localStorage.setItem(testKey, testValue);
+                const retrievedValue = localStorage.getItem(testKey);
+                localStorage.removeItem(testKey);
+                
+                if (retrievedValue === testValue) {
+                    setResult('test3', true, '✅ Local storage is working!');
+                } else {
+                    setResult('test3', false, '❌ Local storage test failed');
+                }
+            } catch (error) {
+                setResult('test3', false, '❌ Error: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html>

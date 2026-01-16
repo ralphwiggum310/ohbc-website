@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  web:
+    image: jimh450/ohbc_stage1:latest
+    container_name: ohbc-website
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    ports:
+      - "3000:3000"
+    networks:
+      - ohbc-network
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Uncomment and configure if you need a production database
+  # db:
+  # SQLite database files are stored in the ./data directory
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+  #     interval: 5s
+  #     timeout: 5s
+  #     retries: 5
+
+  # Nginx reverse proxy with Let's Encrypt
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    depends_on:
+      - web
+    networks:
+      - ohbc-network
+
+  # Certbot for SSL certificates
+  certbot:
+    image: certbot/certbot:latest
+    container_name: certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    networks:
+      - ohbc-network
+
+networks:
+  ohbc-network:
+    driver: bridge
+
+# volumes:
+#   postgres_data:

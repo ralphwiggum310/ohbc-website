@@ -1,0 +1,367 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
+import Image from 'next/image';
+import { FiYoutube, FiClock, FiCalendar, FiExternalLink } from 'react-icons/fi';
+
+interface Video {
+  id: string;
+  title: string;
+  description: string;
+  thumbnail: string;
+  publishedAt: string;
+  duration: string;
+  viewCount: string;
+  videoUrl: string;
+}
+
+interface AudioItem {
+  id: string;
+  title: string;
+  description: string;
+  icon: JSX.Element;
+  link: string;
+  linkText: string;
+}
+
+const YOUTUBE_CHANNEL_ID = 'UChBLU82WKDW8PRJSqeZf0ww';
+const YOUTUBE_API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY || '';
+
+const WatchListenPage = () => {
+  const [videos, setVideos] = useState<Video[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      if (!YOUTUBE_API_KEY) {
+        setError('YouTube API key is not configured');
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        // First, get the uploads playlist ID from the channel
+        const channelResponse = await fetch(
+          `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${YOUTUBE_CHANNEL_ID}&key=${YOUTUBE_API_KEY}`
+        );
+        
+        if (!channelResponse.ok) {
+          throw new Error('Failed to fetch channel data');
+        }
+
+        const channelData = await channelResponse.json();
+        const uploadsPlaylistId = channelData.items[0].contentDetails.relatedPlaylists.uploads;
+
+        // Then, get the videos from the uploads playlist
+        const playlistResponse = await fetch(
+          `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=9&playlistId=${uploadsPlaylistId}&key=${YOUTUBE_API_KEY}`
+        );
+
+        if (!playlistResponse.ok) {
+          throw new Error('Failed to fetch videos');
+        }
+
+        const playlistData = await playlistResponse.json();
+
+        // Get video details (including duration and view count) for each video
+        const videoIds = playlistData.items.map((item: any) => item.snippet.resourceId.videoId).join(',');
+        const videosResponse = await fetch(
+          `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${videoIds}&key=${YOUTUBE_API_KEY}`
+        );
+
+        if (!videosResponse.ok) {
+          throw new Error('Failed to fetch video details');
+        }
+
+        const videosData = await videosResponse.json();
+
+        const formattedVideos = videosData.items.map((video: any) => ({
+          id: video.id,
+          title: video.snippet.title,
+          description: video.snippet.description,
+          thumbnail: video.snippet.thumbnails.medium.url,
+          publishedAt: new Date(video.snippet.publishedAt).toLocaleDateString(),
+          duration: formatDuration(video.contentDetails.duration),
+          viewCount: formatViewCount(video.statistics.viewCount),
+          videoUrl: `https://www.youtube.com/watch?v=${video.id}`
+        }));
+
+        setVideos(formattedVideos);
+      } catch (err) {
+        console.error('Error fetching YouTube videos:', err);
+        setError('Failed to load videos. Please try again later.');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    fetchVideos();
+  }, []);
+  
+  // Helper function to format duration (PT1H2M3S -> 1:02:03)
+  const formatDuration = (duration: string): string => {
+    const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+    if (!match) return '0:00';
+    
+    const hours = match[1] ? parseInt(match[1]) : 0;
+    const minutes = match[2] ? parseInt(match[2]) : 0;
+    const seconds = match[3] ? parseInt(match[3]) : 0;
+    
+    if (hours > 0) {
+      return `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    } else {
+      return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
+  };
+  
+  // Helper function to format view count
+  const formatViewCount = (count: string): string => {
+    const num = parseInt(count);
+    if (num >= 1000000) {
+      return `${(num / 1000000).toFixed(1)}M views`;
+    } else if (num >= 1000) {
+      return `${(num / 1000).toFixed(1)}K views`;
+    }
+    return `${num} views`;
+  };
+
+  // Audio section with link to YouTube channel
+  const audioSermons: AudioItem[] = [
+    {
+      id: 'audio-1',
+      title: 'Audio Sermons',
+      description: 'Listen to our audio messages and teachings on the go.',
+      icon: (
+        <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 010-7.072m0 0l2.121-2.122m-2.121 2.122l2.121 2.122" />
+        </svg>
+      ),
+      link: 'https://www.youtube.com/@OrchardHillsBibleChurch/playlists',
+      linkText: 'Listen on YouTube'
+    },
+    {
+      id: 'podcast-1',
+      title: 'Podcast',
+      description: 'Subscribe to our podcast for the latest messages.',
+      icon: (
+        <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0-18a7 7 0 00-7 7v1a7 7 0 006 6.89M12 3a7 7 0 017 7v1a7 7 0 01-6 6.92M12 3v18m0 0h4m-4 0H8" />
+        </svg>
+      ),
+      link: 'https://www.youtube.com/@OrchardHillsBibleChurch/playlists',
+      linkText: 'Subscribe on YouTube'
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Head>
+        <title>Watch & Listen | Orchard Hills Bible Church</title>
+        <meta name="description" content="Watch and listen to sermons and teachings from Orchard Hills Bible Church" />
+      </Head>
+      
+      {/* YouTube Branding Banner */}
+      <div className="bg-red-600 text-white py-2 text-center text-sm">
+        <div className="container mx-auto px-4">
+          <p>Watch our latest sermons on <a href="https://www.youtube.com/@OrchardHillsBibleChurch" target="_blank" rel="noopener noreferrer" className="font-semibold hover:underline">YouTube <FiExternalLink className="inline ml-1" /></a></p>
+        </div>
+      </div>
+
+      {/* Hero Section with YouTube branding */}
+      <div className="relative bg-gradient-to-r from-red-600 to-red-700 py-16 md:py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/images/youtube-pattern.png')] opacity-10"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="flex justify-center mb-6">
+              <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full">
+                <FiYoutube className="h-10 w-10 text-white" />
+              </div>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Watch & Listen</h1>
+            <p className="text-lg md:text-xl text-red-100 mb-8">Sermons, teachings, and more from Orchard Hills Bible Church</p>
+            <a 
+              href="https://www.youtube.com/@OrchardHillsBibleChurch?sub_confirmation=1" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-red-700 bg-white hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200"
+            >
+              <FiYoutube className="-ml-1 mr-2 h-5 w-5" />
+              Subscribe on YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="container mx-auto px-4 py-12">
+        {/* Videos Section */}
+        <section className="mb-16">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Latest Sermons</h2>
+              <p className="text-gray-600 mt-1">Watch our most recent messages and teachings</p>
+            </div>
+            <a 
+              href="https://www.youtube.com/@OrchardHillsBibleChurch/videos" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center mt-4 md:mt-0 text-sm font-medium text-red-600 hover:text-red-700"
+            >
+              View all videos <FiExternalLink className="ml-1 h-3.5 w-3.5" />
+            </a>
+          </div>
+
+          {isLoading ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100 animate-pulse">
+                  <div className="aspect-video bg-gray-200"></div>
+                  <div className="p-4">
+                    <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
+                    <div className="h-3 bg-gray-100 rounded w-1/2"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : error ? (
+            <div className="bg-red-50 border-l-4 border-red-400 p-4">
+              <div className="flex">
+                <div className="flex-shrink-0">
+                  <svg className="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div className="ml-3">
+                  <p className="text-sm text-red-700">{error}</p>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {videos.map((video) => (
+                <div key={video.id} className="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                  <div className="relative aspect-video group">
+                    <a 
+                      href={video.videoUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block w-full h-full"
+                    >
+                      <Image
+                        src={video.thumbnail}
+                        alt={video.title}
+                        fill
+                        className="object-cover group-hover:opacity-90 transition-opacity"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="bg-black/60 rounded-full p-3">
+                          <svg className="h-8 w-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div className="absolute bottom-2 right-2 bg-black/75 text-white text-xs px-1.5 py-0.5 rounded">
+                        {video.duration}
+                      </div>
+                    </a>
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2">
+                      <a 
+                        href={video.videoUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-red-600 transition-colors"
+                      >
+                        {video.title}
+                      </a>
+                    </h3>
+                    <div className="flex items-center text-sm text-gray-500 space-x-4 mt-2">
+                      <span className="flex items-center">
+                        <FiCalendar className="mr-1.5 h-4 w-4" />
+                        {video.publishedAt}
+                      </span>
+                      <span className="flex items-center">
+                        <FiClock className="mr-1.5 h-4 w-4" />
+                        {video.duration}
+                      </span>
+                    </div>
+                    <div className="mt-3 flex justify-between items-center">
+                      <span className="text-xs text-gray-400">{video.viewCount}</span>
+                      <a 
+                        href={video.videoUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-sm font-medium text-red-600 hover:text-red-700 flex items-center"
+                      >
+                        Watch <FiExternalLink className="ml-1 h-3.5 w-3.5" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+
+        {/* Audio & Podcast Section */}
+        <section className="mt-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Audio & Podcast</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {audioSermons.map((item) => (
+              <div key={item.id} className="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                <div className="p-6">
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 h-12 w-12 bg-red-50 rounded-full flex items-center justify-center">
+                      {item.icon}
+                    </div>
+                    <div className="ml-4 flex-1">
+                      <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+                      <p className="mt-1 text-sm text-gray-600">{item.description}</p>
+                      <div className="mt-4">
+                        <a 
+                          href={item.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                        >
+                          {item.linkText}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-8 bg-gradient-to-r from-red-50 to-red-100 rounded-lg p-6 border border-red-100">
+            <div className="flex flex-col md:flex-row md:items-center">
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-gray-900">Subscribe to Our Channel</h3>
+                <p className="mt-1 text-sm text-gray-600">Get notified when we upload new sermons and teachings.</p>
+              </div>
+              <div className="mt-4 md:mt-0 md:ml-6">
+                <a 
+                  href="https://www.youtube.com/@OrchardHillsBibleChurch?sub_confirmation=1" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                >
+                  <FiYoutube className="mr-2 h-5 w-5" />
+                  Subscribe on YouTube
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+};
+
+export default WatchListenPage;

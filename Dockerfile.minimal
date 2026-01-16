@@ -1,0 +1,29 @@
+# Minimal Dockerfile for debugging
+FROM node:18.20.2-alpine3.18
+
+WORKDIR /app
+
+# Copy only package files first
+COPY package.json yarn.lock ./
+
+# Install dependencies
+RUN yarn install --frozen-lockfile --production
+
+# Copy the rest of the application
+COPY . .
+
+# Build the application
+RUN yarn build
+
+# Use the standalone output
+WORKDIR /app/.next/standalone
+
+# Set environment variables
+ENV PORT=3000
+ENV HOSTNAME=0.0.0.0
+
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Start the application
+CMD ["node", "server.js"]

@@ -1,159 +1,166 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
-
-// Dynamically import DonationModal with SSR disabled
-const DonationModal = dynamic(
-  () => import('./DonationModal'),
-  { 
-    ssr: false,
-    loading: () => <div>Loading...</div>
-  }
-);
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 const navLinks = [
-  // { name: 'Bible', href: '/bible' },  // Temporarily disabled
-  { name: 'Leadership', href: '/leadership' },
-  { name: 'What We Believe', href: '/what-we-believe' },
-  { name: 'Watch & Listen', href: '/watch-listen' },
-  { name: 'Prayer', href: '/prayer-requests' },
-  { name: 'Visit', href: '/visit' },
+  { 
+    name: 'Home', 
+    href: '/', 
+    mobileText: 'Home',
+    tooltip: 'Home'
+  },
+  { 
+    name: 'Leadership', 
+    href: '/leadership',
+    mobileText: 'Leadership',
+    tooltip: 'Leadership'
+  },
+  { 
+    name: 'What We Believe', 
+    href: '/what-we-believe',
+    mobileText: 'Beliefs',
+    tooltip: 'What We Believe'
+  },
+  { 
+    name: 'Visit', 
+    href: '/visit',
+    mobileText: 'Visit',
+    tooltip: 'Visit Us'
+  },
+  { 
+    name: 'Give', 
+    href: '/give',
+    mobileText: 'Give',
+    tooltip: 'Give Online'
+  },
 ];
 
 export default function Navbar() {
-  const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const isStripeConfigured = !!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+  const [showContent, setShowContent] = useState(false);
 
-  // Handle scroll effect for navbar
+  // Show navbar content after hero animation completes
   useEffect(() => {
-    let ticking = false;
+    const timer = setTimeout(() => {
+      setShowContent(true);
+    }, 2000);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Handle scroll effect
+  useEffect(() => {
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 10);
-          ticking = false;
-        });
-        ticking = true;
-      }
+      setIsScrolled(window.scrollY > 10);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (isMenuOpen && !target.closest('.mobile-menu-container') && !target.closest('button[aria-label="Toggle menu"]')) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isMenuOpen]);
+  const handleNavClick = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
-    <>
-      <header 
-        className="shadow-sm sticky top-0 z-50 py-2" 
-        style={{ backgroundColor: '#991b1e' }}
-      >
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          {/* Logo */}
-          <div className="flex-shrink-0 h-10 flex items-center">
-            <Link href="/">
-              <Image 
-                src="/logo/logo and name White (transparent).png" 
-                alt="OHBC Logo" 
-                width={180}
-                height={45}
-                className="w-auto h-9 object-contain hover:opacity-90 transition-opacity"
-                priority
-              />
-            </Link>
-          </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1">
-            {navLinks.map((link) => (
-              <Link 
-                key={link.href} 
-                href={link.href}
-                className="px-2 py-1.5 text-white hover:bg-white hover:bg-opacity-10 rounded text-xs sm:text-sm font-medium transition-colors"
+    <header className={`fixed top-0 left-0 right-0 z-50 ${isScrolled ? 'bg-red-950 shadow-md' : 'bg-red-900'}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative flex items-center justify-between h-16">
+          {/* Logo - only shown after animation */}
+          <AnimatePresence>
+            {showContent ? (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex-shrink-0"
               >
-                {link.name}
-              </Link>
-            ))}
-            <button
-              onClick={() => isStripeConfigured && setIsDonationModalOpen(true)}
-              className={`ml-1 sm:ml-2 px-3 py-1.5 text-xs sm:text-sm rounded font-medium transition-colors whitespace-nowrap ${isStripeConfigured ? 'text-white border border-white hover:bg-white hover:bg-opacity-10' : 'text-gray-400 cursor-not-allowed'}`}
-              disabled={!isStripeConfigured}
-              title={!isStripeConfigured ? 'Donations coming soon' : 'Make a donation'}
-            >
-              {isStripeConfigured ? 'Give' : 'Give (Soon)'}
-            </button>
-          </nav>
+                <Link href="/" className="flex items-center">
+                  <img 
+                    src="/logo/logo and name White (transparent).png" 
+                    alt="Orchard Hills Bible Church" 
+                    className="h-10 w-auto"
+                  />
+                </Link>
+              </motion.div>
+            ) : (
+              <div className="h-10 w-10"></div>
+            )}
+          </AnimatePresence>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white hover:bg-white hover:bg-opacity-10 p-2 rounded-md focus:outline-none"
-              aria-label="Toggle menu"
-            >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
+          {/* Desktop Navigation - only shown after animation */}
+          <AnimatePresence>
+            {showContent && (
+              <>
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                  className="hidden md:block"
+                >
+                  <div className="flex items-center space-x-4">
+                    {navLinks.map((link) => (
+                      <Link
+                        key={link.name}
+                        href={link.href}
+                        className="text-white hover:bg-red-800 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                        title={link.tooltip}
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* Mobile menu button */}
+                <div className="md:hidden">
+                  <motion.button
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    className="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-red-800 focus:outline-none"
+                    aria-expanded={isMenuOpen}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <span className="sr-only">Open main menu</span>
+                    {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+                  </motion.button>
+                </div>
+              </>
+            )}
+          </AnimatePresence>
         </div>
+      </div>
 
-        {/* Mobile menu */}
-        {isMenuOpen && (
-          <div 
-            className="md:hidden mobile-menu-container border-t border-red-800 absolute left-0 right-0 z-50" 
-            style={{ backgroundColor: '#991b1e' }}
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {isMenuOpen && showContent && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2, ease: 'easeInOut' }}
+            className="md:hidden bg-red-900 shadow-lg overflow-hidden"
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navLinks.map((link) => (
                 <Link
-                  key={link.href}
+                  key={link.name}
                   href={link.href}
-                  className="block px-3 py-2 text-white hover:bg-white hover:bg-opacity-10 rounded-md text-base font-medium"
-                  onClick={() => setIsMenuOpen(false)}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-800"
+                  onClick={handleNavClick}
                 >
-                  {link.name}
+                  {link.mobileText || link.name}
                 </Link>
               ))}
-              <button
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  if (isStripeConfigured) setIsDonationModalOpen(true);
-                }}
-                className={`w-full text-left px-3 py-2 text-base font-medium rounded-md ${isStripeConfigured ? 'text-white hover:bg-white hover:bg-opacity-10' : 'text-gray-400'}`}
-                disabled={!isStripeConfigured}
-              >
-                {isStripeConfigured ? 'Give' : 'Give (Coming Soon)'}
-              </button>
             </div>
-          </div>
+          </motion.div>
         )}
-      </header>
-      
-      <DonationModal 
-        isOpen={isDonationModalOpen} 
-        onCloseAction={() => setIsDonationModalOpen(false)} 
-      />
-    </>
+      </AnimatePresence>
+    </header>
   );
 }

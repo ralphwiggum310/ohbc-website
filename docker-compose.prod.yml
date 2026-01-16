@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    container_name: ohbc-website
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - ADMIN_USERNAME=Admin
+      - ADMIN_PASSWORD=Ohbc@1970
+      - NEXTAUTH_SECRET=P8rADUMAqr1YSFAPJaFl8ogWkx2X0AqNvRNTfvKEBMc=
+      - NEXTAUTH_URL=https://orchardhillsbiblechurch.com
+      # File upload configuration
+      - UPLOAD_DIR=/app/public/uploads  # Path inside container
+      - HOST_UPLOAD_DIR=/var/www/ohbc_website/public/uploads  # Path on host machine
+      - MAX_FILE_SIZE=10485760  # 10MB
+      - ALLOWED_FILE_TYPES=image/jpeg,image/png,image/gif,application/pdf
+      # Add other production environment variables here
+      # - DATABASE_URL=your_production_database_url
+    volumes:
+      - /var/www/ohbc_website/public/uploads:/app/public/uploads
+    user: "0:0"  # root user
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+
+  # Uncomment and configure if you need a production  # SQLite database files are stored in the ./data directory

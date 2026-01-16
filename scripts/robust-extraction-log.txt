@@ -1,0 +1,1347 @@
+[2025-12-03T16:16:24.872Z] Starting robust extraction from NASB1995.txt...
+[2025-12-03T16:16:24.880Z] File size: 4335776 bytes
+[2025-12-03T16:16:24.890Z] Found 32472 lines in the file
+[2025-12-03T16:16:24.890Z] Found book: GENESIS
+[2025-12-03T16:16:24.891Z] Found chapter: Chapter 1
+[2025-12-03T16:16:24.891Z] Found chapter: Chapter 2
+[2025-12-03T16:16:24.891Z] Found chapter: Chapter 3
+[2025-12-03T16:16:24.893Z] Found chapter: Chapter 4
+[2025-12-03T16:16:24.893Z] Found chapter: Chapter 5
+[2025-12-03T16:16:24.894Z] Found chapter: Chapter 6
+[2025-12-03T16:16:24.894Z] Found chapter: Chapter 7
+[2025-12-03T16:16:24.894Z] Found chapter: Chapter 8
+[2025-12-03T16:16:24.894Z] Found chapter: Chapter 9
+[2025-12-03T16:16:24.894Z] Found chapter: Chapter 10
+[2025-12-03T16:16:24.895Z] Found chapter: Chapter 11
+[2025-12-03T16:16:24.895Z] Found chapter: Chapter 12
+[2025-12-03T16:16:24.895Z] Found chapter: Chapter 13
+[2025-12-03T16:16:24.896Z] Found chapter: Chapter 14
+[2025-12-03T16:16:24.896Z] Found chapter: Chapter 15
+[2025-12-03T16:16:24.896Z] Found chapter: Chapter 16
+[2025-12-03T16:16:24.896Z] Found chapter: Chapter 17
+[2025-12-03T16:16:24.896Z] Found chapter: Chapter 18
+[2025-12-03T16:16:24.897Z] Found chapter: Chapter 19
+[2025-12-03T16:16:24.897Z] Found chapter: Chapter 20
+[2025-12-03T16:16:24.897Z] Found chapter: Chapter 21
+[2025-12-03T16:16:24.898Z] Found chapter: Chapter 22
+[2025-12-03T16:16:24.898Z] Found chapter: Chapter 23
+[2025-12-03T16:16:24.899Z] Found chapter: Chapter 24
+[2025-12-03T16:16:24.899Z] Found chapter: Chapter 25
+[2025-12-03T16:16:24.900Z] Found chapter: Chapter 26
+[2025-12-03T16:16:24.900Z] Found chapter: Chapter 27
+[2025-12-03T16:16:24.900Z] Found chapter: Chapter 28
+[2025-12-03T16:16:24.901Z] Found chapter: Chapter 29
+[2025-12-03T16:16:24.901Z] Found chapter: Chapter 30
+[2025-12-03T16:16:24.901Z] Found chapter: Chapter 31
+[2025-12-03T16:16:24.901Z] Found chapter: Chapter 32
+[2025-12-03T16:16:24.902Z] Found chapter: Chapter 33
+[2025-12-03T16:16:24.902Z] Found chapter: Chapter 34
+[2025-12-03T16:16:24.902Z] Found chapter: Chapter 35
+[2025-12-03T16:16:24.902Z] Found chapter: Chapter 36
+[2025-12-03T16:16:24.902Z] Found chapter: Chapter 37
+[2025-12-03T16:16:24.903Z] Found chapter: Chapter 38
+[2025-12-03T16:16:24.903Z] Found chapter: Chapter 39
+[2025-12-03T16:16:24.903Z] Found chapter: Chapter 40
+[2025-12-03T16:16:24.903Z] Found chapter: Chapter 41
+[2025-12-03T16:16:24.904Z] Found chapter: Chapter 42
+[2025-12-03T16:16:24.904Z] Found chapter: Chapter 43
+[2025-12-03T16:16:24.904Z] Found chapter: Chapter 44
+[2025-12-03T16:16:24.904Z] Found chapter: Chapter 45
+[2025-12-03T16:16:24.905Z] Found chapter: Chapter 46
+[2025-12-03T16:16:24.905Z] Found chapter: Chapter 47
+[2025-12-03T16:16:24.905Z] Found chapter: Chapter 48
+[2025-12-03T16:16:24.905Z] Found chapter: Chapter 49
+[2025-12-03T16:16:24.906Z] Found chapter: Chapter 50
+[2025-12-03T16:16:24.906Z] Found book: End of GENESIS
+[2025-12-03T16:16:24.906Z] Found book: EXODUS
+[2025-12-03T16:16:24.906Z] Found chapter: Chapter 1
+[2025-12-03T16:16:24.906Z] Found chapter: Chapter 2
+[2025-12-03T16:16:24.906Z] Found chapter: Chapter 3
+[2025-12-03T16:16:24.907Z] Found chapter: Chapter 4
+[2025-12-03T16:16:24.907Z] Found chapter: Chapter 5
+[2025-12-03T16:16:24.907Z] Found chapter: Chapter 6
+[2025-12-03T16:16:24.907Z] Found chapter: Chapter 7
+[2025-12-03T16:16:24.908Z] Found chapter: Chapter 8
+[2025-12-03T16:16:24.908Z] Found chapter: Chapter 9
+[2025-12-03T16:16:24.908Z] Found chapter: Chapter 10
+[2025-12-03T16:16:24.908Z] Found chapter: Chapter 11
+[2025-12-03T16:16:24.908Z] Found chapter: Chapter 12
+[2025-12-03T16:16:24.909Z] Found chapter: Chapter 13
+[2025-12-03T16:16:24.909Z] Found chapter: Chapter 14
+[2025-12-03T16:16:24.910Z] Found chapter: Chapter 15
+[2025-12-03T16:16:24.910Z] Found chapter: Chapter 16
+[2025-12-03T16:16:24.910Z] Found chapter: Chapter 17
+[2025-12-03T16:16:24.910Z] Found chapter: Chapter 18
+[2025-12-03T16:16:24.911Z] Found chapter: Chapter 19
+[2025-12-03T16:16:24.911Z] Found chapter: Chapter 20
+[2025-12-03T16:16:24.911Z] Processed 1000 of 32472 lines...
+[2025-12-03T16:16:24.911Z] Found chapter: Chapter 21
+[2025-12-03T16:16:24.911Z] Found chapter: Chapter 22
+[2025-12-03T16:16:24.912Z] Found chapter: Chapter 23
+[2025-12-03T16:16:24.912Z] Found chapter: Chapter 24
+[2025-12-03T16:16:24.912Z] Found chapter: Chapter 25
+[2025-12-03T16:16:24.912Z] Found chapter: Chapter 26
+[2025-12-03T16:16:24.913Z] Found chapter: Chapter 27
+[2025-12-03T16:16:24.913Z] Found chapter: Chapter 27
+[2025-12-03T16:16:24.913Z] Found chapter: Chapter 28
+[2025-12-03T16:16:24.913Z] Found chapter: Chapter 29
+[2025-12-03T16:16:24.914Z] Found chapter: Chapter 30
+[2025-12-03T16:16:24.914Z] Found chapter: Chapter 31
+[2025-12-03T16:16:24.914Z] Found chapter: Chapter 32
+[2025-12-03T16:16:24.915Z] Found chapter: Chapter 33
+[2025-12-03T16:16:24.915Z] Found chapter: Chapter 34
+[2025-12-03T16:16:24.915Z] Found chapter: Chapter 35
+[2025-12-03T16:16:24.916Z] Found chapter: Chapter 36
+[2025-12-03T16:16:24.916Z] Found chapter: Chapter 37
+[2025-12-03T16:16:24.916Z] Found chapter: Chapter 38
+[2025-12-03T16:16:24.916Z] Found chapter: Chapter 39
+[2025-12-03T16:16:24.916Z] Found chapter: Chapter 40
+[2025-12-03T16:16:24.917Z] Found book: End of EXODUS
+[2025-12-03T16:16:24.917Z] Found book: LEVITICUS
+[2025-12-03T16:16:24.917Z] Found chapter: Chapter 1
+[2025-12-03T16:16:24.917Z] Found chapter: Chapter 2
+[2025-12-03T16:16:24.917Z] Found chapter: Chapter 3
+[2025-12-03T16:16:24.917Z] Found chapter: Chapter 4
+[2025-12-03T16:16:24.918Z] Found chapter: Chapter 5
+[2025-12-03T16:16:24.918Z] Found chapter: Chapter 6
+[2025-12-03T16:16:24.918Z] Found chapter: Chapter 7
+[2025-12-03T16:16:24.918Z] Found chapter: Chapter 8
+[2025-12-03T16:16:24.919Z] Found chapter: Chapter 9
+[2025-12-03T16:16:24.919Z] Found chapter: Chapter 10
+[2025-12-03T16:16:24.919Z] Found chapter: Chapter 11
+[2025-12-03T16:16:24.919Z] Found chapter: Chapter 12
+[2025-12-03T16:16:24.919Z] Found chapter: Chapter 13
+[2025-12-03T16:16:24.920Z] Found chapter: Chapter 14
+[2025-12-03T16:16:24.920Z] Found chapter: Chapter 15
+[2025-12-03T16:16:24.920Z] Found chapter: Chapter 16
+[2025-12-03T16:16:24.920Z] Found chapter: Chapter 17
+[2025-12-03T16:16:24.920Z] Found chapter: Chapter 18
+[2025-12-03T16:16:24.921Z] Found chapter: Chapter 19
+[2025-12-03T16:16:24.921Z] Found chapter: Chapter 20
+[2025-12-03T16:16:24.921Z] Found chapter: Chapter 21
+[2025-12-03T16:16:24.921Z] Found chapter: Chapter 22
+[2025-12-03T16:16:24.921Z] Found chapter: Chapter 23
+[2025-12-03T16:16:24.922Z] Found chapter: Chapter 24
+[2025-12-03T16:16:24.922Z] Found chapter: Chapter 25
+[2025-12-03T16:16:24.922Z] Found chapter: Chapter 26
+[2025-12-03T16:16:24.922Z] Found chapter: Chapter 27
+[2025-12-03T16:16:24.922Z] Found book: End of LEVITICUS
+[2025-12-03T16:16:24.923Z] Found book: NUMBERS
+[2025-12-03T16:16:24.923Z] Found chapter: Chapter 1
+[2025-12-03T16:16:24.923Z] Found chapter: Chapter 2
+[2025-12-03T16:16:24.923Z] Found chapter: Chapter 3
+[2025-12-03T16:16:24.924Z] Found chapter: Chapter 4
+[2025-12-03T16:16:24.924Z] Found chapter: Chapter 5
+[2025-12-03T16:16:24.924Z] Found chapter: Chapter 6
+[2025-12-03T16:16:24.924Z] Found chapter: Chapter 7
+[2025-12-03T16:16:24.924Z] Found chapter: Chapter 8
+[2025-12-03T16:16:24.925Z] Found chapter: Chapter 9
+[2025-12-03T16:16:24.925Z] Found chapter: Chapter 10
+[2025-12-03T16:16:24.925Z] Found chapter: Chapter 11
+[2025-12-03T16:16:24.925Z] Found chapter: Chapter 12
+[2025-12-03T16:16:24.925Z] Found chapter: Chapter 13
+[2025-12-03T16:16:24.926Z] Found chapter: Chapter 14
+[2025-12-03T16:16:24.926Z] Found chapter: Chapter 15
+[2025-12-03T16:16:24.926Z] Found chapter: Chapter 16
+[2025-12-03T16:16:24.926Z] Found chapter: Chapter 17
+[2025-12-03T16:16:24.926Z] Found chapter: Chapter 18
+[2025-12-03T16:16:24.927Z] Found chapter: Chapter 19
+[2025-12-03T16:16:24.927Z] Found chapter: Chapter 20
+[2025-12-03T16:16:24.927Z] Found chapter: Chapter 21
+[2025-12-03T16:16:24.927Z] Found chapter: Chapter 22
+[2025-12-03T16:16:24.928Z] Found chapter: Chapter 23
+[2025-12-03T16:16:24.928Z] Found chapter: Chapter 24
+[2025-12-03T16:16:24.928Z] Found chapter: Chapter 25
+[2025-12-03T16:16:24.928Z] Found chapter: Chapter 26
+[2025-12-03T16:16:24.928Z] Found chapter: Chapter 27
+[2025-12-03T16:16:24.929Z] Found chapter: Chapter 28
+[2025-12-03T16:16:24.929Z] Found chapter: Chapter 29
+[2025-12-03T16:16:24.929Z] Processed 2000 of 32472 lines...
+[2025-12-03T16:16:24.929Z] Found chapter: Chapter 30
+[2025-12-03T16:16:24.929Z] Found chapter: Chapter 31
+[2025-12-03T16:16:24.930Z] Found chapter: Chapter 32
+[2025-12-03T16:16:24.930Z] Found chapter: Chapter 33
+[2025-12-03T16:16:24.930Z] Found chapter: Chapter 34
+[2025-12-03T16:16:24.930Z] Found chapter: Chapter 35
+[2025-12-03T16:16:24.931Z] Found chapter: Chapter 36
+[2025-12-03T16:16:24.931Z] Found book: End of NUMBERS
+[2025-12-03T16:16:24.931Z] Found book: DEUTERONOMY
+[2025-12-03T16:16:24.931Z] Found chapter: Chapter 1
+[2025-12-03T16:16:24.932Z] Found chapter: Chapter 2
+[2025-12-03T16:16:24.932Z] Found chapter: Chapter 3
+[2025-12-03T16:16:24.932Z] Found chapter: Chapter 4
+[2025-12-03T16:16:24.932Z] Found chapter: Chapter 5
+[2025-12-03T16:16:24.933Z] Found chapter: Chapter 6
+[2025-12-03T16:16:24.933Z] Found chapter: Chapter 7
+[2025-12-03T16:16:24.933Z] Found chapter: Chapter 8
+[2025-12-03T16:16:24.933Z] Found chapter: Chapter 9
+[2025-12-03T16:16:24.934Z] Found chapter: Chapter 10
+[2025-12-03T16:16:24.934Z] Found chapter: Chapter 11
+[2025-12-03T16:16:24.934Z] Found chapter: Chapter 12
+[2025-12-03T16:16:24.934Z] Found chapter: Chapter 13
+[2025-12-03T16:16:24.935Z] Found chapter: Chapter 14
+[2025-12-03T16:16:24.935Z] Found chapter: Chapter 15
+[2025-12-03T16:16:24.935Z] Found chapter: Chapter 16
+[2025-12-03T16:16:24.935Z] Found chapter: Chapter 17
+[2025-12-03T16:16:24.935Z] Found chapter: Chapter 18
+[2025-12-03T16:16:24.936Z] Found chapter: Chapter 19
+[2025-12-03T16:16:24.936Z] Found chapter: Chapter 20
+[2025-12-03T16:16:24.936Z] Found chapter: Chapter 21
+[2025-12-03T16:16:24.936Z] Found chapter: Chapter 22
+[2025-12-03T16:16:24.937Z] Found chapter: Chapter 23
+[2025-12-03T16:16:24.937Z] Found chapter: Chapter 24
+[2025-12-03T16:16:24.937Z] Found chapter: Chapter 25
+[2025-12-03T16:16:24.937Z] Found chapter: Chapter 26
+[2025-12-03T16:16:24.937Z] Found chapter: Chapter 27
+[2025-12-03T16:16:24.938Z] Found chapter: Chapter 28
+[2025-12-03T16:16:24.938Z] Found chapter: Chapter 29
+[2025-12-03T16:16:24.938Z] Found chapter: Chapter 30
+[2025-12-03T16:16:24.938Z] Found chapter: Chapter 31
+[2025-12-03T16:16:24.939Z] Found chapter: Chapter 32
+[2025-12-03T16:16:24.939Z] Found chapter: Chapter 33
+[2025-12-03T16:16:24.939Z] Found chapter: Chapter 34
+[2025-12-03T16:16:24.939Z] Found book: End of DEUTERONOMY
+[2025-12-03T16:16:24.939Z] Found book: JOSHUA
+[2025-12-03T16:16:24.940Z] Found chapter: Chapter 1
+[2025-12-03T16:16:24.940Z] Found chapter: Chapter 2
+[2025-12-03T16:16:24.940Z] Found chapter: Chapter 3
+[2025-12-03T16:16:24.940Z] Found chapter: Chapter 4
+[2025-12-03T16:16:24.940Z] Found chapter: Chapter 5
+[2025-12-03T16:16:24.940Z] Found chapter: Chapter 6
+[2025-12-03T16:16:24.941Z] Found chapter: Chapter 7
+[2025-12-03T16:16:24.941Z] Found chapter: Chapter 8
+[2025-12-03T16:16:24.941Z] Found chapter: Chapter 9
+[2025-12-03T16:16:24.941Z] Found chapter: Chapter 10
+[2025-12-03T16:16:24.942Z] Found chapter: Chapter 11
+[2025-12-03T16:16:24.942Z] Found chapter: Chapter 12
+[2025-12-03T16:16:24.942Z] Found chapter: Chapter 13
+[2025-12-03T16:16:24.942Z] Found chapter: Chapter 14
+[2025-12-03T16:16:24.942Z] Found chapter: Chapter 15
+[2025-12-03T16:16:24.942Z] Found chapter: Chapter 16
+[2025-12-03T16:16:24.943Z] Found chapter: Chapter 17
+[2025-12-03T16:16:24.943Z] Found chapter: Chapter 18
+[2025-12-03T16:16:24.943Z] Found chapter: Chapter 19
+[2025-12-03T16:16:24.943Z] Found chapter: Chapter 20
+[2025-12-03T16:16:24.943Z] Found chapter: Chapter 21
+[2025-12-03T16:16:24.944Z] Found chapter: Chapter 22
+[2025-12-03T16:16:24.944Z] Found chapter: Chapter 23
+[2025-12-03T16:16:24.944Z] Found chapter: Chapter 24
+[2025-12-03T16:16:24.944Z] Found book: End of JOSHUA
+[2025-12-03T16:16:24.944Z] Found book: JUDGES
+[2025-12-03T16:16:24.944Z] Found chapter: Chapter 1
+[2025-12-03T16:16:24.945Z] Found chapter: Chapter 2
+[2025-12-03T16:16:24.945Z] Found chapter: Chapter 3
+[2025-12-03T16:16:24.945Z] Found chapter: Chapter 4
+[2025-12-03T16:16:24.945Z] Found chapter: Chapter 5
+[2025-12-03T16:16:24.946Z] Processed 3000 of 32472 lines...
+[2025-12-03T16:16:24.946Z] Found chapter: Chapter 6
+[2025-12-03T16:16:24.947Z] Found chapter: Chapter 7
+[2025-12-03T16:16:24.947Z] Found chapter: Chapter 8
+[2025-12-03T16:16:24.947Z] Found chapter: Chapter 9
+[2025-12-03T16:16:24.948Z] Found chapter: Chapter 10
+[2025-12-03T16:16:24.948Z] Found chapter: Chapter 11
+[2025-12-03T16:16:24.948Z] Found chapter: Chapter 12
+[2025-12-03T16:16:24.948Z] Found chapter: Chapter 13
+[2025-12-03T16:16:24.948Z] Found chapter: Chapter 14
+[2025-12-03T16:16:24.949Z] Found chapter: Chapter 15
+[2025-12-03T16:16:24.949Z] Found chapter: Chapter 16
+[2025-12-03T16:16:24.949Z] Found chapter: Chapter 17
+[2025-12-03T16:16:24.949Z] Found chapter: Chapter 18
+[2025-12-03T16:16:24.949Z] Found chapter: Chapter 19
+[2025-12-03T16:16:24.950Z] Found chapter: Chapter 20
+[2025-12-03T16:16:24.950Z] Found chapter: Chapter 21
+[2025-12-03T16:16:24.950Z] Found book: End of JUDGES
+[2025-12-03T16:16:24.950Z] Found book: RUTH
+[2025-12-03T16:16:24.950Z] Found chapter: Chapter 1
+[2025-12-03T16:16:24.950Z] Found chapter: Chapter 2
+[2025-12-03T16:16:24.951Z] Found chapter: Chapter 3
+[2025-12-03T16:16:24.951Z] Found chapter: Chapter 4
+[2025-12-03T16:16:24.951Z] Found book: End of RUTH
+[2025-12-03T16:16:24.951Z] Found book: 1 SAMUEL
+[2025-12-03T16:16:24.951Z] Found chapter: Chapter 1
+[2025-12-03T16:16:24.951Z] Found chapter: Chapter 2
+[2025-12-03T16:16:24.952Z] Found chapter: Chapter 3
+[2025-12-03T16:16:24.952Z] Found chapter: Chapter 4
+[2025-12-03T16:16:24.952Z] Found chapter: Chapter 5
+[2025-12-03T16:16:24.952Z] Found chapter: Chapter 6
+[2025-12-03T16:16:24.953Z] Found chapter: Chapter 7
+[2025-12-03T16:16:24.953Z] Found chapter: Chapter 8
+[2025-12-03T16:16:24.953Z] Found chapter: Chapter 9
+[2025-12-03T16:16:24.953Z] Found chapter: Chapter 10
+[2025-12-03T16:16:24.953Z] Found chapter: Chapter 11
+[2025-12-03T16:16:24.953Z] Found chapter: Chapter 12
+[2025-12-03T16:16:24.954Z] Found chapter: Chapter 13
+[2025-12-03T16:16:24.954Z] Found chapter: Chapter 14
+[2025-12-03T16:16:24.954Z] Found chapter: Chapter 15
+[2025-12-03T16:16:24.955Z] Found chapter: Chapter 16
+[2025-12-03T16:16:24.955Z] Found chapter: Chapter 17
+[2025-12-03T16:16:24.955Z] Found chapter: Chapter 18
+[2025-12-03T16:16:24.955Z] Found chapter: Chapter 19
+[2025-12-03T16:16:24.956Z] Found chapter: Chapter 20
+[2025-12-03T16:16:24.956Z] Found chapter: Chapter 21
+[2025-12-03T16:16:24.956Z] Found chapter: Chapter 22
+[2025-12-03T16:16:24.957Z] Found chapter: Chapter 23
+[2025-12-03T16:16:24.957Z] Found chapter: Chapter 24
+[2025-12-03T16:16:24.957Z] Found chapter: Chapter 25
+[2025-12-03T16:16:24.958Z] Found chapter: Chapter 26
+[2025-12-03T16:16:24.958Z] Found chapter: Chapter 27
+[2025-12-03T16:16:24.958Z] Found chapter: Chapter 28
+[2025-12-03T16:16:24.958Z] Found chapter: Chapter 29
+[2025-12-03T16:16:24.959Z] Found chapter: Chapter 30
+[2025-12-03T16:16:24.959Z] Found chapter: Chapter 31
+[2025-12-03T16:16:24.959Z] Found book: End of 1 SAMUEL
+[2025-12-03T16:16:24.959Z] Found book: 2 SAMUEL
+[2025-12-03T16:16:24.959Z] Found chapter: Chapter 1
+[2025-12-03T16:16:24.959Z] Found chapter: Chapter 2
+[2025-12-03T16:16:24.960Z] Found chapter: Chapter 3
+[2025-12-03T16:16:24.960Z] Found chapter: Chapter 4
+[2025-12-03T16:16:24.960Z] Found chapter: Chapter 5
+[2025-12-03T16:16:24.960Z] Found chapter: Chapter 6
+[2025-12-03T16:16:24.960Z] Found chapter: Chapter 7
+[2025-12-03T16:16:24.961Z] Found chapter: Chapter 8
+[2025-12-03T16:16:24.961Z] Found chapter: Chapter 9
+[2025-12-03T16:16:24.961Z] Found chapter: Chapter 10
+[2025-12-03T16:16:24.961Z] Found chapter: Chapter 11
+[2025-12-03T16:16:24.961Z] Found chapter: Chapter 12
+[2025-12-03T16:16:24.962Z] Found chapter: Chapter 13
+[2025-12-03T16:16:24.962Z] Found chapter: Chapter 14
+[2025-12-03T16:16:24.962Z] Found chapter: Chapter 15
+[2025-12-03T16:16:24.963Z] Found chapter: Chapter 16
+[2025-12-03T16:16:24.963Z] Found chapter: Chapter 17
+[2025-12-03T16:16:24.963Z] Found chapter: Chapter 18
+[2025-12-03T16:16:24.963Z] Found chapter: Chapter 19
+[2025-12-03T16:16:24.963Z] Found chapter: Chapter 20
+[2025-12-03T16:16:24.964Z] Found chapter: Chapter 21
+[2025-12-03T16:16:24.964Z] Found chapter: Chapter 22
+[2025-12-03T16:16:24.964Z] Processed 4000 of 32472 lines...
+[2025-12-03T16:16:24.964Z] Found chapter: Chapter 23
+[2025-12-03T16:16:24.964Z] Found chapter: Chapter 24
+[2025-12-03T16:16:24.965Z] Found book: End of 2 SAMUEL
+[2025-12-03T16:16:24.965Z] Found book: 1 KINGS
+[2025-12-03T16:16:24.965Z] Found chapter: Chapter 1
+[2025-12-03T16:16:24.965Z] Found chapter: Chapter 2
+[2025-12-03T16:16:24.965Z] Found chapter: Chapter 3
+[2025-12-03T16:16:24.966Z] Found chapter: Chapter 4
+[2025-12-03T16:16:24.966Z] Found chapter: Chapter 5
+[2025-12-03T16:16:24.966Z] Found chapter: Chapter 6
+[2025-12-03T16:16:24.966Z] Found chapter: Chapter 7
+[2025-12-03T16:16:24.966Z] Found chapter: Chapter 8
+[2025-12-03T16:16:24.967Z] Found chapter: Chapter 9
+[2025-12-03T16:16:24.967Z] Found chapter: Chapter 10
+[2025-12-03T16:16:24.967Z] Found chapter: Chapter 11
+[2025-12-03T16:16:24.967Z] Found chapter: Chapter 12
+[2025-12-03T16:16:24.967Z] Found chapter: Chapter 13
+[2025-12-03T16:16:24.968Z] Found chapter: Chapter 14
+[2025-12-03T16:16:24.968Z] Found chapter: Chapter 15
+[2025-12-03T16:16:24.968Z] Found chapter: Chapter 16
+[2025-12-03T16:16:24.968Z] Found chapter: Chapter 17
+[2025-12-03T16:16:24.968Z] Found chapter: Chapter 18
+[2025-12-03T16:16:24.969Z] Found chapter: Chapter 19
+[2025-12-03T16:16:24.969Z] Found chapter: Chapter 20
+[2025-12-03T16:16:24.969Z] Found chapter: Chapter 21
+[2025-12-03T16:16:24.969Z] Found chapter: Chapter 22
+[2025-12-03T16:16:24.969Z] Found book: End of 1 KINGS
+[2025-12-03T16:16:24.970Z] Found book: 2 KINGS
+[2025-12-03T16:16:24.970Z] Found chapter: Chapter 1
+[2025-12-03T16:16:24.970Z] Found chapter: Chapter 2
+[2025-12-03T16:16:24.970Z] Found chapter: Chapter 3
+[2025-12-03T16:16:24.970Z] Found chapter: Chapter 4
+[2025-12-03T16:16:24.970Z] Found chapter: Chapter 5
+[2025-12-03T16:16:24.971Z] Found chapter: Chapter 6
+[2025-12-03T16:16:24.971Z] Found chapter: Chapter 7
+[2025-12-03T16:16:24.971Z] Found chapter: Chapter 8
+[2025-12-03T16:16:24.971Z] Found chapter: Chapter 9
+[2025-12-03T16:16:24.971Z] Found chapter: Chapter 10
+[2025-12-03T16:16:24.972Z] Found chapter: Chapter 11
+[2025-12-03T16:16:24.972Z] Found chapter: Chapter 12
+[2025-12-03T16:16:24.972Z] Found chapter: Chapter 13
+[2025-12-03T16:16:24.972Z] Found chapter: Chapter 14
+[2025-12-03T16:16:24.973Z] Found chapter: Chapter 15
+[2025-12-03T16:16:24.973Z] Found chapter: Chapter 16
+[2025-12-03T16:16:24.973Z] Found chapter: Chapter 17
+[2025-12-03T16:16:24.973Z] Found chapter: Chapter 18
+[2025-12-03T16:16:24.973Z] Found chapter: Chapter 19
+[2025-12-03T16:16:24.974Z] Found chapter: Chapter 20
+[2025-12-03T16:16:24.974Z] Found chapter: Chapter 21
+[2025-12-03T16:16:24.974Z] Found chapter: Chapter 22
+[2025-12-03T16:16:24.974Z] Found chapter: Chapter 23
+[2025-12-03T16:16:24.974Z] Found chapter: Chapter 24
+[2025-12-03T16:16:24.975Z] Found chapter: Chapter 25
+[2025-12-03T16:16:24.975Z] Found book: End of 2 KINGS
+[2025-12-03T16:16:24.975Z] Found book: 1 CHRONICLES
+[2025-12-03T16:16:24.975Z] Found chapter: Chapter 1
+[2025-12-03T16:16:24.975Z] Found chapter: Chapter 2
+[2025-12-03T16:16:24.975Z] Found chapter: Chapter 3
+[2025-12-03T16:16:24.975Z] Found chapter: Chapter 4
+[2025-12-03T16:16:24.976Z] Found chapter: Chapter 5
+[2025-12-03T16:16:24.976Z] Found chapter: Chapter 6
+[2025-12-03T16:16:24.976Z] Found chapter: Chapter 7
+[2025-12-03T16:16:24.976Z] Found chapter: Chapter 8
+[2025-12-03T16:16:24.976Z] Found chapter: Chapter 9
+[2025-12-03T16:16:24.976Z] Found chapter: Chapter 10
+[2025-12-03T16:16:24.977Z] Found chapter: Chapter 11
+[2025-12-03T16:16:24.977Z] Found chapter: Chapter 12
+[2025-12-03T16:16:24.977Z] Found chapter: Chapter 13
+[2025-12-03T16:16:24.977Z] Found chapter: Chapter 14
+[2025-12-03T16:16:24.977Z] Found chapter: Chapter 15
+[2025-12-03T16:16:24.977Z] Found chapter: Chapter 16
+[2025-12-03T16:16:24.978Z] Found chapter: Chapter 17
+[2025-12-03T16:16:24.978Z] Found chapter: Chapter 18
+[2025-12-03T16:16:24.978Z] Found chapter: Chapter 19
+[2025-12-03T16:16:24.978Z] Found chapter: Chapter 20
+[2025-12-03T16:16:24.978Z] Found chapter: Chapter 21
+[2025-12-03T16:16:24.979Z] Found chapter: Chapter 22
+[2025-12-03T16:16:24.979Z] Found chapter: Chapter 23
+[2025-12-03T16:16:24.979Z] Found chapter: Chapter 24
+[2025-12-03T16:16:24.979Z] Found chapter: Chapter 25
+[2025-12-03T16:16:24.979Z] Found chapter: Chapter 26
+[2025-12-03T16:16:24.979Z] Found chapter: Chapter 27
+[2025-12-03T16:16:24.979Z] Found chapter: Chapter 28
+[2025-12-03T16:16:24.980Z] Found chapter: Chapter 29
+[2025-12-03T16:16:24.980Z] Found book: End of 1 CHRONICLES
+[2025-12-03T16:16:24.980Z] Found book: 2 CHRONICLES
+[2025-12-03T16:16:24.980Z] Found chapter: Chapter 1
+[2025-12-03T16:16:24.980Z] Found chapter: Chapter 2
+[2025-12-03T16:16:24.981Z] Found chapter: Chapter 3
+[2025-12-03T16:16:24.981Z] Found chapter: Chapter 4
+[2025-12-03T16:16:24.981Z] Found chapter: Chapter 5
+[2025-12-03T16:16:24.981Z] Found chapter: Chapter 6
+[2025-12-03T16:16:24.981Z] Found chapter: Chapter 7
+[2025-12-03T16:16:24.981Z] Found chapter: Chapter 8
+[2025-12-03T16:16:24.982Z] Found chapter: Chapter 9
+[2025-12-03T16:16:24.982Z] Found chapter: Chapter 10
+[2025-12-03T16:16:24.982Z] Found chapter: Chapter 11
+[2025-12-03T16:16:24.982Z] Found chapter: Chapter 12
+[2025-12-03T16:16:24.982Z] Found chapter: Chapter 13
+[2025-12-03T16:16:24.982Z] Found chapter: Chapter 14
+[2025-12-03T16:16:24.983Z] Found chapter: Chapter 15
+[2025-12-03T16:16:24.983Z] Found chapter: Chapter 16
+[2025-12-03T16:16:24.983Z] Found chapter: Chapter 17
+[2025-12-03T16:16:24.983Z] Found chapter: Chapter 18
+[2025-12-03T16:16:24.983Z] Found chapter: Chapter 19
+[2025-12-03T16:16:24.983Z] Found chapter: Chapter 20
+[2025-12-03T16:16:24.984Z] Found chapter: Chapter 21
+[2025-12-03T16:16:24.984Z] Found chapter: Chapter 22
+[2025-12-03T16:16:24.984Z] Found chapter: Chapter 23
+[2025-12-03T16:16:24.984Z] Found chapter: Chapter 24
+[2025-12-03T16:16:24.984Z] Found chapter: Chapter 25
+[2025-12-03T16:16:24.985Z] Found chapter: Chapter 26
+[2025-12-03T16:16:24.985Z] Found chapter: Chapter 27
+[2025-12-03T16:16:24.985Z] Found chapter: Chapter 28
+[2025-12-03T16:16:24.985Z] Found chapter: Chapter 29
+[2025-12-03T16:16:24.985Z] Found chapter: Chapter 30
+[2025-12-03T16:16:24.986Z] Found chapter: Chapter 31
+[2025-12-03T16:16:24.986Z] Found chapter: Chapter 32
+[2025-12-03T16:16:24.986Z] Found chapter: Chapter 33
+[2025-12-03T16:16:24.986Z] Found chapter: Chapter 34
+[2025-12-03T16:16:24.986Z] Found chapter: Chapter 35
+[2025-12-03T16:16:24.986Z] Found chapter: Chapter 36
+[2025-12-03T16:16:24.987Z] Found book: End of 2 CHRONICLES
+[2025-12-03T16:16:24.987Z] Found book: EZRA
+[2025-12-03T16:16:24.987Z] Found chapter: Chapter 1
+[2025-12-03T16:16:24.987Z] Found chapter: Chapter 2
+[2025-12-03T16:16:24.987Z] Found chapter: Chapter 3
+[2025-12-03T16:16:24.987Z] Found chapter: Chapter 4
+[2025-12-03T16:16:24.987Z] Found chapter: Chapter 5
+[2025-12-03T16:16:24.988Z] Found chapter: Chapter 6
+[2025-12-03T16:16:24.988Z] Found chapter: Chapter 7
+[2025-12-03T16:16:24.988Z] Found chapter: Chapter 8
+[2025-12-03T16:16:24.988Z] Found chapter: Chapter 9
+[2025-12-03T16:16:24.988Z] Found chapter: Chapter 10
+[2025-12-03T16:16:24.988Z] Found book: Endo of EZRA
+[2025-12-03T16:16:24.989Z] Found book: NEHEMIAH
+[2025-12-03T16:16:24.989Z] Found chapter: Chapter 1
+[2025-12-03T16:16:24.989Z] Found chapter: Chapter 2
+[2025-12-03T16:16:24.989Z] Found chapter: Chapter 3
+[2025-12-03T16:16:24.989Z] Found chapter: Chapter 4
+[2025-12-03T16:16:24.990Z] Found chapter: Chapter 5
+[2025-12-03T16:16:24.990Z] Found chapter: Chapter 6
+[2025-12-03T16:16:24.990Z] Found chapter: Chapter 8
+[2025-12-03T16:16:24.990Z] Found chapter: Chapter 9
+[2025-12-03T16:16:24.990Z] Found chapter: Chapter 10
+[2025-12-03T16:16:24.991Z] Found chapter: Chapter 11
+[2025-12-03T16:16:24.991Z] Found chapter: Chapter 12
+[2025-12-03T16:16:24.991Z] Found chapter: Chapter 13
+[2025-12-03T16:16:24.991Z] Found book: End of NEHEMIAH
+[2025-12-03T16:16:24.991Z] Found book: ESTHER
+[2025-12-03T16:16:24.991Z] Found chapter: Chapter 1
+[2025-12-03T16:16:24.992Z] Found chapter: Chapter 2
+[2025-12-03T16:16:24.992Z] Found chapter: Chapter 3
+[2025-12-03T16:16:24.992Z] Found chapter: Chapter 4
+[2025-12-03T16:16:24.992Z] Found chapter: Chapter 5
+[2025-12-03T16:16:24.992Z] Found chapter: Chapter 6
+[2025-12-03T16:16:24.992Z] Found chapter: Chapter 7
+[2025-12-03T16:16:24.992Z] Found chapter: Chapter 8
+[2025-12-03T16:16:24.993Z] Found chapter: Chapter 9
+[2025-12-03T16:16:24.993Z] Found chapter: Chapter 10
+[2025-12-03T16:16:24.993Z] Found book: End of ESTHER
+[2025-12-03T16:16:24.993Z] Found book: JOB
+[2025-12-03T16:16:24.993Z] Found chapter: Chapter 1
+[2025-12-03T16:16:24.993Z] Found chapter: Chapter 2
+[2025-12-03T16:16:24.993Z] Found chapter: Chapter 3
+[2025-12-03T16:16:24.994Z] Processed 6000 of 32472 lines...
+[2025-12-03T16:16:24.994Z] Found chapter: Chapter 4
+[2025-12-03T16:16:24.994Z] Found chapter: Chapter 5
+[2025-12-03T16:16:24.994Z] Found chapter: Chapter 6
+[2025-12-03T16:16:24.994Z] Found chapter: Chapter 7
+[2025-12-03T16:16:24.994Z] Found chapter: Chapter 8
+[2025-12-03T16:16:24.995Z] Found chapter: Chapter 9
+[2025-12-03T16:16:24.995Z] Found chapter: Chapter 10
+[2025-12-03T16:16:24.995Z] Found chapter: Chapter 11
+[2025-12-03T16:16:24.995Z] Found chapter: Chapter 12
+[2025-12-03T16:16:24.995Z] Found chapter: Chapter 13
+[2025-12-03T16:16:24.996Z] Found chapter: Chapter 14
+[2025-12-03T16:16:24.996Z] Found chapter: Chapter 15
+[2025-12-03T16:16:24.996Z] Found chapter: Chapter 16
+[2025-12-03T16:16:24.996Z] Found chapter: Chapter 17
+[2025-12-03T16:16:24.997Z] Found chapter: Chapter 18
+[2025-12-03T16:16:24.997Z] Found chapter: Chapter 19
+[2025-12-03T16:16:24.997Z] Found chapter: Chapter 20
+[2025-12-03T16:16:24.997Z] Processed 7000 of 32472 lines...
+[2025-12-03T16:16:24.997Z] Found chapter: Chapter 21
+[2025-12-03T16:16:24.997Z] Found chapter: Chapter 22
+[2025-12-03T16:16:24.998Z] Found chapter: Chapter 23
+[2025-12-03T16:16:24.998Z] Found chapter: Chapter 24
+[2025-12-03T16:16:24.998Z] Found chapter: Chapter 25
+[2025-12-03T16:16:24.998Z] Found chapter: Chapter 26
+[2025-12-03T16:16:24.998Z] Found chapter: Chapter 27
+[2025-12-03T16:16:24.998Z] Found chapter: Chapter 28
+[2025-12-03T16:16:24.999Z] Found chapter: Chapter 29
+[2025-12-03T16:16:24.999Z] Found chapter: Chapter 30
+[2025-12-03T16:16:24.999Z] Found chapter: Chapter 31
+[2025-12-03T16:16:24.999Z] Found chapter: Chapter 32
+[2025-12-03T16:16:24.999Z] Found chapter: Chapter 33
+[2025-12-03T16:16:25.000Z] Found chapter: Chapter 34
+[2025-12-03T16:16:25.000Z] Found chapter: Chapter 35
+[2025-12-03T16:16:25.000Z] Found chapter: Chapter 36
+[2025-12-03T16:16:25.001Z] Found chapter: Chapter 37
+[2025-12-03T16:16:25.001Z] Processed 8000 of 32472 lines...
+[2025-12-03T16:16:25.001Z] Found chapter: Chapter 38
+[2025-12-03T16:16:25.001Z] Found chapter: Chapter 39
+[2025-12-03T16:16:25.002Z] Found chapter: Chapter 40
+[2025-12-03T16:16:25.002Z] Found chapter: Chapter 41
+[2025-12-03T16:16:25.002Z] Found chapter: Chapter 42
+[2025-12-03T16:16:25.002Z] Found book: End of JOB
+[2025-12-03T16:16:25.002Z] Found book: PSALMS
+[2025-12-03T16:16:25.002Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.002Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.003Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.003Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.003Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.003Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.003Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.003Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.003Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.004Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.004Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.004Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.004Z] Found chapter: Chapter 13
+[2025-12-03T16:16:25.004Z] Found chapter: Chapter 14
+[2025-12-03T16:16:25.004Z] Found chapter: Chapter 15
+[2025-12-03T16:16:25.004Z] Found chapter: Chapter 16
+[2025-12-03T16:16:25.004Z] Found chapter: Chapter 17
+[2025-12-03T16:16:25.005Z] Found chapter: Chapter 18
+[2025-12-03T16:16:25.005Z] Found chapter: Chapter 19
+[2025-12-03T16:16:25.005Z] Found chapter: Chapter 20
+[2025-12-03T16:16:25.005Z] Processed 9000 of 32472 lines...
+[2025-12-03T16:16:25.005Z] Found chapter: Chapter 21
+[2025-12-03T16:16:25.005Z] Found chapter: Chapter 22
+[2025-12-03T16:16:25.006Z] Found chapter: Chapter 23
+[2025-12-03T16:16:25.006Z] Found chapter: Chapter 24
+[2025-12-03T16:16:25.006Z] Found chapter: Chapter 25
+[2025-12-03T16:16:25.006Z] Found chapter: Chapter 26
+[2025-12-03T16:16:25.006Z] Found chapter: Chapter 27
+[2025-12-03T16:16:25.006Z] Found chapter: Chapter 28
+[2025-12-03T16:16:25.006Z] Found chapter: Chapter 29
+[2025-12-03T16:16:25.006Z] Found chapter: Chapter 30
+[2025-12-03T16:16:25.007Z] Found chapter: Chapter 31
+[2025-12-03T16:16:25.007Z] Found chapter: Chapter 32
+[2025-12-03T16:16:25.007Z] Found chapter: Chapter 33
+[2025-12-03T16:16:25.007Z] Found chapter: Chapter 34
+[2025-12-03T16:16:25.007Z] Found chapter: Chapter 35
+[2025-12-03T16:16:25.007Z] Found chapter: Chapter 36
+[2025-12-03T16:16:25.008Z] Found chapter: Chapter 37
+[2025-12-03T16:16:25.008Z] Found chapter: Chapter 38
+[2025-12-03T16:16:25.008Z] Found chapter: Chapter 39
+[2025-12-03T16:16:25.008Z] Found chapter: Chapter 40
+[2025-12-03T16:16:25.008Z] Found chapter: Chapter 41
+[2025-12-03T16:16:25.008Z] Found chapter: Chapter 42
+[2025-12-03T16:16:25.009Z] Found chapter: Chapter 43
+[2025-12-03T16:16:25.009Z] Found chapter: Chapter 44
+[2025-12-03T16:16:25.009Z] Found chapter: Chapter 45
+[2025-12-03T16:16:25.009Z] Found chapter: Chapter 46
+[2025-12-03T16:16:25.009Z] Found chapter: Chapter 47
+[2025-12-03T16:16:25.009Z] Found chapter: Chapter 48
+[2025-12-03T16:16:25.009Z] Found chapter: Chapter 49
+[2025-12-03T16:16:25.010Z] Found chapter: Chapter 50
+[2025-12-03T16:16:25.010Z] Found chapter: Chapter 51
+[2025-12-03T16:16:25.010Z] Found chapter: Chapter 52
+[2025-12-03T16:16:25.010Z] Found chapter: Chapter 53
+[2025-12-03T16:16:25.010Z] Found chapter: Chapter 54
+[2025-12-03T16:16:25.010Z] Found chapter: Chapter 55
+[2025-12-03T16:16:25.010Z] Found chapter: Chapter 56
+[2025-12-03T16:16:25.011Z] Found chapter: Chapter 57
+[2025-12-03T16:16:25.011Z] Found chapter: Chapter 58
+[2025-12-03T16:16:25.011Z] Found chapter: Chapter 59
+[2025-12-03T16:16:25.011Z] Found chapter: Chapter 60
+[2025-12-03T16:16:25.011Z] Found chapter: Chapter 61
+[2025-12-03T16:16:25.011Z] Found chapter: Chapter 62
+[2025-12-03T16:16:25.011Z] Found chapter: Chapter 63
+[2025-12-03T16:16:25.011Z] Found chapter: Chapter 64
+[2025-12-03T16:16:25.012Z] Found chapter: Chapter 65
+[2025-12-03T16:16:25.012Z] Found chapter: Chapter 66
+[2025-12-03T16:16:25.012Z] Found chapter: Chapter 67
+[2025-12-03T16:16:25.012Z] Found chapter: Chapter 68
+[2025-12-03T16:16:25.012Z] Processed 11000 of 32472 lines...
+[2025-12-03T16:16:25.013Z] Found chapter: Chapter 69
+[2025-12-03T16:16:25.013Z] Found chapter: Chapter 70
+[2025-12-03T16:16:25.013Z] Found chapter: Chapter 71
+[2025-12-03T16:16:25.013Z] Found chapter: Chapter 72
+[2025-12-03T16:16:25.013Z] Found chapter: Chapter 73
+[2025-12-03T16:16:25.013Z] Found chapter: Chapter 74
+[2025-12-03T16:16:25.014Z] Found chapter: Chapter 75
+[2025-12-03T16:16:25.014Z] Found chapter: Chapter 76
+[2025-12-03T16:16:25.014Z] Found chapter: Chapter 77
+[2025-12-03T16:16:25.014Z] Found chapter: Chapter 78
+[2025-12-03T16:16:25.014Z] Found chapter: Chapter 79
+[2025-12-03T16:16:25.014Z] Found chapter: Chapter 80
+[2025-12-03T16:16:25.015Z] Found chapter: Chapter 81
+[2025-12-03T16:16:25.015Z] Found chapter: Chapter 82
+[2025-12-03T16:16:25.015Z] Found chapter: Chapter 83
+[2025-12-03T16:16:25.015Z] Found chapter: Chapter 84
+[2025-12-03T16:16:25.015Z] Found chapter: Chapter 85
+[2025-12-03T16:16:25.015Z] Found chapter: Chapter 86
+[2025-12-03T16:16:25.015Z] Found chapter: Chapter 87
+[2025-12-03T16:16:25.016Z] Processed 12000 of 32472 lines...
+[2025-12-03T16:16:25.016Z] Found chapter: Chapter 88
+[2025-12-03T16:16:25.016Z] Found chapter: Chapter 89
+[2025-12-03T16:16:25.016Z] Found chapter: Chapter 90
+[2025-12-03T16:16:25.016Z] Found chapter: Chapter 91
+[2025-12-03T16:16:25.016Z] Found chapter: Chapter 92
+[2025-12-03T16:16:25.017Z] Found chapter: Chapter 93
+[2025-12-03T16:16:25.017Z] Found chapter: Chapter 94
+[2025-12-03T16:16:25.017Z] Found chapter: Chapter 95
+[2025-12-03T16:16:25.017Z] Found chapter: Chapter 96
+[2025-12-03T16:16:25.017Z] Found chapter: Chapter 97
+[2025-12-03T16:16:25.017Z] Found chapter: Chapter 98
+[2025-12-03T16:16:25.017Z] Found chapter: Chapter 99
+[2025-12-03T16:16:25.017Z] Found chapter: Chapter 100
+[2025-12-03T16:16:25.018Z] Found chapter: Chapter 101
+[2025-12-03T16:16:25.018Z] Found chapter: Chapter 102
+[2025-12-03T16:16:25.018Z] Found chapter: Chapter 103
+[2025-12-03T16:16:25.018Z] Found chapter: Chapter 104
+[2025-12-03T16:16:25.018Z] Found chapter: Chapter 105
+[2025-12-03T16:16:25.018Z] Found chapter: Chapter 106
+[2025-12-03T16:16:25.019Z] Found chapter: Chapter 107
+[2025-12-03T16:16:25.019Z] Processed 13000 of 32472 lines...
+[2025-12-03T16:16:25.019Z] Found chapter: Chapter 108
+[2025-12-03T16:16:25.019Z] Found chapter: Chapter 109
+[2025-12-03T16:16:25.019Z] Found chapter: Chapter 110
+[2025-12-03T16:16:25.019Z] Found chapter: Chapter 111
+[2025-12-03T16:16:25.019Z] Found chapter: Chapter 112
+[2025-12-03T16:16:25.020Z] Found chapter: Chapter 113
+[2025-12-03T16:16:25.020Z] Found chapter: Chapter 114
+[2025-12-03T16:16:25.020Z] Found chapter: Chapter 115
+[2025-12-03T16:16:25.020Z] Found chapter: Chapter 116
+[2025-12-03T16:16:25.020Z] Found chapter: Chapter 117
+[2025-12-03T16:16:25.020Z] Found chapter: Chapter 118
+[2025-12-03T16:16:25.020Z] Found chapter: Chapter 119
+[2025-12-03T16:16:25.021Z] Found chapter: Chapter 120
+[2025-12-03T16:16:25.021Z] Found chapter: Chapter 121
+[2025-12-03T16:16:25.021Z] Found chapter: Chapter 122
+[2025-12-03T16:16:25.021Z] Found chapter: Chapter 123
+[2025-12-03T16:16:25.021Z] Found chapter: Chapter 124
+[2025-12-03T16:16:25.021Z] Found chapter: Chapter 125
+[2025-12-03T16:16:25.021Z] Found chapter: Chapter 126
+[2025-12-03T16:16:25.021Z] Found chapter: Chapter 127
+[2025-12-03T16:16:25.021Z] Found chapter: Chapter 128
+[2025-12-03T16:16:25.022Z] Found chapter: Chapter 129
+[2025-12-03T16:16:25.022Z] Processed 14000 of 32472 lines...
+[2025-12-03T16:16:25.022Z] Found chapter: Chapter 130
+[2025-12-03T16:16:25.022Z] Found chapter: Chapter 131
+[2025-12-03T16:16:25.022Z] Found chapter: Chapter 132
+[2025-12-03T16:16:25.022Z] Found chapter: Chapter 133
+[2025-12-03T16:16:25.022Z] Found chapter: Chapter 134
+[2025-12-03T16:16:25.022Z] Found chapter: Chapter 135
+[2025-12-03T16:16:25.022Z] Found chapter: Chapter 136
+[2025-12-03T16:16:25.023Z] Found chapter: Chapter 137
+[2025-12-03T16:16:25.023Z] Found chapter: Chapter 138
+[2025-12-03T16:16:25.023Z] Found chapter: Chapter 139
+[2025-12-03T16:16:25.023Z] Found chapter: Chapter 140
+[2025-12-03T16:16:25.024Z] Found chapter: Chapter 141
+[2025-12-03T16:16:25.024Z] Found chapter: Chapter 142
+[2025-12-03T16:16:25.024Z] Found chapter: Chapter 143
+[2025-12-03T16:16:25.024Z] Found chapter: Chapter 144
+[2025-12-03T16:16:25.024Z] Found chapter: Chapter 145
+[2025-12-03T16:16:25.024Z] Found chapter: Chapter 146
+[2025-12-03T16:16:25.024Z] Found chapter: Chapter 147
+[2025-12-03T16:16:25.025Z] Found chapter: Chapter 148
+[2025-12-03T16:16:25.025Z] Found chapter: Chapter 149
+[2025-12-03T16:16:25.025Z] Found chapter: Chapter 150
+[2025-12-03T16:16:25.025Z] Found book: End of PSALMS
+[2025-12-03T16:16:25.025Z] Found book: PSALMS
+[2025-12-03T16:16:25.025Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.025Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.025Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.026Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.026Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.026Z] Processed 15000 of 32472 lines...
+[2025-12-03T16:16:25.026Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.026Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.026Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.026Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.027Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.027Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.027Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.027Z] Found chapter: Chapter 13
+[2025-12-03T16:16:25.027Z] Found chapter: Chapter 14
+[2025-12-03T16:16:25.028Z] Found chapter: Chapter 15
+[2025-12-03T16:16:25.028Z] Found chapter: Chapter 16
+[2025-12-03T16:16:25.028Z] Found chapter: Chapter 17
+[2025-12-03T16:16:25.028Z] Found chapter: Chapter 18
+[2025-12-03T16:16:25.028Z] Found chapter: Chapter 19
+[2025-12-03T16:16:25.029Z] Found chapter: Chapter 20
+[2025-12-03T16:16:25.029Z] Processed 16000 of 32472 lines...
+[2025-12-03T16:16:25.029Z] Found chapter: Chapter 21
+[2025-12-03T16:16:25.029Z] Found chapter: Chapter 22
+[2025-12-03T16:16:25.029Z] Found chapter: Chapter 23
+[2025-12-03T16:16:25.029Z] Found chapter: Chapter 24
+[2025-12-03T16:16:25.030Z] Found chapter: Chapter 25
+[2025-12-03T16:16:25.030Z] Found chapter: Chapter 26
+[2025-12-03T16:16:25.030Z] Found chapter: Chapter 27
+[2025-12-03T16:16:25.030Z] Found chapter: Chapter 28
+[2025-12-03T16:16:25.030Z] Found chapter: Chapter 29
+[2025-12-03T16:16:25.031Z] Found chapter: Chapter 30
+[2025-12-03T16:16:25.031Z] Found chapter: Chapter 31
+[2025-12-03T16:16:25.031Z] Found book: End of PSALMS
+[2025-12-03T16:16:25.031Z] Found book: ECCLESIASTES
+[2025-12-03T16:16:25.031Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.031Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.032Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.032Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.032Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.032Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.032Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.032Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.033Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.033Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.033Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.033Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.033Z] Found book: End of ECCLESIASTES
+[2025-12-03T16:16:25.033Z] Found book: SONG OF SOLOMON
+[2025-12-03T16:16:25.033Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.034Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.034Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.034Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.035Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.035Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.035Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.035Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.035Z] Found book: End of SONG OF SOLOMON
+[2025-12-03T16:16:25.035Z] Found book: ISAIAH
+[2025-12-03T16:16:25.036Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.036Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.036Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.036Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.036Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.036Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.037Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.037Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.037Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.037Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.037Z] Processed 18000 of 32472 lines...
+[2025-12-03T16:16:25.038Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.038Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.038Z] Found chapter: Chapter 13
+[2025-12-03T16:16:25.038Z] Found chapter: Chapter 14
+[2025-12-03T16:16:25.039Z] Found chapter: Chapter 15
+[2025-12-03T16:16:25.039Z] Found chapter: Chapter 16
+[2025-12-03T16:16:25.039Z] Found chapter: Chapter 17
+[2025-12-03T16:16:25.039Z] Found chapter: Chapter 18
+[2025-12-03T16:16:25.039Z] Found chapter: Chapter 19
+[2025-12-03T16:16:25.040Z] Found chapter: Chapter 20
+[2025-12-03T16:16:25.040Z] Found chapter: Chapter 21
+[2025-12-03T16:16:25.040Z] Found chapter: Chapter 22
+[2025-12-03T16:16:25.040Z] Found chapter: Chapter 23
+[2025-12-03T16:16:25.041Z] Found chapter: Chapter 24
+[2025-12-03T16:16:25.041Z] Found chapter: Chapter 25
+[2025-12-03T16:16:25.041Z] Found chapter: Chapter 26
+[2025-12-03T16:16:25.041Z] Found chapter: Chapter 27
+[2025-12-03T16:16:25.041Z] Found chapter: Chapter 28
+[2025-12-03T16:16:25.042Z] Found chapter: Chapter 29
+[2025-12-03T16:16:25.042Z] Processed 19000 of 32472 lines...
+[2025-12-03T16:16:25.042Z] Found chapter: Chapter 30
+[2025-12-03T16:16:25.042Z] Found chapter: Chapter 31
+[2025-12-03T16:16:25.043Z] Found chapter: Chapter 32
+[2025-12-03T16:16:25.043Z] Found chapter: Chapter 33
+[2025-12-03T16:16:25.043Z] Found chapter: Chapter 34
+[2025-12-03T16:16:25.043Z] Found chapter: Chapter 35
+[2025-12-03T16:16:25.043Z] Found chapter: Chapter 36
+[2025-12-03T16:16:25.044Z] Found chapter: Chapter 37
+[2025-12-03T16:16:25.044Z] Found chapter: Chapter 38
+[2025-12-03T16:16:25.044Z] Found chapter: Chapter 39
+[2025-12-03T16:16:25.044Z] Found chapter: Chapter 40
+[2025-12-03T16:16:25.045Z] Found chapter: Chapter 41
+[2025-12-03T16:16:25.045Z] Found chapter: Chapter 42
+[2025-12-03T16:16:25.045Z] Found chapter: Chapter 43
+[2025-12-03T16:16:25.046Z] Found chapter: Chapter 44
+[2025-12-03T16:16:25.046Z] Processed 20000 of 32472 lines...
+[2025-12-03T16:16:25.046Z] Found chapter: Chapter 45
+[2025-12-03T16:16:25.046Z] Found chapter: Chapter 46
+[2025-12-03T16:16:25.047Z] Found chapter: Chapter 47
+[2025-12-03T16:16:25.047Z] Found chapter: Chapter 48
+[2025-12-03T16:16:25.047Z] Found chapter: Chapter 49
+[2025-12-03T16:16:25.047Z] Found chapter: Chapter 50
+[2025-12-03T16:16:25.048Z] Found chapter: Chapter 51
+[2025-12-03T16:16:25.048Z] Found chapter: Chapter 52
+[2025-12-03T16:16:25.048Z] Found chapter: Chapter 53
+[2025-12-03T16:16:25.048Z] Found chapter: Chapter 54
+[2025-12-03T16:16:25.048Z] Found chapter: Chapter 55
+[2025-12-03T16:16:25.048Z] Found chapter: Chapter 56
+[2025-12-03T16:16:25.049Z] Found chapter: Chapter 57
+[2025-12-03T16:16:25.049Z] Found chapter: Chapter 58
+[2025-12-03T16:16:25.049Z] Found chapter: Chapter 59
+[2025-12-03T16:16:25.049Z] Processed 21000 of 32472 lines...
+[2025-12-03T16:16:25.049Z] Found chapter: Chapter 60
+[2025-12-03T16:16:25.049Z] Found chapter: Chapter 61
+[2025-12-03T16:16:25.050Z] Found chapter: Chapter 62
+[2025-12-03T16:16:25.050Z] Found chapter: Chapter 63
+[2025-12-03T16:16:25.050Z] Found chapter: Chapter 64
+[2025-12-03T16:16:25.050Z] Found chapter: Chapter 65
+[2025-12-03T16:16:25.050Z] Found chapter: Chapter 66
+[2025-12-03T16:16:25.050Z] Found book: End of ISAIAH
+[2025-12-03T16:16:25.050Z] Found book: JEREMIAH
+[2025-12-03T16:16:25.051Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.051Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.051Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.051Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.051Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.052Z] Processed 22000 of 32472 lines...
+[2025-12-03T16:16:25.052Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.052Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.052Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.052Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.052Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.053Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.053Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.053Z] Found chapter: Chapter 13
+[2025-12-03T16:16:25.053Z] Found chapter: Chapter 14
+[2025-12-03T16:16:25.054Z] Found chapter: Chapter 15
+[2025-12-03T16:16:25.054Z] Found chapter: Chapter 16
+[2025-12-03T16:16:25.054Z] Found chapter: Chapter 17
+[2025-12-03T16:16:25.055Z] Found chapter: Chapter 18
+[2025-12-03T16:16:25.055Z] Found chapter: Chapter 19
+[2025-12-03T16:16:25.055Z] Found chapter: Chapter 20
+[2025-12-03T16:16:25.055Z] Found chapter: Chapter 21
+[2025-12-03T16:16:25.055Z] Found chapter: Chapter 22
+[2025-12-03T16:16:25.055Z] Found chapter: Chapter 23
+[2025-12-03T16:16:25.056Z] Found chapter: Chapter 24
+[2025-12-03T16:16:25.056Z] Found chapter: Chapter 25
+[2025-12-03T16:16:25.056Z] Found chapter: Chapter 26
+[2025-12-03T16:16:25.056Z] Found chapter: Chapter 27
+[2025-12-03T16:16:25.056Z] Found chapter: Chapter 28
+[2025-12-03T16:16:25.057Z] Found chapter: Chapter 29
+[2025-12-03T16:16:25.057Z] Found chapter: Chapter 30
+[2025-12-03T16:16:25.057Z] Found chapter: Chapter 31
+[2025-12-03T16:16:25.057Z] Found chapter: Chapter 32
+[2025-12-03T16:16:25.057Z] Found chapter: Chapter 33
+[2025-12-03T16:16:25.058Z] Found chapter: Chapter 34
+[2025-12-03T16:16:25.058Z] Found chapter: Chapter 35
+[2025-12-03T16:16:25.058Z] Found chapter: Chapter 36
+[2025-12-03T16:16:25.058Z] Found chapter: Chapter 37
+[2025-12-03T16:16:25.058Z] Found chapter: Chapter 38
+[2025-12-03T16:16:25.059Z] Found chapter: Chapter 39
+[2025-12-03T16:16:25.059Z] Found chapter: Chapter 40
+[2025-12-03T16:16:25.059Z] Found chapter: Chapter 41
+[2025-12-03T16:16:25.059Z] Found chapter: Chapter 42
+[2025-12-03T16:16:25.059Z] Found chapter: Chapter 43
+[2025-12-03T16:16:25.059Z] Found chapter: Chapter 44
+[2025-12-03T16:16:25.059Z] Found chapter: Chapter 45
+[2025-12-03T16:16:25.060Z] Found chapter: Chapter 46
+[2025-12-03T16:16:25.060Z] Found chapter: Chapter 47
+[2025-12-03T16:16:25.060Z] Found chapter: Chapter 48
+[2025-12-03T16:16:25.060Z] Found chapter: Chapter 49
+[2025-12-03T16:16:25.061Z] Found chapter: Chapter 50
+[2025-12-03T16:16:25.061Z] Processed 24000 of 32472 lines...
+[2025-12-03T16:16:25.061Z] Found chapter: Chapter 51
+[2025-12-03T16:16:25.062Z] Found chapter: Chapter 52
+[2025-12-03T16:16:25.062Z] Found book: End of JEREMIAH
+[2025-12-03T16:16:25.062Z] Found book: LAMENTATIONS
+[2025-12-03T16:16:25.063Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.063Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.063Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.063Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.064Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.066Z] Found book: End of LAMENTATIONS
+[2025-12-03T16:16:25.066Z] Found book: EZEKIEL
+[2025-12-03T16:16:25.066Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.066Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.066Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.066Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.067Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.067Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.067Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.067Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.067Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.067Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.068Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.068Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.068Z] Found chapter: Chapter 13
+[2025-12-03T16:16:25.068Z] Found chapter: Chapter 14
+[2025-12-03T16:16:25.068Z] Found chapter: Chapter 15
+[2025-12-03T16:16:25.068Z] Found chapter: Chapter 16
+[2025-12-03T16:16:25.069Z] Found chapter: Chapter 17
+[2025-12-03T16:16:25.069Z] Found chapter: Chapter 18
+[2025-12-03T16:16:25.069Z] Found chapter: Chapter 19
+[2025-12-03T16:16:25.069Z] Processed 25000 of 32472 lines...
+[2025-12-03T16:16:25.069Z] Found chapter: Chapter 20
+[2025-12-03T16:16:25.070Z] Found chapter: Chapter 21
+[2025-12-03T16:16:25.070Z] Found chapter: Chapter 22
+[2025-12-03T16:16:25.070Z] Found chapter: Chapter 23
+[2025-12-03T16:16:25.070Z] Found chapter: Chapter 24
+[2025-12-03T16:16:25.070Z] Found chapter: Chapter 25
+[2025-12-03T16:16:25.071Z] Found chapter: Chapter 26
+[2025-12-03T16:16:25.071Z] Found chapter: Chapter 27
+[2025-12-03T16:16:25.071Z] Found chapter: Chapter 28
+[2025-12-03T16:16:25.071Z] Found chapter: Chapter 29
+[2025-12-03T16:16:25.072Z] Found chapter: Chapter 30
+[2025-12-03T16:16:25.072Z] Found chapter: Chapter 31
+[2025-12-03T16:16:25.072Z] Found chapter: Chapter 32
+[2025-12-03T16:16:25.072Z] Found chapter: Chapter 33
+[2025-12-03T16:16:25.073Z] Found chapter: Chapter 34
+[2025-12-03T16:16:25.073Z] Found chapter: Chapter 35
+[2025-12-03T16:16:25.073Z] Found chapter: Chapter 36
+[2025-12-03T16:16:25.073Z] Found chapter: Chapter 37
+[2025-12-03T16:16:25.074Z] Found chapter: Chapter 38
+[2025-12-03T16:16:25.074Z] Found chapter: Chapter 39
+[2025-12-03T16:16:25.074Z] Found chapter: Chapter 40
+[2025-12-03T16:16:25.074Z] Found chapter: Chapter 41
+[2025-12-03T16:16:25.075Z] Found chapter: Chapter 42
+[2025-12-03T16:16:25.075Z] Found chapter: Chapter 43
+[2025-12-03T16:16:25.076Z] Found chapter: Chapter 44
+[2025-12-03T16:16:25.076Z] Found chapter: Chapter 45
+[2025-12-03T16:16:25.076Z] Found chapter: Chapter 46
+[2025-12-03T16:16:25.077Z] Found chapter: Chapter 47
+[2025-12-03T16:16:25.077Z] Found chapter: Chapter 48
+[2025-12-03T16:16:25.077Z] Found book: End of EZEKIEL
+[2025-12-03T16:16:25.077Z] Found book: DANIEL
+[2025-12-03T16:16:25.077Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.077Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.078Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.078Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.078Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.079Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.079Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.079Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.079Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.079Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.080Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.080Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.080Z] Found book: End of DANIEL
+[2025-12-03T16:16:25.080Z] Found book: HOSEA
+[2025-12-03T16:16:25.080Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.081Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.081Z] Processed 26000 of 32472 lines...
+[2025-12-03T16:16:25.081Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.081Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.081Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.082Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.082Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.082Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.082Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.082Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.082Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.082Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.083Z] Found chapter: Chapter 13
+[2025-12-03T16:16:25.083Z] Found chapter: Chapter 14
+[2025-12-03T16:16:25.083Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.083Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.083Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.084Z] Found book: End of HOSEA
+[2025-12-03T16:16:25.084Z] Found book: AMOS
+[2025-12-03T16:16:25.084Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.084Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.084Z] Processed 27000 of 32472 lines...
+[2025-12-03T16:16:25.084Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.085Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.085Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.085Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.085Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.085Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.085Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.086Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.086Z] Found book: End of AMOS
+[2025-12-03T16:16:25.086Z] Found book: JONAH
+[2025-12-03T16:16:25.086Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.086Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.086Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.087Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.087Z] Found book: End of JONAH
+[2025-12-03T16:16:25.087Z] Found book: MICAH
+[2025-12-03T16:16:25.087Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.087Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.087Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.087Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.087Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.088Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.088Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.088Z] Found book: End of MICAH
+[2025-12-03T16:16:25.088Z] Found book: NAHUM
+[2025-12-03T16:16:25.088Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.088Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.088Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.089Z] Found book: End of NAHUM
+[2025-12-03T16:16:25.089Z] Found book: HABAKKUK
+[2025-12-03T16:16:25.089Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.089Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.089Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.089Z] Found book: End of HABAKKUK
+[2025-12-03T16:16:25.089Z] Found book: ZEPHANIAH
+[2025-12-03T16:16:25.089Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.090Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.090Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.090Z] Found book: End of ZEPHANIAH
+[2025-12-03T16:16:25.090Z] Found book: HAGGAI
+[2025-12-03T16:16:25.090Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.090Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.091Z] Found book: End of HAGGAI
+[2025-12-03T16:16:25.091Z] Found book: ZECHARIAH
+[2025-12-03T16:16:25.091Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.091Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.091Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.091Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.091Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.091Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.092Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.092Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.092Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.092Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.092Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.092Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.092Z] Found chapter: Chapter 13
+[2025-12-03T16:16:25.093Z] Found chapter: Chapter 14
+[2025-12-03T16:16:25.093Z] Found book: End of ZECHARIAH
+[2025-12-03T16:16:25.093Z] Found book: MALACHI
+[2025-12-03T16:16:25.093Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.093Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.093Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.093Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.094Z] Found book: End of MALACHI
+[2025-12-03T16:16:25.094Z] Found book: MATTHEW
+[2025-12-03T16:16:25.094Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.094Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.094Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.094Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.094Z] Processed 29000 of 32472 lines...
+[2025-12-03T16:16:25.095Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.095Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.095Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.095Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.095Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.096Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.096Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.096Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.096Z] Found chapter: Chapter 13
+[2025-12-03T16:16:25.097Z] Found chapter: Chapter 14
+[2025-12-03T16:16:25.097Z] Found chapter: Chapter 15
+[2025-12-03T16:16:25.097Z] Found chapter: Chapter 16
+[2025-12-03T16:16:25.098Z] Found chapter: Chapter 17
+[2025-12-03T16:16:25.098Z] Found chapter: Chapter 18
+[2025-12-03T16:16:25.098Z] Found chapter: Chapter 19
+[2025-12-03T16:16:25.098Z] Found chapter: Chapter 20
+[2025-12-03T16:16:25.099Z] Found chapter: Chapter 21
+[2025-12-03T16:16:25.099Z] Found chapter: Chapter 22
+[2025-12-03T16:16:25.099Z] Found chapter: Chapter 23
+[2025-12-03T16:16:25.099Z] Found chapter: Chapter 24
+[2025-12-03T16:16:25.099Z] Found chapter: Chapter 25
+[2025-12-03T16:16:25.100Z] Found chapter: Chapter 26
+[2025-12-03T16:16:25.100Z] Found chapter: Chapter 27
+[2025-12-03T16:16:25.100Z] Found chapter: Chapter 28
+[2025-12-03T16:16:25.100Z] Found book: End of MATTHEW
+[2025-12-03T16:16:25.100Z] Found book: MARK
+[2025-12-03T16:16:25.101Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.101Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.101Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.101Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.101Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.102Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.102Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.102Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.103Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.103Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.103Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.104Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.104Z] Found chapter: Chapter 13
+[2025-12-03T16:16:25.104Z] Found chapter: Chapter 14
+[2025-12-03T16:16:25.104Z] Found chapter: Chapter 15
+[2025-12-03T16:16:25.105Z] Found chapter: Chapter 16
+[2025-12-03T16:16:25.105Z] Found book: End of MARK
+[2025-12-03T16:16:25.105Z] Found book: LUKE
+[2025-12-03T16:16:25.105Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.105Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.106Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.106Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.106Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.106Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.107Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.107Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.107Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.108Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.108Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.108Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.109Z] Found chapter: Chapter 13
+[2025-12-03T16:16:25.109Z] Processed 30000 of 32472 lines...
+[2025-12-03T16:16:25.109Z] Found chapter: Chapter 14
+[2025-12-03T16:16:25.109Z] Found chapter: Chapter 15
+[2025-12-03T16:16:25.109Z] Found chapter: Chapter 16
+[2025-12-03T16:16:25.110Z] Found chapter: Chapter 17
+[2025-12-03T16:16:25.110Z] Found chapter: Chapter 18
+[2025-12-03T16:16:25.110Z] Found chapter: Chapter 19
+[2025-12-03T16:16:25.110Z] Found chapter: Chapter 20
+[2025-12-03T16:16:25.111Z] Found chapter: Chapter 21
+[2025-12-03T16:16:25.111Z] Found chapter: Chapter 22
+[2025-12-03T16:16:25.111Z] Found chapter: Chapter 23
+[2025-12-03T16:16:25.112Z] Found chapter: Chapter 24
+[2025-12-03T16:16:25.112Z] Found book: End of LUKE
+[2025-12-03T16:16:25.112Z] Found book: JOHN
+[2025-12-03T16:16:25.112Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.112Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.112Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.113Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.113Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.113Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.113Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.114Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.114Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.114Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.114Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.115Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.115Z] Found chapter: Chapter 13
+[2025-12-03T16:16:25.116Z] Found chapter: Chapter 14
+[2025-12-03T16:16:25.116Z] Found chapter: Chapter 15
+[2025-12-03T16:16:25.116Z] Found chapter: Chapter 16
+[2025-12-03T16:16:25.116Z] Found chapter: Chapter 17
+[2025-12-03T16:16:25.116Z] Found chapter: Chapter 18
+[2025-12-03T16:16:25.117Z] Found chapter: Chapter 19
+[2025-12-03T16:16:25.117Z] Found chapter: Chapter 20
+[2025-12-03T16:16:25.117Z] Found chapter: Chapter 21
+[2025-12-03T16:16:25.117Z] Found book: End of JOHN
+[2025-12-03T16:16:25.117Z] Found book: ACTS
+[2025-12-03T16:16:25.117Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.118Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.118Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.118Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.118Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.118Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.119Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.119Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.119Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.119Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.119Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.120Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.120Z] Found chapter: Chapter 13
+[2025-12-03T16:16:25.120Z] Found chapter: Chapter 14
+[2025-12-03T16:16:25.120Z] Found chapter: Chapter 15
+[2025-12-03T16:16:25.120Z] Found chapter: Chapter 16
+[2025-12-03T16:16:25.121Z] Found chapter: Chapter 17
+[2025-12-03T16:16:25.121Z] Found chapter: Chapter 18
+[2025-12-03T16:16:25.121Z] Found chapter: Chapter 19
+[2025-12-03T16:16:25.121Z] Found chapter: Chapter 20
+[2025-12-03T16:16:25.121Z] Found chapter: Chapter 21
+[2025-12-03T16:16:25.121Z] Found chapter: Chapter 22
+[2025-12-03T16:16:25.122Z] Found chapter: Chapter 23
+[2025-12-03T16:16:25.122Z] Found chapter: Chapter 24
+[2025-12-03T16:16:25.122Z] Found chapter: Chapter 25
+[2025-12-03T16:16:25.122Z] Found chapter: Chapter 26
+[2025-12-03T16:16:25.122Z] Found chapter: Chapter 27
+[2025-12-03T16:16:25.123Z] Found chapter: Chapter 28
+[2025-12-03T16:16:25.123Z] Found book: End of ACTS
+[2025-12-03T16:16:25.123Z] Found book: ROMANS
+[2025-12-03T16:16:25.123Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.123Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.123Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.123Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.124Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.124Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.124Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.124Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.124Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.124Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.125Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.125Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.125Z] Found chapter: Chapter 13
+[2025-12-03T16:16:25.125Z] Found chapter: Chapter 14
+[2025-12-03T16:16:25.125Z] Found chapter: Chapter 15
+[2025-12-03T16:16:25.125Z] Found chapter: Chapter 16
+[2025-12-03T16:16:25.126Z] Found book: End of ROMANS
+[2025-12-03T16:16:25.126Z] Found book: 1 CORINTHIANS
+[2025-12-03T16:16:25.126Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.126Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.126Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.126Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.126Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.127Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.127Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.127Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.127Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.127Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.128Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.128Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.128Z] Found chapter: Chapter 13
+[2025-12-03T16:16:25.128Z] Found chapter: Chapter 14
+[2025-12-03T16:16:25.128Z] Found chapter: Chapter 15
+[2025-12-03T16:16:25.129Z] Found chapter: Chapter 16
+[2025-12-03T16:16:25.129Z] Found book: End of 1 CORINTHIANS
+[2025-12-03T16:16:25.129Z] Found book: 2 CORINTHIANS
+[2025-12-03T16:16:25.129Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.129Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.129Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.129Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.130Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.130Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.130Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.130Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.130Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.130Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.131Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.131Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.131Z] Found chapter: Chapter 13
+[2025-12-03T16:16:25.131Z] Found book: End of 2 CORINTHIANS
+[2025-12-03T16:16:25.131Z] Found book: GALATIANS
+[2025-12-03T16:16:25.131Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.132Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.132Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.132Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.132Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.132Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.133Z] Found book: End of GALATIANS
+[2025-12-03T16:16:25.133Z] Found book: EPHESIANS
+[2025-12-03T16:16:25.133Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.133Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.133Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.133Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.133Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.134Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.134Z] Found book: End of EPHESIANS
+[2025-12-03T16:16:25.134Z] Found book: PHILIPPIANS
+[2025-12-03T16:16:25.134Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.134Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.135Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.135Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.135Z] Found book: End of PHILIPPIANS
+[2025-12-03T16:16:25.135Z] Found book: COLOSSIANS
+[2025-12-03T16:16:25.135Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.135Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.135Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.136Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.136Z] Found book: End of COLOSSIANS
+[2025-12-03T16:16:25.136Z] Found book: 1 THESSALONIANS
+[2025-12-03T16:16:25.136Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.136Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.136Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.136Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.136Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.137Z] Found book: End of 1 THESSALONIANS
+[2025-12-03T16:16:25.137Z] Found book: 2 THESSALONIANS
+[2025-12-03T16:16:25.137Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.137Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.137Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.137Z] Found book: End of 2 THESSALONIANS
+[2025-12-03T16:16:25.137Z] Found book: 1 TIMOTHY
+[2025-12-03T16:16:25.137Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.138Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.138Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.138Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.138Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.138Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.138Z] Found book: End of 1 TIMOTHY
+[2025-12-03T16:16:25.138Z] Found book: 2 TIMOTHY
+[2025-12-03T16:16:25.138Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.139Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.139Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.139Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.139Z] Found book: End of 2 TIMOTHY
+[2025-12-03T16:16:25.139Z] Found book: TITUS
+[2025-12-03T16:16:25.139Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.139Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.139Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.140Z] Found book: End of TITUS
+[2025-12-03T16:16:25.140Z] Found book: PHILEMON
+[2025-12-03T16:16:25.140Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.140Z] Found book: End of PHILEMON
+[2025-12-03T16:16:25.140Z] Found book: HEBREWS
+[2025-12-03T16:16:25.140Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.140Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.140Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.141Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.141Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.141Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.141Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.141Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.141Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.142Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.142Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.142Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.142Z] Found chapter: Chapter 13
+[2025-12-03T16:16:25.142Z] Found book: End of HEBREWS
+[2025-12-03T16:16:25.142Z] Found book: JAMES
+[2025-12-03T16:16:25.143Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.143Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.143Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.143Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.143Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.143Z] Found book: End of JAMES
+[2025-12-03T16:16:25.143Z] Found book: 1 PETER
+[2025-12-03T16:16:25.143Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.144Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.144Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.144Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.144Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.144Z] Found book: End of 1 PETER
+[2025-12-03T16:16:25.144Z] Found book: 2 PETER
+[2025-12-03T16:16:25.144Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.145Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.145Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.145Z] Found book: End of 2 PETER
+[2025-12-03T16:16:25.145Z] Found book: 1 JOHN
+[2025-12-03T16:16:25.145Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.145Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.145Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.146Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.146Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.146Z] Found book: End of 1 JOHN
+[2025-12-03T16:16:25.146Z] Found book: 2 JOHN
+[2025-12-03T16:16:25.146Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.146Z] Found book: End of 2 JOHN
+[2025-12-03T16:16:25.146Z] Found book: 3 JOHN
+[2025-12-03T16:16:25.146Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.147Z] Found book: End of 3 JOHN
+[2025-12-03T16:16:25.147Z] Found book: JUDE
+[2025-12-03T16:16:25.147Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.147Z] Found book: End of JUDE
+[2025-12-03T16:16:25.147Z] Found book: REVELATION
+[2025-12-03T16:16:25.147Z] Found chapter: Chapter 1
+[2025-12-03T16:16:25.147Z] Found chapter: Chapter 2
+[2025-12-03T16:16:25.148Z] Found chapter: Chapter 3
+[2025-12-03T16:16:25.148Z] Found chapter: Chapter 4
+[2025-12-03T16:16:25.148Z] Found chapter: Chapter 5
+[2025-12-03T16:16:25.148Z] Found chapter: Chapter 6
+[2025-12-03T16:16:25.148Z] Found chapter: Chapter 7
+[2025-12-03T16:16:25.148Z] Found chapter: Chapter 8
+[2025-12-03T16:16:25.148Z] Found chapter: Chapter 9
+[2025-12-03T16:16:25.149Z] Found chapter: Chapter 10
+[2025-12-03T16:16:25.149Z] Found chapter: Chapter 11
+[2025-12-03T16:16:25.149Z] Found chapter: Chapter 12
+[2025-12-03T16:16:25.149Z] Found chapter: Chapter 13
+[2025-12-03T16:16:25.149Z] Found chapter: Chapter 14
+[2025-12-03T16:16:25.149Z] Found chapter: Chapter 15
+[2025-12-03T16:16:25.149Z] Found chapter: Chapter 16
+[2025-12-03T16:16:25.150Z] Found chapter: Chapter 17
+[2025-12-03T16:16:25.150Z] Found chapter: Chapter 18
+[2025-12-03T16:16:25.150Z] Found chapter: Chapter 19
+[2025-12-03T16:16:25.150Z] Found chapter: Chapter 20
+[2025-12-03T16:16:25.150Z] Found chapter: Chapter 21
+[2025-12-03T16:16:25.150Z] Found chapter: Chapter 22
+[2025-12-03T16:16:25.151Z] Found book: End of REVELATION
+[2025-12-03T16:16:25.151Z] Robust extraction complete!
+[2025-12-03T16:16:25.151Z] Output written to: C:\WindSurf\ohbc_website\scripts\NASB1995_robust.txt

@@ -1,0 +1,224 @@
+import React, { useState, useEffect } from 'react';
+import { FiYoutube, FiHeadphones, FiExternalLink } from 'react-icons/fi';
+import Image from 'next/image';
+import HeroSection from '@/components/HeroSection';
+
+interface Video {
+  id: string;
+  title: string;
+  description: string;
+  thumbnail: string;
+  publishedAt: string;
+  duration: string;
+  viewCount: string;
+  videoUrl: string;
+}
+
+const YOUTUBE_CHANNEL_ID = 'UChBLU82WKDW8PRJSqeZf0ww';
+const YOUTUBE_API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY || '';
+
+const SermonsPage = () => {
+  const [activeTab, setActiveTab] = useState<'watch' | 'listen'>('watch');
+  const [videos, setVideos] = useState<Video[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Format duration from ISO 8601 to human readable
+  const formatDuration = (duration: string): string => {
+    const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+    if (!match) return '0:00';
+    
+    const hours = match[1] ? parseInt(match[1]) : 0;
+    const minutes = match[2] ? parseInt(match[2]) : 0;
+    const seconds = match[3] ? parseInt(match[3]) : 0;
+    
+    if (hours > 0) {
+      return `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    } else {
+      return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
+  };
+
+  // Format view count
+  const formatViewCount = (count: string): string => {
+    const num = parseInt(count);
+    if (num >= 1000000) {
+      return `${(num / 1000000).toFixed(1)}M views`;
+    } else if (num >= 1000) {
+      return `${(num / 1000).toFixed(1)}K views`;
+    } else {
+      return `${num} views`;
+    }
+  };
+
+  // Format date
+  const formatDate = (dateString: string): string => {
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
+  // Fetch videos from YouTube API
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        
+        const response = await fetch(
+          `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${YOUTUBE_CHANNEL_ID}&part=snippet,id&order=date&maxResults=12`
+        );
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch videos');
+        }
+        
+        const data = await response.json();
+        
+        // Get video details for each video
+        const videoDetails = await Promise.all(
+          data.items.map(async (item: any) => {
+            const videoResponse = await fetch(
+              `https://www.googleapis.com/youtube/v3/videos?key=${YOUTUBE_API_KEY}&id=${item.id.videoId}&part=contentDetails,snippet,statistics`
+            );
+            
+            if (!videoResponse.ok) {
+              throw new Error('Failed to fetch video details');
+            }
+            
+            const videoData = await videoResponse.json();
+            const video = videoData.items[0];
+            
+            return {
+              id: video.id,
+              title: video.snippet.title,
+              description: video.snippet.description,
+              thumbnail: video.snippet.thumbnails.medium.url,
+              publishedAt: video.snippet.publishedAt,
+              duration: video.contentDetails.duration,
+              viewCount: video.statistics.viewCount,
+              videoUrl: `https://www.youtube.com/watch?v=${video.id}`
+            };
+          })
+        );
+        
+        setVideos(videoDetails);
+      } catch (err) {
+        console.error('Error fetching videos:', err);
+        setError('Failed to load videos. Please try again later.');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    fetchVideos();
+  }, [activeTab]);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+      <HeroSection 
+        title="Sermons & Teaching"
+        subtitle="Watch or listen to our latest messages and grow in your faith"
+        className="bg-gradient-to-r from-blue-700 to-blue-900 text-white"
+      >
+        <div className="flex justify-center space-x-4 mt-6">
+          <button
+            onClick={() => setActiveTab('watch')}
+            className={`px-6 py-2 rounded-full font-medium transition-colors flex items-center ${
+              activeTab === 'watch'
+                ? 'bg-white text-blue-700 shadow-md'
+                : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+            }`}
+          >
+            <FiYoutube className="mr-2" /> Watch
+          </button>
+          <button
+            onClick={() => setActiveTab('listen')}
+            className={`px-6 py-2 rounded-full font-medium transition-colors flex items-center ${
+              activeTab === 'listen'
+                ? 'bg-white text-blue-700 shadow-md'
+                : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+            }`}
+          >
+            <FiHeadphones className="mr-2" /> Listen
+          </button>
+        </div>
+      </HeroSection>
+
+      {/* Main Content */}
+      <div className="container mx-auto px-4 py-12">
+        {isLoading ? (
+          <div className="text-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+            <p className="mt-4 text-gray-600">Loading sermons...</p>
+          </div>
+        ) : error ? (
+          <div className="text-center py-12">
+            <div className="text-red-500 mb-4">
+              <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <p className="text-gray-600">{error}</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+            >
+              Try Again
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {videos.map((video) => (
+              <div key={video.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div className="relative h-48">
+                  <Image
+                    src={video.thumbnail}
+                    alt={video.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                    {formatDuration(video.duration)}
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold text-lg mb-2 line-clamp-2">
+                    <a 
+                      href={video.videoUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:text-blue-600 transition-colors"
+                    >
+                      {video.title}
+                    </a>
+                  </h3>
+                  <div className="flex items-center text-sm text-gray-500 mb-2">
+                    <span>{formatViewCount(video.viewCount)}</span>
+                    <span className="mx-2">•</span>
+                    <span>{formatDate(video.publishedAt)}</span>
+                  </div>
+                  <p className="text-gray-600 text-sm line-clamp-3">
+                    {video.description}
+                  </p>
+                  <div className="mt-4">
+                    <a
+                      href={video.videoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
+                    >
+                      {activeTab === 'watch' ? 'Watch Now' : 'Listen Now'}
+                      <FiExternalLink className="ml-1" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default SermonsPage;

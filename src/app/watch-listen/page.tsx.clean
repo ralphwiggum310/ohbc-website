@@ -1,0 +1,225 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
+import Image from 'next/image';
+import { FiYoutube, FiClock, FiExternalLink } from 'react-icons/fi';
+
+interface Video {
+  id: string;
+  title: string;
+  description: string;
+  thumbnail: string;
+  publishedAt: string;
+  duration: string;
+  viewCount: string;
+  videoUrl: string;
+}
+
+const YOUTUBE_CHANNEL_ID = 'UChBLU82WKDW8PRJSqeZf0ww';
+const YOUTUBE_API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY || '';
+
+const WatchListenPage = () => {
+  const [videos, setVideos] = useState<Video[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Format duration from ISO 8601 to human readable
+  const formatDuration = (duration: string): string => {
+    const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+    if (!match) return '0:00';
+    
+    const hours = match[1] ? parseInt(match[1]) : 0;
+    const minutes = match[2] ? parseInt(match[2]) : 0;
+    const seconds = match[3] ? parseInt(match[3]) : 0;
+    
+    if (hours > 0) {
+      return `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    } else {
+      return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
+  };
+
+  // Format view count
+  const formatViewCount = (count: string): string => {
+    const num = parseInt(count);
+    if (num >= 1000000) {
+      return `${(num / 1000000).toFixed(1)}M views`;
+    } else if (num >= 1000) {
+      return `${(num / 1000).toFixed(1)}K views`;
+    }
+    return `${num} views`;
+  };
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      if (!YOUTUBE_API_KEY) {
+        setError('YouTube API key is not configured');
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        // For demo purposes, we'll use mock data
+        // In production, replace this with actual YouTube API calls
+        const mockVideos: Video[] = [
+          {
+            id: '1',
+            title: 'Sunday Service - June 30, 2024',
+            description: 'Join us for our weekly Sunday service.',
+            thumbnail: 'https://via.placeholder.com/480x360',
+            publishedAt: 'Jun 30, 2024',
+            duration: '45:30',
+            viewCount: '1.2K views',
+            videoUrl: '#'
+          },
+          // Add more mock videos as needed
+        ];
+
+        setVideos(mockVideos);
+        setIsLoading(false);
+      } catch (err) {
+        console.error('Error fetching videos:', err);
+        setError('Failed to load videos. Please try again later.');
+        setIsLoading(false);
+      }
+    };
+
+    fetchVideos();
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Head>
+        <title>Watch &amp; Listen | Orchard Hills Bible Church</title>
+        <meta name="description" content="Watch and listen to sermons and teachings from Orchard Hills Bible Church" />
+      </Head>
+      
+      {/* YouTube Branding Banner */}
+      <div className="bg-red-600 text-white py-2 text-center text-sm">
+        <div className="container mx-auto px-4">
+          <p>Watch our latest sermons on <a href="https://www.youtube.com/@OrchardHillsBibleChurch" target="_blank" rel="noopener noreferrer" className="font-semibold hover:underline">YouTube <FiExternalLink className="inline ml-1" /></a></p>
+        </div>
+      </div>
+      
+      <main className="container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold text-center mb-8">Watch &amp; Listen</h1>
+        
+        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-2xl font-semibold mb-4">Latest Videos</h2>
+          {isLoading ? (
+            <div className="flex justify-center items-center py-12">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-600"></div>
+            </div>
+          ) : error ? (
+            <div className="bg-red-50 border-l-4 border-red-500 p-4">
+              <p className="text-red-700">{error}</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {videos.length > 0 ? (
+                videos.map((video) => (
+                  <div key={video.id} className="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    <a href={video.videoUrl} target="_blank" rel="noopener noreferrer">
+                      <div className="relative aspect-video bg-gray-100">
+                        <Image
+                          src={video.thumbnail}
+                          alt={video.title}
+                          fill
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 bg-black/30 transition-opacity">
+                          <div className="bg-white/90 p-3 rounded-full">
+                            <svg className="h-8 w-8 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div className="absolute bottom-2 right-2 bg-black/75 text-white text-xs px-1.5 py-0.5 rounded">
+                          {video.duration}
+                        </div>
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-medium line-clamp-2">{video.title}</h3>
+                        <div className="flex items-center text-sm text-gray-500 mt-2">
+                          <FiClock className="mr-1" />
+                          <span className="mr-4">{video.publishedAt}</span>
+                          <span>{video.viewCount}</span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                ))
+              ) : (
+                <div className="col-span-full text-center py-8">
+                  <p className="text-gray-500">No videos available at the moment.</p>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+        
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-2xl font-semibold mb-6">Audio &amp; Podcast</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="border rounded-lg p-6 flex items-start hover:shadow-md transition-shadow">
+              <div className="bg-red-100 p-3 rounded-full mr-4 flex-shrink-0">
+                <FiYoutube className="text-red-600 text-xl" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg mb-1">Audio Sermons</h3>
+                <p className="text-gray-600 mb-3">Listen to our latest messages and teachings from our Sunday services.</p>
+                <a 
+                  href="https://www.youtube.com/@OrchardHillsBibleChurch/playlists" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-red-600 hover:underline font-medium"
+                >
+                  Listen on YouTube <FiExternalLink className="ml-1" />
+                </a>
+              </div>
+            </div>
+            
+            <div className="border rounded-lg p-6 flex items-start hover:shadow-md transition-shadow">
+              <div className="bg-red-100 p-3 rounded-full mr-4 flex-shrink-0">
+                <FiYoutube className="text-red-600 text-xl" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg mb-1">Podcast</h3>
+                <p className="text-gray-600 mb-3">Subscribe to our podcast for the latest messages and teachings on the go.</p>
+                <a 
+                  href="https://www.youtube.com/@OrchardHillsBibleChurch/playlists" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-red-600 hover:underline font-medium"
+                >
+                  Subscribe on YouTube <FiExternalLink className="ml-1" />
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-8 bg-red-50 rounded-lg p-6 border border-red-100">
+            <div className="flex flex-col md:flex-row md:items-center">
+              <div className="flex-1 mb-4 md:mb-0">
+                <h3 className="font-semibold text-lg mb-1">Stay Connected</h3>
+                <p className="text-gray-600">Subscribe to our YouTube channel to get notified about new videos.</p>
+              </div>
+              <a 
+                href="https://www.youtube.com/@OrchardHillsBibleChurch?sub_confirmation=1" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 whitespace-nowrap"
+              >
+                <FiYoutube className="mr-2 h-5 w-5" />
+                Subscribe on YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default WatchListenPage;

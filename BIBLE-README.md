@@ -25,7 +25,6 @@ This application includes a Bible reader feature that allows users to read and s
 ## Available Translations
 
 - NASB 1995 (Default)
-- NKJV (New King James Version)
 - KJV (King James Version)
 - NIV (New International Version)
 - ESV (English Standard Version)

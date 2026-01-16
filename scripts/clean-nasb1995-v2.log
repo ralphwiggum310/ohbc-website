@@ -1,0 +1,2475 @@
+[2025-12-03T16:48:56.703Z] Starting NASB1995 text cleaning (v2)...
+[2025-12-03T16:48:56.709Z] Input file: C:\WindSurf\ohbc_website\scripts\NASB1995.txt
+[2025-12-03T16:48:56.709Z] Output file: C:\WindSurf\ohbc_website\scripts\NASB1995_cleaned_v2.txt
+[2025-12-03T16:48:56.715Z] Found book: GENESIS
+[2025-12-03T16:48:56.715Z]   Chapter 1
+[2025-12-03T16:48:56.722Z]   Chapter 2
+[2025-12-03T16:48:56.725Z]   Chapter 3
+[2025-12-03T16:48:56.726Z]   Chapter 4
+[2025-12-03T16:48:56.728Z]   Chapter 5
+[2025-12-03T16:48:56.729Z]   Chapter 6
+[2025-12-03T16:48:56.730Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:56.730Z]   Chapter 7
+[2025-12-03T16:48:56.731Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:56.731Z]   Chapter 8
+[2025-12-03T16:48:56.731Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:56.732Z]   Chapter 9
+[2025-12-03T16:48:56.732Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:56.733Z]   Chapter 10
+[2025-12-03T16:48:56.733Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:56.733Z]   Chapter 11
+[2025-12-03T16:48:56.734Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:56.734Z]   Chapter 12
+[2025-12-03T16:48:56.734Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:56.735Z]   Chapter 13
+[2025-12-03T16:48:56.735Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:56.735Z]   Chapter 14
+[2025-12-03T16:48:56.736Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:56.736Z]   Chapter 15
+[2025-12-03T16:48:56.736Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:56.737Z]   Chapter 16
+[2025-12-03T16:48:56.737Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:56.737Z]   Chapter 17
+[2025-12-03T16:48:56.737Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:56.738Z]   Chapter 18
+[2025-12-03T16:48:56.738Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:56.739Z]   Chapter 19
+[2025-12-03T16:48:56.739Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:56.740Z]   Chapter 20
+[2025-12-03T16:48:56.740Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:56.740Z]   Chapter 21
+[2025-12-03T16:48:56.740Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:56.741Z]   Chapter 22
+[2025-12-03T16:48:56.741Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:56.741Z]   Chapter 23
+[2025-12-03T16:48:56.741Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:56.742Z]   Chapter 24
+[2025-12-03T16:48:56.742Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:56.743Z]   Chapter 25
+[2025-12-03T16:48:56.743Z]   Chapter 25 (from verse)
+[2025-12-03T16:48:56.743Z]   Chapter 26
+[2025-12-03T16:48:56.744Z]   Chapter 26 (from verse)
+[2025-12-03T16:48:56.744Z]   Chapter 27
+[2025-12-03T16:48:56.744Z]   Chapter 27 (from verse)
+[2025-12-03T16:48:56.745Z]   Chapter 28
+[2025-12-03T16:48:56.745Z]   Chapter 28 (from verse)
+[2025-12-03T16:48:56.746Z]   Chapter 29
+[2025-12-03T16:48:56.746Z]   Chapter 29 (from verse)
+[2025-12-03T16:48:56.746Z]   Chapter 30
+[2025-12-03T16:48:56.746Z]   Chapter 30 (from verse)
+[2025-12-03T16:48:56.747Z]   Chapter 31
+[2025-12-03T16:48:56.747Z]   Chapter 31 (from verse)
+[2025-12-03T16:48:56.748Z]   Chapter 32
+[2025-12-03T16:48:56.748Z]   Chapter 32 (from verse)
+[2025-12-03T16:48:56.749Z]   Chapter 33
+[2025-12-03T16:48:56.749Z]   Chapter 33 (from verse)
+[2025-12-03T16:48:56.749Z]   Chapter 34
+[2025-12-03T16:48:56.749Z]   Chapter 34 (from verse)
+[2025-12-03T16:48:56.750Z]   Chapter 35
+[2025-12-03T16:48:56.750Z]   Chapter 35 (from verse)
+[2025-12-03T16:48:56.751Z]   Chapter 36
+[2025-12-03T16:48:56.751Z]   Chapter 36 (from verse)
+[2025-12-03T16:48:56.751Z]   Chapter 37
+[2025-12-03T16:48:56.752Z]   Chapter 37 (from verse)
+[2025-12-03T16:48:56.752Z]   Chapter 38
+[2025-12-03T16:48:56.752Z]   Chapter 38 (from verse)
+[2025-12-03T16:48:56.753Z]   Chapter 39
+[2025-12-03T16:48:56.753Z]   Chapter 39 (from verse)
+[2025-12-03T16:48:56.753Z]   Chapter 40
+[2025-12-03T16:48:56.754Z]   Chapter 40 (from verse)
+[2025-12-03T16:48:56.754Z]   Chapter 41
+[2025-12-03T16:48:56.754Z]   Chapter 41 (from verse)
+[2025-12-03T16:48:56.755Z]   Chapter 42
+[2025-12-03T16:48:56.755Z]   Chapter 42 (from verse)
+[2025-12-03T16:48:56.756Z]   Chapter 43
+[2025-12-03T16:48:56.756Z]   Chapter 43 (from verse)
+[2025-12-03T16:48:56.756Z]   Chapter 44
+[2025-12-03T16:48:56.757Z]   Chapter 44 (from verse)
+[2025-12-03T16:48:56.757Z]   Chapter 45
+[2025-12-03T16:48:56.757Z]   Chapter 45 (from verse)
+[2025-12-03T16:48:56.758Z]   Chapter 46
+[2025-12-03T16:48:56.758Z]   Chapter 46 (from verse)
+[2025-12-03T16:48:56.758Z]   Chapter 47
+[2025-12-03T16:48:56.759Z]   Chapter 47 (from verse)
+[2025-12-03T16:48:56.759Z]   Chapter 48
+[2025-12-03T16:48:56.759Z]   Chapter 48 (from verse)
+[2025-12-03T16:48:56.760Z]   Chapter 49
+[2025-12-03T16:48:56.760Z]   Chapter 49 (from verse)
+[2025-12-03T16:48:56.762Z]   Chapter 50
+[2025-12-03T16:48:56.762Z]   Chapter 50 (from verse)
+[2025-12-03T16:48:56.762Z] Found book: EXODUS
+[2025-12-03T16:48:56.762Z]   Chapter 1
+[2025-12-03T16:48:56.763Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:56.763Z]   Chapter 2
+[2025-12-03T16:48:56.763Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:56.764Z]   Chapter 3
+[2025-12-03T16:48:56.764Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:56.764Z]   Chapter 4
+[2025-12-03T16:48:56.764Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:56.765Z]   Chapter 5
+[2025-12-03T16:48:56.765Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:56.766Z]   Chapter 6
+[2025-12-03T16:48:56.766Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:56.766Z]   Chapter 7
+[2025-12-03T16:48:56.766Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:56.767Z]   Chapter 8
+[2025-12-03T16:48:56.767Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:56.767Z]   Chapter 9
+[2025-12-03T16:48:56.768Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:56.768Z]   Chapter 10
+[2025-12-03T16:48:56.768Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:56.769Z]   Chapter 11
+[2025-12-03T16:48:56.769Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:56.769Z]   Chapter 12
+[2025-12-03T16:48:56.769Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:56.770Z]   Chapter 13
+[2025-12-03T16:48:56.770Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:56.771Z]   Chapter 14
+[2025-12-03T16:48:56.771Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:56.772Z]   Chapter 15
+[2025-12-03T16:48:56.772Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:56.774Z]   Chapter 16
+[2025-12-03T16:48:56.774Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:56.775Z]   Chapter 17
+[2025-12-03T16:48:56.775Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:56.775Z]   Chapter 18
+[2025-12-03T16:48:56.775Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:56.776Z]   Chapter 19
+[2025-12-03T16:48:56.776Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:56.776Z]   Chapter 20
+[2025-12-03T16:48:56.776Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:56.777Z] Processing line 1000...
+[2025-12-03T16:48:56.777Z]   Chapter 21
+[2025-12-03T16:48:56.777Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:56.778Z]   Chapter 22
+[2025-12-03T16:48:56.778Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:56.779Z]   Chapter 23
+[2025-12-03T16:48:56.779Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:56.780Z]   Chapter 24
+[2025-12-03T16:48:56.780Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:56.781Z]   Chapter 25
+[2025-12-03T16:48:56.781Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:56.781Z]   Chapter 26
+[2025-12-03T16:48:56.781Z]   Chapter 25 (from verse)
+[2025-12-03T16:48:56.782Z]   Chapter 27
+[2025-12-03T16:48:56.782Z]   Chapter 26 (from verse)
+[2025-12-03T16:48:56.782Z]   Chapter 27
+[2025-12-03T16:48:56.783Z]   Chapter 27 (from verse)
+[2025-12-03T16:48:56.783Z]   Chapter 28
+[2025-12-03T16:48:56.783Z]   Chapter 28 (from verse)
+[2025-12-03T16:48:56.784Z]   Chapter 29
+[2025-12-03T16:48:56.784Z]   Chapter 29 (from verse)
+[2025-12-03T16:48:56.787Z]   Chapter 30
+[2025-12-03T16:48:56.788Z]   Chapter 30 (from verse)
+[2025-12-03T16:48:56.788Z]   Chapter 31
+[2025-12-03T16:48:56.788Z]   Chapter 31 (from verse)
+[2025-12-03T16:48:56.789Z]   Chapter 32
+[2025-12-03T16:48:56.789Z]   Chapter 32 (from verse)
+[2025-12-03T16:48:56.790Z]   Chapter 33
+[2025-12-03T16:48:56.790Z]   Chapter 33 (from verse)
+[2025-12-03T16:48:56.791Z]   Chapter 34
+[2025-12-03T16:48:56.791Z]   Chapter 34 (from verse)
+[2025-12-03T16:48:56.791Z]   Chapter 35
+[2025-12-03T16:48:56.792Z]   Chapter 35 (from verse)
+[2025-12-03T16:48:56.792Z]   Chapter 36
+[2025-12-03T16:48:56.792Z]   Chapter 36 (from verse)
+[2025-12-03T16:48:56.793Z]   Chapter 37
+[2025-12-03T16:48:56.793Z]   Chapter 37 (from verse)
+[2025-12-03T16:48:56.793Z]   Chapter 38
+[2025-12-03T16:48:56.793Z]   Chapter 38 (from verse)
+[2025-12-03T16:48:56.794Z]   Chapter 39
+[2025-12-03T16:48:56.794Z]   Chapter 39 (from verse)
+[2025-12-03T16:48:56.795Z]   Chapter 40
+[2025-12-03T16:48:56.795Z]   Chapter 40 (from verse)
+[2025-12-03T16:48:56.795Z] Found book: LEVITICUS
+[2025-12-03T16:48:56.795Z]   Chapter 1
+[2025-12-03T16:48:56.796Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:56.796Z]   Chapter 2
+[2025-12-03T16:48:56.796Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:56.796Z]   Chapter 3
+[2025-12-03T16:48:56.797Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:56.797Z]   Chapter 4
+[2025-12-03T16:48:56.797Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:56.797Z]   Chapter 5
+[2025-12-03T16:48:56.798Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:56.798Z]   Chapter 6
+[2025-12-03T16:48:56.798Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:56.798Z]   Chapter 7
+[2025-12-03T16:48:56.799Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:56.799Z]   Chapter 8
+[2025-12-03T16:48:56.799Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:56.800Z]   Chapter 9
+[2025-12-03T16:48:56.800Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:56.801Z]   Chapter 10
+[2025-12-03T16:48:56.801Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:56.801Z]   Chapter 11
+[2025-12-03T16:48:56.801Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:56.802Z]   Chapter 12
+[2025-12-03T16:48:56.802Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:56.802Z]   Chapter 13
+[2025-12-03T16:48:56.803Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:56.803Z]   Chapter 14
+[2025-12-03T16:48:56.804Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:56.804Z]   Chapter 15
+[2025-12-03T16:48:56.804Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:56.805Z]   Chapter 16
+[2025-12-03T16:48:56.805Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:56.806Z]   Chapter 17
+[2025-12-03T16:48:56.806Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:56.806Z]   Chapter 18
+[2025-12-03T16:48:56.806Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:56.807Z]   Chapter 19
+[2025-12-03T16:48:56.807Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:56.808Z]   Chapter 20
+[2025-12-03T16:48:56.808Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:56.809Z]   Chapter 21
+[2025-12-03T16:48:56.809Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:56.809Z]   Chapter 22
+[2025-12-03T16:48:56.810Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:56.810Z]   Chapter 23
+[2025-12-03T16:48:56.810Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:56.811Z]   Chapter 24
+[2025-12-03T16:48:56.811Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:56.812Z]   Chapter 25
+[2025-12-03T16:48:56.812Z]   Chapter 25 (from verse)
+[2025-12-03T16:48:56.812Z]   Chapter 26
+[2025-12-03T16:48:56.813Z]   Chapter 26 (from verse)
+[2025-12-03T16:48:56.813Z]   Chapter 27
+[2025-12-03T16:48:56.813Z]   Chapter 27 (from verse)
+[2025-12-03T16:48:56.814Z] Found book: NUMBERS
+[2025-12-03T16:48:56.814Z]   Chapter 1
+[2025-12-03T16:48:56.814Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:56.815Z]   Chapter 2
+[2025-12-03T16:48:56.815Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:56.816Z]   Chapter 3
+[2025-12-03T16:48:56.816Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:56.817Z]   Chapter 4
+[2025-12-03T16:48:56.817Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:56.818Z]   Chapter 5
+[2025-12-03T16:48:56.818Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:56.819Z]   Chapter 6
+[2025-12-03T16:48:56.819Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:56.820Z]   Chapter 7
+[2025-12-03T16:48:56.820Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:56.821Z]   Chapter 8
+[2025-12-03T16:48:56.821Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:56.822Z]   Chapter 9
+[2025-12-03T16:48:56.822Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:56.823Z]   Chapter 10
+[2025-12-03T16:48:56.823Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:56.823Z]   Chapter 11
+[2025-12-03T16:48:56.824Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:56.824Z]   Chapter 12
+[2025-12-03T16:48:56.824Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:56.825Z]   Chapter 13
+[2025-12-03T16:48:56.825Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:56.825Z]   Chapter 14
+[2025-12-03T16:48:56.825Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:56.826Z]   Chapter 15
+[2025-12-03T16:48:56.826Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:56.827Z]   Chapter 16
+[2025-12-03T16:48:56.827Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:56.828Z]   Chapter 17
+[2025-12-03T16:48:56.828Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:56.828Z]   Chapter 18
+[2025-12-03T16:48:56.828Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:56.829Z]   Chapter 19
+[2025-12-03T16:48:56.829Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:56.829Z]   Chapter 20
+[2025-12-03T16:48:56.829Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:56.830Z]   Chapter 21
+[2025-12-03T16:48:56.830Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:56.831Z]   Chapter 22
+[2025-12-03T16:48:56.831Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:56.832Z]   Chapter 23
+[2025-12-03T16:48:56.832Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:56.833Z]   Chapter 24
+[2025-12-03T16:48:56.833Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:56.835Z]   Chapter 25
+[2025-12-03T16:48:56.835Z]   Chapter 25 (from verse)
+[2025-12-03T16:48:56.835Z]   Chapter 26
+[2025-12-03T16:48:56.836Z]   Chapter 26 (from verse)
+[2025-12-03T16:48:56.837Z]   Chapter 27
+[2025-12-03T16:48:56.837Z]   Chapter 27 (from verse)
+[2025-12-03T16:48:56.837Z]   Chapter 28
+[2025-12-03T16:48:56.838Z]   Chapter 28 (from verse)
+[2025-12-03T16:48:56.838Z]   Chapter 29
+[2025-12-03T16:48:56.838Z]   Chapter 29 (from verse)
+[2025-12-03T16:48:56.838Z] Processing line 2000...
+[2025-12-03T16:48:56.839Z]   Chapter 30
+[2025-12-03T16:48:56.839Z]   Chapter 30 (from verse)
+[2025-12-03T16:48:56.840Z]   Chapter 31
+[2025-12-03T16:48:56.840Z]   Chapter 31 (from verse)
+[2025-12-03T16:48:56.841Z]   Chapter 32
+[2025-12-03T16:48:56.841Z]   Chapter 32 (from verse)
+[2025-12-03T16:48:56.841Z]   Chapter 33
+[2025-12-03T16:48:56.842Z]   Chapter 32 (from verse)
+[2025-12-03T16:48:56.842Z]   Chapter 34
+[2025-12-03T16:48:56.842Z]   Chapter 34 (from verse)
+[2025-12-03T16:48:56.843Z]   Chapter 35
+[2025-12-03T16:48:56.843Z]   Chapter 35 (from verse)
+[2025-12-03T16:48:56.843Z]   Chapter 36
+[2025-12-03T16:48:56.843Z]   Chapter 36 (from verse)
+[2025-12-03T16:48:56.844Z] Found book: DEUTERONOMY
+[2025-12-03T16:48:56.844Z]   Chapter 1
+[2025-12-03T16:48:56.844Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:56.845Z]   Chapter 2
+[2025-12-03T16:48:56.845Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:56.845Z]   Chapter 3
+[2025-12-03T16:48:56.845Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:56.846Z]   Chapter 4
+[2025-12-03T16:48:56.846Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:56.847Z]   Chapter 5
+[2025-12-03T16:48:56.847Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:56.848Z]   Chapter 6
+[2025-12-03T16:48:56.848Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:56.851Z]   Chapter 7
+[2025-12-03T16:48:56.851Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:56.852Z]   Chapter 8
+[2025-12-03T16:48:56.852Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:56.852Z]   Chapter 9
+[2025-12-03T16:48:56.852Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:56.853Z]   Chapter 10
+[2025-12-03T16:48:56.853Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:56.853Z]   Chapter 11
+[2025-12-03T16:48:56.853Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:56.854Z]   Chapter 12
+[2025-12-03T16:48:56.854Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:56.855Z]   Chapter 13
+[2025-12-03T16:48:56.855Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:56.855Z]   Chapter 14
+[2025-12-03T16:48:56.855Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:56.856Z]   Chapter 15
+[2025-12-03T16:48:56.856Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:56.856Z]   Chapter 16
+[2025-12-03T16:48:56.857Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:56.857Z]   Chapter 17
+[2025-12-03T16:48:56.857Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:56.858Z]   Chapter 18
+[2025-12-03T16:48:56.858Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:56.858Z]   Chapter 19
+[2025-12-03T16:48:56.859Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:56.859Z]   Chapter 20
+[2025-12-03T16:48:56.859Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:56.860Z]   Chapter 21
+[2025-12-03T16:48:56.860Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:56.860Z]   Chapter 22
+[2025-12-03T16:48:56.860Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:56.861Z]   Chapter 23
+[2025-12-03T16:48:56.862Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:56.862Z]   Chapter 24
+[2025-12-03T16:48:56.862Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:56.863Z]   Chapter 25
+[2025-12-03T16:48:56.863Z]   Chapter 25 (from verse)
+[2025-12-03T16:48:56.864Z]   Chapter 26
+[2025-12-03T16:48:56.864Z]   Chapter 26 (from verse)
+[2025-12-03T16:48:56.864Z]   Chapter 27
+[2025-12-03T16:48:56.864Z]   Chapter 27 (from verse)
+[2025-12-03T16:48:56.865Z]   Chapter 28
+[2025-12-03T16:48:56.866Z]   Chapter 28 (from verse)
+[2025-12-03T16:48:56.867Z]   Chapter 29
+[2025-12-03T16:48:56.867Z]   Chapter 29 (from verse)
+[2025-12-03T16:48:56.867Z]   Chapter 30
+[2025-12-03T16:48:56.868Z]   Chapter 30 (from verse)
+[2025-12-03T16:48:56.868Z]   Chapter 31
+[2025-12-03T16:48:56.868Z]   Chapter 31 (from verse)
+[2025-12-03T16:48:56.869Z]   Chapter 32
+[2025-12-03T16:48:56.869Z]   Chapter 32 (from verse)
+[2025-12-03T16:48:56.872Z]   Chapter 33
+[2025-12-03T16:48:56.872Z]   Chapter 33 (from verse)
+[2025-12-03T16:48:56.874Z]   Chapter 34
+[2025-12-03T16:48:56.874Z]   Chapter 34 (from verse)
+[2025-12-03T16:48:56.875Z] Found book: JOSHUA
+[2025-12-03T16:48:56.875Z]   Chapter 1
+[2025-12-03T16:48:56.875Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:56.875Z]   Chapter 2
+[2025-12-03T16:48:56.875Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:56.876Z]   Chapter 3
+[2025-12-03T16:48:56.876Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:56.876Z]   Chapter 4
+[2025-12-03T16:48:56.876Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:56.877Z]   Chapter 5
+[2025-12-03T16:48:56.877Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:56.877Z]   Chapter 6
+[2025-12-03T16:48:56.877Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:56.878Z]   Chapter 7
+[2025-12-03T16:48:56.878Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:56.878Z]   Chapter 8
+[2025-12-03T16:48:56.879Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:56.879Z]   Chapter 9
+[2025-12-03T16:48:56.879Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:56.880Z]   Chapter 10
+[2025-12-03T16:48:56.880Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:56.881Z]   Chapter 11
+[2025-12-03T16:48:56.881Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:56.881Z]   Chapter 12
+[2025-12-03T16:48:56.882Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:56.882Z]   Chapter 13
+[2025-12-03T16:48:56.882Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:56.882Z]   Chapter 14
+[2025-12-03T16:48:56.883Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:56.883Z]   Chapter 15
+[2025-12-03T16:48:56.883Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:56.884Z]   Chapter 16
+[2025-12-03T16:48:56.884Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:56.884Z]   Chapter 17
+[2025-12-03T16:48:56.885Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:56.885Z]   Chapter 18
+[2025-12-03T16:48:56.885Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:56.886Z]   Chapter 19
+[2025-12-03T16:48:56.886Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:56.886Z]   Chapter 20
+[2025-12-03T16:48:56.887Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:56.887Z]   Chapter 21
+[2025-12-03T16:48:56.887Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:56.888Z]   Chapter 22
+[2025-12-03T16:48:56.888Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:56.888Z]   Chapter 23
+[2025-12-03T16:48:56.889Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:56.889Z]   Chapter 24
+[2025-12-03T16:48:56.889Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:56.889Z] Found book: JUDGES
+[2025-12-03T16:48:56.889Z]   Chapter 1
+[2025-12-03T16:48:56.890Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:56.890Z]   Chapter 2
+[2025-12-03T16:48:56.890Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:56.891Z]   Chapter 3
+[2025-12-03T16:48:56.891Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:56.891Z]   Chapter 4
+[2025-12-03T16:48:56.891Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:56.892Z]   Chapter 5
+[2025-12-03T16:48:56.892Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:56.893Z] Processing line 3000...
+[2025-12-03T16:48:56.895Z]   Chapter 6
+[2025-12-03T16:48:56.895Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:56.895Z]   Chapter 7
+[2025-12-03T16:48:56.895Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:56.896Z]   Chapter 8
+[2025-12-03T16:48:56.896Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:56.897Z]   Chapter 9
+[2025-12-03T16:48:56.897Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:56.897Z]   Chapter 10
+[2025-12-03T16:48:56.898Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:56.898Z]   Chapter 11
+[2025-12-03T16:48:56.898Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:56.899Z]   Chapter 12
+[2025-12-03T16:48:56.899Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:56.899Z]   Chapter 13
+[2025-12-03T16:48:56.899Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:56.900Z]   Chapter 14
+[2025-12-03T16:48:56.900Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:56.900Z]   Chapter 15
+[2025-12-03T16:48:56.900Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:56.901Z]   Chapter 16
+[2025-12-03T16:48:56.901Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:56.902Z]   Chapter 17
+[2025-12-03T16:48:56.902Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:56.902Z]   Chapter 18
+[2025-12-03T16:48:56.902Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:56.903Z]   Chapter 19
+[2025-12-03T16:48:56.903Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:56.903Z]   Chapter 20
+[2025-12-03T16:48:56.903Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:56.904Z]   Chapter 21
+[2025-12-03T16:48:56.904Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:56.904Z] Found book: RUTH
+[2025-12-03T16:48:56.904Z]   Chapter 1
+[2025-12-03T16:48:56.905Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:56.905Z]   Chapter 2
+[2025-12-03T16:48:56.905Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:56.906Z]   Chapter 3
+[2025-12-03T16:48:56.906Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:56.907Z]   Chapter 4
+[2025-12-03T16:48:56.908Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:56.909Z] Found book: 1 SAMUEL
+[2025-12-03T16:48:56.909Z]   Chapter 1
+[2025-12-03T16:48:56.909Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:56.909Z]   Chapter 2
+[2025-12-03T16:48:56.910Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:56.911Z]   Chapter 3
+[2025-12-03T16:48:56.911Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:56.912Z]   Chapter 4
+[2025-12-03T16:48:56.912Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:56.913Z]   Chapter 5
+[2025-12-03T16:48:56.913Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:56.913Z]   Chapter 6
+[2025-12-03T16:48:56.913Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:56.914Z]   Chapter 7
+[2025-12-03T16:48:56.914Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:56.915Z]   Chapter 8
+[2025-12-03T16:48:56.915Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:56.915Z]   Chapter 9
+[2025-12-03T16:48:56.915Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:56.916Z]   Chapter 10
+[2025-12-03T16:48:56.916Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:56.917Z]   Chapter 11
+[2025-12-03T16:48:56.917Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:56.917Z]   Chapter 12
+[2025-12-03T16:48:56.917Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:56.918Z]   Chapter 13
+[2025-12-03T16:48:56.918Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:56.919Z]   Chapter 14
+[2025-12-03T16:48:56.919Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:56.920Z]   Chapter 15
+[2025-12-03T16:48:56.920Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:56.920Z]   Chapter 16
+[2025-12-03T16:48:56.920Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:56.921Z]   Chapter 17
+[2025-12-03T16:48:56.921Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:56.922Z]   Chapter 18
+[2025-12-03T16:48:56.922Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:56.923Z]   Chapter 19
+[2025-12-03T16:48:56.923Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:56.923Z]   Chapter 20
+[2025-12-03T16:48:56.923Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:56.924Z]   Chapter 21
+[2025-12-03T16:48:56.924Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:56.924Z]   Chapter 22
+[2025-12-03T16:48:56.924Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:56.925Z]   Chapter 23
+[2025-12-03T16:48:56.925Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:56.925Z]   Chapter 24
+[2025-12-03T16:48:56.926Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:56.926Z]   Chapter 25
+[2025-12-03T16:48:56.926Z]   Chapter 25 (from verse)
+[2025-12-03T16:48:56.927Z]   Chapter 26
+[2025-12-03T16:48:56.927Z]   Chapter 26 (from verse)
+[2025-12-03T16:48:56.928Z]   Chapter 27
+[2025-12-03T16:48:56.928Z]   Chapter 27 (from verse)
+[2025-12-03T16:48:56.928Z]   Chapter 28
+[2025-12-03T16:48:56.928Z]   Chapter 28 (from verse)
+[2025-12-03T16:48:56.929Z]   Chapter 29
+[2025-12-03T16:48:56.929Z]   Chapter 29 (from verse)
+[2025-12-03T16:48:56.929Z]   Chapter 30
+[2025-12-03T16:48:56.929Z]   Chapter 30 (from verse)
+[2025-12-03T16:48:56.930Z]   Chapter 31
+[2025-12-03T16:48:56.930Z]   Chapter 31 (from verse)
+[2025-12-03T16:48:56.930Z] Found book: 2 SAMUEL
+[2025-12-03T16:48:56.931Z]   Chapter 1
+[2025-12-03T16:48:56.931Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:56.932Z]   Chapter 2
+[2025-12-03T16:48:56.932Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:56.932Z]   Chapter 3
+[2025-12-03T16:48:56.933Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:56.933Z]   Chapter 4
+[2025-12-03T16:48:56.934Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:56.934Z]   Chapter 5
+[2025-12-03T16:48:56.934Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:56.934Z]   Chapter 6
+[2025-12-03T16:48:56.935Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:56.935Z]   Chapter 7
+[2025-12-03T16:48:56.935Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:56.936Z]   Chapter 8
+[2025-12-03T16:48:56.936Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:56.936Z]   Chapter 9
+[2025-12-03T16:48:56.936Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:56.936Z]   Chapter 10
+[2025-12-03T16:48:56.937Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:56.937Z]   Chapter 11
+[2025-12-03T16:48:56.937Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:56.937Z]   Chapter 12
+[2025-12-03T16:48:56.938Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:56.938Z]   Chapter 13
+[2025-12-03T16:48:56.939Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:56.939Z]   Chapter 14
+[2025-12-03T16:48:56.939Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:56.940Z]   Chapter 15
+[2025-12-03T16:48:56.940Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:56.941Z]   Chapter 16
+[2025-12-03T16:48:56.941Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:56.941Z]   Chapter 17
+[2025-12-03T16:48:56.942Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:56.942Z]   Chapter 18
+[2025-12-03T16:48:56.942Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:56.943Z]   Chapter 19
+[2025-12-03T16:48:56.943Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:56.944Z]   Chapter 20
+[2025-12-03T16:48:56.944Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:56.946Z]   Chapter 21
+[2025-12-03T16:48:56.946Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:56.947Z]   Chapter 22
+[2025-12-03T16:48:56.947Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:56.949Z] Processing line 4000...
+[2025-12-03T16:48:56.951Z]   Chapter 23
+[2025-12-03T16:48:56.951Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:56.952Z]   Chapter 24
+[2025-12-03T16:48:56.952Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:56.952Z] Found book: 1 KINGS
+[2025-12-03T16:48:56.952Z]   Chapter 1
+[2025-12-03T16:48:56.952Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:56.953Z]   Chapter 2
+[2025-12-03T16:48:56.953Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:56.954Z]   Chapter 3
+[2025-12-03T16:48:56.954Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:56.955Z]   Chapter 4
+[2025-12-03T16:48:56.955Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:56.955Z]   Chapter 5
+[2025-12-03T16:48:56.955Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:56.956Z]   Chapter 6
+[2025-12-03T16:48:56.956Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:56.957Z]   Chapter 7
+[2025-12-03T16:48:56.957Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:56.958Z]   Chapter 8
+[2025-12-03T16:48:56.958Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:56.959Z]   Chapter 9
+[2025-12-03T16:48:56.959Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:56.960Z]   Chapter 10
+[2025-12-03T16:48:56.960Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:56.960Z]   Chapter 11
+[2025-12-03T16:48:56.961Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:56.961Z]   Chapter 12
+[2025-12-03T16:48:56.961Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:56.962Z]   Chapter 13
+[2025-12-03T16:48:56.962Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:56.962Z]   Chapter 14
+[2025-12-03T16:48:56.962Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:56.963Z]   Chapter 15
+[2025-12-03T16:48:56.963Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:56.964Z]   Chapter 16
+[2025-12-03T16:48:56.964Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:56.965Z]   Chapter 17
+[2025-12-03T16:48:56.965Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:56.965Z]   Chapter 18
+[2025-12-03T16:48:56.965Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:56.966Z]   Chapter 19
+[2025-12-03T16:48:56.966Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:56.966Z]   Chapter 20
+[2025-12-03T16:48:56.966Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:56.967Z]   Chapter 21
+[2025-12-03T16:48:56.967Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:56.967Z]   Chapter 22
+[2025-12-03T16:48:56.968Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:56.968Z] Found book: 2 KINGS
+[2025-12-03T16:48:56.968Z]   Chapter 1
+[2025-12-03T16:48:56.969Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:56.969Z]   Chapter 2
+[2025-12-03T16:48:56.969Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:56.970Z]   Chapter 3
+[2025-12-03T16:48:56.970Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:56.970Z]   Chapter 4
+[2025-12-03T16:48:56.970Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:56.973Z]   Chapter 5
+[2025-12-03T16:48:56.973Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:56.974Z]   Chapter 6
+[2025-12-03T16:48:56.974Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:56.975Z]   Chapter 7
+[2025-12-03T16:48:56.975Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:56.975Z]   Chapter 8
+[2025-12-03T16:48:56.975Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:56.976Z]   Chapter 9
+[2025-12-03T16:48:56.976Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:56.977Z]   Chapter 10
+[2025-12-03T16:48:56.977Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:56.977Z]   Chapter 11
+[2025-12-03T16:48:56.978Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:56.978Z]   Chapter 12
+[2025-12-03T16:48:56.978Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:56.979Z]   Chapter 13
+[2025-12-03T16:48:56.979Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:56.979Z]   Chapter 14
+[2025-12-03T16:48:56.979Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:56.980Z]   Chapter 15
+[2025-12-03T16:48:56.980Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:56.981Z]   Chapter 16
+[2025-12-03T16:48:56.981Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:56.981Z]   Chapter 17
+[2025-12-03T16:48:56.981Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:56.982Z]   Chapter 18
+[2025-12-03T16:48:56.982Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:56.983Z]   Chapter 19
+[2025-12-03T16:48:56.983Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:56.984Z]   Chapter 20
+[2025-12-03T16:48:56.985Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:56.985Z]   Chapter 21
+[2025-12-03T16:48:56.985Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:56.985Z]   Chapter 22
+[2025-12-03T16:48:56.986Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:56.986Z]   Chapter 23
+[2025-12-03T16:48:56.986Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:56.987Z]   Chapter 24
+[2025-12-03T16:48:56.987Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:56.987Z]   Chapter 25
+[2025-12-03T16:48:56.988Z]   Chapter 25 (from verse)
+[2025-12-03T16:48:56.988Z] Found book: 1 CHRONICLES
+[2025-12-03T16:48:56.988Z]   Chapter 1
+[2025-12-03T16:48:56.988Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:56.989Z]   Chapter 2
+[2025-12-03T16:48:56.989Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:56.990Z]   Chapter 3
+[2025-12-03T16:48:56.990Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:56.990Z]   Chapter 4
+[2025-12-03T16:48:56.990Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:56.991Z]   Chapter 5
+[2025-12-03T16:48:56.991Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:56.991Z]   Chapter 6
+[2025-12-03T16:48:56.991Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:56.992Z]   Chapter 7
+[2025-12-03T16:48:56.992Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:56.993Z]   Chapter 8
+[2025-12-03T16:48:56.993Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:56.993Z]   Chapter 9
+[2025-12-03T16:48:56.993Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:56.993Z]   Chapter 10
+[2025-12-03T16:48:56.994Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:56.994Z]   Chapter 11
+[2025-12-03T16:48:56.994Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:56.995Z]   Chapter 12
+[2025-12-03T16:48:56.995Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:56.995Z]   Chapter 13
+[2025-12-03T16:48:56.995Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:56.996Z]   Chapter 14
+[2025-12-03T16:48:56.996Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:56.996Z]   Chapter 15
+[2025-12-03T16:48:56.996Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:56.997Z]   Chapter 16
+[2025-12-03T16:48:56.997Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:56.999Z]   Chapter 17
+[2025-12-03T16:48:56.999Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:56.999Z]   Chapter 18
+[2025-12-03T16:48:56.999Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:57.000Z]   Chapter 19
+[2025-12-03T16:48:57.000Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:57.000Z]   Chapter 20
+[2025-12-03T16:48:57.000Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:57.001Z] Processing line 5000...
+[2025-12-03T16:48:57.001Z]   Chapter 21
+[2025-12-03T16:48:57.001Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:57.001Z]   Chapter 22
+[2025-12-03T16:48:57.002Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:57.002Z]   Chapter 23
+[2025-12-03T16:48:57.002Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:57.002Z]   Chapter 24
+[2025-12-03T16:48:57.003Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:57.003Z]   Chapter 25
+[2025-12-03T16:48:57.003Z]   Chapter 25 (from verse)
+[2025-12-03T16:48:57.003Z]   Chapter 26
+[2025-12-03T16:48:57.003Z]   Chapter 26 (from verse)
+[2025-12-03T16:48:57.004Z]   Chapter 27
+[2025-12-03T16:48:57.004Z]   Chapter 27 (from verse)
+[2025-12-03T16:48:57.005Z]   Chapter 28
+[2025-12-03T16:48:57.005Z]   Chapter 28 (from verse)
+[2025-12-03T16:48:57.005Z]   Chapter 29
+[2025-12-03T16:48:57.005Z]   Chapter 29 (from verse)
+[2025-12-03T16:48:57.006Z] Found book: 2 CHRONICLES
+[2025-12-03T16:48:57.006Z]   Chapter 1
+[2025-12-03T16:48:57.006Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.006Z]   Chapter 2
+[2025-12-03T16:48:57.007Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.007Z]   Chapter 3
+[2025-12-03T16:48:57.007Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.007Z]   Chapter 4
+[2025-12-03T16:48:57.008Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.008Z]   Chapter 5
+[2025-12-03T16:48:57.008Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.008Z]   Chapter 6
+[2025-12-03T16:48:57.009Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.009Z]   Chapter 7
+[2025-12-03T16:48:57.009Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.010Z]   Chapter 8
+[2025-12-03T16:48:57.010Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.011Z]   Chapter 9
+[2025-12-03T16:48:57.011Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.011Z]   Chapter 10
+[2025-12-03T16:48:57.011Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.012Z]   Chapter 11
+[2025-12-03T16:48:57.012Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.012Z]   Chapter 12
+[2025-12-03T16:48:57.012Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.013Z]   Chapter 13
+[2025-12-03T16:48:57.013Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.013Z]   Chapter 14
+[2025-12-03T16:48:57.013Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:57.014Z]   Chapter 15
+[2025-12-03T16:48:57.014Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:57.014Z]   Chapter 16
+[2025-12-03T16:48:57.014Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:57.015Z]   Chapter 17
+[2025-12-03T16:48:57.015Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:57.015Z]   Chapter 18
+[2025-12-03T16:48:57.015Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:57.016Z]   Chapter 19
+[2025-12-03T16:48:57.016Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:57.016Z]   Chapter 20
+[2025-12-03T16:48:57.016Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:57.017Z]   Chapter 21
+[2025-12-03T16:48:57.017Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:57.017Z]   Chapter 22
+[2025-12-03T16:48:57.018Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:57.018Z]   Chapter 23
+[2025-12-03T16:48:57.018Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:57.019Z]   Chapter 24
+[2025-12-03T16:48:57.019Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:57.019Z]   Chapter 25
+[2025-12-03T16:48:57.019Z]   Chapter 25 (from verse)
+[2025-12-03T16:48:57.020Z]   Chapter 26
+[2025-12-03T16:48:57.020Z]   Chapter 26 (from verse)
+[2025-12-03T16:48:57.020Z]   Chapter 27
+[2025-12-03T16:48:57.020Z]   Chapter 27 (from verse)
+[2025-12-03T16:48:57.021Z]   Chapter 28
+[2025-12-03T16:48:57.021Z]   Chapter 28 (from verse)
+[2025-12-03T16:48:57.021Z]   Chapter 29
+[2025-12-03T16:48:57.021Z]   Chapter 29 (from verse)
+[2025-12-03T16:48:57.022Z]   Chapter 30
+[2025-12-03T16:48:57.022Z]   Chapter 30 (from verse)
+[2025-12-03T16:48:57.023Z]   Chapter 31
+[2025-12-03T16:48:57.023Z]   Chapter 31 (from verse)
+[2025-12-03T16:48:57.023Z]   Chapter 32
+[2025-12-03T16:48:57.023Z]   Chapter 32 (from verse)
+[2025-12-03T16:48:57.024Z]   Chapter 33
+[2025-12-03T16:48:57.024Z]   Chapter 33 (from verse)
+[2025-12-03T16:48:57.024Z]   Chapter 34
+[2025-12-03T16:48:57.024Z]   Chapter 34 (from verse)
+[2025-12-03T16:48:57.025Z]   Chapter 35
+[2025-12-03T16:48:57.025Z]   Chapter 35 (from verse)
+[2025-12-03T16:48:57.026Z]   Chapter 36
+[2025-12-03T16:48:57.026Z]   Chapter 36 (from verse)
+[2025-12-03T16:48:57.026Z] Found book: EZRA
+[2025-12-03T16:48:57.026Z]   Chapter 1
+[2025-12-03T16:48:57.026Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.027Z]   Chapter 2
+[2025-12-03T16:48:57.027Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.028Z]   Chapter 3
+[2025-12-03T16:48:57.028Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.028Z]   Chapter 4
+[2025-12-03T16:48:57.028Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.029Z]   Chapter 5
+[2025-12-03T16:48:57.029Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.029Z]   Chapter 6
+[2025-12-03T16:48:57.029Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.030Z]   Chapter 7
+[2025-12-03T16:48:57.030Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.030Z]   Chapter 8
+[2025-12-03T16:48:57.030Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.031Z]   Chapter 9
+[2025-12-03T16:48:57.031Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.032Z]   Chapter 10
+[2025-12-03T16:48:57.032Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.032Z] Found book: NEHEMIAH
+[2025-12-03T16:48:57.033Z]   Chapter 1
+[2025-12-03T16:48:57.033Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.033Z]   Chapter 2
+[2025-12-03T16:48:57.033Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.033Z]   Chapter 3
+[2025-12-03T16:48:57.034Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.034Z]   Chapter 4
+[2025-12-03T16:48:57.034Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.035Z]   Chapter 5
+[2025-12-03T16:48:57.035Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.035Z]   Chapter 6
+[2025-12-03T16:48:57.036Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.036Z]   Chapter 8
+[2025-12-03T16:48:57.036Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.037Z]   Chapter 9
+[2025-12-03T16:48:57.037Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.039Z]   Chapter 10
+[2025-12-03T16:48:57.039Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.040Z]   Chapter 11
+[2025-12-03T16:48:57.040Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.040Z]   Chapter 12
+[2025-12-03T16:48:57.041Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.041Z]   Chapter 13
+[2025-12-03T16:48:57.041Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.042Z] Found book: ESTHER
+[2025-12-03T16:48:57.042Z]   Chapter 1
+[2025-12-03T16:48:57.042Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.042Z]   Chapter 2
+[2025-12-03T16:48:57.043Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.043Z]   Chapter 3
+[2025-12-03T16:48:57.043Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.044Z]   Chapter 4
+[2025-12-03T16:48:57.044Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.044Z]   Chapter 5
+[2025-12-03T16:48:57.044Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.044Z]   Chapter 6
+[2025-12-03T16:48:57.045Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.045Z]   Chapter 7
+[2025-12-03T16:48:57.045Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.045Z]   Chapter 8
+[2025-12-03T16:48:57.045Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.046Z]   Chapter 9
+[2025-12-03T16:48:57.046Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.046Z]   Chapter 10
+[2025-12-03T16:48:57.047Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.047Z] Found book: JOB
+[2025-12-03T16:48:57.047Z]   Chapter 1
+[2025-12-03T16:48:57.047Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.047Z]   Chapter 2
+[2025-12-03T16:48:57.048Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.048Z]   Chapter 3
+[2025-12-03T16:48:57.048Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.049Z] Processing line 6000...
+[2025-12-03T16:48:57.050Z]   Chapter 4
+[2025-12-03T16:48:57.050Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.051Z]   Chapter 5
+[2025-12-03T16:48:57.051Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.053Z]   Chapter 6
+[2025-12-03T16:48:57.053Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.054Z]   Chapter 7
+[2025-12-03T16:48:57.054Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.056Z]   Chapter 8
+[2025-12-03T16:48:57.056Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.057Z]   Chapter 9
+[2025-12-03T16:48:57.057Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.059Z]   Chapter 10
+[2025-12-03T16:48:57.059Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.061Z]   Chapter 11
+[2025-12-03T16:48:57.061Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.062Z]   Chapter 12
+[2025-12-03T16:48:57.062Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.063Z]   Chapter 13
+[2025-12-03T16:48:57.063Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.065Z]   Chapter 14
+[2025-12-03T16:48:57.065Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:57.066Z]   Chapter 15
+[2025-12-03T16:48:57.066Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:57.069Z]   Chapter 16
+[2025-12-03T16:48:57.069Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:57.070Z]   Chapter 17
+[2025-12-03T16:48:57.071Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:57.072Z]   Chapter 18
+[2025-12-03T16:48:57.072Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:57.073Z]   Chapter 19
+[2025-12-03T16:48:57.073Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:57.075Z]   Chapter 20
+[2025-12-03T16:48:57.075Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:57.076Z] Processing line 7000...
+[2025-12-03T16:48:57.077Z]   Chapter 21
+[2025-12-03T16:48:57.077Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:57.079Z]   Chapter 22
+[2025-12-03T16:48:57.079Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:57.081Z]   Chapter 23
+[2025-12-03T16:48:57.081Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:57.082Z]   Chapter 24
+[2025-12-03T16:48:57.082Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:57.083Z]   Chapter 25
+[2025-12-03T16:48:57.083Z]   Chapter 25 (from verse)
+[2025-12-03T16:48:57.084Z]   Chapter 26
+[2025-12-03T16:48:57.084Z]   Chapter 26 (from verse)
+[2025-12-03T16:48:57.084Z]   Chapter 27
+[2025-12-03T16:48:57.085Z]   Chapter 27 (from verse)
+[2025-12-03T16:48:57.086Z]   Chapter 28
+[2025-12-03T16:48:57.086Z]   Chapter 28 (from verse)
+[2025-12-03T16:48:57.087Z]   Chapter 29
+[2025-12-03T16:48:57.087Z]   Chapter 29 (from verse)
+[2025-12-03T16:48:57.089Z]   Chapter 30
+[2025-12-03T16:48:57.089Z]   Chapter 30 (from verse)
+[2025-12-03T16:48:57.091Z]   Chapter 31
+[2025-12-03T16:48:57.091Z]   Chapter 31 (from verse)
+[2025-12-03T16:48:57.093Z]   Chapter 32
+[2025-12-03T16:48:57.093Z]   Chapter 32 (from verse)
+[2025-12-03T16:48:57.094Z]   Chapter 33
+[2025-12-03T16:48:57.094Z]   Chapter 33 (from verse)
+[2025-12-03T16:48:57.095Z]   Chapter 34
+[2025-12-03T16:48:57.095Z]   Chapter 34 (from verse)
+[2025-12-03T16:48:57.097Z]   Chapter 35
+[2025-12-03T16:48:57.097Z]   Chapter 35 (from verse)
+[2025-12-03T16:48:57.098Z]   Chapter 36
+[2025-12-03T16:48:57.098Z]   Chapter 36 (from verse)
+[2025-12-03T16:48:57.100Z]   Chapter 37
+[2025-12-03T16:48:57.100Z]   Chapter 37 (from verse)
+[2025-12-03T16:48:57.101Z] Processing line 8000...
+[2025-12-03T16:48:57.101Z]   Chapter 38
+[2025-12-03T16:48:57.101Z]   Chapter 38 (from verse)
+[2025-12-03T16:48:57.103Z]   Chapter 39
+[2025-12-03T16:48:57.103Z]   Chapter 39 (from verse)
+[2025-12-03T16:48:57.105Z]   Chapter 40
+[2025-12-03T16:48:57.105Z]   Chapter 40 (from verse)
+[2025-12-03T16:48:57.107Z]   Chapter 41
+[2025-12-03T16:48:57.107Z]   Chapter 41 (from verse)
+[2025-12-03T16:48:57.108Z]   Chapter 42
+[2025-12-03T16:48:57.109Z]   Chapter 42 (from verse)
+[2025-12-03T16:48:57.109Z] Found book: PSALMS
+[2025-12-03T16:48:57.109Z]   Chapter 1
+[2025-12-03T16:48:57.109Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.110Z]   Chapter 2
+[2025-12-03T16:48:57.110Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.111Z]   Chapter 3
+[2025-12-03T16:48:57.111Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.112Z]   Chapter 4
+[2025-12-03T16:48:57.112Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.113Z]   Chapter 5
+[2025-12-03T16:48:57.113Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.114Z]   Chapter 6
+[2025-12-03T16:48:57.114Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.114Z]   Chapter 7
+[2025-12-03T16:48:57.115Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.116Z]   Chapter 8
+[2025-12-03T16:48:57.116Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.116Z]   Chapter 9
+[2025-12-03T16:48:57.116Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.117Z]   Chapter 10
+[2025-12-03T16:48:57.118Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.118Z]   Chapter 11
+[2025-12-03T16:48:57.119Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.119Z]   Chapter 12
+[2025-12-03T16:48:57.119Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.120Z]   Chapter 13
+[2025-12-03T16:48:57.120Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.120Z]   Chapter 14
+[2025-12-03T16:48:57.120Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:57.121Z]   Chapter 15
+[2025-12-03T16:48:57.121Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:57.121Z]   Chapter 16
+[2025-12-03T16:48:57.121Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:57.122Z]   Chapter 17
+[2025-12-03T16:48:57.122Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:57.123Z]   Chapter 18
+[2025-12-03T16:48:57.123Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:57.125Z]   Chapter 19
+[2025-12-03T16:48:57.126Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:57.126Z]   Chapter 20
+[2025-12-03T16:48:57.126Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:57.127Z] Processing line 9000...
+[2025-12-03T16:48:57.127Z]   Chapter 21
+[2025-12-03T16:48:57.127Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:57.128Z]   Chapter 22
+[2025-12-03T16:48:57.128Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:57.130Z]   Chapter 23
+[2025-12-03T16:48:57.130Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:57.130Z]   Chapter 24
+[2025-12-03T16:48:57.130Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:57.131Z]   Chapter 25
+[2025-12-03T16:48:57.131Z]   Chapter 25 (from verse)
+[2025-12-03T16:48:57.132Z]   Chapter 26
+[2025-12-03T16:48:57.132Z]   Chapter 26 (from verse)
+[2025-12-03T16:48:57.133Z]   Chapter 27
+[2025-12-03T16:48:57.133Z]   Chapter 27 (from verse)
+[2025-12-03T16:48:57.134Z]   Chapter 28
+[2025-12-03T16:48:57.134Z]   Chapter 28 (from verse)
+[2025-12-03T16:48:57.135Z]   Chapter 29
+[2025-12-03T16:48:57.135Z]   Chapter 29 (from verse)
+[2025-12-03T16:48:57.135Z]   Chapter 30
+[2025-12-03T16:48:57.136Z]   Chapter 30 (from verse)
+[2025-12-03T16:48:57.136Z]   Chapter 31
+[2025-12-03T16:48:57.136Z]   Chapter 31 (from verse)
+[2025-12-03T16:48:57.137Z]   Chapter 32
+[2025-12-03T16:48:57.138Z]   Chapter 32 (from verse)
+[2025-12-03T16:48:57.138Z]   Chapter 33
+[2025-12-03T16:48:57.138Z]   Chapter 33 (from verse)
+[2025-12-03T16:48:57.140Z]   Chapter 34
+[2025-12-03T16:48:57.140Z]   Chapter 34 (from verse)
+[2025-12-03T16:48:57.141Z]   Chapter 35
+[2025-12-03T16:48:57.141Z]   Chapter 35 (from verse)
+[2025-12-03T16:48:57.142Z]   Chapter 36
+[2025-12-03T16:48:57.142Z]   Chapter 36 (from verse)
+[2025-12-03T16:48:57.143Z]   Chapter 37
+[2025-12-03T16:48:57.143Z]   Chapter 37 (from verse)
+[2025-12-03T16:48:57.146Z]   Chapter 38
+[2025-12-03T16:48:57.146Z]   Chapter 38 (from verse)
+[2025-12-03T16:48:57.147Z]   Chapter 39
+[2025-12-03T16:48:57.147Z]   Chapter 39 (from verse)
+[2025-12-03T16:48:57.148Z]   Chapter 40
+[2025-12-03T16:48:57.148Z]   Chapter 40 (from verse)
+[2025-12-03T16:48:57.149Z]   Chapter 41
+[2025-12-03T16:48:57.149Z]   Chapter 41 (from verse)
+[2025-12-03T16:48:57.150Z] Processing line 10000...
+[2025-12-03T16:48:57.150Z]   Chapter 42
+[2025-12-03T16:48:57.150Z]   Chapter 42 (from verse)
+[2025-12-03T16:48:57.151Z]   Chapter 43
+[2025-12-03T16:48:57.151Z]   Chapter 43 (from verse)
+[2025-12-03T16:48:57.151Z]   Chapter 44
+[2025-12-03T16:48:57.151Z]   Chapter 44 (from verse)
+[2025-12-03T16:48:57.153Z]   Chapter 45
+[2025-12-03T16:48:57.153Z]   Chapter 45 (from verse)
+[2025-12-03T16:48:57.154Z]   Chapter 46
+[2025-12-03T16:48:57.154Z]   Chapter 46 (from verse)
+[2025-12-03T16:48:57.154Z]   Chapter 47
+[2025-12-03T16:48:57.154Z]   Chapter 47 (from verse)
+[2025-12-03T16:48:57.155Z]   Chapter 48
+[2025-12-03T16:48:57.155Z]   Chapter 48 (from verse)
+[2025-12-03T16:48:57.156Z]   Chapter 49
+[2025-12-03T16:48:57.156Z]   Chapter 49 (from verse)
+[2025-12-03T16:48:57.157Z]   Chapter 50
+[2025-12-03T16:48:57.157Z]   Chapter 50 (from verse)
+[2025-12-03T16:48:57.159Z]   Chapter 51
+[2025-12-03T16:48:57.159Z]   Chapter 51 (from verse)
+[2025-12-03T16:48:57.160Z]   Chapter 52
+[2025-12-03T16:48:57.160Z]   Chapter 52 (from verse)
+[2025-12-03T16:48:57.160Z]   Chapter 53
+[2025-12-03T16:48:57.161Z]   Chapter 53 (from verse)
+[2025-12-03T16:48:57.161Z]   Chapter 54
+[2025-12-03T16:48:57.161Z]   Chapter 54 (from verse)
+[2025-12-03T16:48:57.162Z]   Chapter 55
+[2025-12-03T16:48:57.162Z]   Chapter 55 (from verse)
+[2025-12-03T16:48:57.163Z]   Chapter 56
+[2025-12-03T16:48:57.163Z]   Chapter 56 (from verse)
+[2025-12-03T16:48:57.164Z]   Chapter 57
+[2025-12-03T16:48:57.164Z]   Chapter 57 (from verse)
+[2025-12-03T16:48:57.164Z]   Chapter 58
+[2025-12-03T16:48:57.165Z]   Chapter 58 (from verse)
+[2025-12-03T16:48:57.165Z]   Chapter 59
+[2025-12-03T16:48:57.165Z]   Chapter 59 (from verse)
+[2025-12-03T16:48:57.166Z]   Chapter 60
+[2025-12-03T16:48:57.167Z]   Chapter 60 (from verse)
+[2025-12-03T16:48:57.167Z]   Chapter 61
+[2025-12-03T16:48:57.167Z]   Chapter 61 (from verse)
+[2025-12-03T16:48:57.168Z]   Chapter 62
+[2025-12-03T16:48:57.168Z]   Chapter 62 (from verse)
+[2025-12-03T16:48:57.169Z]   Chapter 63
+[2025-12-03T16:48:57.169Z]   Chapter 63 (from verse)
+[2025-12-03T16:48:57.170Z]   Chapter 64
+[2025-12-03T16:48:57.170Z]   Chapter 64 (from verse)
+[2025-12-03T16:48:57.170Z]   Chapter 65
+[2025-12-03T16:48:57.170Z]   Chapter 65 (from verse)
+[2025-12-03T16:48:57.171Z]   Chapter 66
+[2025-12-03T16:48:57.171Z]   Chapter 66 (from verse)
+[2025-12-03T16:48:57.172Z]   Chapter 67
+[2025-12-03T16:48:57.172Z]   Chapter 67 (from verse)
+[2025-12-03T16:48:57.173Z]   Chapter 68
+[2025-12-03T16:48:57.173Z]   Chapter 68 (from verse)
+[2025-12-03T16:48:57.173Z] Processing line 11000...
+[2025-12-03T16:48:57.175Z]   Chapter 69
+[2025-12-03T16:48:57.175Z]   Chapter 69 (from verse)
+[2025-12-03T16:48:57.177Z]   Chapter 70
+[2025-12-03T16:48:57.177Z]   Chapter 70 (from verse)
+[2025-12-03T16:48:57.177Z]   Chapter 71
+[2025-12-03T16:48:57.177Z]   Chapter 71 (from verse)
+[2025-12-03T16:48:57.178Z]   Chapter 72
+[2025-12-03T16:48:57.178Z]   Chapter 72 (from verse)
+[2025-12-03T16:48:57.179Z]   Chapter 73
+[2025-12-03T16:48:57.180Z]   Chapter 73 (from verse)
+[2025-12-03T16:48:57.181Z]   Chapter 74
+[2025-12-03T16:48:57.181Z]   Chapter 74 (from verse)
+[2025-12-03T16:48:57.182Z]   Chapter 75
+[2025-12-03T16:48:57.182Z]   Chapter 75 (from verse)
+[2025-12-03T16:48:57.183Z]   Chapter 76
+[2025-12-03T16:48:57.183Z]   Chapter 76 (from verse)
+[2025-12-03T16:48:57.184Z]   Chapter 77
+[2025-12-03T16:48:57.184Z]   Chapter 77 (from verse)
+[2025-12-03T16:48:57.185Z]   Chapter 78
+[2025-12-03T16:48:57.185Z]   Chapter 78 (from verse)
+[2025-12-03T16:48:57.188Z]   Chapter 79
+[2025-12-03T16:48:57.188Z]   Chapter 79 (from verse)
+[2025-12-03T16:48:57.189Z]   Chapter 80
+[2025-12-03T16:48:57.189Z]   Chapter 80 (from verse)
+[2025-12-03T16:48:57.191Z]   Chapter 81
+[2025-12-03T16:48:57.191Z]   Chapter 81 (from verse)
+[2025-12-03T16:48:57.191Z]   Chapter 82
+[2025-12-03T16:48:57.192Z]   Chapter 82 (from verse)
+[2025-12-03T16:48:57.192Z]   Chapter 83
+[2025-12-03T16:48:57.192Z]   Chapter 83 (from verse)
+[2025-12-03T16:48:57.194Z]   Chapter 84
+[2025-12-03T16:48:57.194Z]   Chapter 84 (from verse)
+[2025-12-03T16:48:57.195Z]   Chapter 85
+[2025-12-03T16:48:57.195Z]   Chapter 85 (from verse)
+[2025-12-03T16:48:57.196Z]   Chapter 86
+[2025-12-03T16:48:57.196Z]   Chapter 86 (from verse)
+[2025-12-03T16:48:57.197Z]   Chapter 87
+[2025-12-03T16:48:57.197Z]   Chapter 87 (from verse)
+[2025-12-03T16:48:57.197Z] Processing line 12000...
+[2025-12-03T16:48:57.197Z]   Chapter 88
+[2025-12-03T16:48:57.198Z]   Chapter 88 (from verse)
+[2025-12-03T16:48:57.199Z]   Chapter 89
+[2025-12-03T16:48:57.199Z]   Chapter 89 (from verse)
+[2025-12-03T16:48:57.201Z]   Chapter 90
+[2025-12-03T16:48:57.201Z]   Chapter 90 (from verse)
+[2025-12-03T16:48:57.202Z]   Chapter 91
+[2025-12-03T16:48:57.202Z]   Chapter 91 (from verse)
+[2025-12-03T16:48:57.203Z]   Chapter 92
+[2025-12-03T16:48:57.204Z]   Chapter 92 (from verse)
+[2025-12-03T16:48:57.204Z]   Chapter 93
+[2025-12-03T16:48:57.204Z]   Chapter 93 (from verse)
+[2025-12-03T16:48:57.205Z]   Chapter 94
+[2025-12-03T16:48:57.205Z]   Chapter 94 (from verse)
+[2025-12-03T16:48:57.206Z]   Chapter 95
+[2025-12-03T16:48:57.206Z]   Chapter 95 (from verse)
+[2025-12-03T16:48:57.207Z]   Chapter 96
+[2025-12-03T16:48:57.207Z]   Chapter 96 (from verse)
+[2025-12-03T16:48:57.208Z]   Chapter 97
+[2025-12-03T16:48:57.208Z]   Chapter 97 (from verse)
+[2025-12-03T16:48:57.209Z]   Chapter 98
+[2025-12-03T16:48:57.209Z]   Chapter 98 (from verse)
+[2025-12-03T16:48:57.210Z]   Chapter 99
+[2025-12-03T16:48:57.210Z]   Chapter 99 (from verse)
+[2025-12-03T16:48:57.210Z]   Chapter 100
+[2025-12-03T16:48:57.210Z]   Chapter 100 (from verse)
+[2025-12-03T16:48:57.211Z]   Chapter 101
+[2025-12-03T16:48:57.211Z]   Chapter 101 (from verse)
+[2025-12-03T16:48:57.212Z]   Chapter 102
+[2025-12-03T16:48:57.212Z]   Chapter 102 (from verse)
+[2025-12-03T16:48:57.213Z]   Chapter 103
+[2025-12-03T16:48:57.213Z]   Chapter 103 (from verse)
+[2025-12-03T16:48:57.214Z]   Chapter 104
+[2025-12-03T16:48:57.214Z]   Chapter 104 (from verse)
+[2025-12-03T16:48:57.216Z]   Chapter 105
+[2025-12-03T16:48:57.216Z]   Chapter 105 (from verse)
+[2025-12-03T16:48:57.218Z]   Chapter 106
+[2025-12-03T16:48:57.218Z]   Chapter 106 (from verse)
+[2025-12-03T16:48:57.220Z]   Chapter 107
+[2025-12-03T16:48:57.220Z]   Chapter 108 (from verse)
+[2025-12-03T16:48:57.220Z] Processing line 13000...
+[2025-12-03T16:48:57.221Z]   Chapter 108
+[2025-12-03T16:48:57.221Z]   Chapter 109 (from verse)
+[2025-12-03T16:48:57.222Z]   Chapter 109
+[2025-12-03T16:48:57.222Z]   Chapter 109 (from verse)
+[2025-12-03T16:48:57.224Z]   Chapter 110
+[2025-12-03T16:48:57.224Z]   Chapter 110 (from verse)
+[2025-12-03T16:48:57.225Z]   Chapter 111
+[2025-12-03T16:48:57.225Z]   Chapter 111 (from verse)
+[2025-12-03T16:48:57.225Z]   Chapter 112
+[2025-12-03T16:48:57.226Z]   Chapter 112 (from verse)
+[2025-12-03T16:48:57.226Z]   Chapter 113
+[2025-12-03T16:48:57.226Z]   Chapter 113 (from verse)
+[2025-12-03T16:48:57.227Z]   Chapter 114
+[2025-12-03T16:48:57.227Z]   Chapter 114 (from verse)
+[2025-12-03T16:48:57.229Z]   Chapter 115
+[2025-12-03T16:48:57.229Z]   Chapter 115 (from verse)
+[2025-12-03T16:48:57.230Z]   Chapter 116
+[2025-12-03T16:48:57.230Z]   Chapter 116 (from verse)
+[2025-12-03T16:48:57.231Z]   Chapter 117
+[2025-12-03T16:48:57.231Z]   Chapter 117 (from verse)
+[2025-12-03T16:48:57.231Z]   Chapter 118
+[2025-12-03T16:48:57.232Z]   Chapter 118 (from verse)
+[2025-12-03T16:48:57.233Z]   Chapter 119
+[2025-12-03T16:48:57.239Z]   Chapter 120
+[2025-12-03T16:48:57.240Z]   Chapter 120 (from verse)
+[2025-12-03T16:48:57.240Z]   Chapter 121
+[2025-12-03T16:48:57.240Z]   Chapter 121 (from verse)
+[2025-12-03T16:48:57.241Z]   Chapter 122
+[2025-12-03T16:48:57.241Z]   Chapter 122 (from verse)
+[2025-12-03T16:48:57.241Z]   Chapter 123
+[2025-12-03T16:48:57.241Z]   Chapter 123 (from verse)
+[2025-12-03T16:48:57.242Z]   Chapter 124
+[2025-12-03T16:48:57.242Z]   Chapter 124 (from verse)
+[2025-12-03T16:48:57.242Z]   Chapter 125
+[2025-12-03T16:48:57.242Z]   Chapter 125 (from verse)
+[2025-12-03T16:48:57.243Z]   Chapter 126
+[2025-12-03T16:48:57.243Z]   Chapter 126 (from verse)
+[2025-12-03T16:48:57.243Z]   Chapter 127
+[2025-12-03T16:48:57.243Z]   Chapter 127 (from verse)
+[2025-12-03T16:48:57.244Z]   Chapter 128
+[2025-12-03T16:48:57.244Z]   Chapter 128 (from verse)
+[2025-12-03T16:48:57.244Z]   Chapter 129
+[2025-12-03T16:48:57.244Z]   Chapter 129 (from verse)
+[2025-12-03T16:48:57.244Z] Processing line 14000...
+[2025-12-03T16:48:57.245Z]   Chapter 130
+[2025-12-03T16:48:57.245Z]   Chapter 130 (from verse)
+[2025-12-03T16:48:57.245Z]   Chapter 131
+[2025-12-03T16:48:57.245Z]   Chapter 131 (from verse)
+[2025-12-03T16:48:57.246Z]   Chapter 132
+[2025-12-03T16:48:57.246Z]   Chapter 132 (from verse)
+[2025-12-03T16:48:57.247Z]   Chapter 133
+[2025-12-03T16:48:57.247Z]   Chapter 133 (from verse)
+[2025-12-03T16:48:57.247Z]   Chapter 134
+[2025-12-03T16:48:57.247Z]   Chapter 134 (from verse)
+[2025-12-03T16:48:57.247Z]   Chapter 135
+[2025-12-03T16:48:57.247Z]   Chapter 135 (from verse)
+[2025-12-03T16:48:57.248Z]   Chapter 136
+[2025-12-03T16:48:57.249Z]   Chapter 136 (from verse)
+[2025-12-03T16:48:57.250Z]   Chapter 137
+[2025-12-03T16:48:57.250Z]   Chapter 137 (from verse)
+[2025-12-03T16:48:57.250Z]   Chapter 138
+[2025-12-03T16:48:57.250Z]   Chapter 138 (from verse)
+[2025-12-03T16:48:57.251Z]   Chapter 139
+[2025-12-03T16:48:57.251Z]   Chapter 139 (from verse)
+[2025-12-03T16:48:57.252Z]   Chapter 140
+[2025-12-03T16:48:57.252Z]   Chapter 140 (from verse)
+[2025-12-03T16:48:57.253Z]   Chapter 141
+[2025-12-03T16:48:57.253Z]   Chapter 141 (from verse)
+[2025-12-03T16:48:57.254Z]   Chapter 142
+[2025-12-03T16:48:57.254Z]   Chapter 142 (from verse)
+[2025-12-03T16:48:57.254Z]   Chapter 143
+[2025-12-03T16:48:57.254Z]   Chapter 143 (from verse)
+[2025-12-03T16:48:57.255Z]   Chapter 144
+[2025-12-03T16:48:57.256Z]   Chapter 144 (from verse)
+[2025-12-03T16:48:57.257Z]   Chapter 145
+[2025-12-03T16:48:57.257Z]   Chapter 145 (from verse)
+[2025-12-03T16:48:57.258Z]   Chapter 146
+[2025-12-03T16:48:57.258Z]   Chapter 146 (from verse)
+[2025-12-03T16:48:57.259Z]   Chapter 147
+[2025-12-03T16:48:57.259Z]   Chapter 147 (from verse)
+[2025-12-03T16:48:57.260Z]   Chapter 148
+[2025-12-03T16:48:57.260Z]   Chapter 148 (from verse)
+[2025-12-03T16:48:57.261Z]   Chapter 149
+[2025-12-03T16:48:57.261Z]   Chapter 149 (from verse)
+[2025-12-03T16:48:57.262Z]   Chapter 150
+[2025-12-03T16:48:57.262Z]   Chapter 150 (from verse)
+[2025-12-03T16:48:57.262Z] Found book: PSALMS
+[2025-12-03T16:48:57.262Z]   Chapter 1
+[2025-12-03T16:48:57.263Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.264Z]   Chapter 2
+[2025-12-03T16:48:57.264Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.266Z]   Chapter 3
+[2025-12-03T16:48:57.266Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.268Z]   Chapter 4
+[2025-12-03T16:48:57.268Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.269Z]   Chapter 5
+[2025-12-03T16:48:57.270Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.270Z] Processing line 15000...
+[2025-12-03T16:48:57.271Z]   Chapter 6
+[2025-12-03T16:48:57.271Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.273Z]   Chapter 7
+[2025-12-03T16:48:57.273Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.274Z]   Chapter 8
+[2025-12-03T16:48:57.275Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.276Z]   Chapter 9
+[2025-12-03T16:48:57.276Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.277Z]   Chapter 10
+[2025-12-03T16:48:57.277Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.279Z]   Chapter 11
+[2025-12-03T16:48:57.279Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.280Z]   Chapter 12
+[2025-12-03T16:48:57.280Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.282Z]   Chapter 13
+[2025-12-03T16:48:57.282Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.283Z]   Chapter 14
+[2025-12-03T16:48:57.283Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:57.285Z]   Chapter 15
+[2025-12-03T16:48:57.285Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:57.287Z]   Chapter 16
+[2025-12-03T16:48:57.287Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:57.288Z]   Chapter 17
+[2025-12-03T16:48:57.288Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:57.290Z]   Chapter 18
+[2025-12-03T16:48:57.290Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:57.291Z]   Chapter 19
+[2025-12-03T16:48:57.291Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:57.292Z]   Chapter 20
+[2025-12-03T16:48:57.292Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:57.294Z] Processing line 16000...
+[2025-12-03T16:48:57.294Z]   Chapter 21
+[2025-12-03T16:48:57.294Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:57.295Z]   Chapter 22
+[2025-12-03T16:48:57.296Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:57.297Z]   Chapter 23
+[2025-12-03T16:48:57.297Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:57.298Z]   Chapter 24
+[2025-12-03T16:48:57.298Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:57.300Z]   Chapter 25
+[2025-12-03T16:48:57.300Z]   Chapter 25 (from verse)
+[2025-12-03T16:48:57.301Z]   Chapter 26
+[2025-12-03T16:48:57.301Z]   Chapter 26 (from verse)
+[2025-12-03T16:48:57.303Z]   Chapter 27
+[2025-12-03T16:48:57.303Z]   Chapter 27 (from verse)
+[2025-12-03T16:48:57.304Z]   Chapter 28
+[2025-12-03T16:48:57.304Z]   Chapter 28 (from verse)
+[2025-12-03T16:48:57.305Z]   Chapter 29
+[2025-12-03T16:48:57.305Z]   Chapter 29 (from verse)
+[2025-12-03T16:48:57.307Z]   Chapter 30
+[2025-12-03T16:48:57.307Z]   Chapter 30 (from verse)
+[2025-12-03T16:48:57.309Z]   Chapter 31
+[2025-12-03T16:48:57.309Z]   Chapter 31 (from verse)
+[2025-12-03T16:48:57.310Z] Found book: ECCLESIASTES
+[2025-12-03T16:48:57.311Z]   Chapter 1
+[2025-12-03T16:48:57.311Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.311Z]   Chapter 2
+[2025-12-03T16:48:57.311Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.312Z]   Chapter 3
+[2025-12-03T16:48:57.312Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.312Z]   Chapter 4
+[2025-12-03T16:48:57.313Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.313Z]   Chapter 5
+[2025-12-03T16:48:57.313Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.313Z]   Chapter 6
+[2025-12-03T16:48:57.313Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.314Z]   Chapter 7
+[2025-12-03T16:48:57.314Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.315Z]   Chapter 8
+[2025-12-03T16:48:57.315Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.315Z]   Chapter 9
+[2025-12-03T16:48:57.315Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.315Z]   Chapter 10
+[2025-12-03T16:48:57.316Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.316Z]   Chapter 11
+[2025-12-03T16:48:57.316Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.316Z]   Chapter 12
+[2025-12-03T16:48:57.316Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.317Z] Found book: SONG OF SOLOMON
+[2025-12-03T16:48:57.317Z]   Chapter 1
+[2025-12-03T16:48:57.317Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.317Z] Processing line 17000...
+[2025-12-03T16:48:57.318Z]   Chapter 2
+[2025-12-03T16:48:57.318Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.319Z]   Chapter 3
+[2025-12-03T16:48:57.319Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.320Z]   Chapter 4
+[2025-12-03T16:48:57.320Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.321Z]   Chapter 5
+[2025-12-03T16:48:57.321Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.322Z]   Chapter 6
+[2025-12-03T16:48:57.322Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.323Z]   Chapter 7
+[2025-12-03T16:48:57.323Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.324Z]   Chapter 8
+[2025-12-03T16:48:57.324Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.325Z] Found book: ISAIAH
+[2025-12-03T16:48:57.325Z]   Chapter 1
+[2025-12-03T16:48:57.325Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.327Z]   Chapter 2
+[2025-12-03T16:48:57.327Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.328Z]   Chapter 3
+[2025-12-03T16:48:57.328Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.329Z]   Chapter 4
+[2025-12-03T16:48:57.329Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.330Z]   Chapter 5
+[2025-12-03T16:48:57.330Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.331Z]   Chapter 6
+[2025-12-03T16:48:57.331Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.332Z]   Chapter 7
+[2025-12-03T16:48:57.332Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.333Z]   Chapter 8
+[2025-12-03T16:48:57.333Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.334Z]   Chapter 9
+[2025-12-03T16:48:57.334Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.335Z]   Chapter 10
+[2025-12-03T16:48:57.335Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.336Z] Processing line 18000...
+[2025-12-03T16:48:57.336Z]   Chapter 11
+[2025-12-03T16:48:57.336Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.337Z]   Chapter 12
+[2025-12-03T16:48:57.337Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.338Z]   Chapter 13
+[2025-12-03T16:48:57.338Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.339Z]   Chapter 14
+[2025-12-03T16:48:57.339Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:57.341Z]   Chapter 15
+[2025-12-03T16:48:57.341Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:57.341Z]   Chapter 16
+[2025-12-03T16:48:57.341Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:57.342Z]   Chapter 17
+[2025-12-03T16:48:57.342Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:57.343Z]   Chapter 18
+[2025-12-03T16:48:57.343Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:57.344Z]   Chapter 19
+[2025-12-03T16:48:57.344Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:57.345Z]   Chapter 20
+[2025-12-03T16:48:57.345Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:57.345Z]   Chapter 21
+[2025-12-03T16:48:57.345Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:57.346Z]   Chapter 22
+[2025-12-03T16:48:57.346Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:57.347Z]   Chapter 23
+[2025-12-03T16:48:57.347Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:57.349Z]   Chapter 24
+[2025-12-03T16:48:57.349Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:57.350Z]   Chapter 25
+[2025-12-03T16:48:57.350Z]   Chapter 25 (from verse)
+[2025-12-03T16:48:57.351Z]   Chapter 26
+[2025-12-03T16:48:57.351Z]   Chapter 26 (from verse)
+[2025-12-03T16:48:57.352Z]   Chapter 27
+[2025-12-03T16:48:57.352Z]   Chapter 27 (from verse)
+[2025-12-03T16:48:57.353Z]   Chapter 28
+[2025-12-03T16:48:57.353Z]   Chapter 28 (from verse)
+[2025-12-03T16:48:57.355Z]   Chapter 29
+[2025-12-03T16:48:57.355Z]   Chapter 29 (from verse)
+[2025-12-03T16:48:57.355Z] Processing line 19000...
+[2025-12-03T16:48:57.356Z]   Chapter 30
+[2025-12-03T16:48:57.356Z]   Chapter 30 (from verse)
+[2025-12-03T16:48:57.358Z]   Chapter 31
+[2025-12-03T16:48:57.358Z]   Chapter 31 (from verse)
+[2025-12-03T16:48:57.359Z]   Chapter 32
+[2025-12-03T16:48:57.359Z]   Chapter 32 (from verse)
+[2025-12-03T16:48:57.360Z]   Chapter 33
+[2025-12-03T16:48:57.360Z]   Chapter 33 (from verse)
+[2025-12-03T16:48:57.361Z]   Chapter 34
+[2025-12-03T16:48:57.361Z]   Chapter 34 (from verse)
+[2025-12-03T16:48:57.362Z]   Chapter 35
+[2025-12-03T16:48:57.362Z]   Chapter 35 (from verse)
+[2025-12-03T16:48:57.363Z]   Chapter 36
+[2025-12-03T16:48:57.363Z]   Chapter 36 (from verse)
+[2025-12-03T16:48:57.363Z]   Chapter 37
+[2025-12-03T16:48:57.364Z]   Chapter 37 (from verse)
+[2025-12-03T16:48:57.364Z]   Chapter 38
+[2025-12-03T16:48:57.365Z]   Chapter 38 (from verse)
+[2025-12-03T16:48:57.365Z]   Chapter 39
+[2025-12-03T16:48:57.365Z]   Chapter 39 (from verse)
+[2025-12-03T16:48:57.366Z]   Chapter 40
+[2025-12-03T16:48:57.366Z]   Chapter 40 (from verse)
+[2025-12-03T16:48:57.368Z]   Chapter 41
+[2025-12-03T16:48:57.368Z]   Chapter 41 (from verse)
+[2025-12-03T16:48:57.369Z]   Chapter 42
+[2025-12-03T16:48:57.369Z]   Chapter 42 (from verse)
+[2025-12-03T16:48:57.371Z]   Chapter 43
+[2025-12-03T16:48:57.371Z]   Chapter 43 (from verse)
+[2025-12-03T16:48:57.372Z]   Chapter 44
+[2025-12-03T16:48:57.372Z]   Chapter 44 (from verse)
+[2025-12-03T16:48:57.373Z] Processing line 20000...
+[2025-12-03T16:48:57.373Z]   Chapter 45
+[2025-12-03T16:48:57.374Z]   Chapter 45 (from verse)
+[2025-12-03T16:48:57.375Z]   Chapter 46
+[2025-12-03T16:48:57.375Z]   Chapter 46 (from verse)
+[2025-12-03T16:48:57.376Z]   Chapter 47
+[2025-12-03T16:48:57.376Z]   Chapter 47 (from verse)
+[2025-12-03T16:48:57.377Z]   Chapter 48
+[2025-12-03T16:48:57.377Z]   Chapter 48 (from verse)
+[2025-12-03T16:48:57.378Z]   Chapter 49
+[2025-12-03T16:48:57.379Z]   Chapter 49 (from verse)
+[2025-12-03T16:48:57.380Z]   Chapter 50
+[2025-12-03T16:48:57.380Z]   Chapter 50 (from verse)
+[2025-12-03T16:48:57.381Z]   Chapter 51
+[2025-12-03T16:48:57.381Z]   Chapter 51 (from verse)
+[2025-12-03T16:48:57.382Z]   Chapter 52
+[2025-12-03T16:48:57.382Z]   Chapter 52 (from verse)
+[2025-12-03T16:48:57.383Z]   Chapter 53
+[2025-12-03T16:48:57.383Z]   Chapter 53 (from verse)
+[2025-12-03T16:48:57.384Z]   Chapter 54
+[2025-12-03T16:48:57.384Z]   Chapter 54 (from verse)
+[2025-12-03T16:48:57.385Z]   Chapter 55
+[2025-12-03T16:48:57.385Z]   Chapter 55 (from verse)
+[2025-12-03T16:48:57.385Z]   Chapter 56
+[2025-12-03T16:48:57.386Z]   Chapter 56 (from verse)
+[2025-12-03T16:48:57.386Z]   Chapter 57
+[2025-12-03T16:48:57.386Z]   Chapter 57 (from verse)
+[2025-12-03T16:48:57.387Z]   Chapter 58
+[2025-12-03T16:48:57.387Z]   Chapter 58 (from verse)
+[2025-12-03T16:48:57.388Z]   Chapter 59
+[2025-12-03T16:48:57.388Z]   Chapter 59 (from verse)
+[2025-12-03T16:48:57.389Z] Processing line 21000...
+[2025-12-03T16:48:57.390Z]   Chapter 60
+[2025-12-03T16:48:57.390Z]   Chapter 60 (from verse)
+[2025-12-03T16:48:57.391Z]   Chapter 61
+[2025-12-03T16:48:57.392Z]   Chapter 61 (from verse)
+[2025-12-03T16:48:57.392Z]   Chapter 62
+[2025-12-03T16:48:57.392Z]   Chapter 62 (from verse)
+[2025-12-03T16:48:57.393Z]   Chapter 63
+[2025-12-03T16:48:57.393Z]   Chapter 63 (from verse)
+[2025-12-03T16:48:57.395Z]   Chapter 64
+[2025-12-03T16:48:57.395Z]   Chapter 64 (from verse)
+[2025-12-03T16:48:57.396Z]   Chapter 65
+[2025-12-03T16:48:57.396Z]   Chapter 65 (from verse)
+[2025-12-03T16:48:57.397Z]   Chapter 66
+[2025-12-03T16:48:57.397Z]   Chapter 66 (from verse)
+[2025-12-03T16:48:57.398Z] Found book: JEREMIAH
+[2025-12-03T16:48:57.398Z]   Chapter 1
+[2025-12-03T16:48:57.398Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.399Z]   Chapter 2
+[2025-12-03T16:48:57.399Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.401Z]   Chapter 3
+[2025-12-03T16:48:57.402Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.403Z]   Chapter 4
+[2025-12-03T16:48:57.403Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.405Z]   Chapter 5
+[2025-12-03T16:48:57.405Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.407Z] Processing line 22000...
+[2025-12-03T16:48:57.407Z]   Chapter 6
+[2025-12-03T16:48:57.407Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.409Z]   Chapter 7
+[2025-12-03T16:48:57.409Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.409Z]   Chapter 8
+[2025-12-03T16:48:57.410Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.411Z]   Chapter 9
+[2025-12-03T16:48:57.411Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.412Z]   Chapter 10
+[2025-12-03T16:48:57.412Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.413Z]   Chapter 11
+[2025-12-03T16:48:57.413Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.414Z]   Chapter 12
+[2025-12-03T16:48:57.414Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.415Z]   Chapter 13
+[2025-12-03T16:48:57.415Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.416Z]   Chapter 14
+[2025-12-03T16:48:57.416Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:57.417Z]   Chapter 15
+[2025-12-03T16:48:57.417Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:57.418Z]   Chapter 16
+[2025-12-03T16:48:57.418Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:57.419Z]   Chapter 17
+[2025-12-03T16:48:57.419Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:57.422Z]   Chapter 18
+[2025-12-03T16:48:57.422Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:57.423Z]   Chapter 19
+[2025-12-03T16:48:57.423Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:57.423Z]   Chapter 20
+[2025-12-03T16:48:57.424Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:57.424Z]   Chapter 21
+[2025-12-03T16:48:57.425Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:57.425Z]   Chapter 22
+[2025-12-03T16:48:57.425Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:57.427Z] Processing line 23000...
+[2025-12-03T16:48:57.427Z]   Chapter 23
+[2025-12-03T16:48:57.427Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:57.428Z]   Chapter 24
+[2025-12-03T16:48:57.428Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:57.428Z]   Chapter 25
+[2025-12-03T16:48:57.429Z]   Chapter 25 (from verse)
+[2025-12-03T16:48:57.429Z]   Chapter 26
+[2025-12-03T16:48:57.430Z]   Chapter 26 (from verse)
+[2025-12-03T16:48:57.430Z]   Chapter 27
+[2025-12-03T16:48:57.430Z]   Chapter 27 (from verse)
+[2025-12-03T16:48:57.430Z]   Chapter 28
+[2025-12-03T16:48:57.431Z]   Chapter 28 (from verse)
+[2025-12-03T16:48:57.431Z]   Chapter 29
+[2025-12-03T16:48:57.431Z]   Chapter 29 (from verse)
+[2025-12-03T16:48:57.431Z]   Chapter 30
+[2025-12-03T16:48:57.431Z]   Chapter 30 (from verse)
+[2025-12-03T16:48:57.433Z]   Chapter 31
+[2025-12-03T16:48:57.433Z]   Chapter 31 (from verse)
+[2025-12-03T16:48:57.434Z]   Chapter 32
+[2025-12-03T16:48:57.435Z]   Chapter 32 (from verse)
+[2025-12-03T16:48:57.435Z]   Chapter 33
+[2025-12-03T16:48:57.435Z]   Chapter 33 (from verse)
+[2025-12-03T16:48:57.436Z]   Chapter 34
+[2025-12-03T16:48:57.436Z]   Chapter 34 (from verse)
+[2025-12-03T16:48:57.436Z]   Chapter 35
+[2025-12-03T16:48:57.437Z]   Chapter 35 (from verse)
+[2025-12-03T16:48:57.437Z]   Chapter 36
+[2025-12-03T16:48:57.437Z]   Chapter 36 (from verse)
+[2025-12-03T16:48:57.437Z]   Chapter 37
+[2025-12-03T16:48:57.438Z]   Chapter 37 (from verse)
+[2025-12-03T16:48:57.438Z]   Chapter 38
+[2025-12-03T16:48:57.438Z]   Chapter 38 (from verse)
+[2025-12-03T16:48:57.438Z]   Chapter 39
+[2025-12-03T16:48:57.439Z]   Chapter 39 (from verse)
+[2025-12-03T16:48:57.439Z]   Chapter 40
+[2025-12-03T16:48:57.439Z]   Chapter 40 (from verse)
+[2025-12-03T16:48:57.439Z]   Chapter 41
+[2025-12-03T16:48:57.440Z]   Chapter 41 (from verse)
+[2025-12-03T16:48:57.440Z]   Chapter 42
+[2025-12-03T16:48:57.440Z]   Chapter 42 (from verse)
+[2025-12-03T16:48:57.440Z]   Chapter 43
+[2025-12-03T16:48:57.441Z]   Chapter 43 (from verse)
+[2025-12-03T16:48:57.441Z]   Chapter 44
+[2025-12-03T16:48:57.441Z]   Chapter 44 (from verse)
+[2025-12-03T16:48:57.441Z]   Chapter 45
+[2025-12-03T16:48:57.441Z]   Chapter 45 (from verse)
+[2025-12-03T16:48:57.442Z]   Chapter 46
+[2025-12-03T16:48:57.442Z]   Chapter 46 (from verse)
+[2025-12-03T16:48:57.444Z]   Chapter 47
+[2025-12-03T16:48:57.444Z]   Chapter 47 (from verse)
+[2025-12-03T16:48:57.444Z]   Chapter 48
+[2025-12-03T16:48:57.444Z]   Chapter 48 (from verse)
+[2025-12-03T16:48:57.447Z]   Chapter 49
+[2025-12-03T16:48:57.447Z]   Chapter 49 (from verse)
+[2025-12-03T16:48:57.449Z]   Chapter 50
+[2025-12-03T16:48:57.449Z]   Chapter 50 (from verse)
+[2025-12-03T16:48:57.451Z] Processing line 24000...
+[2025-12-03T16:48:57.451Z]   Chapter 51
+[2025-12-03T16:48:57.452Z]   Chapter 51 (from verse)
+[2025-12-03T16:48:57.454Z]   Chapter 52
+[2025-12-03T16:48:57.455Z]   Chapter 52 (from verse)
+[2025-12-03T16:48:57.455Z] Found book: LAMENTATIONS
+[2025-12-03T16:48:57.455Z]   Chapter 1
+[2025-12-03T16:48:57.455Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.457Z]   Chapter 2
+[2025-12-03T16:48:57.457Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.459Z]   Chapter 3
+[2025-12-03T16:48:57.459Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.463Z]   Chapter 4
+[2025-12-03T16:48:57.463Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.465Z]   Chapter 5
+[2025-12-03T16:48:57.465Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.466Z] Found book: EZEKIEL
+[2025-12-03T16:48:57.466Z]   Chapter 1
+[2025-12-03T16:48:57.467Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.467Z]   Chapter 2
+[2025-12-03T16:48:57.467Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.467Z]   Chapter 3
+[2025-12-03T16:48:57.467Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.469Z]   Chapter 4
+[2025-12-03T16:48:57.469Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.470Z]   Chapter 5
+[2025-12-03T16:48:57.470Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.470Z]   Chapter 6
+[2025-12-03T16:48:57.470Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.470Z]   Chapter 7
+[2025-12-03T16:48:57.471Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.471Z]   Chapter 8
+[2025-12-03T16:48:57.471Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.471Z]   Chapter 9
+[2025-12-03T16:48:57.472Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.472Z]   Chapter 10
+[2025-12-03T16:48:57.472Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.472Z]   Chapter 11
+[2025-12-03T16:48:57.473Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.473Z]   Chapter 12
+[2025-12-03T16:48:57.473Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.474Z]   Chapter 13
+[2025-12-03T16:48:57.474Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.474Z]   Chapter 14
+[2025-12-03T16:48:57.474Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:57.475Z]   Chapter 15
+[2025-12-03T16:48:57.475Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:57.475Z]   Chapter 16
+[2025-12-03T16:48:57.475Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:57.476Z]   Chapter 17
+[2025-12-03T16:48:57.476Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:57.476Z]   Chapter 18
+[2025-12-03T16:48:57.476Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:57.477Z]   Chapter 19
+[2025-12-03T16:48:57.477Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:57.478Z] Processing line 25000...
+[2025-12-03T16:48:57.478Z]   Chapter 20
+[2025-12-03T16:48:57.478Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:57.479Z]   Chapter 21
+[2025-12-03T16:48:57.479Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:57.479Z]   Chapter 22
+[2025-12-03T16:48:57.480Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:57.480Z]   Chapter 23
+[2025-12-03T16:48:57.480Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:57.481Z]   Chapter 24
+[2025-12-03T16:48:57.481Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:57.482Z]   Chapter 25
+[2025-12-03T16:48:57.482Z]   Chapter 25 (from verse)
+[2025-12-03T16:48:57.482Z]   Chapter 26
+[2025-12-03T16:48:57.482Z]   Chapter 26 (from verse)
+[2025-12-03T16:48:57.483Z]   Chapter 27
+[2025-12-03T16:48:57.483Z]   Chapter 27 (from verse)
+[2025-12-03T16:48:57.484Z]   Chapter 28
+[2025-12-03T16:48:57.484Z]   Chapter 28 (from verse)
+[2025-12-03T16:48:57.485Z]   Chapter 29
+[2025-12-03T16:48:57.486Z]   Chapter 29 (from verse)
+[2025-12-03T16:48:57.486Z]   Chapter 30
+[2025-12-03T16:48:57.486Z]   Chapter 30 (from verse)
+[2025-12-03T16:48:57.487Z]   Chapter 31
+[2025-12-03T16:48:57.488Z]   Chapter 31 (from verse)
+[2025-12-03T16:48:57.488Z]   Chapter 32
+[2025-12-03T16:48:57.488Z]   Chapter 32 (from verse)
+[2025-12-03T16:48:57.491Z]   Chapter 33
+[2025-12-03T16:48:57.491Z]   Chapter 33 (from verse)
+[2025-12-03T16:48:57.492Z]   Chapter 34
+[2025-12-03T16:48:57.492Z]   Chapter 34 (from verse)
+[2025-12-03T16:48:57.492Z]   Chapter 35
+[2025-12-03T16:48:57.492Z]   Chapter 35 (from verse)
+[2025-12-03T16:48:57.493Z]   Chapter 36
+[2025-12-03T16:48:57.493Z]   Chapter 36 (from verse)
+[2025-12-03T16:48:57.493Z]   Chapter 37
+[2025-12-03T16:48:57.493Z]   Chapter 37 (from verse)
+[2025-12-03T16:48:57.494Z]   Chapter 38
+[2025-12-03T16:48:57.494Z]   Chapter 38 (from verse)
+[2025-12-03T16:48:57.494Z]   Chapter 39
+[2025-12-03T16:48:57.494Z]   Chapter 39 (from verse)
+[2025-12-03T16:48:57.495Z]   Chapter 40
+[2025-12-03T16:48:57.495Z]   Chapter 40 (from verse)
+[2025-12-03T16:48:57.495Z]   Chapter 41
+[2025-12-03T16:48:57.496Z]   Chapter 41 (from verse)
+[2025-12-03T16:48:57.496Z]   Chapter 42
+[2025-12-03T16:48:57.496Z]   Chapter 42 (from verse)
+[2025-12-03T16:48:57.496Z]   Chapter 43
+[2025-12-03T16:48:57.497Z]   Chapter 43 (from verse)
+[2025-12-03T16:48:57.497Z]   Chapter 44
+[2025-12-03T16:48:57.497Z]   Chapter 44 (from verse)
+[2025-12-03T16:48:57.498Z]   Chapter 45
+[2025-12-03T16:48:57.498Z]   Chapter 45 (from verse)
+[2025-12-03T16:48:57.498Z]   Chapter 46
+[2025-12-03T16:48:57.498Z]   Chapter 46 (from verse)
+[2025-12-03T16:48:57.499Z]   Chapter 47
+[2025-12-03T16:48:57.499Z]   Chapter 47 (from verse)
+[2025-12-03T16:48:57.499Z]   Chapter 48
+[2025-12-03T16:48:57.499Z]   Chapter 48 (from verse)
+[2025-12-03T16:48:57.500Z] Found book: DANIEL
+[2025-12-03T16:48:57.500Z]   Chapter 1
+[2025-12-03T16:48:57.500Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.500Z]   Chapter 2
+[2025-12-03T16:48:57.501Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.501Z]   Chapter 3
+[2025-12-03T16:48:57.502Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.502Z]   Chapter 4
+[2025-12-03T16:48:57.502Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.503Z]   Chapter 5
+[2025-12-03T16:48:57.503Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.504Z]   Chapter 6
+[2025-12-03T16:48:57.504Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.505Z]   Chapter 7
+[2025-12-03T16:48:57.505Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.505Z]   Chapter 8
+[2025-12-03T16:48:57.506Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.507Z]   Chapter 9
+[2025-12-03T16:48:57.507Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.508Z]   Chapter 10
+[2025-12-03T16:48:57.508Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.508Z]   Chapter 11
+[2025-12-03T16:48:57.508Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.509Z]   Chapter 12
+[2025-12-03T16:48:57.509Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.510Z] Found book: HOSEA
+[2025-12-03T16:48:57.510Z]   Chapter 1
+[2025-12-03T16:48:57.510Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.510Z]   Chapter 2
+[2025-12-03T16:48:57.510Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.511Z] Processing line 26000...
+[2025-12-03T16:48:57.512Z]   Chapter 3
+[2025-12-03T16:48:57.512Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.512Z]   Chapter 4
+[2025-12-03T16:48:57.512Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.513Z]   Chapter 5
+[2025-12-03T16:48:57.513Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.514Z]   Chapter 6
+[2025-12-03T16:48:57.514Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.515Z]   Chapter 7
+[2025-12-03T16:48:57.515Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.516Z]   Chapter 8
+[2025-12-03T16:48:57.516Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.517Z]   Chapter 9
+[2025-12-03T16:48:57.517Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.518Z]   Chapter 10
+[2025-12-03T16:48:57.518Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.519Z]   Chapter 11
+[2025-12-03T16:48:57.519Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.520Z]   Chapter 12
+[2025-12-03T16:48:57.520Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.521Z]   Chapter 13
+[2025-12-03T16:48:57.521Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.522Z]   Chapter 14
+[2025-12-03T16:48:57.522Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:57.523Z] Found book: JOEL
+[2025-12-03T16:48:57.523Z]   Chapter 1
+[2025-12-03T16:48:57.523Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.525Z]   Chapter 2
+[2025-12-03T16:48:57.525Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.527Z]   Chapter 3
+[2025-12-03T16:48:57.527Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.528Z] Found book: AMOS
+[2025-12-03T16:48:57.528Z]   Chapter 1
+[2025-12-03T16:48:57.528Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.529Z]   Chapter 2
+[2025-12-03T16:48:57.530Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.530Z] Processing line 27000...
+[2025-12-03T16:48:57.531Z]   Chapter 3
+[2025-12-03T16:48:57.531Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.532Z]   Chapter 4
+[2025-12-03T16:48:57.532Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.532Z]   Chapter 5
+[2025-12-03T16:48:57.533Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.534Z]   Chapter 6
+[2025-12-03T16:48:57.534Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.535Z]   Chapter 7
+[2025-12-03T16:48:57.535Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.535Z]   Chapter 8
+[2025-12-03T16:48:57.536Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.536Z]   Chapter 9
+[2025-12-03T16:48:57.536Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.539Z] Found book: OBADIAH
+[2025-12-03T16:48:57.539Z]   Chapter 1
+[2025-12-03T16:48:57.539Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.541Z] Found book: JONAH
+[2025-12-03T16:48:57.541Z]   Chapter 1
+[2025-12-03T16:48:57.541Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.541Z]   Chapter 2
+[2025-12-03T16:48:57.541Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.542Z]   Chapter 3
+[2025-12-03T16:48:57.542Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.542Z]   Chapter 4
+[2025-12-03T16:48:57.542Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.543Z] Found book: MICAH
+[2025-12-03T16:48:57.543Z]   Chapter 1
+[2025-12-03T16:48:57.543Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.544Z]   Chapter 2
+[2025-12-03T16:48:57.544Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.544Z]   Chapter 3
+[2025-12-03T16:48:57.545Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.545Z]   Chapter 4
+[2025-12-03T16:48:57.545Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.546Z]   Chapter 5
+[2025-12-03T16:48:57.546Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.547Z]   Chapter 6
+[2025-12-03T16:48:57.547Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.548Z]   Chapter 7
+[2025-12-03T16:48:57.548Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.550Z] Processing line 28000...
+[2025-12-03T16:48:57.550Z] Found book: NAHUM
+[2025-12-03T16:48:57.550Z]   Chapter 1
+[2025-12-03T16:48:57.550Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.551Z]   Chapter 2
+[2025-12-03T16:48:57.551Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.552Z]   Chapter 3
+[2025-12-03T16:48:57.552Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.553Z] Found book: HABAKKUK
+[2025-12-03T16:48:57.553Z]   Chapter 1
+[2025-12-03T16:48:57.553Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.554Z]   Chapter 2
+[2025-12-03T16:48:57.554Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.555Z]   Chapter 3
+[2025-12-03T16:48:57.556Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.557Z] Found book: ZEPHANIAH
+[2025-12-03T16:48:57.557Z]   Chapter 1
+[2025-12-03T16:48:57.557Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.558Z]   Chapter 2
+[2025-12-03T16:48:57.558Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.559Z]   Chapter 3
+[2025-12-03T16:48:57.559Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.561Z] Found book: HAGGAI
+[2025-12-03T16:48:57.561Z]   Chapter 1
+[2025-12-03T16:48:57.561Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.561Z]   Chapter 2
+[2025-12-03T16:48:57.561Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.562Z] Found book: ZECHARIAH
+[2025-12-03T16:48:57.562Z]   Chapter 1
+[2025-12-03T16:48:57.562Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.562Z]   Chapter 2
+[2025-12-03T16:48:57.562Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.562Z]   Chapter 3
+[2025-12-03T16:48:57.563Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.564Z]   Chapter 4
+[2025-12-03T16:48:57.564Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.564Z]   Chapter 5
+[2025-12-03T16:48:57.564Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.565Z]   Chapter 6
+[2025-12-03T16:48:57.565Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.565Z]   Chapter 7
+[2025-12-03T16:48:57.565Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.565Z]   Chapter 8
+[2025-12-03T16:48:57.565Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.566Z]   Chapter 9
+[2025-12-03T16:48:57.566Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.567Z]   Chapter 10
+[2025-12-03T16:48:57.567Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.568Z]   Chapter 11
+[2025-12-03T16:48:57.568Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.569Z]   Chapter 12
+[2025-12-03T16:48:57.569Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.569Z]   Chapter 13
+[2025-12-03T16:48:57.569Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.570Z]   Chapter 14
+[2025-12-03T16:48:57.570Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:57.570Z] Found book: MALACHI
+[2025-12-03T16:48:57.570Z]   Chapter 1
+[2025-12-03T16:48:57.571Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.571Z]   Chapter 2
+[2025-12-03T16:48:57.571Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.571Z]   Chapter 3
+[2025-12-03T16:48:57.572Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.572Z]   Chapter 4
+[2025-12-03T16:48:57.572Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.572Z] Found book: MATTHEW
+[2025-12-03T16:48:57.572Z]   Chapter 1
+[2025-12-03T16:48:57.573Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.573Z]   Chapter 2
+[2025-12-03T16:48:57.573Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.574Z]   Chapter 3
+[2025-12-03T16:48:57.574Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.574Z]   Chapter 4
+[2025-12-03T16:48:57.574Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.575Z] Processing line 29000...
+[2025-12-03T16:48:57.575Z]   Chapter 5
+[2025-12-03T16:48:57.575Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.576Z]   Chapter 6
+[2025-12-03T16:48:57.576Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.577Z]   Chapter 7
+[2025-12-03T16:48:57.577Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.578Z]   Chapter 8
+[2025-12-03T16:48:57.578Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.578Z]   Chapter 9
+[2025-12-03T16:48:57.578Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.579Z]   Chapter 10
+[2025-12-03T16:48:57.579Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.580Z]   Chapter 11
+[2025-12-03T16:48:57.580Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.580Z]   Chapter 12
+[2025-12-03T16:48:57.580Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.581Z]   Chapter 13
+[2025-12-03T16:48:57.582Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.582Z]   Chapter 14
+[2025-12-03T16:48:57.582Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:57.583Z]   Chapter 15
+[2025-12-03T16:48:57.583Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:57.584Z]   Chapter 16
+[2025-12-03T16:48:57.584Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:57.584Z]   Chapter 17
+[2025-12-03T16:48:57.584Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:57.585Z]   Chapter 18
+[2025-12-03T16:48:57.585Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:57.586Z]   Chapter 19
+[2025-12-03T16:48:57.586Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:57.586Z]   Chapter 20
+[2025-12-03T16:48:57.586Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:57.587Z]   Chapter 21
+[2025-12-03T16:48:57.587Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:57.587Z]   Chapter 22
+[2025-12-03T16:48:57.588Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:57.588Z]   Chapter 23
+[2025-12-03T16:48:57.588Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:57.589Z]   Chapter 24
+[2025-12-03T16:48:57.589Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:57.590Z]   Chapter 25
+[2025-12-03T16:48:57.590Z]   Chapter 25 (from verse)
+[2025-12-03T16:48:57.591Z]   Chapter 26
+[2025-12-03T16:48:57.591Z]   Chapter 26 (from verse)
+[2025-12-03T16:48:57.592Z]   Chapter 27
+[2025-12-03T16:48:57.592Z]   Chapter 27 (from verse)
+[2025-12-03T16:48:57.593Z]   Chapter 28
+[2025-12-03T16:48:57.593Z]   Chapter 28 (from verse)
+[2025-12-03T16:48:57.593Z] Found book: MARK
+[2025-12-03T16:48:57.593Z]   Chapter 1
+[2025-12-03T16:48:57.594Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.594Z]   Chapter 2
+[2025-12-03T16:48:57.594Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.595Z]   Chapter 3
+[2025-12-03T16:48:57.595Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.595Z]   Chapter 4
+[2025-12-03T16:48:57.596Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.596Z]   Chapter 5
+[2025-12-03T16:48:57.596Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.597Z]   Chapter 6
+[2025-12-03T16:48:57.597Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.597Z]   Chapter 7
+[2025-12-03T16:48:57.597Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.598Z]   Chapter 8
+[2025-12-03T16:48:57.598Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.598Z]   Chapter 9
+[2025-12-03T16:48:57.599Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.599Z]   Chapter 10
+[2025-12-03T16:48:57.599Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.600Z]   Chapter 11
+[2025-12-03T16:48:57.600Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.601Z]   Chapter 12
+[2025-12-03T16:48:57.601Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.602Z]   Chapter 13
+[2025-12-03T16:48:57.602Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.602Z]   Chapter 14
+[2025-12-03T16:48:57.603Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:57.604Z]   Chapter 15
+[2025-12-03T16:48:57.604Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:57.604Z]   Chapter 16
+[2025-12-03T16:48:57.604Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:57.605Z] Found book: LUKE
+[2025-12-03T16:48:57.605Z]   Chapter 1
+[2025-12-03T16:48:57.605Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.609Z]   Chapter 2
+[2025-12-03T16:48:57.609Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.610Z]   Chapter 3
+[2025-12-03T16:48:57.610Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.610Z]   Chapter 4
+[2025-12-03T16:48:57.610Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.611Z]   Chapter 5
+[2025-12-03T16:48:57.611Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.612Z]   Chapter 6
+[2025-12-03T16:48:57.612Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.613Z]   Chapter 7
+[2025-12-03T16:48:57.613Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.613Z]   Chapter 8
+[2025-12-03T16:48:57.614Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.614Z]   Chapter 9
+[2025-12-03T16:48:57.615Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.615Z]   Chapter 10
+[2025-12-03T16:48:57.615Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.616Z]   Chapter 11
+[2025-12-03T16:48:57.616Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.617Z]   Chapter 12
+[2025-12-03T16:48:57.617Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.618Z]   Chapter 13
+[2025-12-03T16:48:57.618Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.618Z] Processing line 30000...
+[2025-12-03T16:48:57.618Z]   Chapter 14
+[2025-12-03T16:48:57.619Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:57.619Z]   Chapter 15
+[2025-12-03T16:48:57.619Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:57.620Z]   Chapter 16
+[2025-12-03T16:48:57.620Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:57.620Z]   Chapter 17
+[2025-12-03T16:48:57.620Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:57.621Z]   Chapter 18
+[2025-12-03T16:48:57.621Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:57.621Z]   Chapter 19
+[2025-12-03T16:48:57.622Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:57.622Z]   Chapter 20
+[2025-12-03T16:48:57.622Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:57.623Z]   Chapter 21
+[2025-12-03T16:48:57.623Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:57.624Z]   Chapter 22
+[2025-12-03T16:48:57.624Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:57.625Z]   Chapter 23
+[2025-12-03T16:48:57.625Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:57.626Z]   Chapter 24
+[2025-12-03T16:48:57.626Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:57.626Z] Found book: JOHN
+[2025-12-03T16:48:57.626Z]   Chapter 1
+[2025-12-03T16:48:57.626Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.627Z]   Chapter 2
+[2025-12-03T16:48:57.627Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.627Z]   Chapter 3
+[2025-12-03T16:48:57.628Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.628Z]   Chapter 4
+[2025-12-03T16:48:57.628Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.629Z]   Chapter 5
+[2025-12-03T16:48:57.629Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.630Z]   Chapter 6
+[2025-12-03T16:48:57.630Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.630Z]   Chapter 7
+[2025-12-03T16:48:57.631Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.631Z]   Chapter 8
+[2025-12-03T16:48:57.631Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.632Z]   Chapter 9
+[2025-12-03T16:48:57.632Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.632Z]   Chapter 10
+[2025-12-03T16:48:57.632Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.633Z]   Chapter 11
+[2025-12-03T16:48:57.633Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.633Z]   Chapter 12
+[2025-12-03T16:48:57.634Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.634Z]   Chapter 13
+[2025-12-03T16:48:57.634Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.634Z]   Chapter 14
+[2025-12-03T16:48:57.635Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:57.635Z]   Chapter 15
+[2025-12-03T16:48:57.635Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:57.635Z]   Chapter 16
+[2025-12-03T16:48:57.636Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:57.636Z]   Chapter 17
+[2025-12-03T16:48:57.636Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:57.637Z]   Chapter 18
+[2025-12-03T16:48:57.637Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:57.637Z]   Chapter 19
+[2025-12-03T16:48:57.637Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:57.638Z]   Chapter 20
+[2025-12-03T16:48:57.638Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:57.638Z]   Chapter 21
+[2025-12-03T16:48:57.639Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:57.639Z] Found book: ACTS
+[2025-12-03T16:48:57.639Z]   Chapter 1
+[2025-12-03T16:48:57.640Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.640Z]   Chapter 2
+[2025-12-03T16:48:57.640Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.641Z]   Chapter 3
+[2025-12-03T16:48:57.642Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.642Z]   Chapter 4
+[2025-12-03T16:48:57.642Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.643Z]   Chapter 5
+[2025-12-03T16:48:57.643Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.643Z]   Chapter 6
+[2025-12-03T16:48:57.643Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.644Z]   Chapter 7
+[2025-12-03T16:48:57.644Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.644Z]   Chapter 8
+[2025-12-03T16:48:57.645Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.645Z]   Chapter 9
+[2025-12-03T16:48:57.645Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.646Z]   Chapter 10
+[2025-12-03T16:48:57.646Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.646Z]   Chapter 11
+[2025-12-03T16:48:57.646Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.647Z]   Chapter 12
+[2025-12-03T16:48:57.647Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.647Z]   Chapter 13
+[2025-12-03T16:48:57.648Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.648Z]   Chapter 14
+[2025-12-03T16:48:57.648Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:57.649Z]   Chapter 15
+[2025-12-03T16:48:57.649Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:57.649Z]   Chapter 16
+[2025-12-03T16:48:57.650Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:57.650Z]   Chapter 17
+[2025-12-03T16:48:57.650Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:57.651Z]   Chapter 18
+[2025-12-03T16:48:57.651Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:57.652Z]   Chapter 19
+[2025-12-03T16:48:57.652Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:57.652Z]   Chapter 20
+[2025-12-03T16:48:57.652Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:57.653Z]   Chapter 21
+[2025-12-03T16:48:57.653Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:57.653Z]   Chapter 22
+[2025-12-03T16:48:57.653Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:57.654Z]   Chapter 23
+[2025-12-03T16:48:57.654Z]   Chapter 23 (from verse)
+[2025-12-03T16:48:57.655Z]   Chapter 24
+[2025-12-03T16:48:57.655Z]   Chapter 24 (from verse)
+[2025-12-03T16:48:57.655Z]   Chapter 25
+[2025-12-03T16:48:57.655Z]   Chapter 25 (from verse)
+[2025-12-03T16:48:57.655Z]   Chapter 26
+[2025-12-03T16:48:57.656Z]   Chapter 26 (from verse)
+[2025-12-03T16:48:57.656Z]   Chapter 27
+[2025-12-03T16:48:57.656Z]   Chapter 27 (from verse)
+[2025-12-03T16:48:57.657Z]   Chapter 28
+[2025-12-03T16:48:57.657Z]   Chapter 28 (from verse)
+[2025-12-03T16:48:57.658Z] Found book: ROMANS
+[2025-12-03T16:48:57.658Z]   Chapter 1
+[2025-12-03T16:48:57.658Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.659Z]   Chapter 2
+[2025-12-03T16:48:57.659Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.659Z]   Chapter 3
+[2025-12-03T16:48:57.659Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.660Z]   Chapter 4
+[2025-12-03T16:48:57.660Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.662Z]   Chapter 5
+[2025-12-03T16:48:57.662Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.662Z]   Chapter 6
+[2025-12-03T16:48:57.663Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.663Z]   Chapter 7
+[2025-12-03T16:48:57.663Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.664Z]   Chapter 8
+[2025-12-03T16:48:57.664Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.664Z]   Chapter 9
+[2025-12-03T16:48:57.664Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.665Z]   Chapter 10
+[2025-12-03T16:48:57.665Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.665Z]   Chapter 11
+[2025-12-03T16:48:57.666Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.666Z]   Chapter 12
+[2025-12-03T16:48:57.666Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.667Z]   Chapter 13
+[2025-12-03T16:48:57.667Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.667Z] Processing line 31000...
+[2025-12-03T16:48:57.667Z]   Chapter 14
+[2025-12-03T16:48:57.667Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:57.668Z]   Chapter 15
+[2025-12-03T16:48:57.668Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:57.668Z]   Chapter 16
+[2025-12-03T16:48:57.668Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:57.669Z] Found book: 1 CORINTHIANS
+[2025-12-03T16:48:57.669Z]   Chapter 1
+[2025-12-03T16:48:57.669Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.670Z]   Chapter 2
+[2025-12-03T16:48:57.670Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.670Z]   Chapter 3
+[2025-12-03T16:48:57.670Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.671Z]   Chapter 4
+[2025-12-03T16:48:57.671Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.671Z]   Chapter 5
+[2025-12-03T16:48:57.671Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.671Z]   Chapter 6
+[2025-12-03T16:48:57.672Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.672Z]   Chapter 7
+[2025-12-03T16:48:57.672Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.673Z]   Chapter 8
+[2025-12-03T16:48:57.673Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.673Z]   Chapter 9
+[2025-12-03T16:48:57.673Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.674Z]   Chapter 10
+[2025-12-03T16:48:57.674Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.674Z]   Chapter 11
+[2025-12-03T16:48:57.674Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.675Z]   Chapter 12
+[2025-12-03T16:48:57.675Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.675Z]   Chapter 13
+[2025-12-03T16:48:57.675Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.676Z]   Chapter 14
+[2025-12-03T16:48:57.676Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:57.676Z]   Chapter 15
+[2025-12-03T16:48:57.676Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:57.677Z]   Chapter 16
+[2025-12-03T16:48:57.677Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:57.678Z] Found book: 2 CORINTHIANS
+[2025-12-03T16:48:57.678Z]   Chapter 1
+[2025-12-03T16:48:57.678Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.679Z]   Chapter 2
+[2025-12-03T16:48:57.679Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.679Z]   Chapter 3
+[2025-12-03T16:48:57.680Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.680Z]   Chapter 4
+[2025-12-03T16:48:57.680Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.680Z]   Chapter 5
+[2025-12-03T16:48:57.681Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.681Z]   Chapter 6
+[2025-12-03T16:48:57.681Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.681Z]   Chapter 7
+[2025-12-03T16:48:57.682Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.682Z]   Chapter 8
+[2025-12-03T16:48:57.682Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.682Z]   Chapter 9
+[2025-12-03T16:48:57.682Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.683Z]   Chapter 10
+[2025-12-03T16:48:57.683Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.683Z]   Chapter 11
+[2025-12-03T16:48:57.683Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.684Z]   Chapter 12
+[2025-12-03T16:48:57.684Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.684Z]   Chapter 13
+[2025-12-03T16:48:57.684Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.685Z] Found book: GALATIANS
+[2025-12-03T16:48:57.685Z]   Chapter 1
+[2025-12-03T16:48:57.685Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.685Z]   Chapter 2
+[2025-12-03T16:48:57.685Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.686Z]   Chapter 3
+[2025-12-03T16:48:57.686Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.686Z]   Chapter 4
+[2025-12-03T16:48:57.686Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.687Z]   Chapter 5
+[2025-12-03T16:48:57.687Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.687Z]   Chapter 6
+[2025-12-03T16:48:57.687Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.688Z] Found book: EPHESIANS
+[2025-12-03T16:48:57.688Z]   Chapter 1
+[2025-12-03T16:48:57.688Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.688Z]   Chapter 2
+[2025-12-03T16:48:57.689Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.689Z]   Chapter 3
+[2025-12-03T16:48:57.689Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.689Z]   Chapter 4
+[2025-12-03T16:48:57.689Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.690Z]   Chapter 5
+[2025-12-03T16:48:57.690Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.690Z]   Chapter 6
+[2025-12-03T16:48:57.691Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.691Z] Found book: PHILIPPIANS
+[2025-12-03T16:48:57.691Z]   Chapter 1
+[2025-12-03T16:48:57.691Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.692Z]   Chapter 2
+[2025-12-03T16:48:57.692Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.692Z]   Chapter 3
+[2025-12-03T16:48:57.693Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.693Z]   Chapter 4
+[2025-12-03T16:48:57.693Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.694Z] Found book: COLOSSIANS
+[2025-12-03T16:48:57.694Z]   Chapter 1
+[2025-12-03T16:48:57.694Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.695Z]   Chapter 2
+[2025-12-03T16:48:57.695Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.695Z]   Chapter 3
+[2025-12-03T16:48:57.695Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.695Z]   Chapter 4
+[2025-12-03T16:48:57.696Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.696Z] Found book: 1 THESSALONIANS
+[2025-12-03T16:48:57.696Z]   Chapter 1
+[2025-12-03T16:48:57.696Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.696Z]   Chapter 2
+[2025-12-03T16:48:57.696Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.697Z]   Chapter 3
+[2025-12-03T16:48:57.697Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.697Z]   Chapter 4
+[2025-12-03T16:48:57.697Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.697Z]   Chapter 5
+[2025-12-03T16:48:57.698Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.698Z] Found book: 2 THESSALONIANS
+[2025-12-03T16:48:57.698Z]   Chapter 1
+[2025-12-03T16:48:57.698Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.698Z]   Chapter 2
+[2025-12-03T16:48:57.698Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.699Z]   Chapter 3
+[2025-12-03T16:48:57.699Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.699Z] Found book: 1 TIMOTHY
+[2025-12-03T16:48:57.699Z]   Chapter 1
+[2025-12-03T16:48:57.699Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.700Z]   Chapter 2
+[2025-12-03T16:48:57.700Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.700Z]   Chapter 3
+[2025-12-03T16:48:57.700Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.700Z]   Chapter 4
+[2025-12-03T16:48:57.701Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.701Z]   Chapter 5
+[2025-12-03T16:48:57.701Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.701Z]   Chapter 6
+[2025-12-03T16:48:57.701Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.702Z] Found book: 2 TIMOTHY
+[2025-12-03T16:48:57.702Z]   Chapter 1
+[2025-12-03T16:48:57.702Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.702Z]   Chapter 2
+[2025-12-03T16:48:57.702Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.703Z]   Chapter 3
+[2025-12-03T16:48:57.703Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.703Z]   Chapter 4
+[2025-12-03T16:48:57.703Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.704Z] Found book: TITUS
+[2025-12-03T16:48:57.704Z]   Chapter 1
+[2025-12-03T16:48:57.704Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.704Z]   Chapter 2
+[2025-12-03T16:48:57.705Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.705Z]   Chapter 3
+[2025-12-03T16:48:57.705Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.705Z] Found book: PHILEMON
+[2025-12-03T16:48:57.705Z]   Chapter 1
+[2025-12-03T16:48:57.705Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.706Z] Found book: HEBREWS
+[2025-12-03T16:48:57.706Z]   Chapter 1
+[2025-12-03T16:48:57.706Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.707Z]   Chapter 2
+[2025-12-03T16:48:57.707Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.708Z]   Chapter 3
+[2025-12-03T16:48:57.708Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.708Z]   Chapter 4
+[2025-12-03T16:48:57.709Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.709Z]   Chapter 5
+[2025-12-03T16:48:57.709Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.709Z]   Chapter 6
+[2025-12-03T16:48:57.710Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.710Z]   Chapter 7
+[2025-12-03T16:48:57.710Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.710Z]   Chapter 8
+[2025-12-03T16:48:57.710Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.711Z]   Chapter 9
+[2025-12-03T16:48:57.711Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.711Z]   Chapter 10
+[2025-12-03T16:48:57.712Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.712Z]   Chapter 11
+[2025-12-03T16:48:57.712Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.713Z]   Chapter 12
+[2025-12-03T16:48:57.713Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.714Z]   Chapter 13
+[2025-12-03T16:48:57.714Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.714Z] Found book: JAMES
+[2025-12-03T16:48:57.714Z]   Chapter 1
+[2025-12-03T16:48:57.714Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.715Z]   Chapter 2
+[2025-12-03T16:48:57.715Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.715Z] Processing line 32000...
+[2025-12-03T16:48:57.715Z]   Chapter 3
+[2025-12-03T16:48:57.716Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.716Z]   Chapter 4
+[2025-12-03T16:48:57.716Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.716Z]   Chapter 5
+[2025-12-03T16:48:57.716Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.717Z] Found book: 1 PETER
+[2025-12-03T16:48:57.717Z]   Chapter 1
+[2025-12-03T16:48:57.717Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.717Z]   Chapter 2
+[2025-12-03T16:48:57.717Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.718Z]   Chapter 3
+[2025-12-03T16:48:57.718Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.719Z]   Chapter 4
+[2025-12-03T16:48:57.719Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.719Z]   Chapter 5
+[2025-12-03T16:48:57.719Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.719Z] Found book: 2 PETER
+[2025-12-03T16:48:57.719Z]   Chapter 1
+[2025-12-03T16:48:57.720Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.720Z]   Chapter 2
+[2025-12-03T16:48:57.720Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.720Z]   Chapter 3
+[2025-12-03T16:48:57.720Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.721Z] Found book: 1 JOHN
+[2025-12-03T16:48:57.721Z]   Chapter 1
+[2025-12-03T16:48:57.721Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.721Z]   Chapter 2
+[2025-12-03T16:48:57.721Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.722Z]   Chapter 3
+[2025-12-03T16:48:57.722Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.722Z]   Chapter 4
+[2025-12-03T16:48:57.723Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.723Z]   Chapter 5
+[2025-12-03T16:48:57.724Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.725Z] Found book: 2 JOHN
+[2025-12-03T16:48:57.725Z]   Chapter 1
+[2025-12-03T16:48:57.725Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.725Z] Found book: 3 JOHN
+[2025-12-03T16:48:57.725Z]   Chapter 1
+[2025-12-03T16:48:57.726Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.726Z] Found book: JUDE
+[2025-12-03T16:48:57.726Z]   Chapter 1
+[2025-12-03T16:48:57.726Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.727Z] Found book: REVELATION
+[2025-12-03T16:48:57.727Z]   Chapter 1
+[2025-12-03T16:48:57.727Z]   Chapter 1 (from verse)
+[2025-12-03T16:48:57.728Z]   Chapter 2
+[2025-12-03T16:48:57.728Z]   Chapter 2 (from verse)
+[2025-12-03T16:48:57.728Z]   Chapter 3
+[2025-12-03T16:48:57.728Z]   Chapter 3 (from verse)
+[2025-12-03T16:48:57.729Z]   Chapter 4
+[2025-12-03T16:48:57.729Z]   Chapter 4 (from verse)
+[2025-12-03T16:48:57.729Z]   Chapter 5
+[2025-12-03T16:48:57.729Z]   Chapter 5 (from verse)
+[2025-12-03T16:48:57.730Z]   Chapter 6
+[2025-12-03T16:48:57.730Z]   Chapter 6 (from verse)
+[2025-12-03T16:48:57.730Z]   Chapter 7
+[2025-12-03T16:48:57.730Z]   Chapter 7 (from verse)
+[2025-12-03T16:48:57.731Z]   Chapter 8
+[2025-12-03T16:48:57.731Z]   Chapter 8 (from verse)
+[2025-12-03T16:48:57.731Z]   Chapter 9
+[2025-12-03T16:48:57.731Z]   Chapter 9 (from verse)
+[2025-12-03T16:48:57.732Z]   Chapter 10
+[2025-12-03T16:48:57.732Z]   Chapter 10 (from verse)
+[2025-12-03T16:48:57.732Z]   Chapter 11
+[2025-12-03T16:48:57.732Z]   Chapter 11 (from verse)
+[2025-12-03T16:48:57.733Z]   Chapter 12
+[2025-12-03T16:48:57.733Z]   Chapter 12 (from verse)
+[2025-12-03T16:48:57.733Z]   Chapter 13
+[2025-12-03T16:48:57.733Z]   Chapter 13 (from verse)
+[2025-12-03T16:48:57.734Z]   Chapter 14
+[2025-12-03T16:48:57.734Z]   Chapter 14 (from verse)
+[2025-12-03T16:48:57.734Z]   Chapter 15
+[2025-12-03T16:48:57.734Z]   Chapter 15 (from verse)
+[2025-12-03T16:48:57.735Z]   Chapter 16
+[2025-12-03T16:48:57.735Z]   Chapter 16 (from verse)
+[2025-12-03T16:48:57.735Z]   Chapter 17
+[2025-12-03T16:48:57.736Z]   Chapter 17 (from verse)
+[2025-12-03T16:48:57.736Z]   Chapter 18
+[2025-12-03T16:48:57.736Z]   Chapter 18 (from verse)
+[2025-12-03T16:48:57.736Z]   Chapter 19
+[2025-12-03T16:48:57.736Z]   Chapter 19 (from verse)
+[2025-12-03T16:48:57.737Z]   Chapter 20
+[2025-12-03T16:48:57.737Z]   Chapter 20 (from verse)
+[2025-12-03T16:48:57.737Z]   Chapter 21
+[2025-12-03T16:48:57.737Z]   Chapter 21 (from verse)
+[2025-12-03T16:48:57.738Z]   Chapter 22
+[2025-12-03T16:48:57.738Z]   Chapter 22 (from verse)
+[2025-12-03T16:48:57.740Z] Cleaning complete!
+[2025-12-03T16:48:57.740Z] Output written to: C:\WindSurf\ohbc_website\scripts\NASB1995_cleaned_v2.txt

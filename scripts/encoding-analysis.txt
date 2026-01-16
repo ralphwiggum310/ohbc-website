@@ -1,0 +1,65 @@
+[2025-12-03T16:11:48.118Z] Starting file encoding analysis...
+[2025-12-03T16:11:48.123Z] File size: 4335776 bytes
+[2025-12-03T16:11:48.123Z] 
+=== Testing encoding: utf8 ===
+[2025-12-03T16:11:48.130Z] Sample (first 200 chars):
+[2025-12-03T16:11:48.130Z] # GENESIS
+Chapter 1
+The Creation
+1 In the beginning God created the heavens and the earth. 
+2 The earth was formless and void, and darkness was over the surface of the deep, and the Spirit of God 
+[2025-12-03T16:11:48.130Z] Found verse number pattern: 1
+T
+[2025-12-03T16:11:48.136Z] Total lines: 32472
+[2025-12-03T16:11:48.136Z] Total characters: 4274348
+[2025-12-03T16:11:48.137Z] 
+=== Testing encoding: latin1 ===
+[2025-12-03T16:11:48.138Z] Sample (first 200 chars):
+[2025-12-03T16:11:48.138Z] # GENESIS
+Chapter 1
+The Creation
+1 In the beginning God created the heavens and the earth. 
+2 The earth was formless and void, and darkness was over the surface of the deep, and the Spirit of God 
+[2025-12-03T16:11:48.138Z] Found verse number pattern: 1
+T
+[2025-12-03T16:11:48.143Z] Total lines: 32472
+[2025-12-03T16:11:48.143Z] Total characters: 4335776
+[2025-12-03T16:11:48.143Z] 
+=== Testing encoding: ascii ===
+[2025-12-03T16:11:48.144Z] Sample (first 200 chars):
+[2025-12-03T16:11:48.144Z] # GENESIS
+Chapter 1
+The Creation
+1 In the beginning God created the heavens and the earth. 
+2 The earth was formless and void, and darkness was over the surface of the deep, and the Spirit of God 
+[2025-12-03T16:11:48.144Z] Found verse number pattern: 1
+T
+[2025-12-03T16:11:48.150Z] Total lines: 32472
+[2025-12-03T16:11:48.151Z] Total characters: 4335776
+[2025-12-03T16:11:48.151Z] 
+=== Testing encoding: utf16le ===
+[2025-12-03T16:11:48.151Z] Sample (first 200 chars):
+[2025-12-03T16:11:48.152Z] ‣䕇䕎䥓൓䌊慨瑰牥ㄠ਍桔⁥牃慥楴湯਍‱湉琠敨戠来湩楮杮䜠摯挠敲瑡摥琠敨栠慥敶獮愠摮琠敨攠牡桴‮਍′桔⁥慥瑲⁨慷⁳潦浲敬獳愠摮瘠楯Ɽ愠摮搠牡湫獥⁳慷⁳癯牥琠敨猠牵慦散漠⁦桴⁥敤灥‬湡⁤桴⁥灓物瑩漠⁦潇⁤慷⁳潭楶杮漠敶⁲桴⁥畳晲捡⁥景琠敨眠瑡牥⹳ഠ㌊吠敨⁮潇⁤慳摩‬胢䲜瑥琠敨敲戠⁥楬桧鶀※湡⁤桴牥⁥慷⁳楬桧⹴㐠䜠摯猠睡琠慨⁴桴⁥楬桧⁴慷⁳潧摯※湡⁤潇⁤敳慰慲整⁤桴⁥楬桧⁴牦浯琠敨搠牡湫獥⹳ഠ㔊䜠摯挠
+[2025-12-03T16:11:48.154Z] Total lines: 1
+[2025-12-03T16:11:48.154Z] Total characters: 2167888
+[2025-12-03T16:11:48.154Z] 
+=== Testing encoding: ucs2 ===
+[2025-12-03T16:11:48.155Z] Sample (first 200 chars):
+[2025-12-03T16:11:48.155Z] ‣䕇䕎䥓൓䌊慨瑰牥ㄠ਍桔⁥牃慥楴湯਍‱湉琠敨戠来湩楮杮䜠摯挠敲瑡摥琠敨栠慥敶獮愠摮琠敨攠牡桴‮਍′桔⁥慥瑲⁨慷⁳潦浲敬獳愠摮瘠楯Ɽ愠摮搠牡湫獥⁳慷⁳癯牥琠敨猠牵慦散漠⁦桴⁥敤灥‬湡⁤桴⁥灓物瑩漠⁦潇⁤慷⁳潭楶杮漠敶⁲桴⁥畳晲捡⁥景琠敨眠瑡牥⹳ഠ㌊吠敨⁮潇⁤慳摩‬胢䲜瑥琠敨敲戠⁥楬桧鶀※湡⁤桴牥⁥慷⁳楬桧⹴㐠䜠摯猠睡琠慨⁴桴⁥楬桧⁴慷⁳潧摯※湡⁤潇⁤敳慰慲整⁤桴⁥楬桧⁴牦浯琠敨搠牡湫獥⹳ഠ㔊䜠摯挠
+[2025-12-03T16:11:48.159Z] Total lines: 1
+[2025-12-03T16:11:48.159Z] Total characters: 2167888
+[2025-12-03T16:11:48.159Z] 
+=== Testing encoding: base64 ===
+[2025-12-03T16:11:48.160Z] Sample (first 200 chars):
+[2025-12-03T16:11:48.160Z] IyBHRU5FU0lTDQpDaGFwdGVyIDENClRoZSBDcmVhdGlvbg0KMSBJbiB0aGUgYmVnaW5uaW5nIEdvZCBjcmVhdGVkIHRoZSBoZWF2ZW5zIGFuZCB0aGUgZWFydGguIA0KMiBUaGUgZWFydGggd2FzIGZvcm1sZXNzIGFuZCB2b2lkLCBhbmQgZGFya25lc3Mgd2FzIG92
+[2025-12-03T16:11:48.168Z] Total lines: 1
+[2025-12-03T16:11:48.168Z] Total characters: 5781036
+[2025-12-03T16:11:48.168Z] 
+=== Testing encoding: hex ===
+[2025-12-03T16:11:48.172Z] Sample (first 200 chars):
+[2025-12-03T16:11:48.172Z] 232047454e455349530d0a4368617074657220310d0a546865204372656174696f6e0d0a3120496e2074686520626567696e6e696e6720476f642063726561746564207468652068656176656e7320616e64207468652065617274682e200d0a32205468
+[2025-12-03T16:11:48.265Z] Total lines: 1
+[2025-12-03T16:11:48.266Z] Total characters: 8671552
+[2025-12-03T16:11:48.266Z] 
+Analysis complete!
+[2025-12-03T16:11:48.266Z] Results saved to: C:\WindSurf\ohbc_website\scripts\encoding-analysis.txt

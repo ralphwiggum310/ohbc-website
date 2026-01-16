@@ -24,16 +24,11 @@ const ministries: { [key: string]: MinistrySection } = {
       'At Orchard Hills Bible Church, we are passionate about investing in the next generation. Our Youth Ministry is designed to help middle school and high school students grow in their relationship with Jesus Christ while building meaningful relationships with their peers.',
       'We provide a safe and engaging environment where students can explore their faith, ask tough questions, and develop a biblical worldview that will guide them through the challenges of adolescence and beyond.'
     ],
-    image: '/images/ministries/youth-group.jpg',
+    image: '/images/site_img/youth-group.jpg',
     schedule: 'Wednesdays • 7:00 PM - 8:15 PM',
-    contact: {
-      name: 'Youth Leader Name',
-      email: 'youth@orchardhillsbiblechurch.com',
-      phone: '(555) 123-4567'
-    },
     additionalInfo: [
       'Weekly Bible studies and discussion groups',
-      'Monthly service projects and outreach events',
+      'Service projects and outreach events',
       'Annual summer camp and winter retreats',
       'Special events throughout the year'
     ]
@@ -44,7 +39,7 @@ const ministries: { [key: string]: MinistrySection } = {
       'We are committed to fulfilling the Great Commission by supporting missionaries around the world. Through prayer and financial support, we partner with these dedicated individuals and organizations to spread the Gospel and make disciples of all nations.',
       'Our missionaries serve in various capacities, including church planting, Bible translation, medical missions, and humanitarian aid.'
     ],
-    image: '/images/ministries/missionaries.jpg',
+    image: '/images/site_img/our_missionaries.png',
     additionalInfo: [
       'Monthly prayer updates from our missionaries',
       'Opportunities to support specific mission projects',
@@ -98,7 +93,7 @@ const MinistryCard = ({ ministry }: { ministry: MinistrySection }) => {
       
       {ministry.additionalInfo && (
         <div className="px-6 pb-6 md:px-8 md:pb-8">
-          <h3 className="font-semibold text-gray-800 mb-3">What We Offer</h3>
+          <h3 className="font-semibold text-gray-800 mb-3">Youth Activities</h3>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {ministry.additionalInfo.map((item, idx) => (
               <li key={idx} className="flex items-start">
@@ -123,7 +118,7 @@ export default function Ministries() {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Ministries</h1>
           <p className="text-sm sm:text-base text-gray-700 max-w-3xl mx-auto">
-            Growing together in faith, serving together in love
+            Growing together in faith while we serve together in love
           </p>
         </div>
       </div>
@@ -134,7 +129,7 @@ export default function Ministries() {
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Ministries</h2>
             <p className="text-gray-600">
-              At Orchard Hills Bible Church, we believe that every believer has been given spiritual gifts to serve the body of Christ. 
+              We believe that every believer has been given spiritual gifts to serve the body of Christ. 
               Our ministries are designed to help you grow in your faith, connect with others, and make a difference in our community and beyond.
             </p>
           </div>
@@ -147,7 +142,7 @@ export default function Ministries() {
                   <div className="md:flex-shrink-0 md:w-1/3 relative h-48 md:h-auto">
                     <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
                       <Image 
-                        src="/images/Church/Missionaries.png" 
+                        src="/images/site_img/our_missionaries.png" 
                         alt="Missionaries We Support"
                         width={400}
                         height={300}
@@ -179,12 +174,12 @@ export default function Ministries() {
               Interested in serving in one of our ministries? We'd love to help you find a place where you can use your gifts and talents to serve others.
             </p>
             <a
-              href="/contact"
+              href="mailto:orchardhillsbiblechurch@gmail.com?subject=Ministry%20Involvement"
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               Contact Us About Serving
               <svg className="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </a>
           </div>

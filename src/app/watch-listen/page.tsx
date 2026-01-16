@@ -1,268 +1,319 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
+import { FiYoutube, FiClock, FiExternalLink } from 'react-icons/fi';
 
-const WatchListenPage = () => {
-  // Sample video data - replace with actual video content
-  const videos = [
-    {
-      id: 1,
-      title: 'Sunday Service - June 25, 2023',
-      description: 'Join us for our weekly Sunday service.',
-      date: 'June 25, 2023',
-      thumbnail: '/images/sermon-thumbnail.jpg',
-      videoUrl: '#'
-    },
-    // Add more video entries as needed
-  ];
+interface Video {
+  id: string;
+  title: string;
+  description: string;
+  thumbnail: string;
+  publishedAt: string;
+  duration: string;
+  viewCount: string;
+  videoUrl: string;
+}
 
-  // Sample audio data - replace with actual audio content
-  const audioSermons = [
-    {
-      id: 1,
-      title: 'The Power of Faith',
-      speaker: 'Pastor John Smith',
-      date: 'June 25, 2023',
-      duration: '42:15',
-      audioUrl: '#'
-    },
-    {
-      id: 2,
-      title: 'Walking in Love',
-      speaker: 'Pastor John Smith',
-      date: 'June 18, 2023',
-      duration: '38:52',
-      audioUrl: '#'
-    },
-    // Add more audio entries as needed
-  ];
+const YOUTUBE_CHANNEL_ID = 'UChBLU82WKDW8PRJSqeZf0ww';
+const YOUTUBE_API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY || '';
+
+const WatchPage = () => {
+  const [videos, setVideos] = useState<Video[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Format duration from ISO 8601 to human readable
+  const formatDuration = (duration: string): string => {
+    const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+    if (!match) return '0:00';
+    
+    const hours = match[1] ? parseInt(match[1]) : 0;
+    const minutes = match[2] ? parseInt(match[2]) : 0;
+    const seconds = match[3] ? parseInt(match[3]) : 0;
+    
+    if (hours > 0) {
+      return `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    } else {
+      return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
+  };
+
+  // Format view count
+  const formatViewCount = (count: string): string => {
+    const num = parseInt(count);
+    if (num >= 1000000) {
+      return `${(num / 1000000).toFixed(1)}M views`;
+    } else if (num >= 1000) {
+      return `${(num / 1000).toFixed(1)}K views`;
+    }
+    return `${num} views`;
+  };
+
+  // Format date
+  const formatDate = (dateString: string): string => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+  };
+
+  // Fetch videos from YouTube API
+  useEffect(() => {
+    const fetchVideos = async () => {
+      console.log('YOUTUBE_API_KEY:', YOUTUBE_API_KEY ? '***' : 'Not set');
+      if (!YOUTUBE_API_KEY) {
+        const errorMsg = 'YouTube API key is not configured. Please check your .env.local file';
+        console.error(errorMsg);
+        setError(errorMsg);
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        // Fetch uploads playlist ID from channel
+        const channelUrl = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${YOUTUBE_CHANNEL_ID}&key=${YOUTUBE_API_KEY}`;
+        console.log('Fetching channel data from:', channelUrl);
+        const channelResponse = await fetch(channelUrl);
+        const channelData = await channelResponse.json();
+        console.log('Channel API response:', channelData);
+        
+        if (!channelData.items || channelData.items.length === 0) {
+          throw new Error('Channel not found');
+        }
+        
+        const uploadsPlaylistId = channelData.items[0].contentDetails.relatedPlaylists.uploads;
+        
+        // Fetch videos from uploads playlist
+        const playlistResponse = await fetch(
+          `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=12&playlistId=${uploadsPlaylistId}&key=${YOUTUBE_API_KEY}`
+        );
+        const playlistData = await playlistResponse.json();
+        
+        if (!playlistData.items || playlistData.items.length === 0) {
+          throw new Error('No videos found in the playlist');
+        }
+        
+        // Get video IDs for batch request
+        const videoIds = playlistData.items.map((item: any) => item.contentDetails.videoId).join(',');
+        
+        // Fetch video details including duration and view count
+        const videosUrl = `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${videoIds}&key=${YOUTUBE_API_KEY}`;
+        console.log('Fetching videos from:', videosUrl);
+        const videosResponse = await fetch(videosUrl);
+        const videosData = await videosResponse.json();
+        console.log('Videos API response:', videosData);
+        
+        // Transform and sort videos
+        const videosList = videosData.items.map((video: any) => ({
+          id: video.id,
+          title: video.snippet.title,
+          description: video.snippet.description,
+          thumbnail: video.snippet.thumbnails.medium.url,
+          publishedAt: video.snippet.publishedAt,
+          duration: formatDuration(video.contentDetails.duration),
+          viewCount: video.statistics.viewCount,
+          videoUrl: `https://www.youtube.com/watch?v=${video.id}`
+        })).sort((a: Video, b: Video) => 
+          new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+        );
+        
+        setVideos(videosList);
+      } catch (err) {
+        console.error('Error fetching videos:', err);
+        setError('Failed to load videos. Please try again later.');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchVideos();
+  }, []);
+
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Head>
+          <title>Watch Sermons | Orchard Hills Bible Church</title>
+          <meta name="description" content="Watch video sermons and teachings from Orchard Hills Bible Church" />
+        </Head>
+        <div className="container mx-auto px-4 py-12">
+          <div className="animate-pulse space-y-8">
+            <div className="h-10 bg-gray-200 rounded w-1/3 mx-auto"></div>
+            <div className="h-4 bg-gray-200 rounded w-1/2 mx-auto"></div>
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="bg-white rounded-lg shadow-md overflow-hidden">
+                  <div className="aspect-video bg-gray-200"></div>
+                  <div className="p-4">
+                    <div className="h-5 bg-gray-200 rounded w-3/4 mb-2"></div>
+                    <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Error state
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Head>
+          <title>Watch Sermons | Orchard Hills Bible Church</title>
+          <meta name="description" content="Watch video sermons and teachings from Orchard Hills Bible Church" />
+        </Head>
+        <div className="container mx-auto px-4 py-12 text-center">
+          <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+            <div className="text-red-500 mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Error Loading Videos</h2>
+            <p className="text-gray-600 mb-6">{error}</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Empty state
+  if (videos.length === 0) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Head>
+          <title>Watch Sermons | Orchard Hills Bible Church</title>
+          <meta name="description" content="Watch video sermons and teachings from Orchard Hills Bible Church" />
+        </Head>
+        <div className="container mx-auto px-4 py-12 text-center">
+          <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+            <div className="text-gray-400 mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">No Videos Available</h2>
+            <p className="text-gray-600 mb-6">Check back later for new sermon videos and teachings.</p>
+            <a
+              href="https://www.youtube.com/@OrchardHillsBibleChurch"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+            >
+              <FiYoutube className="mr-2" /> Visit Our YouTube Channel
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Head>
-        <title>Watch & Listen | Orchard Hills Bible Church</title>
-        <meta name="description" content="Watch and listen to sermons and teachings from Orchard Hills Bible Church" />
+        <title>Watch Sermons | Orchard Hills Bible Church</title>
+        <meta name="description" content="Watch video sermons and teachings from Orchard Hills Bible Church" />
       </Head>
-
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-gray-100 to-gray-200 py-12 md:py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Watch & Listen</h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            Sermons, teachings, and messages from Orchard Hills Bible Church
-          </p>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="container mx-auto px-4 py-12">
-        {/* Videos Section */}
-        <section className="mb-16">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Videos</h2>
+      
+      <main className="container mx-auto px-4 py-8">
+        {/* YouTube Channel CTA - Moved to top */}
+        <div className="bg-white rounded-lg shadow-md p-6 mb-12">
+          <div className="flex flex-col md:flex-row md:items-center">
+            <div className="flex-1 mb-4 md:mb-0">
+              <h1 className="text-4xl font-bold text-gray-900 mb-2">Watch Sermons</h1>
+              <p className="text-lg text-gray-600">
+                Get notified when we upload new videos and live streams.
+              </p>
+            </div>
+            <a 
+              href="https://www.youtube.com/@OrchardHillsBibleChurch?sub_confirmation=1" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 whitespace-nowrap"
+            >
+              <FiYoutube className="mr-2 h-5 w-5" />
+              Subscribe on YouTube
+            </a>
           </div>
-          
-          <div className="mb-8 bg-white rounded-lg shadow-sm overflow-hidden">
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">YouTube Channel</h3>
-              <p className="text-gray-600 mb-6">Subscribe to our YouTube channel for video sermons, Bible studies, and more.</p>
-              <a 
-                href="https://www.youtube.com/@OrchardHillsBibleChurch/playlists" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 transition-colors"
-              >
-                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
-                Visit Our YouTube Channel
-              </a>
+        </div>
+        
+        {/* Video Grid Section */}
+        <div className="mb-16">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-semibold">Latest Videos</h2>
+            <div className="flex space-x-2">
+              <button className="px-3 py-1 text-sm rounded-md bg-blue-50 text-blue-700">All</button>
+              <button className="px-3 py-1 text-sm rounded-md hover:bg-gray-100">Sermons</button>
+              <button className="px-3 py-1 text-sm rounded-md hover:bg-gray-100">Bible Studies</button>
             </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {videos.length > 0 ? (
-              videos.map((video) => (
-                <div key={video.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                  <div className="relative pt-[56.25%] bg-gray-200">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center cursor-pointer hover:bg-red-700 transition-colors">
-                        <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+          
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {videos.map((video) => (
+              <div key={video.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <a 
+                  href={video.videoUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block relative group"
+                >
+                  <div className="relative aspect-video">
+                    <Image
+                      src={video.thumbnail}
+                      alt={video.title}
+                      width={480}
+                      height={270}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-colors flex items-center justify-center">
+                      <div className="bg-black bg-opacity-70 rounded-full p-3">
+                        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
                         </svg>
                       </div>
                     </div>
-                    <img 
-                      src={video.thumbnail} 
-                      alt={video.title}
-                      className="absolute inset-0 w-full h-full object-cover opacity-70"
-                    />
+                    <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white text-xs px-2 py-1 rounded">
+                      {video.duration}
+                    </div>
                   </div>
-                  <div className="p-4">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-1">{video.title}</h3>
-                    <p className="text-sm text-gray-500 mb-2">{video.date}</p>
-                    <p className="text-gray-600">{video.description}</p>
+                </a>
+                <div className="p-4">
+                  <h3 className="font-semibold text-lg mb-2 line-clamp-2">
+                    <a 
+                      href={video.videoUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:text-red-600 transition-colors"
+                    >
+                      {video.title}
+                    </a>
+                  </h3>
+                  <div className="flex items-center text-sm text-gray-500 mb-2">
+                    <span>{formatViewCount(video.viewCount)}</span>
+                    <span className="mx-2">•</span>
+                    <span>{formatDate(video.publishedAt)}</span>
                   </div>
+                  <p className="text-gray-600 text-sm line-clamp-2">{video.description}</p>
                 </div>
-              ))
-            ) : (
-              <div className="col-span-full text-center py-8">
-                <p className="text-gray-500">No videos available at this time. Check back soon!</p>
               </div>
-            )}
+            ))}
           </div>
-        </section>
+        </div>
+        
 
-        {/* Audio Section */}
-        <section>
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Audio Sermons</h2>
-          </div>
-          
-          {/* SoundCloud Channel Widget */}
-          <div className="bg-white rounded-lg shadow-sm overflow-hidden mb-8">
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">OHBC Audio Sermons</h3>
-              <p className="text-gray-600 mb-6">Listen to our latest sermons and Bible studies from Orchard Hills Bible Church.</p>
-              
-              <div className="aspect-w-16 aspect-h-9">
-                <iframe 
-                  width="100%" 
-                  height="450" 
-                  scrolling="no" 
-                  frameBorder="no" 
-                  allow="autoplay"
-                  src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/ohbcpayson&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-                  className="w-full rounded-lg"
-                  title="OHBC Audio Sermons"
-                ></iframe>
-              </div>
-              
-              <div className="mt-4 text-center">
-                <a 
-                  href="https://soundcloud.com/ohbcpayson" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-red-600 hover:text-red-700 font-medium"
-                >
-                  <span>View all sermons on SoundCloud</span>
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Additional SoundCloud Playlist */}
-          <div className="bg-white rounded-lg shadow-sm overflow-hidden mt-8">
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Bible Study Series</h3>
-              <p className="text-gray-600 mb-6">Explore our in-depth Bible study series and teachings.</p>
-              
-              <div className="aspect-w-16 aspect-h-9">
-                <iframe 
-                  width="100%" 
-                  height="450" 
-                  scrolling="no" 
-                  frameBorder="no" 
-                  allow="autoplay"
-                  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1513200853&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-                  className="w-full rounded-lg"
-                  title="Bible Study Series"
-                ></iframe>
-              </div>
-              
-              <div className="mt-4 text-center">
-                <a 
-                  href="https://soundcloud.com/ohbcpayson/sets/bible-study" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-red-600 hover:text-red-700 font-medium"
-                >
-                  <span>View all Bible studies on SoundCloud</span>
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Second Additional SoundCloud Playlist */}
-          <div className="bg-white rounded-lg shadow-sm overflow-hidden mt-8">
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Sunday Morning Messages</h3>
-              <p className="text-gray-600 mb-6">Listen to our weekly Sunday morning worship services.</p>
-              
-              <div className="aspect-w-16 aspect-h-9">
-                <iframe 
-                  width="100%" 
-                  height="450" 
-                  scrolling="no" 
-                  frameBorder="no" 
-                  allow="autoplay"
-                  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1752723957&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-                  className="w-full rounded-lg"
-                  title="Sunday Morning Messages"
-                ></iframe>
-              </div>
-              
-              <div className="mt-4 text-center">
-                <a 
-                  href="https://soundcloud.com/ohbcpayson/sets/sunday-morning" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-red-600 hover:text-red-700 font-medium"
-                >
-                  <span>View all Sunday messages on SoundCloud</span>
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Third Additional SoundCloud Playlist */}
-          <div className="bg-white rounded-lg shadow-sm overflow-hidden mt-8">
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Special Services</h3>
-              <p className="text-gray-600 mb-6">Recordings from special services and events throughout the year.</p>
-              
-              <div className="aspect-w-16 aspect-h-9">
-                <iframe 
-                  width="100%" 
-                  height="450" 
-                  scrolling="no" 
-                  frameBorder="no" 
-                  allow="autoplay"
-                  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1761516552&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-                  className="w-full rounded-lg"
-                  title="Special Services"
-                ></iframe>
-              </div>
-              
-              <div className="mt-4 text-center">
-                <a 
-                  href="https://soundcloud.com/ohbcpayson/sets/special-services" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-red-600 hover:text-red-700 font-medium"
-                >
-                  <span>View all special services on SoundCloud</span>
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+      </main>
     </div>
   );
 };
 
-export default WatchListenPage;
+export default WatchPage;

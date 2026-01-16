@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ESV API Test</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; padding: 0 20px; }
+    pre { background: #f5f5f5; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    button { padding: 8px 16px; background: #0070f3; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #005bb5; }
+  </style>
+</head>
+<body>
+  <h1>ESV API Test</h1>
+  <div>
+    <label for="book">Book:</label>
+    <input type="text" id="book" value="John">
+    <label for="chapter" style="margin-left: 10px;">Chapter:</label>
+    <input type="number" id="chapter" value="3" min="1" style="width: 50px;">
+    <button onclick="testESVAPI()">Test API</button>
+  </div>
+  <div style="margin-top: 20px;">
+    <h3>Response:</h3>
+    <pre id="response">Click the button to test the API</pre>
+  </div>
+
+  <script>
+    async function testESVAPI() {
+      const book = document.getElementById('book').value || 'John';
+      const chapter = document.getElementById('chapter').value || '3';
+      const testUrl = `/api/esv?passage=${encodeURIComponent(book)}+${chapter}`;
+      
+      const responseEl = document.getElementById('response');
+      responseEl.textContent = `Testing ESV API with URL: ${testUrl}\n\nLoading...`;
+      
+      try {
+        const response = await fetch(testUrl);
+        const data = await response.json();
+        
+        const responseInfo = `
+URL: ${testUrl}
+Status: ${response.status} ${response.statusText}
+
+Response Headers:
+${[...response.headers].map(([key, value]) => `  ${key}: ${value}`).join('\n')}
+
+Response Body:
+${JSON.stringify(data, null, 2)}`;
+        
+        responseEl.textContent = responseInfo;
+        
+        if (!response.ok) {
+          console.error('Error response:', data);
+        }
+      } catch (error) {
+        responseEl.textContent = `Error: ${error.message || 'Unknown error'}\n\n${error.stack || ''}`;
+        console.error('Fetch error:', error);
+      }
+    }
+  </script>
+</body>
+</html>

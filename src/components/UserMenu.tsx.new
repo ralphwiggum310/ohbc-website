@@ -1,0 +1,172 @@
+'use client';
+
+import Link from 'next/link';
+import { useRouter, usePathname } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { signOut } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
+
+// Debug component to log session changes
+function DebugSession({ session, status }: { session: any; status: string }) {
+  const pathname = usePathname();
+  
+  useEffect(() => {
+    console.log('Session status:', status);
+    console.log('Session data:', session);
+    console.log('Current path:', pathname);
+  }, [session, status, pathname]);
+
+  return null;
+}
+
+export default function UserMenu() {
+  const { data: session, status } = useSession();
+  const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+  
+  const loading = status === 'loading';
+  
+  // Debug effect
+  useEffect(() => {
+    setMounted(true);
+    console.log('UserMenu mounted. Session status:', status);
+  }, [status]);
+  
+  // Debug info in development
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development' && mounted) {
+      console.group('UserMenu Debug');
+      console.log('Status:', status);
+      console.log('Session:', session);
+      console.log('Mounted:', mounted);
+      console.groupEnd();
+    }
+  }, [status, session, mounted]);
+
+  const handleSignOut = async () => {
+    try {
+      await signOut({ redirect: false });
+      router.push('/');
+      router.refresh();
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
+  };
+
+  if (loading || !mounted) {
+    return (
+      <div className="ml-4 flex items-center">
+        <div className="h-8 w-8 rounded-full bg-gray-200 animate-pulse"></div>
+      </div>
+    );
+  }
+
+  // Render for authenticated users
+  if (session?.user) {
+    return (
+      <div className="relative ml-4">
+        <button
+          type="button"
+          className="flex items-center max-w-xs rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <span className="sr-only">Open user menu</span>
+          <div className="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center text-white font-medium">
+            {session.user.name?.[0]?.toUpperCase() || 'U'}
+          </div>
+        </button>
+
+        {isOpen && (
+          <>
+            <div
+              className="fixed inset-0 z-10"
+              onClick={() => setIsOpen(false)}
+              aria-hidden="true"
+            />
+            <div className="absolute right-0 z-20 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <div className="px-4 py-2 border-b border-gray-100">
+                <p className="text-sm text-gray-700">Signed in as</p>
+                <p className="text-sm font-medium text-gray-900 truncate">
+                  {session.user.email || 'User'}
+                </p>
+              </div>
+              <Link
+                href="/profile"
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                onClick={() => setIsOpen(false)}
+              >
+                Your Profile
+              </Link>
+              <Link
+                href="/settings"
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                onClick={() => setIsOpen(false)}
+              >
+                Settings
+              </Link>
+              <button
+                onClick={handleSignOut}
+                className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              >
+                Sign out
+              </button>
+            </div>
+          </>
+        )}
+      </div>
+    );
+  }
+
+  // Render for unauthenticated users
+  return (
+    <div className="relative ml-4">
+      <button
+        type="button"
+        className="flex items-center space-x-1 text-white hover:bg-white hover:bg-opacity-10 px-3 py-1.5 rounded-md text-sm font-medium focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#991b1e]"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span>Sign In</span>
+        <svg
+          className={`h-4 w-4 transition-transform ${isOpen ? 'transform rotate-180' : ''}`}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      {isOpen && (
+        <>
+          <div
+            className="fixed inset-0 z-10"
+            onClick={() => setIsOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="absolute right-0 z-20 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <Link
+              href="/auth/signin"
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              onClick={() => setIsOpen(false)}
+            >
+              Sign In
+            </Link>
+            <div className="border-t border-gray-100 my-1"></div>
+            <div className="px-4 py-2">
+              <p className="text-xs text-gray-500 mb-1">New to our site?</p>
+              <Link
+                href="/auth/register"
+                className="block w-full text-center bg-blue-600 text-white px-3 py-1.5 rounded-md text-sm font-medium hover:bg-blue-700 mt-1"
+                onClick={() => setIsOpen(false)}
+              >
+                Create Account
+              </Link>
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}

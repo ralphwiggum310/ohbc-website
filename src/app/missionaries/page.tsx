@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 interface Missionary {
   name: string;
-  organization?: string;
+  organization?: string | React.ReactNode;
   description: (string | React.ReactNode)[];
   location?: string;
   website?: string;
@@ -15,34 +15,34 @@ interface Missionary {
 
 const missionaries: Missionary[] = [
   {
-    name: 'Pregnancy Resource Center',
+    name: 'Charis Pregnancy Clinic',
     location: 'Salt Lake City & American Fork, UT',
     description: [
       <span key="prc-desc-1">
-        For 38 years, the <a href="https://www.pregnancyresource.net/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Pregnancy Resource Center</a> of Salt Lake City (now also in American Fork) has provided limited obstetrical ultrasounds, pregnancy tests, peer counseling, prenatal nutrition, parenting classes, fatherhood mentoring, post-abortion support, medical and other referrals, material resources such as diapers, formula, car seats, strollers, maternity, and baby clothes, etc. all free of charge to women facing an unexpected pregnancy.
+        For many years, the <a href="https://www.charisclinic.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Charis Pregnancy Clinic</a> of Salt Lake City (now also in American Fork) has provided limited obstetrical ultrasounds, pregnancy tests, peer counseling, prenatal nutrition, parenting classes, fatherhood mentoring, post-abortion support, medical and other referrals, material resources such as diapers, formula, car seats, strollers, maternity, and baby clothes, etc. all free of charge to women facing an unexpected pregnancy.
       </span>,
-      'Help like this is critical when up to 45 percent of pregnancies are considered "unintended." During our last fiscal year alone, the PRC served over 2,000 clients and made almost 5,000 referrals for medical care, WIC, shelter, food, education, rehabilitation, and more. We offer clients hope and love and the Good News of Jesus Christ.'
+      'Help like this is critical when up to 45 percent of pregnancies are considered "unintended." The clinic serves many clients each year, making thousands of referrals for medical care, WIC, shelter, food, education, rehabilitation, and more. The clinic offers clients hope and love and the Good News of Jesus Christ.'
     ],
-    website: 'https://www.pregnancyresource.net/'
+    website: 'https://www.charisclinic.org/'
   },
   {
     name: 'Key Radio',
     location: 'Provo, Richfield, Price, and Vernal, UT',
     description: [
       <span key="keyradio-desc-1">
-        Key Radio is a non-profit Christian radio network, owned by <a href="https://biblicalministries.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Biblical Ministries Worldwide</a>, licensed in Provo with three other stations: Richfield, Price, and Vernal Utah. Key Radio is a Bible-based, Christ-centered, family-friendly network with national and local programs is dependent on God's provision through donations from churches and individuals.
+        Key Radio is a non-profit Christian radio network, owned by <a href="https://biblicalministries.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Biblical Ministries Worldwide</a>, licensed in Provo with three other stations: Richfield, Price, and Vernal, Utah. Key Radio is a Bible-based, Christ-centered, family-friendly network with national and local programs they are dependent on God's provision through donations from churches and individuals.
       </span>,
-      'The staff is not paid and has their own mission support. The mission of Key Radio is to reach Utah with the life-saving truth of God\'s Word and to complement local evangelical church ministries.'
+      'The staff is not paid and has their own ministry support. The mission of Key Radio is to reach Utah with the life-saving truth of God\'s Word and to complement local evangelical church ministries.'
     ],
     website: 'https://www.keyradio.org/'
   },
   {
     name: 'Lee Whitworth',
-    organization: 'Biblical Ministries Worldwide',
+    organization: <a href="https://biblicalministries.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Biblical Ministries Worldwide</a>,
     location: 'Utah',
     description: [
       <span key="whitworth-desc-1">
-        Lee Whitworth and family have served with <a href="https://biblicalministries.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Biblical Ministries Worldwide</a> as church planters in Utah for 34 years. He grew up in Utah and was led to the Lord by a BMW missionary. He was the missionary pastor of the Payson Bible Church/OHBC between 1990 and 2017 and has served as field leader.
+        Lee Whitworth and his family have served with <a href="https://biblicalministries.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Biblical Ministries Worldwide</a> as church planters in Utah for 34 years. He grew up in Utah and was led to the Lord by a BMW missionary. He was missionary pastor of Payson Bible Church/OHBC between 1990 and 2017 and has served as field leader.
       </span>,
       <span key="whitworth-desc-2">
         Since the loss of his beloved wife and partner, he continues to actively serve in Utah; teaching and preaching in the Provo Bible Church, and other church plants, at Bible Camp and at Key Radio. He is also training men how to teach and preach, doing a variety of building projects for the church, and is actively writing.
@@ -51,7 +51,7 @@ const missionaries: Missionary[] = [
   },
   {
     name: 'Frank and Roberta Curtis',
-    organization: 'Biblical Ministries Worldwide',
+    organization: <a href="https://biblicalministries.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Biblical Ministries Worldwide</a>,
     location: 'Utah',
     description: [
       <span key="curtis-desc-1">
@@ -64,7 +64,7 @@ const missionaries: Missionary[] = [
   },
   {
     name: 'Corrie and Bethamy Anderson',
-    organization: 'UIM International',
+    organization: <a href="https://www.uim.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">UIM International</a>,
     location: 'Guadalajara, Mexico',
     description: [
       <span key="anderson-desc-1">
@@ -80,7 +80,7 @@ const missionaries: Missionary[] = [
   },
   {
     name: 'Fernando and Isabel Bassler',
-    organization: 'All Nations Family Inc.',
+    organization: <a href="https://allnations.us/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">All Nations Family Inc.</a>,
     location: 'Ecuador',
     description: [
       <span key="bassler-desc-1">
@@ -91,6 +91,19 @@ const missionaries: Missionary[] = [
       </span>,
       <span key="bassler-desc-3">
         Their vision is to work within the inner-city planting churches after having planted 8 churches in rural areas. Also, they desire to teach and train locals with the Word of God and teach English as a second language and are looking forward to a possible prison ministry.
+      </span>
+    ]
+  },
+  {
+    name: 'Allan and Maggie Tayebwa',
+    organization: 'Partners In Evangelism International',
+    location: 'Uganda',
+    description: [
+      <span key="tayebwa-desc-1">
+        Hope for Uganda is above all else, a church planting ministry. Allan has a burden for establishing Bible teaching churches in the heart of Uganda, and training new pastors to go out and start churches of their own. <a href="https://www.facebook.com/nbcuganda" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Nansana Bible Church</a>'s motto is: "Declaring the Whole Counsel of God," and they live out that motto without fear, evangelizing the city with zeal. They also work with the many children in the neighborhood, providing them with food and lessons in the Bible. It is hoped that they can influence future generations of Ugandans to grow up with a love for Christ because of how He cared for them when they were children.
+      </span>,
+      <span key="tayebwa-desc-2">
+        They are beginning to make plans for a new church plant in the city of Mbarara. It will be a time of great transition for them as they hand off leadership roles to the existing church in Nansana and move to start a new one. It is our goal to help them stand as a beacon of hope to those around them in a city stricken by poverty and hopelessness. Perhaps they can transform Kampala and Mbarara into churches on fire for Christ!
       </span>
     ]
   }
@@ -154,7 +167,7 @@ export default function Missionaries() {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Missionaries We Support</h1>
           <p className="text-sm sm:text-base text-gray-700 max-w-3xl mx-auto">
-            Partnering with global missions to spread the Gospel
+            Missionary efforts we financially support
           </p>
         </div>
       </div>
@@ -184,15 +197,15 @@ export default function Missionaries() {
             <p className="text-gray-600 mb-6">
               Please reach out to church leadership for more information about supporting these important ministries.
             </p>
-            <Link
-              href="/contact"
+            <a
+              href="mailto:orchardhillsbiblechurch@gmail.com?subject=Missions%20Inquiry"
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               Contact Us About Missions
               <svg className="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

@@ -1,0 +1,13 @@
+{
+  "name": "bible-db-cleanup",
+  "version": "1.0.0",
+  "description": "Script to clean up and optimize the Bible database",
+  "main": "cleanup-bible-db.js",
+  "scripts": {
+    "start": "node cleanup-bible-db.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^8.6.0"
+  },
+  "type": "module"
+}

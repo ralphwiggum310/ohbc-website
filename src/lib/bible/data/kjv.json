@@ -1,0 +1,108 @@
+{
+  "version": "KJV",
+  "name": "King James Version",
+  "language": "en",
+  "books": {
+    "Genesis": {
+      "chapters": {
+        "1": [
+          { "verse": 1, "text": "In the beginning God created the heaven and the earth." },
+          { "verse": 2, "text": "And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters." },
+          { "verse": 3, "text": "And God said, Let there be light: and there was light." },
+          { "verse": 4, "text": "And God saw the light, that it was good: and God divided the light from the darkness." },
+          { "verse": 5, "text": "And God called the light Day, and the darkness he called Night. And the evening and the morning were the first day." }
+        ],
+        "2": [
+          { "verse": 1, "text": "Thus the heavens and the earth were finished, and all the host of them." },
+          { "verse": 2, "text": "And on the seventh day God ended his work which he had made; and he rested on the seventh day from all his work which he had made." },
+          { "verse": 3, "text": "And God blessed the seventh day, and sanctified it: because that in it he had rested from all his work which God created and made." }
+        ],
+        "3": [
+          { "verse": 1, "text": "Now the serpent was more subtil than any beast of the field which the LORD God had made. And he said unto the woman, Yea, hath God said, Ye shall not eat of every tree of the garden?" },
+          { "verse": 2, "text": "And the woman said unto the serpent, We may eat of the fruit of the trees of the garden:" },
+          { "verse": 3, "text": "But of the fruit of the tree which is in the midst of the garden, God hath said, Ye shall not eat of it, neither shall ye touch it, lest ye die." }
+        ]
+      }
+    },
+    "Exodus": {
+      "chapters": {
+        "1": [
+          { "verse": 1, "text": "Now these are the names of the children of Israel, which came into Egypt; every man and his household came with Jacob." },
+          { "verse": 2, "text": "Reuben, Simeon, Levi, and Judah," },
+          { "verse": 3, "text": "Issachar, Zebulun, and Benjamin," },
+          { "verse": 4, "text": "Dan, and Naphtali, Gad, and Asher." }
+        ],
+        "2": [
+          { "verse": 1, "text": "And there went a man of the house of Levi, and took to wife a daughter of Levi." },
+          { "verse": 2, "text": "And the woman conceived, and bare a son: and when she saw him that he was a goodly child, she hid him three months." },
+          { "verse": 3, "text": "And when she could not longer hide him, she took for him an ark of bulrushes, and daubed it with slime and with pitch, and put the child therein; and she laid it in the flags by the river's brink." }
+        ]
+      }
+    },
+    "John": {
+      "chapters": {
+        "1": [
+          { "verse": 1, "text": "In the beginning was the Word, and the Word was with God, and the Word was God." },
+          { "verse": 2, "text": "The same was in the beginning with God." },
+          { "verse": 3, "text": "All things were made by him; and without him was not any thing made that was made." },
+          { "verse": 4, "text": "In him was life; and the life was the light of men." },
+          { "verse": 5, "text": "And the light shineth in darkness; and the darkness comprehended it not." }
+        ],
+        "3": [
+          { "verse": 1, "text": "There was a man of the Pharisees, named Nicodemus, a ruler of the Jews:" },
+          { "verse": 2, "text": "The same came to Jesus by night, and said unto him, Rabbi, we know that thou art a teacher come from God: for no man can do these miracles that thou doest, except God be with him." },
+          { "verse": 3, "text": "Jesus answered and said unto him, Verily, verily, I say unto thee, Except a man be born again, he cannot see the kingdom of God." },
+          { "verse": 16, "text": "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life." }
+        ]
+      }
+    },
+    "Revelation": {
+      "chapters": {
+        "1": [
+          { "verse": 1, "text": "The Revelation of Jesus Christ, which God gave unto him, to shew unto his servants things which must shortly come to pass; and he sent and signified it by his angel unto his servant John:" },
+          { "verse": 2, "text": "Who bare record of the word of God, and of the testimony of Jesus Christ, and of all things that he saw." },
+          { "verse": 3, "text": "Blessed is he that readeth, and they that hear the words of this prophecy, and keep those things which are written therein: for the time is at hand." }
+        ],
+        "21": [
+          { "verse": 1, "text": "And I saw a new heaven and a new earth: for the first heaven and the first earth were passed away; and there was no more sea." },
+          { "verse": 2, "text": "And I John saw the holy city, new Jerusalem, coming down from God out of heaven, prepared as a bride adorned for her husband." },
+          { "verse": 3, "text": "And I heard a great voice out of heaven saying, Behold, the tabernacle of God is with men, and he will dwell with them, and they shall be his people, and God himself shall be with them, and be their God." }
+        ],
+        "22": [
+          { "verse": 20, "text": "He which testifieth these things saith, Surely I come quickly. Amen. Even so, come, Lord Jesus." },
+          { "verse": 21, "text": "The grace of our Lord Jesus Christ be with you all. Amen." }
+        ]
+      }
+    },
+    "Psalms": {
+      "chapters": {
+        "1": [
+          { "verse": 1, "text": "Blessed is the man that walketh not in the counsel of the ungodly, nor standeth in the way of sinners, nor sitteth in the seat of the scornful." },
+          { "verse": 2, "text": "But his delight is in the law of the LORD; and in his law doth he meditate day and night." },
+          { "verse": 3, "text": "And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season; his leaf also shall not wither; and whatsoever he doeth shall prosper." }
+        ],
+        "23": [
+          { "verse": 1, "text": "The LORD is my shepherd; I shall not want." },
+          { "verse": 2, "text": "He maketh me to lie down in green pastures: he leadeth me beside the still waters." },
+          { "verse": 3, "text": "He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake." }
+        ]
+      }
+    },
+    "Matthew": {
+      "chapters": {
+        "1": [
+          { "verse": 1, "text": "The book of the generation of Jesus Christ, the son of David, the son of Abraham." },
+          { "verse": 2, "text": "Abraham begat Isaac; and Isaac begat Jacob; and Jacob begat Judas and his brethren;" },
+          { "verse": 3, "text": "And Judas begat Phares and Zara of Thamar; and Phares begat Esrom; and Esrom begat Aram;" }
+        ],
+        "5": [
+          { "verse": 1, "text": "And seeing the multitudes, he went up into a mountain: and when he was set, his disciples came unto him:" },
+          { "verse": 2, "text": "And he opened his mouth, and taught them, saying," },
+          { "verse": 3, "text": "Blessed are the poor in spirit: for theirs is the kingdom of heaven." },
+          { "verse": 4, "text": "Blessed are they that mourn: for they shall be comforted." },
+          { "verse": 5, "text": "Blessed are the meek: for they shall inherit the earth." }
+        ]
+      }
+    }
+  }
+}

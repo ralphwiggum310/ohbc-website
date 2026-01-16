@@ -1,0 +1,54 @@
+=== NASB1995 SOURCE FILE ANALYSIS ===
+File: C:\WindSurf\ohbc_website\scripts\NASB1995.txt
+Total lines: 32471
+
+=== LINE TYPE COUNTS ===
+Book headers: 66
+Chapter headers: 1189
+Section headers: 14477
+Verse lines: 12848
+Wrapped lines: 14
+Empty lines: 2248
+Other lines: 1629
+
+=== VERSE PATTERNS ===
+Starts with number (e.g., "1 Text"): 3528
+Starts with number:verse (e.g., "1:1 Text"): 1071
+Starts with number and space (e.g., "1 Text"): 8249
+Other verse patterns: 0
+
+=== BOOKS FOUND ===
+Total books: 65
+GENESIS, EXODUS, LEVITICUS, NUMBERS, DEUTERONOMY, JOSHUA, JUDGES, RUTH, 1 SAMUEL, 2 SAMUEL, 1 KINGS, 2 KINGS, 1 CHRONICLES, 2 CHRONICLES, EZRA, NEHEMIAH, ESTHER, JOB, PSALMS, ECCLESIASTES, SONG OF SOLOMON, ISAIAH, JEREMIAH, LAMENTATIONS, EZEKIEL, DANIEL, HOSEA, JOEL, AMOS, OBADIAH, JONAH, MICAH, NAHUM, HABAKKUK, ZEPHANIAH, HAGGAI, ZECHARIAH, MALACHI, MATTHEW, MARK, LUKE, JOHN, ACTS, ROMANS, 1 CORINTHIANS, 2 CORINTHIANS, GALATIANS, EPHESIANS, PHILIPPIANS, COLOSSIANS, 1 THESSALONIANS, 2 THESSALONIANS, 1 TIMOTHY, 2 TIMOTHY, TITUS, PHILEMON, HEBREWS, JAMES, 1 PETER, 2 PETER, 1 JOHN, 2 JOHN, 3 JOHN, JUDE, REVELATION
+
+=== LINE LENGTH STATISTICS ===
+Maximum length: 2697 characters
+Minimum length: 0 characters
+Average length: 130 characters
+
+=== SAMPLE VERSES ===
+Sample 1: GENESIS 6:1 - "Now it came about, when men began to multiply on t..."
+Sample 2: GENESIS 7:1 - "Then the LORD said to Noah, “Enter the ark, you an..."
+Sample 3: GENESIS 8:1 - "But God remembered Noah and all the beasts and all..."
+Sample 4: GENESIS 9:1 - "And God blessed Noah and his sons and said to them..."
+Sample 5: GENESIS 10:1 - "Now these are the records of the generations of Sh..."
+Sample 6: GENESIS 11:1 - "Now the whole earth used the same language and the..."
+Sample 7: GENESIS 12:1 - "Now the LORD said to Abram,"
+Sample 8: GENESIS 13:1 - "So Abram went up from Egypt to the Negev, he and h..."
+Sample 9: GENESIS 14:1 - "And it came about in the days of Amraphel king of ..."
+Sample 10: GENESIS 15:1 - "After these things the word of the LORD came to Ab..."
+
+=== POTENTIAL ISSUES ===
+Missing books (1):
+PROVERBS
+
+=== RECOMMENDATIONS ===
+- The file contains 14 wrapped lines that need to be properly joined with their verses.
+- 1 expected books were not found in the file.
+- There are 1629 lines that don't match any expected pattern.
+
+=== NEXT STEPS ===
+1. Review the verse pattern matching to ensure it captures all verses
+2. Implement logic to handle wrapped lines properly
+3. Check for any encoding or line ending issues
+4. Verify the book and chapter detection logic

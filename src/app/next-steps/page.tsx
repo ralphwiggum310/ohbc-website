@@ -12,7 +12,7 @@ export default function NextSteps() {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Next Steps</h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-            Your journey with us starts here. Discover how you can grow and get connected at Orchard Hills Bible Church.
+            Discover how you can grow and get connected at Orchard Hills Bible Church.
           </p>
         </div>
       </div>
@@ -33,7 +33,7 @@ export default function NextSteps() {
                   <div>
                     <h3 className="text-xl font-semibold text-gray-800 mb-2">Attend a Service</h3>
                     <p className="text-gray-600">
-                      Join us for worship on Sundays at 10:45 AM. Our welcoming community looks forward to meeting you!
+                      Join us for worship on Sunday morning and Wednesday night.
                     </p>
                     <Link href="/visit" className="text-blue-600 hover:underline mt-2 inline-block">
                       Service Times & Directions →
@@ -57,19 +57,18 @@ export default function NextSteps() {
                   </div>
                 </div>
 
+
+
                 {/* Step 3 */}
                 <div className="flex flex-col md:flex-row gap-6 items-start">
                   <div className="bg-blue-100 text-blue-800 rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold flex-shrink-0">
                     3
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">Join a Small Group</h3>
+                    <h3 className="text-xl font-semibold text-gray-800 mb-2">Get Baptized</h3>
                     <p className="text-gray-600">
-                      Connect with others in a smaller setting for Bible study, prayer, and fellowship.
+                      If you've been saved by the grace of the Lord Jesus Christ and have not yet obeyed His command to be baptized, take the step to publicly declare your faith in Him through believer's baptism. Just let one of our pastors know!
                     </p>
-                    <Link href="/ministries" className="text-blue-600 hover:underline mt-2 inline-block">
-                      Explore Groups →
-                    </Link>
                   </div>
                 </div>
 
@@ -79,25 +78,9 @@ export default function NextSteps() {
                     4
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">Get Baptized</h3>
-                    <p className="text-gray-600">
-                      Take the next step in your faith journey through believer's baptism.
-                    </p>
-                    <Link href="/contact" className="text-blue-600 hover:underline mt-2 inline-block">
-                      Learn More →
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Step 5 */}
-                <div className="flex flex-col md:flex-row gap-6 items-start">
-                  <div className="bg-blue-100 text-blue-800 rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold flex-shrink-0">
-                    5
-                  </div>
-                  <div>
                     <h3 className="text-xl font-semibold text-gray-800 mb-2">Serve in Ministry</h3>
                     <p className="text-gray-600">
-                      Use your gifts to serve others and make a difference in our church and community.
+                      As you've identified with the Lord through faith and baptism, identify with our local body by joining church membership and using your gifts to serve others.
                     </p>
                     <Link href="/ministries" className="text-blue-600 hover:underline mt-2 inline-block">
                       Find a Serving Opportunity →
@@ -111,12 +94,12 @@ export default function NextSteps() {
                 <p className="text-gray-600 mb-6">
                   We'd love to help you take your next step. Reach out to us with any questions you may have.
                 </p>
-                <Link 
-                  href="/contact" 
+                <a 
+                  href="mailto:orchardhillsbiblechurch@gmail.com" 
                   className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg inline-block transition-colors"
                 >
                   Contact Us
-                </Link>
+                </a>
               </div>
             </div>
           </div>

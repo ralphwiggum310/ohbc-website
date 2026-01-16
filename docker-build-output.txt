@@ -1,0 +1,130 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.minimal
+#1 transferring dockerfile: 567B done
+#1 DONE 0.0s
+
+#2 [auth] library/node:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:18.20.2-alpine3.18
+#3 DONE 0.7s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 1.06kB done
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/node:18.20.2-alpine3.18@sha256:333902a683678101fbbfadeb0a1ed6715db1ffb39d79e344cbf78689d9616f68
+#5 resolve docker.io/library/node:18.20.2-alpine3.18@sha256:333902a683678101fbbfadeb0a1ed6715db1ffb39d79e344cbf78689d9616f68 0.0s done
+#5 DONE 0.0s
+
+#6 [2/7] WORKDIR /app
+#6 CACHED
+
+#7 [internal] load build context
+#7 transferring context: 27.38kB 0.0s done
+#7 DONE 0.0s
+
+#8 [3/7] COPY package.json yarn.lock ./
+#8 DONE 0.0s
+
+#9 [4/7] RUN yarn install --frozen-lockfile --production
+#9 0.444 yarn install v1.22.19
+#9 0.497 [1/4] Resolving packages...
+#9 0.680 [2/4] Fetching packages...
+#9 31.78 [3/4] Linking dependencies...
+#9 35.68 [4/4] Building fresh packages...
+#9 35.80 Done in 35.37s.
+#9 DONE 36.7s
+
+#10 [5/7] COPY . .
+#10 DONE 0.8s
+
+#11 [6/7] RUN yarn build
+#11 0.405 yarn run v1.22.19
+#11 0.427 $ next build
+#11 1.155 Attention: Next.js now collects completely anonymous telemetry regarding usage.
+#11 1.155 This information is used to shape Next.js' roadmap and prioritize features.
+#11 1.155 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+#11 1.155 https://nextjs.org/telemetry
+#11 1.155 
+#11 1.255    Γû▓ Next.js 15.5.7
+#11 1.255    - Experiments (use with caution):
+#11 1.255      ┬╖ serverActions
+#11 1.255 
+#11 1.340    Creating an optimized production build ...
+#11 8.903 Failed to compile.
+#11 8.903 
+#11 8.903 src/app/layout.tsx
+#11 8.903 An error occurred in `next/font`.
+#11 8.903 
+#11 8.903 Error: Cannot find module 'postcss-import'
+#11 8.903 Require stack:
+#11 8.903 - /app/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js
+#11 8.903 - /app/node_modules/next/dist/build/webpack/config/blocks/css/index.js
+#11 8.903 - /app/node_modules/next/dist/build/webpack/config/index.js
+#11 8.903 - /app/node_modules/next/dist/build/webpack-config.js
+#11 8.903 - /app/node_modules/next/dist/build/webpack/plugins/next-trace-entrypoints-plugin.js
+#11 8.903 - /app/node_modules/next/dist/build/collect-build-traces.js
+#11 8.903 - /app/node_modules/next/dist/build/index.js
+#11 8.903 - /app/node_modules/next/dist/cli/next-build.js
+#11 8.903     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+#11 8.903     at /app/node_modules/next/dist/server/require-hook.js:57:36
+#11 8.903     at Function.resolve (node:internal/modules/helpers:188:19)
+#11 8.903     at loadPlugin (/app/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:53:32)
+#11 8.903     at /app/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:56
+#11 8.903     at Array.map (<anonymous>)
+#11 8.903     at getPostCssPlugins (/app/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:47)
+#11 8.903     at async /app/node_modules/next/dist/build/webpack/config/blocks/css/index.js:125:36
+#11 8.903     at async /app/node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js:94:33
+#11 8.903     at async Span.traceAsyncFn (/app/node_modules/next/dist/trace/trace.js:157:20)
+#11 8.903 
+#11 8.903 ./src/app/announcements/page.tsx
+#11 8.903 Module not found: Can't resolve '@/components/PDFViewerModal'
+#11 8.903 
+#11 8.903 https://nextjs.org/docs/messages/module-not-found
+#11 8.903 
+#11 8.903 ./src/app/culture/page.tsx
+#11 8.903 Module not found: Can't resolve '@/components/BibleVersePopup'
+#11 8.903 
+#11 8.903 https://nextjs.org/docs/messages/module-not-found
+#11 8.903 
+#11 8.903 ./src/app/give/page.tsx
+#11 8.903 Module not found: Can't resolve '@/components/HeroSection'
+#11 8.903 
+#11 8.903 https://nextjs.org/docs/messages/module-not-found
+#11 8.903 
+#11 8.903 ./src/app/page.tsx
+#11 8.903 Module not found: Can't resolve '@/components/AnimatedHero'
+#11 8.903 
+#11 8.903 https://nextjs.org/docs/messages/module-not-found
+#11 8.903 
+#11 8.906 
+#11 8.906 > Build failed because of webpack errors
+#11 8.984 error Command failed with exit code 1.
+#11 8.984 info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+#11 ERROR: process "/bin/sh -c yarn build" did not complete successfully: exit code: 1
+------
+ > [6/7] RUN yarn build:
+8.903 
+8.903 ./src/app/page.tsx
+8.903 Module not found: Can't resolve '@/components/AnimatedHero'
+8.903 
+8.903 https://nextjs.org/docs/messages/module-not-found
+8.903 
+8.906 
+8.906 > Build failed because of webpack errors
+8.984 error Command failed with exit code 1.
+8.984 info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+------
+Dockerfile.minimal:16
+--------------------
+  14 |     
+  15 |     # Build the application
+  16 | >>> RUN yarn build
+  17 |     
+  18 |     # Use the standalone output
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c yarn build" did not complete successfully: exit code: 1
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/5b8gav5vxiw13ghujh0bi9ev4

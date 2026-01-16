@@ -1,0 +1,123 @@
+2025-12-03T16:40:16.594Z - Starting analysis of NASB1995 import...
+2025-12-03T16:40:16.602Z - 
+Total verses in database: 10065
+2025-12-03T16:40:16.602Z - 
+=== BOOK ANALYSIS ===
+2025-12-03T16:40:16.603Z -  1. Genesis        :  360 / 1533 (23%)
+2025-12-03T16:40:16.603Z -  2. Exodus         :  241 / 1213 (20%)
+2025-12-03T16:40:16.604Z -  3. Leviticus      :  150 /  859 (17%)
+2025-12-03T16:40:16.604Z -  4. Numbers        :  268 / 1288 (21%)
+2025-12-03T16:40:16.604Z -  5. Deuteronomy    :  265 /  959 (28%)
+2025-12-03T16:40:16.604Z -  6. Joshua         :  113 /  658 (17%)
+2025-12-03T16:40:16.604Z -  7. Judges         :  139 /  618 (22%)
+2025-12-03T16:40:16.605Z -  8. Ruth           :   14 /   85 (16%)
+2025-12-03T16:40:16.605Z -  9. 1 Samuel       :    0 /  810 (0%)
+2025-12-03T16:40:16.605Z - 10. 2 Samuel       :    0 /  695 (0%)
+2025-12-03T16:40:16.605Z - 11. 1 Kings        :    0 /  816 (0%)
+2025-12-03T16:40:16.605Z - 12. 2 Kings        :    0 /  719 (0%)
+2025-12-03T16:40:16.605Z - 13. 1 Chronicles   :    0 /  942 (0%)
+2025-12-03T16:40:16.605Z - 14. 2 Chronicles   :    0 /  822 (0%)
+2025-12-03T16:40:16.605Z - 15. Ezra           :   47 /  280 (17%)
+2025-12-03T16:40:16.605Z - 16. Nehemiah       :   91 /  406 (22%)
+2025-12-03T16:40:16.606Z - 17. Esther         :   33 /  167 (20%)
+2025-12-03T16:40:16.606Z - 18. Job            :  988 / 1070 (92%)
+2025-12-03T16:40:16.606Z - 19. Psalms         : 2807 / 2461 (114%)
+2025-12-03T16:40:16.606Z - 20. Proverbs       :    0 /  915 (0%)
+2025-12-03T16:40:16.606Z - 21. Ecclesiastes   :   73 /  222 (33%)
+2025-12-03T16:40:16.606Z - 22. Song of Solomon:  109 /  117 (93%)
+2025-12-03T16:40:16.606Z - 23. Isaiah         : 1079 / 1292 (84%)
+2025-12-03T16:40:16.606Z - 24. Jeremiah       :  713 / 1364 (52%)
+2025-12-03T16:40:16.607Z - 25. Lamentations   :  149 /  154 (97%)
+2025-12-03T16:40:16.607Z - 26. Ezekiel        :  309 / 1273 (24%)
+2025-12-03T16:40:16.607Z - 27. Daniel         :   94 /  357 (26%)
+2025-12-03T16:40:16.607Z - 28. Hosea          :  213 /  197 (108%)
+2025-12-03T16:40:16.607Z - 29. Joel           :    0 /   73 (0%)
+2025-12-03T16:40:16.607Z - 30. Amos           :  126 /  146 (86%)
+2025-12-03T16:40:16.607Z - 31. Obadiah        :    0 /   21 (0%)
+2025-12-03T16:40:16.607Z - 32. Jonah          :   17 /   48 (35%)
+2025-12-03T16:40:16.607Z - 33. Micah          :   98 /  105 (93%)
+2025-12-03T16:40:16.607Z - 34. Nahum          :   44 /   47 (94%)
+2025-12-03T16:40:16.607Z - 35. Habakkuk       :   53 /   56 (95%)
+2025-12-03T16:40:16.608Z - 36. Zephaniah      :   49 /   53 (92%)
+2025-12-03T16:40:16.608Z - 37. Haggai         :    4 /   38 (11%)
+2025-12-03T16:40:16.608Z - 38. Zechariah      :   63 /  211 (30%)
+2025-12-03T16:40:16.608Z - 39. Malachi        :   12 /   55 (22%)
+2025-12-03T16:40:16.608Z - 40. Matthew        :  260 / 1071 (24%)
+2025-12-03T16:40:16.608Z - 41. Mark           :  119 /  678 (18%)
+2025-12-03T16:40:16.608Z - 42. Luke           :  233 / 1151 (20%)
+2025-12-03T16:40:16.608Z - 43. John           :  156 /  879 (18%)
+2025-12-03T16:40:16.608Z - 44. Acts           :  172 / 1007 (17%)
+2025-12-03T16:40:16.608Z - 45. Romans         :   94 /  433 (22%)
+2025-12-03T16:40:16.608Z - 46. 1 Corinthians  :    0 /  437 (0%)
+2025-12-03T16:40:16.609Z - 47. 2 Corinthians  :    0 /  257 (0%)
+2025-12-03T16:40:16.609Z - 48. Galatians      :   27 /  149 (18%)
+2025-12-03T16:40:16.609Z - 49. Ephesians      :   21 /  155 (14%)
+2025-12-03T16:40:16.609Z - 50. Philippians    :   18 /  104 (17%)
+2025-12-03T16:40:16.609Z - 51. Colossians     :   20 /   95 (21%)
+2025-12-03T16:40:16.609Z - 52. 1 Thessalonians:    0 /   89 (0%)
+2025-12-03T16:40:16.609Z - 53. 2 Thessalonians:    0 /   47 (0%)
+2025-12-03T16:40:16.609Z - 54. 1 Timothy      :    0 /  113 (0%)
+2025-12-03T16:40:16.609Z - 55. 2 Timothy      :    0 /   83 (0%)
+2025-12-03T16:40:16.609Z - 56. Titus          :   10 /   46 (22%)
+2025-12-03T16:40:16.609Z - 57. Philemon       :    8 /   25 (32%)
+2025-12-03T16:40:16.610Z - 58. Hebrews        :   85 /  303 (28%)
+2025-12-03T16:40:16.610Z - 59. James          :   16 /  108 (15%)
+2025-12-03T16:40:16.610Z - 60. 1 Peter        :    0 /  105 (0%)
+2025-12-03T16:40:16.610Z - 61. 2 Peter        :    0 /   61 (0%)
+2025-12-03T16:40:16.610Z - 62. 1 John         :    0 /  105 (0%)
+2025-12-03T16:40:16.610Z - 63. 2 John         :    0 /   13 (0%)
+2025-12-03T16:40:16.610Z - 64. 3 John         :    0 /   14 (0%)
+2025-12-03T16:40:16.610Z - 65. Jude           :    6 /   25 (24%)
+2025-12-03T16:40:16.610Z - 66. Revelation     :   99 /  404 (25%)
+2025-12-03T16:40:16.610Z - 
+=== IMPORT SUMMARY ===
+2025-12-03T16:40:16.610Z - Total verses imported: 10065
+2025-12-03T16:40:16.610Z - Missing books (20): 1 Samuel, 2 Samuel, 1 Kings, 2 Kings, 1 Chronicles, 2 Chronicles, Proverbs, Joel, Obadiah, 1 Corinthians, 2 Corinthians, 1 Thessalonians, 2 Thessalonians, 1 Timothy, 2 Timothy, 1 Peter, 2 Peter, 1 John, 2 John, 3 John
+2025-12-03T16:40:16.611Z - Books with low verse counts (34):
+2025-12-03T16:40:16.611Z -   - Genesis (360/1533 - 23%)
+2025-12-03T16:40:16.611Z -   - Exodus (241/1213 - 20%)
+2025-12-03T16:40:16.611Z -   - Leviticus (150/859 - 17%)
+2025-12-03T16:40:16.611Z -   - Numbers (268/1288 - 21%)
+2025-12-03T16:40:16.611Z -   - Deuteronomy (265/959 - 28%)
+2025-12-03T16:40:16.611Z -   - Joshua (113/658 - 17%)
+2025-12-03T16:40:16.611Z -   - Judges (139/618 - 22%)
+2025-12-03T16:40:16.611Z -   - Ruth (14/85 - 16%)
+2025-12-03T16:40:16.611Z -   - Ezra (47/280 - 17%)
+2025-12-03T16:40:16.611Z -   - Nehemiah (91/406 - 22%)
+2025-12-03T16:40:16.611Z -   - Esther (33/167 - 20%)
+2025-12-03T16:40:16.612Z -   - Ecclesiastes (73/222 - 33%)
+2025-12-03T16:40:16.612Z -   - Ezekiel (309/1273 - 24%)
+2025-12-03T16:40:16.612Z -   - Daniel (94/357 - 26%)
+2025-12-03T16:40:16.612Z -   - Jonah (17/48 - 35%)
+2025-12-03T16:40:16.612Z -   - Haggai (4/38 - 11%)
+2025-12-03T16:40:16.612Z -   - Zechariah (63/211 - 30%)
+2025-12-03T16:40:16.612Z -   - Malachi (12/55 - 22%)
+2025-12-03T16:40:16.612Z -   - Matthew (260/1071 - 24%)
+2025-12-03T16:40:16.612Z -   - Mark (119/678 - 18%)
+2025-12-03T16:40:16.612Z -   - Luke (233/1151 - 20%)
+2025-12-03T16:40:16.612Z -   - John (156/879 - 18%)
+2025-12-03T16:40:16.612Z -   - Acts (172/1007 - 17%)
+2025-12-03T16:40:16.612Z -   - Romans (94/433 - 22%)
+2025-12-03T16:40:16.612Z -   - Galatians (27/149 - 18%)
+2025-12-03T16:40:16.612Z -   - Ephesians (21/155 - 14%)
+2025-12-03T16:40:16.613Z -   - Philippians (18/104 - 17%)
+2025-12-03T16:40:16.613Z -   - Colossians (20/95 - 21%)
+2025-12-03T16:40:16.613Z -   - Titus (10/46 - 22%)
+2025-12-03T16:40:16.613Z -   - Philemon (8/25 - 32%)
+2025-12-03T16:40:16.613Z -   - Hebrews (85/303 - 28%)
+2025-12-03T16:40:16.613Z -   - James (16/108 - 15%)
+2025-12-03T16:40:16.613Z -   - Jude (6/25 - 24%)
+2025-12-03T16:40:16.613Z -   - Revelation (99/404 - 25%)
+2025-12-03T16:40:16.613Z - 
+=== DATA QUALITY CHECKS ===
+2025-12-03T16:40:16.616Z - No duplicate verses found.
+2025-12-03T16:40:16.623Z - No unusually short verses found.
+2025-12-03T16:40:16.623Z - 
+=== SAMPLE VERSES ===
+2025-12-03T16:40:16.623Z - Genesis 1:1 - "In the beginning God created the heavens and the earth."
+2025-12-03T16:40:16.624Z - Psalms 23:1 - NOT FOUND
+2025-12-03T16:40:16.624Z - Matthew 1:1 - NOT FOUND
+2025-12-03T16:40:16.624Z - John 3:16 - "For God so loved the world, that He gave His only begotten Son, that whoever believes in Him shall not perish, but have eternal life. 17 For God did not send the Son into the world to judge the world, but that the world might be saved through Him. 18 He who believes in Him is not judged; he who does not believe has been judged already, because he has not believed in the name of the only begotten Son of God. 19 This is the judgment, that the Light has come into the world, and men loved the darkness rather than the Light, for their deeds were evil. 20 For everyone who does evil hates the Light, and does not come to the Light for fear that his deeds will be exposed. 21 But he who practices the truth comes to the Light, so that his deeds may be manifested as having been wrought in God. John s Last Testimony"
+2025-12-03T16:40:16.625Z - Revelation 22:21 - "The grace of the Lord Jesus be with all. Amen."
+2025-12-03T16:40:16.625Z - 
+Analysis complete!

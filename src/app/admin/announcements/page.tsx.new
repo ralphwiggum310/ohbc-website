@@ -1,0 +1,20 @@
+import { auth } from '@/auth';
+import { redirect } from 'next/navigation';
+import UploadForm from './UploadForm';
+
+export default async function AnnouncementsAdminPage() {
+  const session = await auth();
+  
+  // Redirect to signin if not authenticated
+  if (!session) {
+    redirect('/api/auth/signin');
+  }
+
+  // Check if user is admin
+  const user = session.user as { role?: string };
+  if (user.role !== 'admin') {
+    redirect('/');
+  }
+
+  return <UploadForm />;
+}

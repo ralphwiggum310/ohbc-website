@@ -1,0 +1,77 @@
+# Build stage
+FROM node:20-alpine AS builder
+
+# Set working directory
+WORKDIR /app
+
+# Install build dependencies
+RUN apk add --no-cache libc6-compat
+
+# Copy package files first for better caching
+COPY package*.json ./
+
+# Install dependencies (including devDependencies for building)
+# Using npm install with --legacy-peer-deps to handle dependency conflicts
+RUN npm install --legacy-peer-deps --no-audit --prefer-offline
+
+# Copy all files except those in .dockerignore
+COPY . .
+
+# Build the application with production settings with debug output
+RUN echo "Starting Next.js build..." && \
+    npm run build --debug || (echo "Build failed, showing error logs..." && cat .next/build-manifest.json && exit 1) && \
+    echo "Build completed successfully"
+
+# Production stage
+FROM node:20-alpine AS runner
+
+WORKDIR /app
+
+# Set NODE_ENV to production
+ENV NODE_ENV=production
+
+# Install only production dependencies with legacy peer deps to handle dependency conflicts
+COPY --from=builder /app/package*.json ./
+RUN npm install --only=production --legacy-peer-deps --no-audit --prefer-offline
+
+# Copy the standalone server and static files
+COPY --from=builder /app/.next/standalone .
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/public ./public
+
+# Copy the next.config.js file and other required config files
+COPY --from=builder /app/next.config.js .
+COPY --from=builder /app/next-env.d.ts .
+COPY --from=builder /app/tsconfig.json .
+COPY --from=builder /app/package.json .
+
+# Copy the src directory for dynamic routes
+COPY --from=builder /app/src ./src
+
+# Ensure the admin directory is present
+RUN echo "Checking for admin directory in /app/src/app..." && \
+    ls -la /app/src/app && \
+    echo "Contents of /app/src/app/admin (if exists):" && \
+    ls -la /app/src/app/admin || echo "Admin directory not found"
+
+# @prisma/client is already installed via npm install --only=production
+
+# Create a non-root user first
+RUN addgroup --system --gid 1001 nodejs && \
+    adduser --system --uid 1001 nextjs -G nodejs
+
+# Set proper permissions
+RUN chown -R nextjs:nodejs /app
+
+# Set environment variables
+ENV PORT=3000
+ENV HOSTNAME=0.0.0.0
+
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Set the user to non-root
+USER nextjs
+
+# Set the command to start the application
+CMD ["node", "server.js"]

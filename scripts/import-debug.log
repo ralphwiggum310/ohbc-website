@@ -1,0 +1,173 @@
+[2025-12-03T15:55:41.154Z] Starting NASB1995 import debug session...
+[2025-12-03T15:55:41.161Z] Opening database: C:\WindSurf\ohbc_website\Bible api\bible.eng.db
+[2025-12-03T15:55:41.163Z] Testing database connection...
+[2025-12-03T15:55:41.164Z] Database connection successful. Found tables:
+{
+  "name": "_prisma_migrations"
+}
+[2025-12-03T15:55:41.165Z] Creating t_nasb1995 table if it does not exist...
+[2025-12-03T15:55:41.174Z] Table t_nasb1995 is ready for import.
+[2025-12-03T15:55:41.175Z] Testing insertion of a single verse...
+[2025-12-03T15:55:41.196Z] Test verse inserted successfully:
+{
+  "stmt": {},
+  "lastID": 1,
+  "changes": 1
+}
+[2025-12-03T15:55:41.197Z] Current row count in t_nasb1995:
+{
+  "count": 1
+}
+[2025-12-03T15:55:41.200Z] Analyzing input file...
+[2025-12-03T15:55:41.205Z] File contains 23989 lines
+[2025-12-03T15:55:41.205Z] Sample lines from file:
+[
+  "Line 1: # GENESIS",
+  "Line 2: Chapter 1",
+  "Line 3: The Creation",
+  "Line 4: Chapter 1",
+  "Line 5: Chapter 2",
+  "Line 6: Chapter 3",
+  "Line 7: Chapter 5",
+  "Line 8: Chapter 6",
+  "Line 9: Chapter 7",
+  "Line 10: Chapter 9"
+]
+[2025-12-03T15:55:41.207Z] Found 128 book headers:
+[
+  "# GENESIS",
+  "# END OF GENESIS",
+  "# EXODUS",
+  "# END OF EXODUS",
+  "# LEVITICUS",
+  "# END OF LEVITICUS",
+  "# NUMBERS",
+  "# END OF NUMBERS",
+  "# DEUTERONOMY",
+  "# END OF DEUTERONOMY",
+  "# JOSHUA",
+  "# END OF JOSHUA",
+  "# JUDGES",
+  "# END OF JUDGES",
+  "# RUTH",
+  "# END OF RUTH",
+  "# 1 SAMUEL",
+  "# END OF 1 SAMUEL",
+  "# 2 SAMUEL",
+  "# END OF 2 SAMUEL",
+  "# 1 KINGS",
+  "# END OF 1 KINGS",
+  "# 2 KINGS",
+  "# ND OF 2 KINGS",
+  "# 1 CHRONICLES",
+  "# END OF 1 CHRONICLES",
+  "# 2 CHRONICLES",
+  "# END OF 2 CHRONICLES",
+  "# EZRA",
+  "# ENDO OF EZRA",
+  "# NEHEMIAH",
+  "# END OF NEHEMIAH",
+  "# ESTHER",
+  "# END OF ESTHER",
+  "# JOB",
+  "# END OF JOB",
+  "# PSALMS",
+  "# END OF PSALMS",
+  "# PSALMS",
+  "# END OF PSALMS",
+  "# ECCLESIASTES",
+  "# END OF ECCLESIASTES",
+  "# SONG OF SOLOMON",
+  "# END OF SONG OF SOLOMON",
+  "# ISAIAH",
+  "# END OF ISAIAH",
+  "# JEREMIAH",
+  "# END OF JEREMIAH",
+  "# LAMENTATIONS",
+  "# END OF LAMENTATIONS",
+  "# EZEKIEL",
+  "# END OF EZEKIEL",
+  "# DANIEL",
+  "# END OF DANIEL",
+  "# HOSEA",
+  "# END OF HOSEA",
+  "# AMOS",
+  "# END OF AMOS",
+  "# JONAH",
+  "# END OF JONAH",
+  "# MICAH",
+  "# END OF MICAH",
+  "# NAHUM",
+  "# END OF NAHUM",
+  "# HABAKKUK",
+  "# END OF HABAKKUK",
+  "# ZEPHANIAH",
+  "# END OF ZEPHANIAH",
+  "# HAGGAI",
+  "# END OF HAGGAI",
+  "# ZECHARIAH",
+  "# END OF ZECHARIAH",
+  "# MALACHI",
+  "# END OF MALACHI",
+  "# MATTHEW",
+  "# END OF MATTHEW",
+  "# MARK",
+  "# END OF MARK",
+  "# LUKE",
+  "# END OF LUKE",
+  "# JOHN",
+  "# END OF JOHN",
+  "# ACTS",
+  "# END OF ACTS",
+  "# ROMANS",
+  "# END OF ROMANS",
+  "# 1 CORINTHIANS",
+  "# END OF 1 CORINTHIANS",
+  "# 2 CORINTHIANS",
+  "# END OF 2 CORINTHIANS",
+  "# GALATIANS",
+  "# END OF GALATIANS",
+  "# EPHESIANS",
+  "# END OF EPHESIANS",
+  "# PHILIPPIANS",
+  "# END OF PHILIPPIANS",
+  "# COLOSSIANS",
+  "# END OF COLOSSIANS",
+  "# 1 THESSALONIANS",
+  "# END OF 1 THESSALONIANS",
+  "# 2 THESSALONIANS",
+  "# END OF 2 THESSALONIANS",
+  "# 1 TIMOTHY",
+  "# END OF 1 TIMOTHY",
+  "# 2 TIMOTHY",
+  "# END OF 2 TIMOTHY",
+  "# TITUS",
+  "# END OF TITUS",
+  "# PHILEMON",
+  "# END OF PHILEMON",
+  "# HEBREWS",
+  "# END OF HEBREWS",
+  "# JAMES",
+  "# END OF JAMES",
+  "# 1 PETER",
+  "# END OF 1 PETER",
+  "# 2 PETER",
+  "# END OF 2 PETER",
+  "# 1 JOHN",
+  "# END OF 1 JOHN",
+  "# 2 JOHN",
+  "# END OF 2 JOHN",
+  "# 3 JOHN",
+  "# END OF 3 JOHN",
+  "# JUDE",
+  "# END OF JUDE",
+  "# REVELATION",
+  "# END OF REVELATION"
+]
+[2025-12-03T15:55:41.211Z] Found 14037 chapter headers
+[2025-12-03T15:55:41.214Z] Found 0 verse lines
+[2025-12-03T15:55:41.214Z] Sample verse lines:
+[]
+[2025-12-03T15:55:41.214Z] 
+Debug analysis complete. Check the log file for details:
+[2025-12-03T15:55:41.215Z] C:\WindSurf\ohbc_website\scripts\import-debug.log
