@@ -15,7 +15,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -37,9 +37,14 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "scripts",
+    "src/auth.ts",
+    "src/components/BibleReader/ModernBibleReader.tsx",
+    "src/lib/bible/data.ts"
   ]
 }

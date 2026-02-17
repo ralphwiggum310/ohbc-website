@@ -1,6 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, BeforeInsert, BeforeUpdate, AfterInsert, AfterUpdate, AfterRemove } from 'typeorm';
 import * as bcrypt from 'bcryptjs';
-import { validatePassword } from '@/lib/security-utils';
 import { logSecurityEvent, SecurityEventType } from '@/lib/security-events';
 // Helper to get client IP from request headers
 const getClientIp = (request: Request): string => {
@@ -95,12 +94,12 @@ export class User {
    * Sets a new password after validation
    */
   setPassword(newPassword: string) {
-    const { valid, message } = validatePassword(newPassword);
-    if (!valid) {
-      throw new Error(message || 'Invalid password');
+    // Simple password validation
+    if (!newPassword || newPassword.length < 8) {
+      throw new Error('Password must be at least 8 characters long');
     }
-    this.password = newPassword;
-    this.tempPassword = newPassword;
+    const hashedPassword = bcrypt.hashSync(newPassword, 10);
+    this.password = hashedPassword;
   }
 
   /**
@@ -207,7 +206,7 @@ export class User {
     this.emailVerified = true;
     await logSecurityEvent('EMAIL_VERIFIED' as SecurityEventType, 'system', {
       userId: this.id,
-      email: this.email,
+      metadata: { email: this.email }
     });
   }
   

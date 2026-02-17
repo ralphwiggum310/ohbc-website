@@ -12,7 +12,6 @@ import {
   FiUsers,
   FiBarChart2 
 } from 'react-icons/fi';
-import { signOut } from 'next-auth/react';
 
 type NavigationItem = {
   name: string;
@@ -28,11 +27,17 @@ export default function AdminSidebar() {
   const router = useRouter();
   
   const handleSignOut = async () => {
-    await signOut({
-      redirect: false,
-      callbackUrl: '/api/auth/signin'
-    });
-    router.push('/api/auth/signin');
+    try {
+      // Call the logout API to clear the cookie
+      await fetch('/api/auth/logout', {
+        method: 'POST',
+        credentials: 'include'
+      });
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+    // Redirect to signin page
+    router.push('/auth/signin');
     router.refresh();
   };
   
@@ -85,45 +90,35 @@ export default function AdminSidebar() {
   ];
 
   return (
-    <div className="flex flex-col w-64 h-screen bg-white border-r">
-      <div className="px-4 py-8">
-        <h2 className="text-3xl font-semibold text-center text-gray-800">Control Panel</h2>
+    <div className="w-64 h-screen bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col transition-colors duration-200">
+      <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+        <h1 className="text-xl font-bold text-gray-800 dark:text-white">Admin Panel</h1>
       </div>
       
-      <div className="flex flex-col flex-1 overflow-y-auto">
-        <nav className="px-4 space-y-1">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={`flex items-center px-4 py-3 text-gray-600 transition-colors duration-200 transform rounded-lg hover:bg-gray-100 hover:text-gray-700 ${
-                pathname === item.href ? 'bg-gray-100 text-gray-700' : ''
-              } ${item.disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
-              aria-disabled={item.disabled}
-              onClick={(e) => {
-                if (item.disabled) {
-                  e.preventDefault();
-                }
-                if (item.onClick) {
-                  e.preventDefault();
-                  item.onClick();
-                }
-              }}
-            >
-              <item.icon className="w-5 h-5" />
-              <span className="mx-4 font-medium">{item.name}</span>
-              {item.badge && (
-                <span className="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-gray-800 bg-gray-200 rounded-full">
-                  {item.badge}
-                </span>
-              )}
-            </Link>
-          ))}
-        </nav>
-      </div>
-
-      {/* Sticky Sign Out Button */}
-      <div className="sticky bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4">
+      <nav className="flex-1 overflow-y-auto p-4 space-y-1">
+        {navigation.map((item) => (
+          <Link
+            key={item.name}
+            href={item.disabled ? '#' : item.href}
+            onClick={item.onClick}
+            className={`flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors duration-150 ${
+              pathname === item.href
+                ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-200'
+                : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:text-gray-900 dark:hover:text-white'
+            } ${item.disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+          >
+            <item.icon className="mr-3 h-5 w-5 flex-shrink-0" />
+            <span>{item.name}</span>
+            {item.badge && (
+              <span className="ml-auto bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                {item.badge}
+              </span>
+            )}
+          </Link>
+        ))}
+      </nav>
+      
+      <div className="p-4 border-t border-gray-200 dark:border-gray-700">
         <button
           onClick={handleSignOut}
           className="flex items-center justify-center w-full px-4 py-3 text-gray-700 transition-colors duration-200 transform rounded-lg hover:bg-red-50 hover:text-red-600"

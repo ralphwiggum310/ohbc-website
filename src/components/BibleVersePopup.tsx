@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 
 interface BibleVersePopupProps {
   reference: string;
-  onClose: () => void;
+  onCloseAction: () => void;
+  isOpen: boolean;
 }
 
 // Static verse texts for all references
@@ -118,10 +119,11 @@ const VERSE_TEXTS: Record<string, string> = {
   'Matthew 5:14-16': 'You are the light of the world. A city set on a hill cannot be hidden. Nor do people light a lamp and put it under a basket, but on a stand, and it gives light to all in the house. In the same way, let your light shine before others, so that they may see your good works and give glory to your Father who is in heaven.'
 };
 
-export default function BibleVersePopup({ reference, onClose }: BibleVersePopupProps) {
+const BibleVersePopup: React.FC<BibleVersePopupProps> = ({ reference, onCloseAction, isOpen }) => {
   const [verseText, setVerseText] = useState('Loading...');
   const [isLoading, setIsLoading] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
+  const popupRef = useRef<HTMLDivElement>(null);
 
   // Helper function to normalize verse references for lookup
   const normalizeReference = (ref: string): string => {
@@ -223,58 +225,79 @@ export default function BibleVersePopup({ reference, onClose }: BibleVersePopupP
     setIsLoading(false);
   }, [reference]);
 
-  const handleClose = () => {
-    // Set isVisible to false to trigger the fade-out animation
+  const handleClose = useCallback(() => {
     setIsVisible(false);
-    // Wait for the animation to complete before calling onClose
-    setTimeout(() => {
-      onClose();
-    }, 200); // Match this with your CSS transition time
-  };
+    setTimeout(onCloseAction, 200);
+  }, [onCloseAction]);
+
+  // Handle click outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
+        onCloseAction();
+      }
+    };
+
+    // Add event listener when popup is open
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    // Clean up
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen, onCloseAction]);
 
   return (
     <div 
-      className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-200 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
-      onClick={handleClose}
+      className={`fixed inset-0 bg-black/50 dark:bg-black/80 flex items-center justify-center z-50 p-4 transition-opacity duration-200 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+      onClick={onCloseAction}
     >
       <div 
-        className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full mx-4 max-h-[80vh] overflow-y-auto"
+        ref={popupRef}
+        className="bg-popup rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transition-all duration-200 border border-gray-200 dark:border-gray-700"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex justify-between items-start mb-4">
-          <h3 className="text-xl font-bold text-gray-900">{reference}</h3>
-          <button 
-            onClick={handleClose}
-            className="text-gray-500 hover:text-gray-700"
-            aria-label="Close"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
-        
-        <div className="text-gray-800 mb-4">
-          {isLoading ? (
-            <div className="animate-pulse">
-              <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
-              <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
-              <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-            </div>
-          ) : (
-            <p className="whitespace-pre-line">{verseText}</p>
-          )}
-        </div>
-        
-        <div className="text-right">
-          <button
-            onClick={handleClose}
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-          >
-            Close
-          </button>
+        <div className="p-6">
+          <div className="flex justify-between items-start mb-4">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white">{reference}</h3>
+            <button 
+              onClick={onCloseAction}
+              className="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 focus:outline-none transition-colors"
+              aria-label="Close"
+            >
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          
+          <div className="text-gray-800 dark:text-gray-200 mb-6">
+            {isLoading ? (
+              <div className="flex items-center justify-center py-8">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 dark:border-blue-400"></div>
+                <span className="ml-2 dark:text-gray-300">Loading...</span>
+              </div>
+            ) : (
+              <div className="prose-content prose dark:prose-invert max-w-none p-6 rounded-lg">
+                <p className="whitespace-pre-line">{verseText}</p>
+              </div>
+            )}
+          </div>
+          
+          <div className="flex justify-end">
+            <button
+              onClick={onCloseAction}
+              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition-colors"
+            >
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
 }
+
+export default BibleVersePopup;

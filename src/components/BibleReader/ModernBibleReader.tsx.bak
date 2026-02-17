@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { bibleService, BIBLE_VERSIONS } from '@/services/bibleService';
+import { BIBLE_VERSIONS, getBooks, getVerses } from '../../lib/bible/bibleService';
 
 type BiblePassage = {
   reference: string;

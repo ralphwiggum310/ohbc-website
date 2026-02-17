@@ -78,7 +78,7 @@ export async function GET(request: Request) {
         
         return {
           name: file,
-          path: `/${UPLOAD_CONFIG.BASE_DIR}/${UPLOAD_CONFIG.DIRECTORIES.ANNOUNCEMENTS}/${section}/${file}`.replace(/\/+/g, '/'),
+          path: `/${UPLOAD_CONFIG.BASE_DIR}/uploads/${section}/${file}`.replace(/\/+/g, '/'),
           size: stats.size,
           lastModified: stats.mtimeMs,
           section

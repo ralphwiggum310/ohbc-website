@@ -1,13 +1,38 @@
 import { Database } from 'sqlite3';
 import { open } from 'sqlite';
-import { BibleVersion, Book, Chapter, Verse } from '@/types/bible';
 import path from 'path';
 import fs from 'fs';
 
+// Define types inline to avoid import issues
+export interface BibleVersion {
+  id: string;
+  name: string;
+}
+
+export interface Book {
+  id: string;
+  name: string;
+  testament: 'OT' | 'NT';
+  chapters: number;
+}
+
+export interface Chapter {
+  number: number;
+  verses: number;
+}
+
+export interface Verse {
+  id: number;
+  verse: number;
+  text: string;
+}
+
 let db: any = null;
 
-// Using exact Windows path as specified
-const DB_PATH = 'C:\\WindSurf\\ohbc_website\\data\\bible\\bibles.db';
+// Using dynamic path that works in both development and production
+const DB_PATH = process.env.NODE_ENV === 'production' 
+  ? 'C:\\WindSurf\\ohbc_website\\data\\bible\\Bibles.db'
+  : path.join(process.cwd(), 'data', 'bible', 'Bibles.db');
 const DB_DIR = path.dirname(DB_PATH);
 
 export async function getBibleDb() {
@@ -89,62 +114,40 @@ export async function getBooks(versionId: string): Promise<Book[]> {
   try {
     console.log(`[DB] Getting books for version: ${versionId}`);
     
-    // First, let's check what tables exist in the database
+    // First, let's check what tables exist in database
     const tables = await db.all("SELECT name FROM sqlite_master WHERE type='table'");
     console.log('[DB] Available tables:', tables.map((t: any) => t.name).join(', '));
     
-    // Check if we have a BookNames table
-    const bookNamesTableExists = tables.some((t: any) => t.name === 'BookNames');
-    console.log(`[DB] BookNames table exists: ${bookNamesTableExists}`);
-    
-    // Get distinct books from the verses table
-    let query = `
-      SELECT DISTINCT 
-        book as id,
-        book as number,
-        CASE WHEN book <= 39 THEN 'OT' ELSE 'NT' END as testament
-      FROM Verse 
-      WHERE version = ?
-      ORDER BY book
+    // Use the actual table name 'books' instead of 'bible_books'
+    const query = `
+      SELECT 
+        id,
+        name,
+        testament,
+        chapters
+      FROM books 
+      ORDER BY display_order
     `;
     
     console.log('[DB] Executing query:', query);
-    console.log('[DB] With parameters:', [versionId]);
     
-    const books = await db.all(query, [versionId]);
+    const books = await db.all(query);
     
-    // If we have a BookNames table, try to get the book names
-    if (bookNamesTableExists) {
-      console.log('[DB] Fetching book names from BookNames table');
-      for (const book of books) {
-        try {
-          const nameRow = await db.get(
-            'SELECT name FROM BookNames WHERE book = ?',
-            [book.id]
-          );
-          book.name = nameRow?.name || `Book ${book.id}`;
-        } catch (error) {
-          console.error(`[DB] Error getting name for book ${book.id}:`, error);
-          book.name = `Book ${book.id}`;
-        }
-      }
-    } else {
-      console.log('[DB] No BookNames table found, using generic names');
-      // Provide generic names if no BookNames table
-      for (const book of books) {
-        book.name = `Book ${book.id}`;
-      }
-    }
+    // Convert numeric IDs to strings to match the Book interface
+    const booksWithStringIds = books.map((book: any) => ({
+      ...book,
+      id: book.id.toString()
+    }));
     
-    console.log(`[DB] Found ${books.length} books`);
-    return books;
+    console.log(`[DB] Found ${booksWithStringIds.length} books`);
+    return booksWithStringIds;
   } catch (error) {
     console.error('[DB] Error in getBooks:', error);
     // Return a basic set of books as fallback
     console.log('[DB] Returning fallback books list');
     return [
-      { id: '1', name: 'Genesis', number: 1, testament: 'OT' },
-      { id: '40', name: 'Matthew', number: 40, testament: 'NT' }
+      { id: '1', name: 'Genesis', testament: 'OT', chapters: 50 },
+      { id: '40', name: 'Matthew', testament: 'NT', chapters: 28 }
     ];
   }
 }
@@ -155,8 +158,8 @@ export async function getChapters(versionId: string, bookId: string): Promise<Ch
     const chapters = await db.all(
       `SELECT DISTINCT chapter as number, 
               COUNT(*) as verses
-       FROM Verse 
-       WHERE version = ? AND book = ?
+       FROM verses 
+       WHERE version_id = ? AND book_id = ?
        GROUP BY chapter
        ORDER BY chapter`,
       [versionId, bookId]
@@ -174,8 +177,8 @@ export async function getVerses(versionId: string, bookId: string, chapterNum: n
   try {
     const verses = await db.all(
       `SELECT id, verse, text
-       FROM Verse
-       WHERE version = ? AND book = ? AND chapter = ?
+       FROM verses
+       WHERE version_id = ? AND book_id = ? AND chapter = ?
        ORDER BY verse`,
       [versionId, bookId, chapterNum]
     );

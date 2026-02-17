@@ -82,8 +82,8 @@ export async function GET() {
             })
         );
 
-        // Sort weekly section by date in filename (newest first)
-        if (section === 'weekly') {
+        // Sort sunday_bulletins section by date in filename (newest first)
+        if (section === 'sunday_bulletins') {
           sectionFiles.sort((a, b) => {
             // Extract dates from filenames (assuming format like "YYYY-MM-DD - Title.pdf")
             const dateA = a.name.match(/^(\d{4}-\d{1,2}-\d{1,2})/);

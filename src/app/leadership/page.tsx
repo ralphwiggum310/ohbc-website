@@ -33,20 +33,20 @@ const leadership: { [key: string]: TeamMember[] } = {
       image: '/images/site_img/leadership/tyler-woodhead.jpg',
       imagePosition: 'center 25%',
       imageScale: 0.8
-    },
-    {
-      name: 'Michael Smith',
-      role: 'Pastor',
-      bio: [
-        'Michael Smith was mainly raised in the Central Valley of California. He and his wife, Beth, moved to Utah in 2016. After nearly 52 years of marriage, Beth went home to be with the Lord in April 2023. Michael has two adult children, nine grandchildren, and two great-grandchildren.',
-        'He has a Bachelor of Science in Nursing, as well as an MBA. Since retiring, he enjoys woodworking, hunting, and fishing as hobbies. He desires to be a part of continual growth in God\'s work in Utah.'
-      ],
-      image: '/images/site_img/leadership/michael-smith.jpg',
-      imagePosition: 'center 30%',
-      imageScale: 0.8
     }
   ],
   Deacons: [
+    {
+      name: 'Jim Carpenter',
+      role: 'Deacon',
+      bio: [
+        'Jim Carpenter grew up in Fort Worth, Texas. After moving to Colorado, he met and married Sandra, and they lived there for 39 years. They moved to Utah to be closer to their children and grandchildren. They have two daughters, six grandchildren and eight great-grandchildren.',
+        'Since retiring he has enjoyed fishing, hunting, camping, mechanical work, building, and welding. He desires to love the Lord his God with all his heart, soul, and mind.'
+      ],
+      image: '/images/site_img/leadership/jim-carpenter.jpg',
+      imagePosition: 'center 25%',
+      imageScale: 0.8
+    },
     {
       name: 'Rex Dana',
       role: 'Deacon',
@@ -56,17 +56,6 @@ const leadership: { [key: string]: TeamMember[] } = {
       ],
       image: '/images/site_img/leadership/rex-dana.jpg',
       imagePosition: 'center 20%',
-      imageScale: 0.8
-    },
-    {
-      name: 'Dean Stucker',
-      role: 'Deacon',
-      bio: [
-        'Dean Stucker was raised in Albuquerque, New Mexico. He moved to Utah in 2013 for work as the Sales Manger for Pepsi of Springville. He and Jen married in 2015 and have three great children.',
-        'He enjoys camping and outdoor activities with family and friends. He has a passion for teaching and leading, especially with the younger generation. He loves being a kids\' class teacher, especially when he has the opportunity to team-teach with his wife. He desires to lead the children\'s ministry someday and oversee their direction and vision of growth as disciples of Christ preparing themselves for the Great Commission.'
-      ],
-      image: '/images/site_img/leadership/dean-stucker.jpg',
-      imagePosition: 'center 25%',
       imageScale: 0.8
     },
     {
@@ -81,13 +70,24 @@ const leadership: { [key: string]: TeamMember[] } = {
       imageScale: 0.8
     },
     {
-      name: 'Jim Carpenter',
+      name: 'Hayden Messick',
       role: 'Deacon',
       bio: [
-        'Jim Carpenter grew up in Fort Worth, Texas. After moving to Colorado, he met and married Sandra, and they lived there for 39 years. They moved to Utah to be closer to their children and grandchildren. They have two daughters, six grandchildren and eight great-grandchildren.',
-        'Since retiring he has enjoyed fishing, hunting, camping, mechanical work, building, and welding. He desires to love the Lord his God with all his heart, soul, and mind.'
+        'Hayden Messick is a native to Utah, growing up in Springville and then moving to Santaquin. He married his loving wife Anna in 2023 and was blessed with a daughter in 2025. He works for Provo City as an Instrumentation and Controls technician, performing maintenance at Provo\'s Water Reclamation Plant.',
+        'Hayden grew up in Mormonism and didn\'t know the Gospel until his father in-law told him about God\'s grace in 2020. He later put his faith and trust in Jesus, devoting his life to following and serving Christ. He enjoys spending time with his wife, as they raise their daughter together. He also has great love for being with his brothers and sisters at Orchard Hills Bible Church.'
       ],
-      image: '/images/site_img/leadership/jim-carpenter.jpg',
+      image: '/images/site_img/leadership/hayden-messick.jpg',
+      imagePosition: 'center 25%',
+      imageScale: 0.8
+    },
+    {
+      name: 'Dean Stucker',
+      role: 'Deacon',
+      bio: [
+        'Dean Stucker was raised in Albuquerque, New Mexico. He moved to Utah in 2013 for work as the Sales Manger for Pepsi of Springville. He and Jen married in 2015 and have three great children.',
+        'He enjoys camping and outdoor activities with family and friends. He has a passion for teaching and leading, especially with the younger generation. He loves being a kids\' class teacher, especially when he has the opportunity to team-teach with his wife. He desires to lead the children\'s ministry someday and oversee their direction and vision of growth as disciples of Christ preparing themselves for the Great Commission.'
+      ],
+      image: '/images/site_img/leadership/dean-stucker.jpg',
       imagePosition: 'center 25%',
       imageScale: 0.8
     }
@@ -106,29 +106,45 @@ const leadership: { [key: string]: TeamMember[] } = {
   ]
 };
 
+// Helper function to sort leadership members by last name
+const sortLeadership = (leadership: { [key: string]: TeamMember[] }) => {
+  const sorted: { [key: string]: TeamMember[] } = {};
+  
+  for (const [key, members] of Object.entries(leadership)) {
+    sorted[key] = [...members].sort((a, b) => {
+      const aLastName = a.name.split(' ').pop() || '';
+      const bLastName = b.name.split(' ').pop() || '';
+      return aLastName.localeCompare(bLastName);
+    });
+  }
+  
+  return sorted;
+};
+
 export default function Leadership() {
+  const sortedLeadership = sortLeadership(leadership);
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-200">
       <HeroSection 
         title="Church Leadership"
         subtitle="Meet our dedicated ministry team serving at Orchard Hills Bible Church"
-        className="bg-gradient-to-r from-blue-700 to-blue-900 text-white"
+        className="bg-gradient-to-r from-blue-700 to-blue-900 dark:from-gray-800 dark:to-gray-900 text-white py-3 sm:py-4"
       >
         <div className="mt-6"></div>
       </HeroSection>
 
       {/* Leadership Sections */}
       <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
-        {Object.entries(leadership).map(([title, members]) => (
+        {Object.entries(sortedLeadership).map(([title, members]) => (
           <div key={title} className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 pb-2 border-b border-gray-200">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8 pb-2 border-b border-gray-200 dark:border-gray-700">
               {title}
             </h2>
             <div className="space-y-10">
               {members.map((member, index) => (
                 <div 
                   key={member.name} 
-                  className={`bg-white rounded-lg shadow-sm overflow-hidden ${
+                  className={`bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden transition-colors duration-200 ${
                     index !== members.length - 1 ? 'mb-10' : ''
                   }`}
                 >
@@ -149,12 +165,15 @@ export default function Leadership() {
                         priority={index < 3} // Load first 3 images with higher priority
                       />
                     </div>
-                    <div className="p-6 pt-0 md:pt-6">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                    <div className="p-4 sm:p-6 sm:pt-4 md:pt-6">
+                      <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">
                         {member.name}
+                        <span className="block text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400 mt-1">
+                          {member.role}
+                        </span>
                       </h3>
                       {member.bio.map((paragraph, pIndex) => (
-                        <p key={pIndex} className="text-gray-600 mb-4 last:mb-0">
+                        <p key={pIndex} className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 last:mb-0 leading-relaxed sm:leading-normal">
                           {paragraph}
                         </p>
                       ))}

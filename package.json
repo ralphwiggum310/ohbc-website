@@ -3,10 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env PORT=3000 next dev",
+    "dev": "cross-env PORT=3000 next dev --webpack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "if exist .next rmdir /s /q .next && if exist node_modules rmdir /s /q node_modules"
+  },
+  "resolutions": {
+    "@next/swc-linux-x64-gnu": "npm:@next/swc-win32-x64-msvc@16.1.6",
+    "@next/swc-darwin-x64": "npm:@next/swc-win32-x64-msvc@16.1.6",
+    "@next/swc-linux-x64-musl": "npm:@next/swc-win32-x64-msvc@16.1.6"
+  },
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "overrides": {
+    "@next/swc-win32-x64-msvc": "16.1.6"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -14,8 +32,14 @@
     "@react-pdf-viewer/core": "^3.12.0",
     "@react-pdf-viewer/default-layout": "^3.12.0",
     "@react-pdf/renderer": "^4.3.1",
+    "@types/bcrypt": "^6.0.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/nodemailer": "^6.4.17",
     "axios": "^1.7.2",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^12.6.2",
     "bible-passage-reference-parser": "^3.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^1.2.1",
@@ -24,20 +48,28 @@
     "critters": "^0.0.24",
     "framer-motion": "^12.5.0",
     "lucide-react": "^0.536.0",
-    "next": "^15.5.7",
-    "next-auth": "^4.24.7",
+    "next": "^16.1.6",
+    "next-auth": "^4.24.13",
     "nodemailer": "^7.0.7",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "react-error-boundary": "^6.0.0",
     "react-icons": "^5.5.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.0.2",
     "tailwind-merge": "^1.14.0",
+    "typeorm": "^0.3.28",
     "use-debounce": "^10.0.5"
   },
   "devDependencies": {
+    "@next/swc-linux-x64-gnu": "^15.5.7",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/typography": "^0.5.19",
     "@types/node": "25.0.3",
     "@types/react": "19.2.7",
     "@types/react-dom": "^19.0.0",
+    "@types/sqlite3": "^3.1.11",
     "@typescript-eslint/eslint-plugin": "^8.13.0",
     "@typescript-eslint/parser": "^8.13.0",
     "autoprefixer": "^10.4.20",

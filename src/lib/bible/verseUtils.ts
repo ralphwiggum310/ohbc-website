@@ -1,3 +1,5 @@
+import React from 'react';
+
 // Function to parse a verse reference string into individual references
 export function parseVerseReferences(referenceString: string): string[] {
   if (!referenceString) return [];
@@ -25,8 +27,6 @@ export function extractVerseReferences(text: string): string[] {
   return matches.map(match => match.trim());
 }
 
-import React from 'react';
-
 // Function to create a clickable verse reference component
 export function createClickableVerse(
   reference: string, 
@@ -53,7 +53,7 @@ export function processTextWithVerses(
   text: string, 
   onVerseClick: (ref: string) => void,
   className?: string
-): (string | JSX.Element)[] {
+): (string | React.ReactElement)[] {
   // First, split by common verse reference patterns
   const parts = text.split(/(\b(?:[1-9]?[A-Za-z]+\s+\d+\s*[\:\,\-\.]\s*\d+\s*(?:[\-\–]\s*\d+\s*[\:\,\-\.]\s*\d+)*)\b)/g);
   

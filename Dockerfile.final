@@ -1,0 +1,84 @@
+# Stage 1: Prepare the build environment
+FROM node:18-alpine AS builder
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies and build tools
+RUN apk add --no-cache \
+    libc6-compat \
+    jq \
+    python3 \
+    make \
+    g++ \
+    gcc \
+    py3-pip \
+    && ln -sf python3 /usr/bin/python
+
+# Copy package files first for better layer caching
+COPY package*.json ./
+
+# Clean up Windows-specific dependencies
+RUN jq 'del(.dependencies."@next/swc-win32-x64-msvc") | \
+    del(.devDependencies."@next/swc-win32-x64-msvc")' package.json > package.json.tmp && \
+    mv package.json.tmp package.json
+
+# Set Python path for node-gyp
+ENV PYTHON=/usr/bin/python3
+
+# Install dependencies
+RUN npm config set update-notifier false && \
+    npm config set python /usr/bin/python3 && \
+    npm install --legacy-peer-deps --no-optional \
+    --build-from-source \
+    --python=/usr/bin/python3
+
+# Install Linux-specific SWC
+RUN npm install @next/swc-linux-x64-gnu --save-dev
+
+# Copy the rest of the application
+COPY . .
+
+# Set environment to production
+ENV NODE_ENV=production
+
+# Build the application
+RUN npm run build
+
+# Stage 2: Production image
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Install production dependencies only
+COPY --from=builder /app/package*.json ./
+RUN npm config set update-notifier false && \
+    npm ci --only=production
+
+# Copy built assets from builder
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+
+# Create necessary directories
+RUN mkdir -p .next/static && \
+    mkdir -p public/_next/static && \
+    mkdir -p public/uploads
+
+# Create a non-root user and set permissions
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S -u 1001 -G nodejs nextjs && \
+    chown -R nextjs:nodejs /app
+
+# Switch to non-root user
+USER nextjs
+
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD wget --no-verbose --tries=1 --spider http://localhost:3000/ || exit 1
+
+# Command to run the application
+CMD ["node", ".next/standalone/server.js"]

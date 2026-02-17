@@ -77,9 +77,8 @@ export async function DELETE(request: NextRequest) {
     }
 
     // Validate section
-    const validSections = UPLOAD_CONFIG.DIRECTORIES.ANNOUNCEMENTS ? 
-      ['general', 'quarterly', 'sunday_bulletins'] : [];
-      
+    const validSections = ['general', 'quarterly', 'sunday_bulletins'];
+    
     if (!validSections.includes(section)) {
       debugLog('Invalid section:', section, 'Valid sections:', validSections);
       return new NextResponse(`Invalid section. Must be one of: ${validSections.join(', ')}`, { status: 400 });
@@ -87,23 +86,33 @@ export async function DELETE(request: NextRequest) {
 
     // Construct the full file path
     const fileName = path.basename(filePath);
+    
+    // Determine the correct subdirectory based on section
+    let subDir = section;
+    if (section === 'sunday_bulletins') {
+      subDir = 'sunday_bulletins';
+    } else if (section === 'quarterly') {
+      subDir = 'quarterly';
+    } else if (section === 'general') {
+      subDir = 'general';
+    }
+    
+    // Construct the full path
     const fullPath = path.join(
-      process.cwd(),
-      'public', // Hardcode 'public' since UPLOAD_CONFIG.BASE_DIR is relative to public
+      UPLOAD_CONFIG.BASE_DIR,
       'uploads',
-      'announcements',
-      section,
+      subDir,
       fileName
     );
     
-    debugLog('Full file path for deletion:', fullPath);
+    debugLog('Constructed file path:', fullPath);
     
     // Verify the file exists
     try {
       await access(fullPath);
-      debugLog('File exists, proceeding with deletion');
+      debugLog('File exists at path:', fullPath);
     } catch (error) {
-      debugLog('File does not exist or is not accessible:', fullPath);
+      debugLog('File does not exist:', fullPath, error);
       return new NextResponse('File not found', { status: 404 });
     }
     

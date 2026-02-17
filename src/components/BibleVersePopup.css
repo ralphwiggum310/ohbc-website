@@ -1,0 +1,18 @@
+/* Force solid background in dark mode */
+.dark .popup-container {
+  background-color: #111827 !important; /* gray-900 */
+}
+
+/* Ensure content area is also solid in dark mode */
+.dark .popup-container .prose {
+  background-color: #1f2937 !important; /* gray-800 */
+}
+
+/* Override any transparent backgrounds */
+.popup-container {
+  background-color: white;
+}
+
+.popup-container .prose {
+  background-color: #f9fafb; /* gray-50 */
+}

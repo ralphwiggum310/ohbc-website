@@ -103,12 +103,11 @@ const CultureCard = ({
         </div>
       )}
 
-      {selectedVerse && (
-        <BibleVersePopup 
-          reference={selectedVerse}
-          onClose={() => setSelectedVerse(null)}
-        />
-      )}
+      <BibleVersePopup 
+        reference={selectedVerse || ''}
+        onCloseAction={() => setSelectedVerse(null)}
+        isOpen={!!selectedVerse}
+      />
     </div>
   );
 };

@@ -55,7 +55,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-0 bg-white dark:bg-gray-900">
       {/* Animated Hero Section */}
       <AnimatedHero
         logoPath="/logo/OHBC_animated_logo.png"
@@ -65,56 +65,51 @@ export default function Home() {
       />
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-12">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Welcome to Our Church Community</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <main className="container mx-auto px-1.5 py-3 sm:py-4 flex-grow">
+        <h2 className="text-base sm:text-xl font-bold text-center mb-3 sm:mb-5 text-gray-800 dark:text-blue-100">Welcome to Our Church Community</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-2 sm:gap-3">
           {sections.map((section, index) => (
             <div 
               key={index} 
-              className="card-group bg-white rounded-lg overflow-hidden flex flex-col h-full"
+              className="card-group bg-white dark:bg-gray-800 rounded-lg overflow-hidden flex flex-col h-full shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
             >
               <Link 
                 href={section.link}
                 target="_self"
                 rel=""
-                className="flex flex-col h-full"
+                className="flex flex-col h-full group"
               >
-                <div className="card-image-container relative w-full aspect-video bg-gray-100 overflow-hidden">
-                  <div className="relative w-full h-full">
+                <div className="relative w-full pt-[56.25%] bg-gray-100 dark:bg-gray-700 overflow-hidden">
+                  <div className="absolute inset-0">
                     <Image 
                       src={section.image} 
                       alt={section.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                       priority={index < 3}
                       style={{
-                        objectPosition: 'center center',
-                        width: '100%',
-                        height: '100%'
+                        objectPosition: 'center center'
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
                   </div>
                 </div>
                 
-                <div className="p-6 flex-grow flex flex-col">
-                  <h2 className="text-2xl font-bold mb-3 text-gray-800 card-link">
+                <div className="card-content p-1.5 sm:p-2 flex-1 flex flex-col">
+                  <h3 className="text-xxs sm:text-sm font-semibold mb-0.5 text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                     {section.title}
-                    {section.isExternal && (
-                      <span className="ml-2 inline-block">
-                        <svg className="w-4 h-4 text-blue-500 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                      </span>
-                    )}
-                  </h2>
-                  <p className="text-gray-600 mb-4 flex-grow">{section.description}</p>
-                  <div className="text-blue-600 font-semibold inline-flex items-center group-hover:underline">
-                    {section.buttonText}
-                    <svg className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-[0.6rem] sm:text-xs line-clamp-2 leading-tight">
+                    {section.description}
+                  </p>
+                  <div className="mt-0.5 sm:mt-1">
+                    <span className="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium text-[0.6rem] sm:text-xxs group-hover:underline">
+                      {section.buttonText}
+                      <svg className="w-2 h-2 sm:w-2.5 sm:h-2.5 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </span>
                   </div>
                 </div>
               </Link>
@@ -144,18 +139,25 @@ export default function Home() {
       `}</style>
 
       {/* Call to Action */}
-      <div className="bg-gray-100 py-16">
+      <div className="bg-gray-100 dark:bg-gray-800 py-4 sm:py-6 transition-colors duration-200 -mt-1">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Join Us This Sunday</h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">We'd love for you to join us for worship this Sunday at 10:45 AM.</p>
+          <h2 className="text-lg sm:text-2xl font-bold mb-2 text-gray-900 dark:text-white">Join Us This Sunday</h2>
+          <p className="text-xs sm:text-base text-gray-600 dark:text-gray-300 mb-3 max-w-2xl mx-auto">We'd love for you to join us for worship this Sunday at 10:45 AM.</p>
           <Link 
             href="/visit" 
-            className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold inline-block hover:bg-blue-700 transition-colors"
+            className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 text-white px-4 py-1.5 text-xs sm:text-sm rounded-md font-medium inline-block transition-colors"
           >
             Get Directions
           </Link>
         </div>
       </div>
+
+      {/* Footer */}
+      <footer className="bg-gray-100 dark:bg-gray-900 py-4 transition-colors duration-200">
+        <div className="container mx-auto px-4 text-center text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+          <p>© {new Date().getFullYear()} Orchard Hills Bible Church. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 }

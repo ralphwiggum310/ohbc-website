@@ -11,7 +11,7 @@ export default function MemberSearch() {
   const { replace } = useRouter();
 
   const handleSearch = useDebouncedCallback((term: string) => {
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams || '');
     
     if (term) {
       params.set('search', term);
@@ -30,7 +30,7 @@ export default function MemberSearch() {
         placeholder="Search members..."
         className="w-full pl-9"
         onChange={(e) => handleSearch(e.target.value)}
-        defaultValue={searchParams.get('search')?.toString()}
+        defaultValue={searchParams?.get('search')?.toString()}
       />
     </div>
   );

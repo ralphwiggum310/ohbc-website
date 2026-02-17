@@ -1,7 +1,7 @@
 'use server';
 
 import { auth } from '@/auth';
-import { StatsData } from './types';
+import { StatsData } from './page';
 
 // Helper function to format file size
 function formatFileSize(bytes: number): string {
@@ -22,7 +22,7 @@ export async function fetchStats(): Promise<{ data: StatsData | null; error: str
     }
 
     // Check if user is admin
-    if (session.user.role !== 'admin') {
+    if ((session.user as any)?.role !== 'admin') {
       return { data: null, error: 'Insufficient permissions' };
     }
 
@@ -34,8 +34,6 @@ export async function fetchStats(): Promise<{ data: StatsData | null; error: str
       next: { revalidate: 60 }, // Revalidate every minute
       headers: {
         'Content-Type': 'application/json',
-        // Forward the session cookie
-        Cookie: `next-auth.session-token=${session.sessionToken}`
       }
     });
 

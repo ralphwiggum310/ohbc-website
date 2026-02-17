@@ -86,7 +86,7 @@ const culturalStatements = [
     verses: 'Matthew 28:16-20; Luke 12:35-38; John 9:4; John 13:34-35; Ephesians 4:11-16; Philippians 2:3-11'
   },
   {
-    title: 'Biblical Authority',
+    title: 'Biblical Doctrine',
     content: '⦁	We are governed by the Bible because God\'s ways are higher than ours.\n\nOur dependence on Scripture is rooted in the belief that the Bible is authoritative and sufficient to direct the affairs of our lives and reveal His purposes for us as we humbly submit to Him in all things. This conviction is particularly revealed in our commitment to sound hermeneutics, expository preaching, biblical counseling, and complementary gender roles.',
     verses: 'Romans 15:13-14; 1 Corinthians 11:3; 1 Timothy 2:9-15; 2 Timothy 3:16-17; 2 Timothy 4:1-5'
   },
@@ -113,52 +113,54 @@ export default function WhatWeBelieve() {
   const [currentView, setCurrentView] = useState<ViewType>('doctrinal');
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
       <HeroSection 
-        title={currentView === 'doctrinal' ? 'What We Believe' : 'Our Culture'}
-        subtitle={currentView === 'doctrinal' 
-          ? 'Our core doctrinal beliefs that guide our church community'
-          : 'The values and principles that shape our church community'}
-        className="bg-gradient-to-r from-blue-700 to-blue-900 text-white"
-      >
-        <div className="flex justify-center mt-4 space-x-4">
-          <button
-            onClick={() => setCurrentView('doctrinal')}
-            className={`px-4 py-2 rounded-md font-medium transition-colors ${
-              currentView === 'doctrinal'
-                ? 'bg-blue-600 text-white shadow-md'
-                : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
-            }`}
-          >
-            Doctrinal Statements
-          </button>
-          <button
-            onClick={() => setCurrentView('cultural')}
-            className={`px-4 py-2 rounded-md font-medium transition-colors ${
-              currentView === 'cultural'
-                ? 'bg-blue-600 text-white shadow-md'
-                : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
-            }`}
-          >
-            Cultural Statements
-          </button>
-        </div>
-      </HeroSection>
+        title="What We Believe"
+        subtitle={
+          <div className="flex flex-col items-center">
+            <p className="mb-1 sm:mb-2 text-xs sm:text-sm">Our doctrinal and cultural statements of faith</p>
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-1">
+              <button
+                onClick={() => setCurrentView('doctrinal')}
+                className={`px-4 py-2 sm:px-5 sm:py-2.5 text-sm sm:text-base rounded-lg font-medium transition-all duration-200 transform hover:scale-105 ${
+                  currentView === 'doctrinal'
+                    ? 'bg-white text-blue-700 shadow-lg dark:bg-blue-600 dark:text-white dark:border-blue-600 font-semibold'
+                    : 'bg-white/20 text-white hover:bg-white/30 border border-white/20 dark:border-gray-500 dark:hover:bg-gray-700/50 backdrop-blur-sm'
+                }`}
+              >
+                Doctrinal Statements
+              </button>
+              <button
+                onClick={() => setCurrentView('cultural')}
+                className={`px-4 py-2 sm:px-5 sm:py-2.5 text-sm sm:text-base rounded-lg font-medium transition-all duration-200 transform hover:scale-105 ${
+                  currentView === 'cultural'
+                    ? 'bg-white text-blue-700 shadow-lg dark:bg-blue-600 dark:text-white dark:border-blue-600 font-semibold'
+                    : 'bg-white/20 text-white hover:bg-white/30 border border-white/20 dark:border-gray-500 dark:hover:bg-gray-700/50 backdrop-blur-sm'
+                }`}
+              >
+                Cultural Statements
+              </button>
+            </div>
+          </div>
+        }
+        className="bg-gradient-to-r from-blue-700 to-blue-900 dark:from-gray-800 dark:to-gray-900 text-white py-3 sm:py-4"
+      />
 
-      {/* Content Section */}
-      {currentView === 'doctrinal' ? (
-        <StatementsViewer 
-          statements={doctrinalStatements}
-          title=""
-          description=""
-        />
-      ) : (
-        <StatementsViewer 
-          statements={culturalStatements}
-          title=""
-          description=""
-        />
-      )}
+      <div className="max-w-6xl mx-auto px-4 py-2 sm:px-6 lg:px-8 -mt-2 relative z-10">
+        {currentView === 'doctrinal' ? (
+          <StatementsViewer 
+            statements={doctrinalStatements}
+            title="Doctrinal Statements"
+            description="Our foundational beliefs based on Scripture"
+          />
+        ) : (
+          <StatementsViewer 
+            statements={culturalStatements}
+            title="Cultural Statements"
+            description="How our beliefs shape our church culture"
+          />
+        )}
+      </div>
     </div>
   );
 };

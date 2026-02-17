@@ -2,6 +2,8 @@
 // Importing this file on the client will work, but database operations will fail
 // unless they're performed in a server context (API routes, server components, or server actions)
 
+import { closeDatabase } from './server-db';
+
 export { 
   getDatabase, 
   getRepository, 

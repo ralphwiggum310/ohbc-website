@@ -1,64 +1,124 @@
 'use client';
 
-import React, { useEffect, useState, useCallback } from 'react';
-import Link from 'next/link';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import { Megaphone, Newspaper, FileText, Image as FileImage, File as FilePdf, File } from 'lucide-react';
 import dynamic from 'next/dynamic';
-import { FileText, Image as FileImage, File as FilePdf, File, Calendar, Megaphone, Newspaper } from 'lucide-react';
 
-// Dynamically import the PDFViewer to avoid SSR issues
-const PDFViewer = dynamic(
-  () => import('@/components/PDFViewer'),
-  { ssr: false }
-);
-
-type AnnouncementFile = {
+// Types
+interface AnnouncementFile {
   name: string;
   path: string;
-  type: 'pdf' | 'image';
+  type: 'pdf' | 'image' | 'other';
   size: number;
   modified: Date;
-  section: 'quarterly' | 'general' | 'sunday_bulletins';
-};
+  section: 'general' | 'sunday_bulletins';
+  extractedDate?: Date;
+  url?: string;
+  lastModified?: string;
+}
 
-type AnnouncementSections = {
-  quarterly: AnnouncementFile[];
+interface AnnouncementSections {
   general: AnnouncementFile[];
   sunday_bulletins: AnnouncementFile[];
+}
+
+type FilterType = 'general' | 'sunday_bulletins';
+
+// Helper functions
+const extractDateFromFilename = (filename: string): Date => {
+  const dateMatch = filename.match(/(\d{1,2})[-/](\d{1,2})[-/](\d{2,4})/);
+  if (dateMatch) {
+    const [, month, day, year] = dateMatch;
+    const fullYear = year.length === 2 ? `20${year}` : year;
+    return new Date(parseInt(fullYear), parseInt(month) - 1, parseInt(day));
+  }
+  return new Date();
 };
 
-type FilterType = 'general' | 'quarterly' | 'sunday_bulletins';
+const PDFViewer = dynamic(() => import('@/components/PDFViewer'), { ssr: false });
 
 export default function AnnouncementsPage() {
+  // State
   const [sections, setSections] = useState<AnnouncementSections>({
-    quarterly: [],
     general: [],
     sunday_bulletins: []
   });
   const [activeFilter, setActiveFilter] = useState<FilterType>('general');
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedPdf, setSelectedPdf] = useState<{ url: string; name: string } | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Container classes with dark mode support
+  const containerClasses = 'min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200';
+
+  // Format file size to be more readable
+  const formatFileSize = useCallback((bytes: number): string => {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  }, []);
+
+  // Format date to be more readable
+  const formatDate = useCallback((date: Date): string => {
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  }, []);
+
+  // Format file name for display
+  const formatFileName = useCallback((fileName: string): string => {
+    return fileName
+      .replace(/\.[^/.]+$/, '')
+      .replace(/\d{1,2}[-/]\d{1,2}[-/]\d{2,4}/, '')
+      .replace(/[_-]+/g, ' ')
+      .trim()
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
+  }, []);
+
+  // Process and sort files
+  const processFiles = useCallback((files: AnnouncementFile[]): AnnouncementFile[] => {
+    return files.map(file => ({
+      ...file,
+      extractedDate: extractDateFromFilename(file.name)
+    })).sort((a, b) => {
+      const dateA = a.extractedDate || a.modified;
+      const dateB = b.extractedDate || b.modified;
+      return dateB.getTime() - dateA.getTime();
+    });
+  }, []);
+
+  // Format display date
+  const formatDisplayDate = useCallback((file: AnnouncementFile): string => {
+    const dateToUse = file.extractedDate || file.modified;
+    return formatDate(dateToUse);
+  }, [formatDate]);
+
+  // Handle file click
   const handleFileClick = useCallback(async (e: React.MouseEvent, file: AnnouncementFile) => {
     e.preventDefault();
     e.stopPropagation();
     
-    // For PDFs, open directly in a new tab
     if (file.type === 'pdf') {
-      // Ensure the path starts with a slash and doesn't have double slashes
       const cleanPath = file.path.replace(/^\/+|\/+$/g, '');
       const absoluteUrl = file.path.startsWith('http') 
         ? file.path 
         : `${window.location.origin}/${cleanPath}`;
       
-      // Try to open the file directly
       const newWindow = window.open(absoluteUrl, '_blank');
       
-      // If the window failed to open or if the file doesn't load, try the API endpoint
       if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
         window.open(`/api/file?path=${encodeURIComponent(cleanPath)}`, '_blank');
       }
       return;
     }
     
-    // For non-PDF files, open in a new tab
     try {
       const response = await fetch(file.path);
       if (!response.ok) throw new Error('Failed to load file');
@@ -69,7 +129,6 @@ export default function AnnouncementsPage() {
       const newWindow = window.open('', '_blank');
       if (newWindow) {
         if (file.type === 'image') {
-          // For images, create a simple HTML page to display the image
           newWindow.document.write(`
             <!DOCTYPE html>
             <html>
@@ -87,11 +146,9 @@ export default function AnnouncementsPage() {
           `);
           newWindow.document.close();
         } else {
-          // For other file types, let the browser handle it
           newWindow.location.href = fileURL;
         }
       } else {
-        // If popup is blocked, fall back to download
         const a = document.createElement('a');
         a.href = fileURL;
         a.download = file.name;
@@ -105,191 +162,228 @@ export default function AnnouncementsPage() {
       alert('Failed to open the file. Please try again or download it instead.');
     }
   }, []);
-  
-  // No longer needed as we're handling PDFs directly
-  const closePdfViewer = useCallback(() => {}, []);
 
-  const fetchAnnouncements = useCallback(async () => {
-    try {
-      const response = await fetch('/api/announcements');
-      if (!response.ok) {
-        throw new Error('Failed to fetch announcements');
-      }
-      const data = await response.json();
-      
-      // Transform the data to match our AnnouncementFile type
-      const transformedData = {
-        quarterly: [],
-        general: [],
-        sunday_bulletins: []
-      } as AnnouncementSections;
-      
-      // Map the API response to our data structure
-      Object.entries(data).forEach(([section, files]) => {
-        // Normalize section name (replace hyphens with underscores)
-        const normalizedSection = section.replace(/-/g, '_') as keyof AnnouncementSections;
-        
-        if (normalizedSection in transformedData) {
-          transformedData[normalizedSection] = (files as any[]).map(file => ({
-            ...file,
-            modified: new Date(file.lastModified),
-            section: normalizedSection as AnnouncementFile['section']
-          }));
-        }
-      });
-      
-      setSections(transformedData);
-    } catch (error) {
-      console.error('Error fetching announcements:', error);
-    } finally {
-      setIsLoading(false);
+  // Get file icon based on type
+  const getFileIcon = useCallback((file: AnnouncementFile) => {
+    switch (file.type) {
+      case 'pdf':
+        return <FilePdf className="w-5 h-5 text-red-500 dark:text-red-400 flex-shrink-0" />;
+      case 'image':
+        return <FileImage className="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0" />;
+      default:
+        return <File className="w-5 h-5 text-gray-500 dark:text-gray-400 flex-shrink-0" />;
     }
   }, []);
 
+  // Get section icon with responsive sizing and dark mode support
+  const getSectionIcon = useCallback((section: keyof AnnouncementSections) => {
+    const iconProps = {
+      className: 'w-4 h-4 sm:w-5 sm:h-5'
+    };
+    
+    const iconContent = section === 'general' ? (
+      <Megaphone {...iconProps} />
+    ) : (
+      <Newspaper {...iconProps} />
+    );
+    
+    return (
+      <div className={`${isMobile ? 'p-1.5' : 'p-2'} rounded-full transition-colors ${
+        section === activeFilter
+          ? section === 'general'
+            ? 'bg-blue-100 text-blue-600 dark:bg-blue-900/70 dark:text-blue-200'
+            : 'bg-green-100 text-green-600 dark:bg-green-900/70 dark:text-green-200'
+          : 'bg-gray-100 text-gray-500 dark:bg-gray-700/50 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600/50'
+      }`}>
+        {iconContent}
+      </div>
+    );
+  }, [isMobile, activeFilter]);
+
+  // Section data
+  const sectionsList = useMemo(() => [
+    { 
+      id: 'general' as const, 
+      label: `General Announcements (${sections.general.length})`,
+      description: 'Latest news and updates'
+    },
+    { 
+      id: 'sunday_bulletins' as const, 
+      label: `Sunday Bulletins (${sections.sunday_bulletins.length})`,
+      description: 'Weekly service information'
+    },
+  ], [sections]);
+
+  // Filtered sections
+  const filteredSections = useMemo(() => {
+    return Object.entries(sections)
+      .filter(([section]) => section === activeFilter)
+      .map(([section, files]) => [
+        section,
+        processFiles(files)
+      ]) as Array<[keyof AnnouncementSections, AnnouncementFile[]]>;
+  }, [sections, activeFilter, processFiles]);
+
+  // Check if there are any announcements
+  const hasAnnouncements = useMemo(() => 
+    Object.values(sections).some(section => section.length > 0),
+    [sections]
+  );
+
+  // Set up effects
   useEffect(() => {
+    setMounted(true);
+    
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  // Load announcements data
+  useEffect(() => {
+    const fetchAnnouncements = async () => {
+      try {
+        // TODO: Replace with actual API call
+        // const response = await fetch('/api/announcements');
+        // const data = await response.json();
+        // setSections(data);
+        
+        // Mock data for now
+        setSections({
+          general: [
+            {
+              name: 'welcome-letter-2023.pdf',
+              path: '/documents/welcome-letter-2023.pdf',
+              type: 'pdf',
+              size: 1024 * 1024 * 2.5, // 2.5MB
+              modified: new Date('2023-01-15'),
+              section: 'general'
+            }
+          ],
+          sunday_bulletins: [
+            {
+              name: 'bulletin-02-05-2023.pdf',
+              path: '/bulletins/bulletin-02-05-2023.pdf',
+              type: 'pdf',
+              size: 1024 * 1024 * 1.2, // 1.2MB
+              modified: new Date('2023-02-05'),
+              section: 'sunday_bulletins'
+            }
+          ]
+        });
+        
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error loading announcements:', error);
+        setIsLoading(false);
+      }
+    };
+
     fetchAnnouncements();
-  }, [fetchAnnouncements]);
+  }, []);
 
-  const getFileIcon = (type: 'pdf' | 'image') => {
-    switch (type) {
-      case 'pdf':
-        return <FilePdf className="w-5 h-5 text-red-500 flex-shrink-0" />;
-      case 'image':
-        return <FileImage className="w-5 h-5 text-blue-500 flex-shrink-0" />;
-      default:
-        return <File className="w-5 h-5 text-gray-500 flex-shrink-0" />;
-    }
-  };
-
-  const formatFileName = (name: string) => {
-    // Remove file extension and any date prefix (format: YYYY-MM-DD - )
-    return name
-      .replace(/^\d{4}-\d{1,2}-\d{1,2}\s*-\s*/, '')
-      .replace(/\.[^/.]+$/, '')
-      .replace(/[-_]/g, ' ')
-      .replace(/\b\w/g, (l) => l.toUpperCase());
-  };
-
-  const sectionIcons = {
-    general: <Megaphone className="w-5 h-5" />,
-    quarterly: <Newspaper className="w-5 h-5" />,
-    sunday_bulletins: <FileText className="w-5 h-5" />
-  };
-
-  const sectionTitles = {
-    general: (count: number) => `General Announcements (${count})`,
-    quarterly: (count: number) => `Quarterly & Weekly (${count})`,
-    sunday_bulletins: (count: number) => `Sunday Bulletins (${count})`
-  };
-
-  const getSectionTitle = (section: keyof AnnouncementSections) => {
-    return sectionTitles[section](sections[section].length);
-  };
-
-  const getSectionIcon = (section: keyof AnnouncementSections) => {
-    return sectionIcons[section];
-  };
-
+  // Loading state
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl font-bold text-gray-900 mb-8">Announcements</h1>
-          <div className="space-y-12">
-            {['quarterly', 'general', 'sunday_bulletins'].map((section) => (
-              <div key={section} className="space-y-4">
-                <div className="h-8 bg-gray-200 rounded-md w-64"></div>
-                <div className="space-y-3">
-                  {[...Array(3)].map((_, i) => (
-                    <div key={i} className="h-16 bg-gray-100 rounded-md"></div>
-                  ))}
-                </div>
+      <div className={containerClasses}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="space-y-8">
+            <div className="animate-pulse space-y-4">
+              <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded-md w-64"></div>
+              <div className="space-y-3">
+                {[...Array(3)].map((_, i) => (
+                  <div key={i} className="h-16 bg-gray-100 dark:bg-gray-800 rounded-md"></div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
     );
   }
 
-  const hasAnnouncements = Object.values(sections).some(section => section.length > 0);
-
-  // Filter sections based on active filter
-  const filteredSections = Object.entries(sections).filter(
-    ([section]) => section === activeFilter
-  ) as Array<[keyof AnnouncementSections, AnnouncementFile[]]>;
-
-  const filterButtons = [
-    { id: 'general' as const, label: getSectionTitle('general') },
-    { id: 'quarterly' as const, label: getSectionTitle('quarterly') },
-    { id: 'sunday_bulletins' as const, label: getSectionTitle('sunday_bulletins') },
-  ];
-
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex flex-wrap gap-2 mb-8">
-          {filterButtons.map(({ id, label }) => (
+    <div className={containerClasses}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">Announcements</h1>
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">Stay updated with our latest news and bulletins</p>
+        </div>
+
+        {/* Category Tabs */}
+        <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 mb-6 sm:mb-8">
+          {sectionsList.map(({ id, label, description }) => (
             <button
               key={id}
-              type="button"
               onClick={() => setActiveFilter(id)}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+              className={`px-4 py-3 sm:px-6 sm:py-3 rounded-lg flex items-center space-x-3 transition-all duration-200 w-full sm:w-auto ${
                 activeFilter === id
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-white shadow-md dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white' 
+                  : 'bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 border border-transparent hover:border-gray-300 dark:hover:border-gray-500'
               }`}
+              aria-current={activeFilter === id ? 'page' : undefined}
             >
-              {label}
+              {getSectionIcon(id)}
+              <div className="text-left flex-1">
+                <div className={`text-sm sm:text-base font-medium ${
+                  activeFilter === id 
+                    ? 'text-blue-600 dark:text-blue-300 font-semibold' 
+                    : 'text-gray-700 dark:text-gray-100'
+                }`}>
+                  {label}
+                </div>
+                <div className="text-xs text-gray-600 dark:text-gray-400">
+                  {description}
+                </div>
+              </div>
             </button>
           ))}
         </div>
 
-        {!hasAnnouncements ? (
-          <div className="text-center py-12 bg-white rounded-lg shadow">
-            <p className="text-gray-500">No announcements available at this time.</p>
-          </div>
-        ) : (
-          <div className="space-y-8">
-            {filteredSections.map(([section, files]) => (
-              <div key={section} className="space-y-4">
-                <h2 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
-                  {getSectionIcon(section)}
-                  {getSectionTitle(section).replace(/\(\d+\)\s*$/, '')}
-                </h2>
-                {files.length > 0 ? (
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {files.map((file) => (
-                      <div
-                        key={file.path}
-                        onClick={(e) => handleFileClick(e, file)}
-                        className="bg-white rounded-lg shadow p-4 hover:shadow-md transition-shadow cursor-pointer"
-                      >
-                        <div className="flex items-start">
-                          <div className="flex-shrink-0">
-                            {getFileIcon(file.type)}
-                          </div>
-                          <div className="ml-4 flex-1 min-w-0">
-                            <p className="text-sm font-medium text-gray-900 truncate">
-                              {formatFileName(file.name)}
-                            </p>
-                            <div className="flex items-center mt-1 text-xs text-gray-500">
-                              <span>{file.type.toUpperCase()}</span>
-                              <span className="mx-1">•</span>
-                              <span>{(file.size / 1024).toFixed(1)} KB</span>
-                            </div>
-                          </div>
-                        </div>
+        {/* Content Area */}
+        <div className="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+          {filteredSections.map(([section, files]) => (
+            <div key={section} className="divide-y divide-gray-200 dark:divide-gray-700">
+              {files.length > 0 ? (
+                files.map((file) => (
+                  <div 
+                    key={file.path} 
+                    className="p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors duration-200 cursor-pointer"
+                    onClick={(e) => handleFileClick(e, file)}
+                  >
+                    <div className="flex items-center space-x-4">
+                      {getFileIcon(file)}
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                          {formatFileName(file.name)}
+                        </p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                          {formatDisplayDate(file)} • {formatFileSize(file.size)}
+                        </p>
                       </div>
-                    ))}
+                      <div className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200">
+                        {file.type.toUpperCase()}
+                      </div>
+                    </div>
                   </div>
-                ) : (
-                  <p className="text-gray-500">No files available in this category</p>
-                )}
-              </div>
-            ))}
-          </div>
-        )}
+                ))
+              ) : (
+                <div className="p-6 text-center">
+                  <p className="text-gray-500 dark:text-gray-400">
+                    No files available in this category
+                  </p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

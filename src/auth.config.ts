@@ -1,127 +1,194 @@
-import type { DefaultSession, User, Session } from 'next-auth';
-import type { JWT } from 'next-auth/jwt';
-import type { NextAuthOptions } from 'next-auth';
-import Credentials from 'next-auth/providers/credentials';
+import type { DefaultSession, NextAuthOptions } from 'next-auth';
 
-// Enable debugging in development
-const DEBUG = process.env.NODE_ENV === 'development';
+import CredentialsProvider from 'next-auth/providers/credentials';
 
-// Extend the User and Session types
-declare module 'next-auth' {
-  interface User {
-    role?: string;
+// Enable debug in development
+const debug = process.env.NODE_ENV === 'development';
+
+// Types are now defined at the top of the file
+
+// Hardcoded admin credentials
+const ADMIN_CREDENTIALS = {
+  username: 'Admin',
+  password: 'Ohbc@1970',
+  user: {
+    id: '1',
+    name: 'Admin',
+    email: 'orchardhillsbiblechurch@gmail.com',
+    role: 'admin' as const
   }
-
-  interface Session {
-    user: {
-      role?: string;
-    } & DefaultSession['user'];
-  }
-}
-
-type JWTParams = {
-  token: JWT;
-  user?: User;
-  trigger?: 'signIn' | 'signUp' | 'update';
-  session?: any;
 };
 
-type SessionParams = {
-  session: Session;
-  token: JWT;
-};
-
-type RedirectParams = {
-  url: string;
-  baseUrl: string;
+// Custom logger implementation
+const customLogger = {
+  error: (code: string, metadata: unknown) => {
+    console.error(code, metadata);
+  },
+  warn: (code: string) => {
+    console.warn(code);
+  },
+  debug: (code: string, metadata: unknown) => {
+    console.log(code, metadata);
+  }
 };
 
 export const authConfig: NextAuthOptions = {
-  debug: DEBUG,
-  pages: {
-    signIn: '/api/auth/signin',
-    error: '/api/auth/error',
+  debug: debug,
+  secret: process.env.NEXTAUTH_SECRET || 'your-secret-key-here',
+  session: {
+    strategy: 'jwt' as const,
+    maxAge: 30 * 24 * 60 * 60, // 30 days
+    updateAge: 24 * 60 * 60, // Update session every 24 hours
   },
+  jwt: {
+    // Use a secure secret for JWT signing
+    secret: process.env.NEXTAUTH_SECRET || 'your-secret-key-here',
+    // Set a reasonable expiration time
+    maxAge: 30 * 24 * 60 * 60, // 30 days
+  },
+  cookies: {
+    sessionToken: {
+      name: `__Secure-next-auth.session-token`,
+      options: {
+        httpOnly: true,
+        sameSite: 'lax',
+        path: '/',
+        secure: process.env.NODE_ENV === 'production',
+        maxAge: 30 * 24 * 60 * 60, // 30 days
+      },
+    },
+  },
+  pages: {
+    signIn: '/auth/signin',
+    error: '/auth/error',
+  },
+  logger: debug ? customLogger : undefined,
   callbacks: {
-    async jwt({ token, user, trigger, session }: JWTParams) {
-      if (DEBUG) {
-        console.log('JWT Callback - Token:', JSON.stringify(token, null, 2));
-        console.log('JWT Callback - User:', JSON.stringify(user, null, 2));
+    async signIn({ user, account, profile, email, credentials }) {
+      if (debug) {
+        console.log('SignIn Callback:', { user, account, profile, email, credentials });
       }
-      
-      // Initial sign in
-      if (user) {
-        token.role = (user as User & { role?: string }).role || 'user';
-      }
-      
-      // Update token with session data if needed
-      if (trigger === 'update' && session) {
-        token = { ...token, ...session };
-      }
-      
-      return token;
+      return true;
     },
-    async session({ session, token }: SessionParams): Promise<Session> {
-      if (DEBUG) {
-        console.log('Session Callback - Token:', JSON.stringify(token, null, 2));
-        console.log('Session Callback - Session:', JSON.stringify(session, null, 2));
-      }
-      
-      if (session.user) {
-        session.user.role = (token.role as string) || 'user';
-      }
-      
-      return session;
-    },
-    async redirect({ url, baseUrl }: RedirectParams) {
-      if (DEBUG) console.log('Redirect Callback - URL:', url, 'Base URL:', baseUrl);
-      
+    async redirect({ url, baseUrl }) {
       // Allows relative callback URLs
       if (url.startsWith('/')) return `${baseUrl}${url}`;
       // Allows callback URLs on the same origin
-      try {
-        if (new URL(url).origin === baseUrl) return url;
-      } catch (e) {
-        if (DEBUG) console.error('Invalid URL in redirect:', e);
+      if (new URL(url).origin === baseUrl) return url;
+      return baseUrl + '/admin/dashboard';
+    },
+    async jwt({ token, user, account, profile, isNewUser }) {
+      // Initial sign in
+      if (user) {
+        token = {
+          ...token,
+          id: user.id,
+          role: (user as any).role || 'user',
+          name: user.name,
+          email: user.email,
+        };
       }
-      
-      return baseUrl;
+      if (debug) {
+        console.log('JWT Callback:', { token, user, account });
+      }
+      return token;
+    },
+    async session({ session, token, user }) {
+      // Ensure session has the required user data
+      if (token) {
+        (session.user as any) = {
+          ...(session.user as any),
+          id: (token as any).id as string,
+          name: token.name as string,
+          email: token.email as string | null | undefined,
+          role: token.role as string,
+        };
+        
+        if (debug) {
+          console.log('Session Callback:', { session, token, user });
+        }
+      }
+      return session;
     },
   },
-  session: { 
-    strategy: 'jwt',
-    maxAge: 30 * 24 * 60 * 60, // 30 days
-  },
-  // JWT configuration
-  jwt: {
-    // Use a consistent secret for both signing and encryption
-    secret: process.env.NEXTAUTH_SECRET || 'your-secret-key-at-least-32-characters',
-    maxAge: 30 * 24 * 60 * 60, // 30 days
-  },
-  // Use the same secret for NextAuth
-  secret: process.env.NEXTAUTH_SECRET || 'your-secret-key-at-least-32-characters',
-  trustHost: true,
   providers: [
-    Credentials({
+    CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        username: { label: 'Username', type: 'text' },
-        password: { label: 'Password', type: 'password' },
+        username: { label: "Username", type: "text" },
+        password: { label: "Password", type: "password" }
       },
-      async authorize(credentials) {
-        const adminUsername = 'Admin';
-        const adminPassword = 'Ohbc@1970';
+      async authorize(credentials, req) {
+        if (!credentials) return null;
         
-        if (credentials?.username === adminUsername && credentials?.password === adminPassword) {
-          return { 
-            id: '1',
-            name: 'Admin',
-            email: 'orchardhillsbiblechurch@gmail.com',
-            role: 'admin',
+        const { username, password } = credentials;
+        
+        // In a real app, you would validate the credentials against your database
+        if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+          if (debug) {
+            console.log('Authentication successful for user:', username);
+          }
+          return {
+            id: ADMIN_CREDENTIALS.user.id,
+            name: ADMIN_CREDENTIALS.user.name,
+            email: ADMIN_CREDENTIALS.user.email,
+            role: ADMIN_CREDENTIALS.user.role
           };
         }
+        
+        // If credentials are invalid
+        if (debug) {
+          console.log('Authentication failed for user:', username);
+        }
+        
         return null;
       },
     }),
-  ]
+  ],
+};
+
+export const authOptions: NextAuthOptions = {
+  secret: process.env.NEXTAUTH_SECRET || 'your-secret-key-here',
+  providers: [
+    CredentialsProvider({
+      name: 'Credentials',
+      credentials: {
+        username: { label: "Username", type: "text" },
+        password: { label: "Password", type: "password" }
+      },
+      async authorize(credentials) {
+        if (!credentials?.username || !credentials?.password) {
+          console.log('Missing credentials');
+          return null;
+        }
+        
+        // Trim and normalize input
+        const username = credentials.username.toString().trim();
+        const password = credentials.password.toString().trim();
+        
+        // Hardcoded admin credentials
+        if (username === 'Admin' && password === 'Ohbc@1970') {
+          console.log('Authentication successful');
+          return {
+            id: '1',
+            name: 'Admin',
+            email: 'orchardhillsbiblechurch@gmail.com',
+            role: 'admin'
+          };
+        }
+        
+        // If credentials are invalid
+        console.log('Authentication failed for user:', username);
+        return null;
+      },
+    }),
+  ],
+  session: {
+    strategy: 'jwt',
+    maxAge: 30 * 24 * 60 * 60, // 30 days
+  },
+  pages: {
+    signIn: '/auth/signin',
+    error: '/auth/error',
+  },
 };

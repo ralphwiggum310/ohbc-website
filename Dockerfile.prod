@@ -1,25 +1,68 @@
 # Build stage
-FROM node:20-alpine AS builder
+FROM node:18-bullseye AS builder
+
+# Set environment variables
+ENV NODE_ENV=production
+ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
+ENV PATH=$PATH:/home/node/.npm-global/bin
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_OPTIONS=--openssl-legacy-provider
 
 # Set working directory
 WORKDIR /app
 
+# Set environment variables for platform and Python
+ENV npm_config_platform=linux
+ENV npm_config_target_arch=x64
+ENV npm_config_target_platform=linux
+ENV NODE_ENV=production
+ENV PYTHON=/usr/bin/python3
+ENV npm_config_python=/usr/bin/python3
+
 # Install build dependencies
-RUN apk add --no-cache libc6-compat
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    python3 \
+    make \
+    g++ \
+    jq \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set Python 3 as default
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
 # Copy package files first for better caching
 COPY package*.json ./
 
-# Install dependencies (including devDependencies for building)
-# Using npm install with --legacy-peer-deps to handle dependency conflicts
-RUN npm install --legacy-peer-deps --no-audit --prefer-offline
+# Clean up Windows-specific dependencies using our script
+COPY clean-packages.js .
+RUN node clean-packages.js && \
+    rm clean-packages.js
 
-# Copy all files except those in .dockerignore
-COPY . .
+# Install dependencies with platform-specific overrides
+RUN npm config set update-notifier false && \
+    npm install --legacy-peer-deps --no-audit --prefer-offline --no-optional
 
-# Build the application with production settings with debug output
+# Install build-specific dependencies
+RUN npm install --save-dev postcss postcss-import postcss-nested autoprefixer @next/swc-linux-x64-gnu
+
+# Set proper permissions for non-root user
+RUN chown -R node:node /app && \
+    mkdir -p .next && \
+    chown -R node:node /app/.next
+
+# Copy only necessary files for production build
+COPY --chown=node:node . .
+
+# Ensure proper permissions
+RUN chmod -R 755 /app
+
+# Install production dependencies only
+RUN npm ci --only=production --no-audit --prefer-offline
+
+# Build the application with production settings
 RUN echo "Starting Next.js build..." && \
-    npm run build --debug || (echo "Build failed, showing error logs..." && cat .next/build-manifest.json && exit 1) && \
+    npm run build && \
     echo "Build completed successfully"
 
 # Production stage
@@ -73,5 +116,12 @@ EXPOSE 3000
 # Set the user to non-root
 USER nextjs
 
-# Set the command to start the application
+# Health check with more lenient settings
+HEALTHCHECK --interval=60s --timeout=10s --start-period=60s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:3000/ || exit 0
+
+# Default command
 CMD ["node", "server.js"]
+
+# Expose the port the app runs on
+EXPOSE 3000

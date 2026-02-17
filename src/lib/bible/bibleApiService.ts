@@ -220,7 +220,7 @@ function transformApiResponse(data: any, book: string, chapter: number, version:
 }
 
 // Get list of all Bible books
-export function getBibleBooks(): BibleBook[] {
+export function getBibleBooks(): Array<{name: string; chapters: number; testament: string}> {
   // Return all 66 books in canonical order
   return [
     // Old Testament
@@ -303,7 +303,7 @@ export function getChaptersForBook(bookName: string): number[] {
 }
 
 // Get a book by name (case-insensitive)
-export function getBookByName(bookName: string): BibleBook | undefined {
+export function getBookByName(bookName: string): {name: string; chapters: number; testament: string} | undefined {
   return getBibleBooks().find(
     b => b.name.toLowerCase() === bookName.toLowerCase()
   );

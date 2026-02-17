@@ -2,63 +2,99 @@
 const nextConfig = {
   reactStrictMode: true,
   
-  // Enable server actions
+  // Basic configuration for Next.js 16.1.6
   experimental: {
+    // Enable server actions
     serverActions: {
       bodySizeLimit: '2mb',
-    },
+    }
   },
   
-  // Image optimization
+  // Turbopack configuration for Next.js 16
+  turbopack: {
+    // Empty config to silence the error
+  },
+  
+  // Webpack configuration
+  webpack: (config, { isServer }) => {
+    return config;
+  },
+  
+  // Configure SWC
+  compiler: {
+    // Enable SWC minification
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  
+  // Image optimization with remote patterns
   images: {
     remotePatterns: [
+      // YouTube thumbnails
       {
         protocol: 'https',
         hostname: 'i.ytimg.com',
-        port: '',
-        pathname: '/**',
       },
+      // Local development
       {
         protocol: 'http',
         hostname: 'localhost',
         port: '3000',
-        pathname: '/**',
+      },
+      // Production domains
+      {
+        protocol: 'https',
+        hostname: 'orchardhillsbiblechurch.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.orchardhillsbiblechurch.com',
+      },
+      // Fallback for any other domains (use with caution)
+      {
+        protocol: 'https',
+        hostname: '**',
       },
     ],
-    domains: [
-      'localhost',
-      'orchardhillsbiblechurch.com',
-      'www.orchardhillsbiblechurch.com'
-    ],
-    // Disable image optimization in production
-    unoptimized: true,
-    // Keep these for reference
+    // Disable image optimization in development to improve performance
+    unoptimized: process.env.NODE_ENV === 'development',
+    // Standard device and image sizes
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   
   // Base configuration
-  basePath: '',
-  assetPrefix: '',
   output: 'standalone',
-  // Enable static file serving
-  staticPageGeneration: {
-    // Ensure static files are generated
-    // and available at the root
-    // This helps with serving files like favicon.ico
-    // and other static assets
-  },
+  
   // Configure static file handling
   async headers() {
     return [
       {
-        // Match all static files
+        // Apply these headers to all routes
         source: '/:path*',
         headers: [
           {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              `default-src 'self' https://*.orchardhillsbiblechurch.com https://www.zeffy.com https://api.zeffy.com`,
+              `script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.orchardhillsbiblechurch.com https://*.zeffy.com https://*.google.com https://*.googleapis.com https://*.gstatic.com`,
+              `style-src 'self' 'unsafe-inline' https://*.orchardhillsbiblechurch.com https://*.zeffy.com https://*.googleapis.com https://fonts.googleapis.com`,
+              `img-src 'self' data: blob: https: http: https://*.orchardhillsbiblechurch.com https://*.zeffy.com https://*.ytimg.com https://*.google.com https://*.googleapis.com https://*.gstatic.com`,
+              `font-src 'self' data: https: http: https://*.orchardhillsbiblechurch.com https://*.zeffy.com https://fonts.gstatic.com`,
+              `connect-src 'self' https: http: https://*.orchardhillsbiblechurch.com https://*.zeffy.com https://api.zeffy.com https://*.google.com https://*.googleapis.com https://*.gstatic.com`,
+              `frame-src 'self' https://*.orchardhillsbiblechurch.com https://www.zeffy.com https://*.google.com`,
+              `child-src 'self' https://*.orchardhillsbiblechurch.com https://www.zeffy.com https://*.google.com`,
+              `form-action 'self' https://*.orchardhillsbiblechurch.com https://www.zeffy.com`
+            ].join('; ')
+          },
+          // Cache control for static files
+          {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable',
-          },
+          }
         ],
       },
       // Specific rule for favicon
@@ -69,43 +105,6 @@ const nextConfig = {
             key: 'Cache-Control',
             value: 'public, max-age=86400, must-revalidate',
           },
-        ],
-      },
-    ];
-  },
-  
-  // TypeScript and ESLint
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  
-  // Security headers with CSP
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'Content-Security-Policy',
-            value: [
-              `default-src 'self' https://*.orchardhillsbiblechurch.com https://www.zeffy.com https://api.zeffy.com https://js.stripe.com`,
-              `script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.orchardhillsbiblechurch.com https://*.zeffy.com https://*.stripe.com https://js.stripe.com https://m.stripe.network https://*.google.com https://*.googleapis.com https://*.gstatic.com`,
-              `style-src 'self' 'unsafe-inline' https://*.orchardhillsbiblechurch.com https://*.zeffy.com https://*.googleapis.com https://fonts.googleapis.com`,
-              `img-src 'self' data: blob: https: http: https://*.orchardhillsbiblechurch.com https://*.zeffy.com https://*.stripe.com https://*.ytimg.com https://*.google.com https://*.googleapis.com https://*.gstatic.com`,
-              `font-src 'self' data: https: http: https://*.orchardhillsbiblechurch.com https://*.zeffy.com https://fonts.gstatic.com`,
-              `connect-src 'self' https: http: https://*.orchardhillsbiblechurch.com https://*.zeffy.com https://api.zeffy.com https://js.stripe.com https://api.stripe.com https://m.stripe.network https://*.google.com https://*.googleapis.com https://*.gstatic.com`,
-              `frame-src 'self' https://*.orchardhillsbiblechurch.com https://www.zeffy.com https://js.stripe.com https://checkout.stripe.com https://m.stripe.network https://*.google.com`,
-              `child-src 'self' https://*.orchardhillsbiblechurch.com https://www.zeffy.com https://js.stripe.com https://checkout.stripe.com https://m.stripe.network https://*.google.com`,
-              `form-action 'self' https://*.orchardhillsbiblechurch.com https://www.zeffy.com https://checkout.stripe.com`
-            ].join('; ')
-          }
         ],
       },
     ];
@@ -160,16 +159,15 @@ const nextConfig = {
   // We're not using output: 'export' to support API routes
   // But we need to ensure static assets are served correctly
   poweredByHeader: false,
+  
+  // Disable source maps in development
+  productionBrowserSourceMaps: false,
   generateEtags: true,
   compress: true,
   trailingSlash: false,
   productionBrowserSourceMaps: false,
   
-  // Public directory for static assets
-  publicRuntimeConfig: {
-    // Will be available on both server and client
-    staticFolder: '/public',
-  },
+  // Static folder is now automatically handled by Next.js
 };
 
 module.exports = nextConfig;

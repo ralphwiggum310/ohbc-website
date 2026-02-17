@@ -7,13 +7,13 @@ export default function RolodexNav() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
-  const activeLetter = searchParams.get('letter')?.toUpperCase() || 'ALL';
+  const activeLetter = searchParams?.get('letter')?.toUpperCase() || 'ALL';
 
   const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
                   'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
   const handleLetterClick = (letter: string) => {
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams || '');
     
     if (letter === 'ALL' || letter === activeLetter) {
       params.delete('letter');

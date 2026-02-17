@@ -94,7 +94,7 @@ const StatementCard = ({
         return (
           <React.Fragment key={`${passageIndex}-${verseIndex}`}>
             <span 
-              className="text-blue-600 hover:text-blue-800 cursor-pointer hover:underline"
+              className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 cursor-pointer hover:underline transition-colors"
               onClick={() => setSelectedVerse(normalizedVerse)}
             >
               {verse}
@@ -107,30 +107,29 @@ const StatementCard = ({
   };
 
   return (
-    <div className={`p-6 rounded-lg shadow-md mb-8 transition-all duration-300 transform hover:scale-[1.01] ${
+    <div className={`p-4 sm:p-6 rounded-lg shadow-md mb-6 sm:mb-8 transition-all duration-300 transform hover:scale-[1.01] ${
       isEven 
-        ? 'bg-gradient-to-br from-blue-50 to-indigo-50 hover:shadow-lg' 
-        : 'bg-gradient-to-br from-gray-50 to-blue-50 hover:shadow-lg'
+        ? 'bg-gradient-to-br from-blue-50 to-indigo-50 hover:shadow-lg dark:from-blue-900/30 dark:to-indigo-900/30' 
+        : 'bg-gradient-to-br from-gray-50 to-blue-50 hover:shadow-lg dark:from-gray-800/30 dark:to-blue-900/30'
     }`}>
-      <h2 className="text-2xl font-bold mb-4 text-gray-800">{title}</h2>
-      <p className="text-gray-700 mb-4 whitespace-pre-line">
+      <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-800 dark:text-white">{title}</h2>
+      <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-3 sm:mb-4 leading-relaxed sm:leading-normal whitespace-pre-line">
         {content}
       </p>
       {showVerseReferences && verses && (
-        <div className="text-sm text-gray-600 mt-4">
-          <span className="font-semibold text-gray-800">Key References:</span>{' '}
-          <span className="text-blue-600">
+        <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-3 sm:mt-4">
+          <span className="font-semibold text-gray-800 dark:text-gray-200">Key References:</span>{' '}
+          <span className="text-blue-600 dark:text-blue-400">
             {makeVersesClickable(verses)}
           </span>
         </div>
       )}
 
-      {selectedVerse && (
-        <BibleVersePopup 
-          reference={selectedVerse}
-          onClose={() => setSelectedVerse(null)}
-        />
-      )}
+      <BibleVersePopup 
+        reference={selectedVerse || ''}
+        onCloseAction={() => setSelectedVerse(null)}
+        isOpen={!!selectedVerse}
+      />
     </div>
   );
 };
@@ -144,12 +143,12 @@ export const StatementsViewer: React.FC<StatementsViewerProps> = ({
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">{title}</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">{title}</h1>
+        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
           {description}
         </p>
         {showVerseReferences && (
-          <p className="text-sm text-gray-500 mt-2">
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
             Click on any Bible reference to read the verse.
           </p>
         )}
@@ -169,8 +168,8 @@ export const StatementsViewer: React.FC<StatementsViewerProps> = ({
       </div>
       
       {showVerseReferences && (
-        <div className="mt-8 bg-white p-6 rounded-lg shadow-sm border-t-2 border-gray-200">
-          <p className="text-sm text-gray-500 italic">
+        <div className="mt-8 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border-t-2 border-gray-200 dark:border-gray-700">
+          <p className="text-sm text-gray-500 dark:text-gray-400 italic">
             (Scripture verses are representative, and not to be considered exhaustive.)
           </p>
         </div>

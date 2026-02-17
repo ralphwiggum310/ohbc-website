@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -51,11 +51,11 @@ const ministries: { [key: string]: MinistrySection } = {
 
 const MinistryCard = ({ ministry }: { ministry: MinistrySection }) => {
   return (
-    <div className="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700 transition-colors duration-200">
       <div className="md:flex">
         <div className="md:flex-shrink-0 md:w-1/3 relative h-48 md:h-auto">
-          <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
-            <span className="text-gray-400">
+          <div className="absolute inset-0 bg-gray-100 dark:bg-gray-700 flex items-center justify-center transition-colors duration-200">
+            <span className="text-gray-400 dark:text-gray-500">
               <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
@@ -63,29 +63,29 @@ const MinistryCard = ({ ministry }: { ministry: MinistrySection }) => {
           </div>
         </div>
         <div className="p-6 md:p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">{ministry.title}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{ministry.title}</h2>
           
           {ministry.description.map((paragraph, idx) => (
-            <p key={idx} className="text-gray-600 mb-4">
+            <p key={idx} className="text-gray-600 dark:text-gray-300 mb-4">
               {paragraph}
             </p>
           ))}
 
           {ministry.schedule && (
-            <div className="bg-blue-50 p-4 rounded-lg mb-4">
-              <h3 className="font-semibold text-blue-800 mb-1">When We Meet</h3>
-              <p className="text-blue-700">{ministry.schedule}</p>
+            <div className="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg mb-4 border border-blue-100 dark:border-blue-800 transition-colors duration-200">
+              <h3 className="font-semibold text-blue-800 dark:text-blue-200 mb-1">When We Meet</h3>
+              <p className="text-blue-700 dark:text-blue-300">{ministry.schedule}</p>
             </div>
           )}
 
           {ministry.contact && (
             <div className="mt-4">
-              <h3 className="font-semibold text-gray-800 mb-2">Contact</h3>
-              <p className="text-gray-700">{ministry.contact.name}</p>
-              <p className="text-blue-600 hover:underline">
+              <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">Contact</h3>
+              <p className="text-gray-700 dark:text-gray-300">{ministry.contact.name}</p>
+              <p className="text-blue-600 dark:text-blue-400 hover:underline">
                 <a href={`mailto:${ministry.contact.email}`}>{ministry.contact.email}</a>
               </p>
-              <p className="text-gray-700">{ministry.contact.phone}</p>
+              <p className="text-gray-700 dark:text-gray-300">{ministry.contact.phone}</p>
             </div>
           )}
         </div>
@@ -93,14 +93,16 @@ const MinistryCard = ({ ministry }: { ministry: MinistrySection }) => {
       
       {ministry.additionalInfo && (
         <div className="px-6 pb-6 md:px-8 md:pb-8">
-          <h3 className="font-semibold text-gray-800 mb-3">Youth Activities</h3>
+          <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-3">
+            {ministry.title === 'Youth Ministries' ? 'Youth Activities' : 'Ministry Activities'}
+          </h3>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {ministry.additionalInfo.map((item, idx) => (
               <li key={idx} className="flex items-start">
-                <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-5 w-5 text-green-500 dark:text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                <span className="text-gray-700">{item}</span>
+                <span className="text-gray-700 dark:text-gray-300">{item}</span>
               </li>
             ))}
           </ul>
@@ -111,13 +113,19 @@ const MinistryCard = ({ ministry }: { ministry: MinistrySection }) => {
 };
 
 export default function Ministries() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+    <div className={`min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-200`}>
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-gray-200 to-gray-300 py-6 md:py-8">
+      <div className="bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-700 py-6 md:py-8 border-b border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Ministries</h1>
-          <p className="text-sm sm:text-base text-gray-700 max-w-3xl mx-auto">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">Ministries</h1>
+          <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
             Growing together in faith while we serve together in love
           </p>
         </div>
@@ -127,8 +135,8 @@ export default function Ministries() {
       <div className="container mx-auto px-4 py-8 sm:py-12">
         <div className="max-w-5xl mx-auto space-y-12">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Ministries</h2>
-            <p className="text-gray-600">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Our Ministries</h2>
+            <p className="text-gray-600 dark:text-gray-300">
               We believe that every believer has been given spiritual gifts to serve the body of Christ. 
               Our ministries are designed to help you grow in your faith, connect with others, and make a difference in our community and beyond.
             </p>
@@ -137,10 +145,10 @@ export default function Ministries() {
           <div className="space-y-12">
             <MinistryCard ministry={ministries.youth} />
             <Link href="/missionaries" className="block">
-              <div className="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow duration-200 cursor-pointer">
+              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all duration-200 cursor-pointer">
                 <div className="md:flex">
                   <div className="md:flex-shrink-0 md:w-1/3 relative h-48 md:h-auto">
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-700">
                       <Image 
                         src="/images/site_img/our_missionaries.png" 
                         alt="Missionaries We Support"
@@ -152,11 +160,11 @@ export default function Ministries() {
                     </div>
                   </div>
                   <div className="p-6 md:p-8">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Missionaries We Support</h2>
-                    <p className="text-gray-600 mb-4">
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Missionaries We Support</h2>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4">
                       Learn about the missionaries and organizations we partner with to spread the Gospel around the world.
                     </p>
-                    <div className="text-blue-600 font-medium inline-flex items-center">
+                    <div className="text-blue-600 dark:text-blue-400 font-medium inline-flex items-center hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
                       View All Missionaries
                       <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -168,14 +176,14 @@ export default function Ministries() {
             </Link>
           </div>
 
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Get Involved</h2>
-            <p className="text-gray-600 mb-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 border border-gray-100 dark:border-gray-700 transition-colors duration-200">
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Get Involved</h2>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
               Interested in serving in one of our ministries? We'd love to help you find a place where you can use your gifts and talents to serve others.
             </p>
             <a
               href="mailto:orchardhillsbiblechurch@gmail.com?subject=Ministry%20Involvement"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
             >
               Contact Us About Serving
               <svg className="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

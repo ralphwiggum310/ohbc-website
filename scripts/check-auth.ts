@@ -28,7 +28,8 @@ async function checkAuthSetup() {
     if (!adminUser) {
       console.log('❌ Admin user not found. Creating admin user...');
       const newAdmin = new User();
-      newAdmin.name = 'Admin';
+      newAdmin.firstName = 'Admin';
+      newAdmin.lastName = 'User';
       newAdmin.email = 'admin@ohbc.org';
       newAdmin.role = 'admin';
       newAdmin.isActive = true;

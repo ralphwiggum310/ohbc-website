@@ -1,44 +1,67 @@
 'use client';
 
-import { Suspense, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession, getSession } from 'next-auth/react';
 import Link from 'next/link';
+import { Suspense } from 'react';
 
-// Client component that uses useSearchParams
 function SignInForm() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const callbackUrl = searchParams?.get('callbackUrl') || '/admin/announcements';
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const { data: session, status } = useSession();
+  const callbackUrl = searchParams?.get('callbackUrl') || '/admin/dashboard';
+  
+  // Debug log initial state
+  console.log('Initial auth status:', status);
+  console.log('Initial session:', session);
+
+  // Redirect if already authenticated
+  useEffect(() => {
+    console.log('Auth status changed:', status);
+    console.log('Session data:', session);
+    
+    if (status === 'authenticated') {
+      console.log('User is authenticated, redirecting to:', callbackUrl);
+      router.push(callbackUrl);
+    } else if (status === 'unauthenticated') {
+      console.log('User is not authenticated');
+    }
+  }, [status, callbackUrl, router, session]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
+    
+    // Basic validation
+    if (!username || !password) {
+      setError('Please enter both username and password');
+      setIsLoading(false);
+      return;
+    }
 
     try {
-      console.log('Attempting sign in with:', { username, callbackUrl });
+      console.log('Attempting to sign in...');
       const result = await signIn('credentials', {
-        username,
-        password,
-        redirect: false,
-        callbackUrl: callbackUrl || '/admin/announcements'
+        redirect: true,
+        username: username.trim(),
+        password: password.trim(),
+        callbackUrl: callbackUrl || '/admin/dashboard',
       });
 
-      console.log('Sign in result:', result);
-
       if (result?.error) {
-        setError('Invalid credentials. Please try again.');
+        console.error('Sign in error:', result.error);
+        setError('Invalid username or password');
       } else {
-        // Use window.location.href for full page reload to ensure auth state is properly set
-        window.location.href = result?.url || '/admin/announcements';
-        return;
+        console.log('Sign in successful, NextAuth will handle redirect');
       }
-    } catch (error) {
+    } catch (err) {
+      console.error('Login error:', err);
       setError('An error occurred during sign in');
     } finally {
       setIsLoading(false);
@@ -63,15 +86,15 @@ function SignInForm() {
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (
-            <div className="rounded-md bg-red-50 p-4">
+            <div className="rounded-md bg-red-50 dark:bg-red-900/90 p-4 border border-red-200 dark:border-red-700">
               <div className="flex">
                 <div className="flex-shrink-0">
-                  <svg className="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <svg className="h-5 w-5 text-red-500 dark:text-red-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clipRule="evenodd" />
                   </svg>
                 </div>
                 <div className="ml-3">
-                  <h3 className="text-sm font-medium text-red-800">{error}</h3>
+                  <h3 className="text-sm font-medium text-red-800 dark:text-red-100">{error}</h3>
                 </div>
               </div>
             </div>

@@ -1,13 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 interface Missionary {
   name: string;
   organization?: string | React.ReactNode;
-  description: (string | React.ReactNode)[];
+  description: (string | React.ReactElement)[];
   location?: string;
   website?: string;
   email?: string;
@@ -111,15 +111,15 @@ const missionaries: Missionary[] = [
 
 const MissionaryCard = ({ missionary }: { missionary: Missionary }) => {
   return (
-    <div className="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100 p-6">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700 p-6 transition-colors duration-200">
       <div className="mb-4">
-        <h3 className="text-xl font-bold text-gray-900">{missionary.name}</h3>
+        <h3 className="text-xl font-bold text-gray-900 dark:text-white">{missionary.name}</h3>
         {missionary.organization && (
-          <p className="text-blue-700 font-medium">{missionary.organization}</p>
+          <p className="text-blue-700 dark:text-blue-400 font-medium">{missionary.organization}</p>
         )}
         {missionary.location && (
-          <p className="text-gray-600 text-sm flex items-center mt-1">
-            <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <p className="text-gray-600 dark:text-gray-300 text-sm flex items-center mt-1">
+            <svg className="w-4 h-4 mr-1 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
@@ -129,15 +129,18 @@ const MissionaryCard = ({ missionary }: { missionary: Missionary }) => {
       </div>
       
       <div className="space-y-4">
-        {missionary.description.map((paragraph, idx) => (
-          <div key={idx} className="text-gray-700">
-            {typeof paragraph === 'string' ? (
-              <p>{paragraph}</p>
-            ) : (
-              paragraph
-            )}
-          </div>
-        ))}
+        {missionary.description.map((paragraph, idx) => {
+          // Handle string content
+          if (typeof paragraph === 'string') {
+            return <p key={idx} className="text-gray-700 dark:text-gray-300">{paragraph}</p>;
+          }
+          
+          // For React elements, we'll render them as-is since they already have their own styling
+          const element = paragraph as React.ReactElement;
+          return React.cloneElement(element, {
+            key: idx
+          });
+        })}
       </div>
       
       {missionary.website && (
@@ -146,7 +149,7 @@ const MissionaryCard = ({ missionary }: { missionary: Missionary }) => {
             href={missionary.website} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-blue-600 hover:underline inline-flex items-center text-sm"
+            className="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center text-sm hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
           >
             Visit Website
             <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -160,13 +163,19 @@ const MissionaryCard = ({ missionary }: { missionary: Missionary }) => {
 };
 
 export default function Missionaries() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-200">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-gray-200 to-gray-300 py-6 md:py-8">
+      <div className="bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-700 py-6 md:py-8 border-b border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Missionaries We Support</h1>
-          <p className="text-sm sm:text-base text-gray-700 max-w-3xl mx-auto">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">Missionaries We Support</h1>
+          <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
             Missionary efforts we financially support
           </p>
         </div>
@@ -176,8 +185,8 @@ export default function Missionaries() {
       <div className="container mx-auto px-4 py-8 sm:py-12">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Mission Partners</h2>
-            <p className="text-gray-600">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Our Mission Partners</h2>
+            <p className="text-gray-600 dark:text-gray-300">
               We are honored to support these dedicated missionaries and organizations who are spreading the Gospel around the world. 
               Your prayers and financial support help make their work possible.
             </p>
@@ -189,17 +198,17 @@ export default function Missionaries() {
             ))}
           </div>
 
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-100 text-center">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Get Involved</h3>
-            <p className="text-gray-600 mb-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 border border-gray-100 dark:border-gray-700 text-center transition-colors duration-200">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Get Involved</h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
               Interested in learning more about our missionaries or signing up for their newsletters?
             </p>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
               Please reach out to church leadership for more information about supporting these important ministries.
             </p>
             <a
               href="mailto:orchardhillsbiblechurch@gmail.com?subject=Missions%20Inquiry"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
             >
               Contact Us About Missions
               <svg className="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

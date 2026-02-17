@@ -1,11 +1,11 @@
 import { BibleVersion, BibleBook } from './types';
 
 export const BIBLE_VERSIONS: BibleVersion[] = [
-  { id: 'KJV', name: 'King James Version', abbreviation: 'KJV' },
-  { id: 'ESV', name: 'English Standard Version', abbreviation: 'ESV' },
-  { id: 'NASB', name: 'New American Standard Bible', abbreviation: 'NASB' },
-  { id: 'NIV', name: 'New International Version', abbreviation: 'NIV' },
-  { id: 'NKJV', name: 'New King James Version', abbreviation: 'NKJV' },
+  { id: 'KJV', name: 'King James Version', abbreviation: 'KJV', language: 'en' },
+  { id: 'ESV', name: 'English Standard Version', abbreviation: 'ESV', language: 'en' },
+  { id: 'NASB', name: 'New American Standard Bible', abbreviation: 'NASB', language: 'en' },
+  { id: 'NIV', name: 'New International Version', abbreviation: 'NIV', language: 'en' },
+  { id: 'NKJV', name: 'New King James Version', abbreviation: 'NKJV', language: 'en' },
 ];
 
 export const BIBLE_BOOKS: BibleBook[] = [

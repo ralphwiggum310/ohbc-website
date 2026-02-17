@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { BibleVersion, Book, Verse } from '@/types/bible';
+import { BibleVersion, Book, Verse } from '../../app/types/bible';
 
 type LoadingState = {
   versions: boolean;

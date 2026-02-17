@@ -32,7 +32,7 @@ const CustomAudioPlayer: React.FC<CustomAudioPlayerProps> = ({ playlistId, title
   const [error, setError] = useState<string | null>(null);
 
   const audioRef = useRef<HTMLAudioElement>(null);
-  const progressInterval = useRef<NodeJS.Timeout>();
+  const progressInterval = useRef<NodeJS.Timeout>(null);
 
   // Fetch playlist tracks from our API route
   useEffect(() => {

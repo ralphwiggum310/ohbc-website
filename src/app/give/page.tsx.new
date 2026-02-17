@@ -9,9 +9,7 @@ const ZEFFY_FORM_URL = 'https://www.zeffy.com/en-US/donation-form/gifts-and-offe
 const ZEFFY_EMBED_URL = 'https://www.zeffy.com/embed/donation-form/gifts-and-offerings';
 const ZEFFY_DOMAINS = [
   'https://www.zeffy.com',
-  'https://api.zeffy.com',
-  'https://js.stripe.com',
-  'https://m.stripe.network'
+  'https://api.zeffy.com'
 ];
 
 // Inline styles

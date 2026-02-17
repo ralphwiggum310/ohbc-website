@@ -36,7 +36,7 @@ async function createTestUser() {
     // List all users
     const users = await userRepository.find();
     console.log('\nAll users in the database:');
-    users.forEach(u => {
+    users.forEach((u: User) => {
       console.log(`- ${u.email} (${u.role}) ${u.isActive ? 'Active' : 'Inactive'}`);
     });
     

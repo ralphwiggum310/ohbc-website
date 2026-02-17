@@ -1,10 +1,10 @@
 // File upload configuration
 export const UPLOAD_CONFIG = {
   // Base directory for all uploads
-  // In production, this will be /var/www/ohbc_website/public on the host server
+  // In production, this will be /app/public in the container (mounted to /var/www/ohbc_website on host)
   // In development, it will be public relative to project root
   BASE_DIR: process.env.NODE_ENV === 'production' 
-    ? '/var/www/ohbc_website/public' 
+    ? '/app/public' 
     : 'public',
   
   // Subdirectories for different types of uploads

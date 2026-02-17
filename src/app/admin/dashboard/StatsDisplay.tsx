@@ -1,7 +1,7 @@
 'use client';
 
-import { StatsData } from './types';
-import { FiRefreshCw } from 'react-icons/fi';
+import { StatsData } from './page';
+import { FiRefreshCw, FiFileText, FiDatabase, FiClock, FiAlertCircle } from 'react-icons/fi';
 
 interface StatsDisplayProps {
   initialData: StatsData | null;
@@ -9,6 +9,94 @@ interface StatsDisplayProps {
   onRefresh: () => Promise<void>;
   isLoading: boolean;
 }
+
+const StatCard = ({ 
+  title, 
+  value, 
+  icon: Icon, 
+  color = 'blue',
+  isLoading = false 
+}: { 
+  title: string; 
+  value: string | number; 
+  icon: React.ComponentType<{ className: string }>;
+  color?: 'blue' | 'emerald' | 'purple' | 'amber' | 'rose' | 'indigo';
+  isLoading?: boolean;
+}) => {
+  const colorMap = {
+    blue: 'from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700',
+    emerald: 'from-emerald-500 to-emerald-600 dark:from-emerald-600 dark:to-emerald-700',
+    purple: 'from-purple-500 to-purple-600 dark:from-purple-600 dark:to-purple-700',
+    amber: 'from-amber-500 to-amber-600 dark:from-amber-600 dark:to-amber-700',
+    rose: 'from-rose-500 to-rose-600 dark:from-rose-600 dark:to-rose-700',
+    indigo: 'from-indigo-500 to-indigo-600 dark:from-indigo-600 dark:to-indigo-700',
+  };
+
+  return (
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-200 hover:shadow-md">
+      <div className="p-5 sm:p-6">
+        <div className="flex items-center">
+          <div className={`flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-lg bg-gradient-to-r ${colorMap[color]} shadow-md`}>
+            <Icon className="h-6 w-6 text-white" />
+          </div>
+          <div className="ml-5 w-0 flex-1">
+            <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">
+              {title}
+            </dt>
+            {isLoading ? (
+              <div className="mt-2 h-7 bg-gray-200 dark:bg-gray-700 rounded animate-pulse w-3/4"></div>
+            ) : (
+              <dd className="flex items-baseline">
+                <div className="text-2xl font-semibold text-gray-900 dark:text-white">
+                  {value}
+                </div>
+              </dd>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ProgressBar = ({ 
+  value, 
+  max = 100, 
+  color = 'blue',
+  showPercentage = true 
+}: { 
+  value: number; 
+  max?: number;
+  color?: 'blue' | 'emerald' | 'purple' | 'amber' | 'rose' | 'indigo';
+  showPercentage?: boolean;
+}) => {
+  const percentage = Math.min(100, Math.max(0, (value / max) * 100));
+  
+  const colorMap = {
+    blue: 'bg-blue-500 dark:bg-blue-600',
+    emerald: 'bg-emerald-500 dark:bg-emerald-600',
+    purple: 'bg-purple-500 dark:bg-purple-600',
+    amber: 'bg-amber-500 dark:bg-amber-600',
+    rose: 'bg-rose-500 dark:bg-rose-600',
+    indigo: 'bg-indigo-500 dark:bg-indigo-600',
+  };
+
+  return (
+    <div className="w-full flex items-center">
+      <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden mr-3">
+        <div 
+          className={`h-full ${colorMap[color]} rounded-full transition-all duration-500`}
+          style={{ width: `${percentage}%` }}
+        ></div>
+      </div>
+      {showPercentage && (
+        <span className="text-sm font-medium text-gray-500 dark:text-gray-400 w-12 text-right">
+          {Math.round(percentage)}%
+        </span>
+      )}
+    </div>
+  );
+};
 
 export function StatsDisplay({ initialData, error, onRefresh, isLoading }: StatsDisplayProps) {
   const formatFileSize = (bytes: number): string => {
@@ -19,27 +107,47 @@ export function StatsDisplay({ initialData, error, onRefresh, isLoading }: Stats
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   };
 
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    }).format(date);
+  };
+
   if (error) {
     return (
-      <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-4">
+      <div className="bg-red-50 dark:bg-red-900/10 border-l-4 border-red-500 dark:border-red-600 p-4 rounded">
         <div className="flex">
           <div className="flex-shrink-0">
-            <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-            </svg>
+            <FiAlertCircle className="h-5 w-5 text-red-500" />
           </div>
           <div className="ml-3">
-            <p className="text-sm text-red-700">{error}</p>
+            <h3 className="text-sm font-medium text-red-800 dark:text-red-200">Error loading statistics</h3>
+            <div className="mt-2 text-sm text-red-700 dark:text-red-300">
+              <p>{error}</p>
+            </div>
           </div>
         </div>
       </div>
     );
   }
 
-  if (!initialData) {
+  if (isLoading || !initialData) {
     return (
-      <div className="flex justify-center items-center p-8">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[1, 2, 3].map((i) => (
+          <StatCard 
+            key={i}
+            title="Loading..." 
+            value="" 
+            icon={FiFileText} 
+            isLoading={true}
+          />
+        ))}
       </div>
     );
   }
@@ -47,108 +155,113 @@ export function StatsDisplay({ initialData, error, onRefresh, isLoading }: Stats
   const { totalAnnouncements, totalSize, sections, lastUpdated } = initialData;
 
   return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h2 className="text-lg font-medium text-gray-900">Statistics</h2>
-        <button
-          onClick={onRefresh}
-          disabled={isLoading}
-          className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {isLoading ? (
-            <FiRefreshCw className="animate-spin -ml-1 mr-2 h-4 w-4" />
-          ) : (
-            <FiRefreshCw className="-ml-1 mr-2 h-4 w-4" />
-          )}
-          Refresh
-        </button>
+    <div className="space-y-8">
+      {/* Stats Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <StatCard 
+          title="Total Announcements" 
+          value={totalAnnouncements.toLocaleString()} 
+          icon={FiFileText}
+          color="blue"
+        />
+        
+        <StatCard 
+          title="Storage Used" 
+          value={formatFileSize(totalSize)} 
+          icon={FiDatabase}
+          color="emerald"
+        />
+        
+        <StatCard 
+          title="Last Updated" 
+          value={formatDate(lastUpdated)} 
+          icon={FiClock}
+          color="purple"
+        />
       </div>
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        <div className="bg-white overflow-hidden shadow rounded-lg">
-          <div className="px-4 py-5 sm:p-6">
-            <div className="flex items-center">
-              <div className="flex-shrink-0 bg-blue-500 rounded-md p-3">
-                <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <div className="ml-5 w-0 flex-1">
-                <dt className="text-sm font-medium text-gray-500 truncate">Total Announcements</dt>
-                <dd className="flex items-baseline">
-                  <div className="text-2xl font-semibold text-gray-900">
-                    {totalAnnouncements.toLocaleString()}
-                  </div>
-                </dd>
-              </div>
-            </div>
-          </div>
+      {/* Storage Breakdown */}
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden transition-colors duration-200">
+        <div className="px-6 py-5 border-b border-gray-200 dark:border-gray-700">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Storage by Section</h3>
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Breakdown of storage usage across different sections</p>
         </div>
-
-        <div className="bg-white overflow-hidden shadow rounded-lg">
-          <div className="px-4 py-5 sm:p-6">
-            <div className="flex items-center">
-              <div className="flex-shrink-0 bg-green-500 rounded-md p-3">
-                <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                </svg>
-              </div>
-              <div className="ml-5 w-0 flex-1">
-                <dt className="text-sm font-medium text-gray-500 truncate">Storage Used</dt>
-                <dd className="flex items-baseline">
-                  <div className="text-2xl font-semibold text-gray-900">
-                    {formatFileSize(totalSize)}
+        <div className="divide-y divide-gray-200 dark:divide-gray-700">
+          {Object.entries(sections).map(([section, data], index) => {
+            const percentage = totalSize > 0 ? (data.size / totalSize) * 100 : 0;
+            const colors = ['blue', 'emerald', 'purple', 'amber', 'rose', 'indigo'];
+            const color = colors[index % colors.length] as 'blue' | 'emerald' | 'purple' | 'amber' | 'rose' | 'indigo';
+            
+            return (
+              <div key={section} className="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors duration-150">
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="text-sm font-medium text-gray-900 dark:text-gray-200 capitalize">
+                    {section.replace(/-/g, ' ')}
+                  </h4>
+                  <div className="text-sm font-medium text-gray-900 dark:text-gray-200">
+                    {formatFileSize(data.size)}
                   </div>
-                </dd>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white overflow-hidden shadow rounded-lg">
-          <div className="px-4 py-5 sm:p-6">
-            <div className="flex items-center">
-              <div className="flex-shrink-0 bg-purple-500 rounded-md p-3">
-                <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                </svg>
-              </div>
-              <div className="ml-5 w-0 flex-1">
-                <dt className="text-sm font-medium text-gray-500 truncate">Last Updated</dt>
-                <dd className="flex items-baseline">
-                  <div className="text-2xl font-semibold text-gray-900">
-                    {new Date(lastUpdated).toLocaleString()}
+                </div>
+                <div className="flex items-center">
+                  <div className="flex-1 mr-3">
+                    <ProgressBar 
+                      value={data.size} 
+                      max={totalSize} 
+                      color={color}
+                      showPercentage={false}
+                    />
                   </div>
-                </dd>
+                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400 w-12 text-right">
+                    {Math.round(percentage)}%
+                  </span>
+                </div>
+                <div className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                  {data.count} {data.count === 1 ? 'item' : 'items'}
+                </div>
               </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
 
-      <div className="bg-white shadow overflow-hidden sm:rounded-lg">
-        <div className="px-4 py-5 sm:px-6">
-          <h3 className="text-lg leading-6 font-medium text-gray-900">Storage by Section</h3>
+      {/* System Info */}
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden transition-colors duration-200">
+        <div className="px-6 py-5 border-b border-gray-200 dark:border-gray-700">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">System Information</h3>
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Details about your installation</p>
         </div>
-        <div className="border-t border-gray-200 px-4 py-5 sm:p-0">
-          <dl className="sm:divide-y sm:divide-gray-200">
-            {Object.entries(sections).map(([section, data]) => (
-              <div key={section} className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt className="text-sm font-medium text-gray-500 capitalize">{section}</dt>
-                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                  <div className="flex items-center">
-                    <div className="w-full bg-gray-200 rounded-full h-2.5 mr-4">
-                      <div 
-                        className="bg-blue-600 h-2.5 rounded-full" 
-                        style={{ width: `${Math.min(100, (data.size / totalSize) * 100)}%` }}
-                      ></div>
-                    </div>
-                    <span className="whitespace-nowrap">{formatFileSize(data.size)} ({data.count} items)</span>
-                  </div>
-                </dd>
+        <div className="p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Environment</h4>
+              <div className="bg-gray-50 dark:bg-gray-750 rounded-lg p-4">
+                <div className="text-sm text-gray-900 dark:text-gray-200">Production</div>
+                <div className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                  Version 1.0.0
+                </div>
               </div>
-            ))}
-          </dl>
+            </div>
+            <div>
+              <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Last Data Refresh</h4>
+              <div className="bg-gray-50 dark:bg-gray-750 rounded-lg p-4">
+                <div className="text-sm text-gray-900 dark:text-gray-200">
+                  {formatDate(lastUpdated)}
+                </div>
+                <button
+                  onClick={onRefresh}
+                  disabled={isLoading}
+                  className="mt-2 inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 transition-colors duration-200"
+                >
+                  {isLoading ? (
+                    <FiRefreshCw className="animate-spin -ml-1 mr-2 h-4 w-4" />
+                  ) : (
+                    <FiRefreshCw className="-ml-1 mr-2 h-4 w-4" />
+                  )}
+                  Refresh Data
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

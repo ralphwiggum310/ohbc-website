@@ -203,9 +203,9 @@ export async function getVerses(
     // Log additional error details
     if (error && typeof error === 'object') {
       console.error('[getVerses] Error details:', {
-        name: error.name,
-        message: error.message,
-        stack: error.stack,
+        name: (error as any).name,
+        message: (error as any).message,
+        stack: (error as any).stack,
         ...(error as any).response ? { response: (error as any).response } : {}
       });
     }

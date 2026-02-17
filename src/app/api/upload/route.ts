@@ -75,7 +75,7 @@ export async function POST(request: NextRequest) {
     const fileExt = path.extname(file.name).toLowerCase().slice(1);
     const allowedExtensions = allowedTypes.map(t => t.split('/').pop());
     
-    if (!file.type || (!allowedTypes.includes(file.type) && !allowedExtensions.includes(fileExt))) {
+    if (!file.type || (!allowedTypes.includes(file.type as any) && !allowedExtensions.includes(fileExt))) {
       debugLog('Invalid file type or extension:', { type: file.type, ext: fileExt });
       return NextResponse.json(
         { error: `Invalid file type. Allowed types: ${allowedTypes.join(', ')}` },
