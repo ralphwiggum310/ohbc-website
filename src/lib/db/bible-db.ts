@@ -29,10 +29,7 @@ export interface Verse {
 
 let db: any = null;
 
-// Using dynamic path that works in both development and production
-const DB_PATH = process.env.NODE_ENV === 'production' 
-  ? 'C:\\WindSurf\\ohbc_website\\data\\bible\\Bibles.db'
-  : path.join(process.cwd(), 'data', 'bible', 'Bibles.db');
+const DB_PATH = path.join(process.cwd(), 'data', 'bible', 'bibles.db');
 const DB_DIR = path.dirname(DB_PATH);
 
 export async function getBibleDb() {

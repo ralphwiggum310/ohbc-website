@@ -134,7 +134,8 @@ export default function BiblePage() {
     if (!selectedVersion) return;
     fetch(`/api/bible/${selectedVersion}/books`)
       .then(r => r.json())
-      .then((data: BibleBook[]) => {
+      .then((data: BibleBook[] | { error: string }) => {
+        if (!Array.isArray(data)) { setError('Failed to load books.'); return; }
         setBooks(data);
         const b = searchParams?.get('b');
         setSelectedBook(b || data[0]?.id?.toString() || '');
@@ -148,7 +149,10 @@ export default function BiblePage() {
     setError(null);
     fetch(`/api/bible/${selectedVersion}/${selectedBook}/${selectedChapter}/verses`)
       .then(r => r.json())
-      .then((data: BibleVerse[]) => setVerses(data))
+      .then((data: BibleVerse[] | { error: string }) => {
+        if (!Array.isArray(data)) { setError('Failed to load verses.'); return; }
+        setVerses(data);
+      })
       .catch(() => setError('Failed to load verses.'))
       .finally(() => setLoading(false));
     verseContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
