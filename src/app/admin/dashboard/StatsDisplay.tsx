@@ -1,7 +1,13 @@
 'use client';
 
-import { StatsData } from './page';
 import { FiRefreshCw, FiFileText, FiDatabase, FiClock, FiAlertCircle } from 'react-icons/fi';
+
+export interface StatsData {
+  totalAnnouncements: number;
+  totalSize: number;
+  lastUpdated: string;
+  sections: Record<string, { size: number; count: number }>;
+}
 
 interface StatsDisplayProps {
   initialData: StatsData | null;

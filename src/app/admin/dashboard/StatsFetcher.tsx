@@ -1,7 +1,7 @@
 'use server';
 
 import { auth } from '@/auth';
-import { StatsData } from './page';
+import { StatsData } from './StatsDisplay';
 
 // Helper function to format file size
 function formatFileSize(bytes: number): string {
