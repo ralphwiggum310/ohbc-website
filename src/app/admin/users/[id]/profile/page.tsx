@@ -143,7 +143,7 @@ export default function UserProfileEditor({ params }: { params: Promise<{ id: st
     setSuccess('');
 
     try {
-      const response = await fetch(`/api/admin/users/${params.id}`, {
+      const response = await fetch(`/api/admin/users/${userId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...formData, serviceRoles, adminSection: activeTab })
@@ -170,7 +170,7 @@ export default function UserProfileEditor({ params }: { params: Promise<{ id: st
     }
 
     try {
-      const response = await fetch(`/api/admin/users/${params.id}`, {
+      const response = await fetch(`/api/admin/users/${userId}`, {
         method: 'DELETE',
       });
 
@@ -191,7 +191,7 @@ export default function UserProfileEditor({ params }: { params: Promise<{ id: st
     }
 
     try {
-      const response = await fetch(`/api/admin/users/${params.id}/reset-password`, {
+      const response = await fetch(`/api/admin/users/${userId}/reset-password`, {
         method: 'POST',
       });
 
