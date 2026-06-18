@@ -117,7 +117,11 @@ export default function BiblePage() {
   useEffect(() => {
     fetch('/api/bible/versions')
       .then(r => r.json())
-      .then((data: BibleVersion[]) => {
+      .then((data: BibleVersion[] | { error: string }) => {
+        if (!Array.isArray(data)) {
+          setError('Failed to load Bible versions.');
+          return;
+        }
         setVersions(data);
         const v = searchParams?.get('v');
         const nasb = data.find((ver: BibleVersion) => ver.abbreviation === 'NASB');
