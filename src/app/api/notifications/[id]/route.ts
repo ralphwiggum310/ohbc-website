@@ -9,7 +9,7 @@ const ADMIN_ROLES = ['Admin', 'Super Admin'];
 // DELETE /api/notifications/[id] — admin deletes a notification (and all recipients)
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   const { user, error } = await authenticateUser(request);
   if (!user) return NextResponse.json({ error: error || 'Unauthorized' }, { status: 401 });
@@ -17,10 +17,11 @@ export async function DELETE(
     return NextResponse.json({ error: 'Admin access required' }, { status: 403 });
   }
 
+  const { id } = await params;
   const db = new Database(DB_PATH, { readonly: false, timeout: 5000 });
   db.pragma('foreign_keys = ON');
   try {
-    const notif = db.prepare('SELECT id, sender_id FROM notifications WHERE id = ?').get(Number(params.id)) as any;
+    const notif = db.prepare('SELECT id, sender_id FROM notifications WHERE id = ?').get(Number(id)) as any;
     if (!notif) return NextResponse.json({ error: 'Not found' }, { status: 404 });
 
     // Super Admin can delete any; Admin can only delete their own
@@ -28,7 +29,7 @@ export async function DELETE(
       return NextResponse.json({ error: 'You can only delete your own notifications' }, { status: 403 });
     }
 
-    db.prepare('DELETE FROM notifications WHERE id = ?').run(Number(params.id));
+    db.prepare('DELETE FROM notifications WHERE id = ?').run(Number(id));
     return NextResponse.json({ success: true });
   } finally {
     db.close();
