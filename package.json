@@ -3,28 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env PORT=3000 next dev --webpack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "clean": "if exist .next rmdir /s /q .next && if exist node_modules rmdir /s /q node_modules"
+    "lint": "next lint"
   },
-  "resolutions": {
-    "@next/swc-linux-x64-gnu": "npm:@next/swc-win32-x64-msvc@16.1.6",
-    "@next/swc-darwin-x64": "npm:@next/swc-win32-x64-msvc@16.1.6",
-    "@next/swc-linux-x64-musl": "npm:@next/swc-win32-x64-msvc@16.1.6"
-  },
-  "os": [
-    "win32"
-  ],
-  "cpu": [
-    "x64"
-  ],
   "engines": {
     "node": ">=18.0.0"
-  },
-  "overrides": {
-    "@next/swc-win32-x64-msvc": "16.1.6"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
