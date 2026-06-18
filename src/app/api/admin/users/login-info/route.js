@@ -1,41 +1,49 @@
-import { 
-  updateUserLoginInfo
-} from '@/lib/database';
-import { requireAuth, requireRole } from '@/lib/auth';
+import Database from 'better-sqlite3';
+import path from 'path';
+import { authenticateUser } from '@/lib/auth';
+
+const USERS_DB_PATH = path.join(process.cwd(), 'data', 'users', 'ohbc_users.db');
 
 export async function PUT(request) {
-  // Require authentication and super admin permissions
-  const authenticatedHandler = requireAuth(async (req) => {
-    const hasUserPermission = requireRole('super_admin');
-    const protectedHandler = hasUserPermission(async (req) => {
-      try {
-        const body = await request.json();
-        const { userId, loginInfo } = body;
+  const { user, error } = await authenticateUser(request);
+  if (!user) return Response.json({ error: error || 'Unauthorized' }, { status: 401 });
 
-        if (!userId || !loginInfo) {
-          return Response.json(
-            { error: 'User ID and login info are required' },
-            { status: 400 }
-          );
-        }
+  const adminRoles = ['Admin', 'Super Admin'];
+  if (!adminRoles.includes(user.role)) {
+    return Response.json({ error: 'Insufficient permissions' }, { status: 403 });
+  }
 
-        await updateUserLoginInfo(userId, loginInfo);
+  try {
+    const body = await request.json();
+    const { userId, email, phone } = body;
 
-        return Response.json({
-          success: true,
-          message: 'Login information updated successfully'
-        });
-      } catch (error) {
-        console.error('Update login info error:', error);
-        return Response.json(
-          { error: 'Failed to update login information' },
-          { status: 500 }
-        );
+    if (!userId) {
+      return Response.json({ error: 'User ID is required' }, { status: 400 });
+    }
+
+    const db = new Database(USERS_DB_PATH);
+    try {
+      const updates = [];
+      const params = [];
+
+      if (email !== undefined) { updates.push('email = ?'); params.push(email); }
+      if (phone !== undefined) { updates.push('phone = ?'); params.push(phone); }
+
+      if (updates.length === 0) {
+        return Response.json({ error: 'No fields to update' }, { status: 400 });
       }
-    });
 
-    return protectedHandler(request);
-  });
+      params.push(userId);
+      db.prepare(
+        `UPDATE users SET ${updates.join(', ')}, updated_at = CURRENT_TIMESTAMP WHERE id = ?`
+      ).run(...params);
 
-  return authenticatedHandler(request);
+      return Response.json({ success: true, message: 'Login information updated successfully' });
+    } finally {
+      db.close();
+    }
+  } catch (err) {
+    console.error('Update login info error:', err);
+    return Response.json({ error: 'Failed to update login information' }, { status: 500 });
+  }
 }
