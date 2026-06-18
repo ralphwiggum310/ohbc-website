@@ -53,13 +53,10 @@ export async function DELETE(request: NextRequest) {
     
     switch (section) {
       case 'general':
-        baseDir = UPLOAD_CONFIG.DIRECTORIES.GENERAL;
-        break;
-      case 'quarterly':
-        baseDir = UPLOAD_CONFIG.DIRECTORIES.QUARTERLY;
+        baseDir = UPLOAD_CONFIG.DIRECTORIES.ANNOUNCEMENTS;
         break;
       case 'sunday_bulletins':
-        baseDir = UPLOAD_CONFIG.DIRECTORIES.SUNDAY_BULLETINS;
+        baseDir = UPLOAD_CONFIG.DIRECTORIES.BULLETIN;
         break;
       default:
         debugLog('Invalid section:', section);
@@ -77,7 +74,7 @@ export async function DELETE(request: NextRequest) {
     }
 
     // Validate section
-    const validSections = ['general', 'quarterly', 'sunday_bulletins'];
+    const validSections = ['general', 'sunday_bulletins'];
     
     if (!validSections.includes(section)) {
       debugLog('Invalid section:', section, 'Valid sections:', validSections);
@@ -88,13 +85,11 @@ export async function DELETE(request: NextRequest) {
     const fileName = path.basename(filePath);
     
     // Determine the correct subdirectory based on section
-    let subDir = section;
+    let subDir: string = section;
     if (section === 'sunday_bulletins') {
-      subDir = 'sunday_bulletins';
-    } else if (section === 'quarterly') {
-      subDir = 'quarterly';
+      subDir = 'bulletins';
     } else if (section === 'general') {
-      subDir = 'general';
+      subDir = 'announcements';
     }
     
     // Construct the full path
@@ -140,3 +135,5 @@ export async function DELETE(request: NextRequest) {
     );
   }
 }
+
+

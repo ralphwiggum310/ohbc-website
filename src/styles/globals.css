@@ -2,238 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  /* Light Theme Colors */
-  --color-primary: 153, 27, 30;    /* #991b1e */
-  --color-primary-light: 190, 60, 63;  /* #be3c3f */
-  --color-primary-dark: 110, 15, 18;   /* #6e0f12 */
-  
-  --color-secondary: 30, 64, 175;  /* #1e40af */
-  --color-accent: 220, 38, 38;     /* #dc2626 */
-  
-  /* Grayscale */
-  --color-gray-50: 249, 250, 251;  /* #f9fafb */
-  --color-gray-100: 243, 244, 246; /* #f3f4f6 */
-  --color-gray-200: 229, 231, 235; /* #e5e7eb */
-  --color-gray-300: 209, 213, 219; /* #d1d5db */
-  --color-gray-400: 156, 163, 175; /* #9ca3af */
-  --color-gray-500: 107, 114, 128; /* #6b7280 */
-  --color-gray-600: 75, 85, 99;    /* #4b5563 */
-  --color-gray-700: 55, 65, 81;    /* #374151 */
-  --color-gray-800: 31, 41, 55;    /* #1f2937 */
-  --color-gray-900: 17, 24, 39;    /* #111827 */
-  
-  /* Backgrounds */
-  --color-bg: 255, 255, 255;       /* #ffffff */
-  --color-bg-alt: 249, 250, 251;   /* #f9fafb */
-  --color-text: 31, 41, 55;        /* #1f2937 */
-  --color-text-muted: 75, 85, 99;  /* #4b5563 */
-  
-  /* Borders */
-  --color-border: 229, 231, 235;   /* #e5e7eb */
-  
-  /* Status Colors */
-  --color-success: 5, 150, 105;    /* #059669 */
-  --color-warning: 217, 119, 6;    /* #d97706 */
-  --color-error: 220, 38, 38;      /* #dc2626 */
-  --color-info: 37, 99, 235;       /* #2563eb */
-}
-
-/* Dark Theme Overrides */
-:root[data-theme="dark"],
-:root.dark,
-.dark,
-.dark body,
-.dark #__next,
-[data-theme="dark"],
-[data-theme="dark"] body,
-[data-theme="dark"] #__next {
-  color-scheme: dark;
-}
-
-:root[data-theme="dark"],
-:root.dark,
-.dark,
-.dark body,
-.dark #__next,
-[data-theme="dark"],
-[data-theme="dark"] body,
-[data-theme="dark"] #__next {
-  --color-primary: 239, 68, 68;    /* #ef4444 */
-  --color-primary-light: 248, 113, 113;  /* #f87171 */
-  --color-primary-dark: 220, 38, 38;     /* #dc2626 */
-  
-  --color-secondary: 96, 165, 250; /* #60a5fa */
-  --color-accent: 248, 113, 113;   /* #f87171 */
-  
-  /* Backgrounds */
-  --color-bg: 17, 24, 39;          /* #111827 */
-  --color-bg-alt: 31, 41, 55;      /* #1f2937 */
-  --color-text: 243, 244, 246;     /* #f3f4f6 */
-  --color-text-muted: 156, 163, 175; /* #9ca3af */
-  
-  /* Borders */
-  --color-border: 55, 65, 81;      /* #374151 */
-  
-  /* Status Colors */
-  --color-success: 34, 197, 94;    /* #22c55e */
-  --color-warning: 245, 158, 11;   /* #f59e0b */
-  --color-error: 239, 68, 68;      /* #ef4444 */
-  --color-info: 59, 130, 246;      /* #3b82f6 */
-}
-
-.dark {
-  --color-primary: 239, 68, 68;    /* #ef4444 */
-  --color-primary-light: 248, 113, 113;  /* #f87171 */
-  --color-primary-dark: 220, 38, 38;     /* #dc2626 */
-  
-  --color-secondary: 96, 165, 250; /* #60a5fa */
-  --color-accent: 248, 113, 113;   /* #f87171 */
-  
-  /* Backgrounds */
-  --color-bg: 17, 24, 39;          /* #111827 */
-  --color-bg-alt: 31, 41, 55;      /* #1f2937 */
-  --color-text: 243, 244, 246;     /* #f3f4f6 */
-  --color-text-muted: 156, 163, 175; /* #9ca3af */
-  
-  /* Apply dark background to the entire page */
-  background-color: rgb(var(--color-bg));
-  color: rgb(var(--color-text));
-  
-  /* Borders */
-  --color-border: 55, 65, 81;      /* #374151 */
-  
-  /* Status Colors */
-  --color-success: 34, 197, 94;    /* #22c55e */
-  --color-warning: 245, 158, 11;   /* #f59e0b */
-  --color-error: 239, 68, 68;      /* #ef4444 */
-  --color-info: 59, 130, 246;      /* #3b82f6 */
-}
-
-/* Base Styles */
-/* Popup container */
-.bg-popup {
-  background-color: rgb(var(--color-bg));
-}
-
-/* Popup content */
-.prose-content {
-  background-color: rgb(var(--color-bg-alt));
-}
-
-/* Dark mode overrides */
-.dark .bg-popup {
-  background-color: rgb(var(--color-gray-900)) !important;
-}
-
-.dark .prose-content {
-  background-color: rgb(var(--color-gray-800)) !important;
-}
-
+/* ─── Base ─────────────────────────────────────────────── */
 @layer base {
-  html, body, #__next {
-    @apply min-h-full;
+  html {
+    scroll-behavior: smooth;
+    /* Allow safe-area padding on notched phones */
+    -webkit-text-size-adjust: 100%;
   }
-  
+
   body {
-    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-200;
-    background-color: rgb(var(--color-bg));
-    color: rgb(var(--color-text));
+    @apply bg-white text-gray-900 transition-colors duration-200;
+    /* Reserve space for the fixed top navbar */
+    padding-top: 64px;
+    /* Reserve space for the mobile bottom nav on small screens */
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
-  
-  /* Main content area */
-  main {
-    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200;
-    min-height: calc(100vh - 64px); /* Full height minus navbar */
-    background-color: inherit;
+
+  /* Dark mode body */
+  .dark body,
+  body.dark {
+    @apply bg-gray-900 text-gray-100;
   }
-  
-  /* Ensure all text in dark mode is visible */
-  .dark {
-    color-scheme: dark;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold text-gray-900 dark:text-white;
-  }
-  
-  a {
-    @apply text-primary hover:text-primary-dark dark:text-primary-light dark:hover:text-primary transition-colors;
-  }
-  
-  /* Form Elements */
-  input, textarea, select {
-    @apply bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:border-transparent transition-colors;
-  }
-  
-  .btn-outline {
-    @apply border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700;
-  }
-  
-  /* Navbar solid background */
-  .navbar-solid {
-    @apply bg-red-900 dark:bg-gray-900 !important;
-  }
-  
-  /* Ensure proper text contrast in dark mode */
-  .dark {
-    color-scheme: dark;
-  }
-  
-  /* Fix for form elements in dark mode */
-  .dark input,
-  .dark textarea,
-  .dark select {
-    @apply bg-gray-800 text-white;
-  }
-  
-  .navbar-scrolled {
-    @apply bg-red-950 dark:bg-gray-900 !important;
-  }
-  
-  /* Buttons */
-  .btn {
-    @apply px-4 py-2 rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-opacity-50;
-  }
-  
-  .btn-primary {
-    @apply bg-primary hover:bg-primary-dark text-white;
-  }
-  
-  .btn-secondary {
-    @apply bg-secondary hover:bg-opacity-90 text-white;
-  }
-  
-  /* Cards */
-  .card {
-    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-colors duration-200;
+
+  /* Ensure images are always visible */
+  img {
+    @apply opacity-100 visible;
   }
 }
 
-/* Custom styles */
-.container {
-  width: 100%;
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+/* ─── Dark mode overrides ───────────────────────────────── */
+/*
+ * Tailwind's dark: variants require explicit dark: on every element.
+ * These !important rules act as a site-wide fallback so any element
+ * using plain bg-white / text-gray-800 etc. automatically adapts.
+ */
+
+/* Backgrounds */
+.dark .bg-white          { background-color: rgb(31 41 55)  !important; } /* gray-800 */
+.dark .bg-gray-50        { background-color: rgb(17 24 39)  !important; } /* gray-900 */
+.dark .bg-gray-100       { background-color: rgb(31 41 55)  !important; } /* gray-800 */
+.dark .bg-gray-200       { background-color: rgb(55 65 81)  !important; } /* gray-700 */
+.dark main               { background-color: rgb(17 24 39)  !important; } /* gray-900 */
+.dark section            { background-color: rgb(17 24 39)  !important; } /* gray-900 */
+
+/* Text */
+.dark .text-gray-900     { color: rgb(255 255 255)   !important; } /* white   */
+.dark .text-gray-800     { color: rgb(243 244 246)   !important; } /* gray-100 */
+.dark .text-gray-700     { color: rgb(229 231 235)   !important; } /* gray-200 */
+.dark .text-gray-600     { color: rgb(209 213 219)   !important; } /* gray-300 */
+.dark .text-gray-500     { color: rgb(156 163 175)   !important; } /* gray-400 */
+.dark .text-gray-400     { color: rgb(156 163 175)   !important; } /* gray-400 */
+.dark .text-gray-300     { color: rgb(209 213 219)   !important; } /* gray-300 */
+
+/* Borders */
+.dark .border-gray-200   { border-color: rgb(55 65 81)  !important; }
+.dark .border-gray-300   { border-color: rgb(75 85 99)  !important; }
+.dark .border-gray-100   { border-color: rgb(31 41 55)  !important; }
+
+/* Form elements */
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: rgb(31 41 55) !important;
+  color: rgb(255 255 255)         !important;
+  border-color: rgb(75 85 99)     !important;
+}
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: rgb(156 163 175) !important;
 }
 
-/* Responsive typography */
-@media (min-width: 768px) {
-  .container {
-    padding-left: 2rem;
-    padding-right: 2rem;
+/* Shadows look better darker in dark mode */
+.dark .shadow-sm  { box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5)                                       !important; }
+.dark .shadow-md  { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.5), 0 2px 4px -1px rgba(0,0,0,0.3)  !important; }
+.dark .shadow-lg  { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5), 0 4px 6px -2px rgba(0,0,0,0.3) !important; }
+
+/* Smooth transitions for theme switching — images excluded */
+*:not(img):not([style*="background-image"]) {
+  transition: background-color 0.25s ease, color 0.2s ease, border-color 0.2s ease;
+}
+img { transition: none !important; }
+
+/* ─── Components ────────────────────────────────────────── */
+@layer components {
+  /* Touch-friendly minimum target size for interactive elements */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
   }
 }
 
-/* Custom animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.fade-in {
-  animation: fadeIn 0.5s ease-in-out;
+/* ─── Utilities ─────────────────────────────────────────── */
+@layer utilities {
+  /* Line-clamp helpers (polyfill for older browsers) */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }

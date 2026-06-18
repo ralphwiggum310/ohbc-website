@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiUser, FiLogOut } from 'react-icons/fi';
 import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
@@ -48,19 +49,55 @@ const navLinks = [
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // Removed isScrolled state as we're using a consistent color now
   const [showContent, setShowContent] = useState(false);
+  const [currentUser, setCurrentUser] = useState<{ email: string; role: string; first_name?: string } | null>(null);
+  const router = useRouter();
 
-  // Show navbar content immediately
   useEffect(() => {
     setShowContent(true);
+    checkAuthState();
   }, []);
 
-  // Scroll effect removed for consistent color
+  const checkAuthState = async () => {
+    try {
+      const token = localStorage.getItem('accessToken');
+      if (!token) return;
+      const res = await fetch('/api/auth/verify', {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setCurrentUser(data.user);
+      } else {
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('user');
+      }
+    } catch {
+      // not logged in — silently continue
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      const token = localStorage.getItem('accessToken');
+      await fetch('/api/auth/logout', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+    } finally {
+      localStorage.removeItem('accessToken');
+      localStorage.removeItem('user');
+      setCurrentUser(null);
+      setIsMenuOpen(false);
+      router.push('/');
+    }
+  };
 
   const handleNavClick = () => {
     setIsMenuOpen(false);
   };
+
+  const isAdmin = currentUser?.role === 'Admin' || currentUser?.role === 'Super Admin';
 
   return (
     <>
@@ -156,8 +193,33 @@ export default function Navbar() {
                       </div>
                     ))}
                   </div>
-                  <div className="ml-4">
+                  <div className="ml-4 flex items-center space-x-2">
                     <ThemeToggle />
+                    {currentUser ? (
+                      <div className="flex items-center space-x-2 ml-2">
+                        <Link
+                          href={isAdmin ? '/admin/dashboard' : '/members/dashboard'}
+                          className="flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-white bg-white/20 hover:bg-white/30 rounded-md transition-colors"
+                        >
+                          <FiUser size={14} />
+                          <span>{currentUser.first_name || currentUser.email.split('@')[0]}</span>
+                        </Link>
+                        <button
+                          onClick={handleLogout}
+                          className="flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-white bg-white/20 hover:bg-white/30 rounded-md transition-colors"
+                          title="Sign Out"
+                        >
+                          <FiLogOut size={14} />
+                        </button>
+                      </div>
+                    ) : (
+                      <Link
+                        href="/auth/signin"
+                        className="ml-2 px-3 py-1.5 text-xs font-semibold text-white bg-white/20 hover:bg-white/30 border border-white/40 rounded-md transition-colors"
+                      >
+                        Member Login
+                      </Link>
+                    )}
                   </div>
                 </motion.div>
 
@@ -211,8 +273,38 @@ export default function Navbar() {
                   </Link>
                 </div>
               ))}
-              <div className="px-3 py-2">
-                <ThemeToggle />
+              <div className="px-3 py-2 border-t border-white/20 mt-1 space-y-1">
+                {currentUser ? (
+                  <>
+                    <Link
+                      href={isAdmin ? '/admin/dashboard' : '/members/dashboard'}
+                      onClick={handleNavClick}
+                      className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-white hover:bg-red-800 rounded-md"
+                    >
+                      <FiUser size={16} />
+                      {isAdmin ? 'Admin Dashboard' : 'My Dashboard'}
+                    </Link>
+                    <button
+                      onClick={handleLogout}
+                      className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm font-medium text-white hover:bg-red-800 rounded-md"
+                    >
+                      <FiLogOut size={16} />
+                      Sign Out
+                    </button>
+                  </>
+                ) : (
+                  <Link
+                    href="/auth/signin"
+                    onClick={handleNavClick}
+                    className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-white hover:bg-red-800 rounded-md"
+                  >
+                    <FiUser size={16} />
+                    Member Login
+                  </Link>
+                )}
+                <div onClick={handleNavClick}>
+                  <ThemeToggle />
+                </div>
               </div>
             </div>
           </motion.div>

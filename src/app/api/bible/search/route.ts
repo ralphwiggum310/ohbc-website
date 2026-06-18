@@ -1,46 +1,58 @@
 import { NextResponse } from 'next/server';
-import { searchVerses } from '@/lib/bibleDb';
+import Database from 'better-sqlite3';
+import path from 'path';
+
+const DB_PATH = path.join(process.cwd(), 'data', 'bible', 'bibles.db');
+
+interface RawVerse {
+  id: number;
+  book_id: number;
+  chapter: number;
+  verse: number;
+  text: string;
+  book_name: string;
+  testament: string;
+}
 
 export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const versionId = searchParams.get('version');
+  const q = searchParams.get('q')?.trim();
+  const mode = searchParams.get('mode') ?? 'similar'; // 'similar' | 'exact'
+  const caseSensitive = searchParams.get('caseSensitive') === 'true';
+
+  if (!versionId || !q) {
+    return NextResponse.json({ error: 'Version and query are required' }, { status: 400 });
+  }
+
+  const db = new Database(DB_PATH, { readonly: true });
   try {
-    const { searchParams } = new URL(request.url);
-    const versionId = searchParams.get('version');
-    const query = searchParams.get('q');
-    const page = parseInt(searchParams.get('page') || '1', 10);
-    const limit = parseInt(searchParams.get('limit') || '20', 10);
-
-    if (!versionId || !query) {
-      return NextResponse.json(
-        { error: 'Version ID and search query are required' },
-        { status: 400 }
-      );
+    // Toggle case sensitivity for LIKE at the connection level
+    if (caseSensitive) {
+      db.pragma('case_sensitive_like = ON');
     }
 
-    const versionNumber = parseInt(versionId, 10);
-    if (isNaN(versionNumber)) {
-      return NextResponse.json(
-        { error: 'Invalid version ID' },
-        { status: 400 }
-      );
+    // Pull all candidate verses via LIKE (fast DB filter)
+    const rows = db.prepare(`
+      SELECT v.id, v.book_id, v.chapter, v.verse, v.text,
+             b.name AS book_name, b.testament
+      FROM   verses v
+      JOIN   books  b ON v.book_id = b.id
+      WHERE  v.version_id = ? AND v.text LIKE ?
+      ORDER  BY v.book_id, v.chapter, v.verse
+    `).all(Number(versionId), `%${q}%`) as RawVerse[];
+
+    let results = rows;
+
+    // For exact-word mode, refine with JS regex word boundaries
+    if (mode === 'exact') {
+      const escaped = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`\\b${escaped}\\b`, caseSensitive ? '' : 'i');
+      results = rows.filter(v => regex.test(v.text));
     }
 
-    const offset = (page - 1) * limit;
-    const { verses, total } = await searchVerses(versionId, query, limit, offset);
-
-    return NextResponse.json({
-      results: verses,
-      pagination: {
-        page,
-        limit,
-        total,
-        totalPages: Math.ceil(total / limit),
-      },
-    });
-  } catch (error) {
-    console.error('Error searching Bible:', error);
-    return NextResponse.json(
-      { error: 'Failed to search Bible' },
-      { status: 500 }
-    );
+    return NextResponse.json({ results, total: results.length });
+  } finally {
+    db.close();
   }
 }

@@ -1,11 +1,14 @@
+'use client';
+
 import Image from 'next/image';
 import HeroSection from '@/components/HeroSection';
+import { useState } from 'react';
 
 interface TeamMember {
   name: string;
   role: string;
   bio: string[];
-  image: string;
+  image?: string;
   imagePosition?: string;
   imageScale?: number;
 }
@@ -31,6 +34,17 @@ const leadership: { [key: string]: TeamMember[] } = {
         'After graduating in 2012, they moved back to Ogden, Utah as church planters until the Lord directed them to Payson, Utah in 2018, where they now serve at Orchard Hills Bible Church along with their three boys.'
       ],
       image: '/images/site_img/leadership/tyler-woodhead.jpg',
+      imagePosition: 'center 25%',
+      imageScale: 0.8
+    },
+    {
+      name: 'Dean Stucker',
+      role: 'Pastor',
+      bio: [
+        'Dean Stucker was raised in Albuquerque, New Mexico. He moved to Utah in 2013 for work as the Sales Manger for Pepsi of Springville. He and Jen married in 2015 and have three great children.',
+        'He enjoys camping and outdoor activities with family and friends. He has a passion for teaching and leading, especially with the younger generation. He loves being a kids\' class teacher, especially when he has the opportunity to team-teach with his wife. He desires to lead the children\'s ministry someday and oversee their direction and vision of growth as disciples of Christ preparing themselves for the Great Commission.'
+      ],
+      image: '/images/site_img/leadership/dean-stucker.jpg',
       imagePosition: 'center 25%',
       imageScale: 0.8
     }
@@ -81,15 +95,11 @@ const leadership: { [key: string]: TeamMember[] } = {
       imageScale: 0.8
     },
     {
-      name: 'Dean Stucker',
+      name: 'Bryan Wadlington',
       role: 'Deacon',
       bio: [
-        'Dean Stucker was raised in Albuquerque, New Mexico. He moved to Utah in 2013 for work as the Sales Manger for Pepsi of Springville. He and Jen married in 2015 and have three great children.',
-        'He enjoys camping and outdoor activities with family and friends. He has a passion for teaching and leading, especially with the younger generation. He loves being a kids\' class teacher, especially when he has the opportunity to team-teach with his wife. He desires to lead the children\'s ministry someday and oversee their direction and vision of growth as disciples of Christ preparing themselves for the Great Commission.'
-      ],
-      image: '/images/site_img/leadership/dean-stucker.jpg',
-      imagePosition: 'center 25%',
-      imageScale: 0.8
+        'Bio coming soon.'
+      ]
     }
   ],
   'Office Administrator': [
@@ -109,20 +119,51 @@ const leadership: { [key: string]: TeamMember[] } = {
 // Helper function to sort leadership members by last name
 const sortLeadership = (leadership: { [key: string]: TeamMember[] }) => {
   const sorted: { [key: string]: TeamMember[] } = {};
-  
+
   for (const [key, members] of Object.entries(leadership)) {
-    sorted[key] = [...members].sort((a, b) => {
-      const aLastName = a.name.split(' ').pop() || '';
-      const bLastName = b.name.split(' ').pop() || '';
-      return aLastName.localeCompare(bLastName);
-    });
+    if (key === 'Pastors') {
+      sorted[key] = [...members];
+    } else {
+      sorted[key] = [...members].sort((a, b) => {
+        const aLastName = a.name.split(' ').pop() || '';
+        const bLastName = b.name.split(' ').pop() || '';
+        return aLastName.localeCompare(bLastName);
+      });
+    }
   }
-  
+
   return sorted;
 };
 
 export default function Leadership() {
-  const sortedLeadership = sortLeadership(leadership);
+  const [selectedCategory, setSelectedCategory] = useState<string>('pastors');
+  
+  const categories = [
+    { id: 'pastors', label: 'Pastors' },
+    { id: 'deacons', label: 'Deacons' },
+    { id: 'administrative', label: 'Administrative Staff' }
+  ];
+
+  const getFilteredLeadership = () => {
+    const filtered: { [key: string]: TeamMember[] } = {};
+    
+    if (selectedCategory === 'pastors') {
+      filtered.Pastors = leadership.Pastors || [];
+    } else if (selectedCategory === 'deacons') {
+      filtered.Deacons = leadership.Deacons || [];
+    } else if (selectedCategory === 'administrative') {
+      // Combine all other categories under Administrative Staff
+      Object.keys(leadership).forEach(key => {
+        if (key !== 'Pastors' && key !== 'Deacons') {
+          filtered[key] = leadership[key];
+        }
+      });
+    }
+    
+    return sortLeadership(filtered);
+  };
+
+  const sortedLeadership = getFilteredLeadership();
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-200">
       <HeroSection 
@@ -130,7 +171,24 @@ export default function Leadership() {
         subtitle="Meet our dedicated ministry team serving at Orchard Hills Bible Church"
         className="bg-gradient-to-r from-blue-700 to-blue-900 dark:from-gray-800 dark:to-gray-900 text-white py-3 sm:py-4"
       >
-        <div className="mt-6"></div>
+        <div className="mt-6">
+          {/* Category Toggle Buttons */}
+          <div className="flex flex-wrap justify-center gap-2 mb-4">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                  selectedCategory === category.id
+                    ? 'bg-white text-blue-700 dark:bg-gray-700 dark:text-white shadow-md transform scale-105 ring-2 ring-white ring-opacity-60'
+                    : 'bg-blue-600 text-white hover:bg-blue-500 dark:bg-gray-600 dark:hover:bg-gray-500'
+                }`}
+              >
+                {category.label}
+              </button>
+            ))}
+          </div>
+        </div>
       </HeroSection>
 
       {/* Leadership Sections */}
@@ -150,20 +208,28 @@ export default function Leadership() {
                 >
                   <div className="md:flex">
                     <div className="md:flex-shrink-0 relative w-full aspect-square max-w-[300px] mx-auto md:mx-0 md:w-48 md:max-w-[192px] lg:w-56 lg:max-w-[224px] overflow-hidden rounded-2xl">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        fill
-                        className="object-cover md:object-cover"
-                        style={{
-                          objectPosition: member.imagePosition || 'center 25%',
-                          transform: `scale(${member.imageScale || 0.7})`,
-                          width: '100%',
-                          height: '100%',
-                        }}
-                        sizes="(max-width: 768px) 100vw, 224px"
-                        priority={index < 3} // Load first 3 images with higher priority
-                      />
+                      {member.image ? (
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          fill
+                          className="object-cover md:object-cover"
+                          style={{
+                            objectPosition: member.imagePosition || 'center 25%',
+                            transform: `scale(${member.imageScale || 0.7})`,
+                            width: '100%',
+                            height: '100%',
+                          }}
+                          sizes="(max-width: 768px) 100vw, 224px"
+                          priority={index < 3}
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                          <span className="text-4xl font-bold text-gray-400 dark:text-gray-500">
+                            {member.name.split(' ').map(n => n[0]).join('')}
+                          </span>
+                        </div>
+                      )}
                     </div>
                     <div className="p-4 sm:p-6 sm:pt-4 md:pt-6">
                       <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">

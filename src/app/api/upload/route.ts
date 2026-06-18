@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { writeFile } from 'fs/promises';
 import path from 'path';
-import { auth } from '../../../../src/auth';
+import { getCustomAuth, isAdmin } from '../../../../src/lib/custom-auth';
 import type { NextRequest } from 'next/server';
 import { UPLOAD_CONFIG, getFullUploadPath, getPublicUrl, ensureUploadDirs } from '../../../../src/config/uploads';
 
@@ -20,15 +20,14 @@ export async function POST(request: NextRequest) {
   
   try {
     // Verify authentication
-    const session = await auth();
+    const session = await getCustomAuth();
     if (!session) {
       debugLog('No session found');
       return new NextResponse('Unauthorized', { status: 401 });
     }
 
     // Check if user is admin
-    const user = session.user as { role?: string };
-    if (user.role !== 'admin') {
+    if (!isAdmin(session)) {
       debugLog('User is not admin');
       return new NextResponse('Forbidden', { status: 403 });
     }
@@ -59,10 +58,10 @@ export async function POST(request: NextRequest) {
     }
     
     // Validate section
-    const validSections = Object.keys(UPLOAD_CONFIG.DIRECTORIES);
+    const validSections = ['announcements', 'bulletin'];
     const sectionKey = section.toUpperCase() as keyof typeof UPLOAD_CONFIG.DIRECTORIES;
       
-    if (!section || !validSections.includes(sectionKey)) {
+    if (!section || !validSections.includes(section)) {
       debugLog('Invalid section:', section);
       return new NextResponse('Invalid section. Must be one of: ' + validSections.join(', '), { status: 400 });
     }
@@ -150,3 +149,4 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+

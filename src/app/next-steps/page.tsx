@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import HeroSection from '@/components/HeroSection';
 
 export default function NextSteps() {
   const [mounted, setMounted] = useState(false);
@@ -13,14 +14,10 @@ export default function NextSteps() {
   return (
     <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200`}>
       {/* Hero Section */}
-      <div className="relative bg-gray-800 dark:bg-gray-900 text-white py-20 border-b border-gray-200 dark:border-gray-700">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Next Steps</h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-200">
-            Discover how you can grow and get connected at Orchard Hills Bible Church.
-          </p>
-        </div>
-      </div>
+      <HeroSection 
+        title="Next Steps"
+        subtitle="Discover how you can grow and get connected at Orchard Hills Bible Church."
+      />
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-12 sm:py-16">

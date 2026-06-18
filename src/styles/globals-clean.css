@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white text-gray-900 transition-colors duration-200;
+  }
+  
+  .dark body {
+    @apply bg-gray-900 text-gray-100;
+  }
+}
+
+/* Component styles */
+@layer components {
+  /* Navbar styles */
+  .navbar-container {
+    @apply fixed top-0 left-0 right-0 z-50 shadow-md;
+    background-color: #5c1a1a;
+  }
+  
+  .dark .navbar-container {
+    background-color: #111827;
+    color: white;
+  }
+  
+  /* Ensure navbar text is always white */
+  .navbar-container > :not(.absolute) > * {
+    color: white !important;
+  }
+  
+  /* Dropdown menus should use their own color scheme */
+  .navbar-container .absolute {
+    color: inherit !important;
+  }
+  
+  /* Add padding to prevent content overlap */
+  main {
+    padding-top: 64px;
+  }
+}
+
+/* Utility overrides - MINIMAL */
+@layer utilities {
+  /* Only essential fixes */
+  .dark img {
+    @apply opacity-100 visible;
+  }
+  
+  /* Fix admin pages only */
+  .dark body:has([href*="/admin"]) main {
+    @apply bg-gray-800 text-gray-100;
+  }
+}

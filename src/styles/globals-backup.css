@@ -1,0 +1,1713 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles that work with Tailwind dark mode */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 243, 244, 246;
+}
+
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 17, 24, 39;
+  --background-end-rgb: 31, 41 55;
+}
+
+/* Base body styles that work with Tailwind */
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--background-start-rgb));
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Ensure proper dark mode inheritance */
+.dark body {
+  color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--background-start-rgb));
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 50;
+  background: rgb(31 41 55);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.dark .dark-mode-toggle {
+  background: rgb(59 130 246);
+}
+
+/* Ensure all elements respect dark mode */
+.dark * {
+  border-color: rgb(75 85 99) !important;
+}
+
+/* Override any conflicting styles - Comprehensive dark mode */
+.dark .bg-white {
+  background-color: rgb(31 41 55) !important;
+}
+
+.dark .bg-gray-50 {
+  background-color: rgb(17 24 39) !important;
+}
+
+.dark .bg-gray-100 {
+  background-color: rgb(31 41 55) !important;
+}
+
+.dark .bg-gray-200 {
+  background-color: rgb(55 65 81) !important;
+}
+
+.dark .bg-gray-300 {
+  background-color: rgb(75 85 99) !important;
+}
+
+/* Text colors in dark mode */
+.dark .text-gray-800 {
+  color: rgb(243 244 246) !important;
+}
+
+.dark .text-gray-900 {
+  color: rgb(255 255 255) !important;
+}
+
+.dark .text-gray-600 {
+  color: rgb(156 163 175) !important;
+}
+
+.dark .text-gray-700 {
+  color: rgb(209 213 219) !important;
+}
+
+.dark .text-gray-500 {
+  color: rgb(156 163 175) !important;
+}
+
+.dark .text-gray-400 {
+  color: rgb(156 163 175) !important;
+}
+
+/* Card backgrounds in dark mode */
+.dark .card-group {
+  background-color: rgb(31 41 55) !important;
+}
+
+.dark .bg-gray-800 {
+  background-color: rgb(31 41 55) !important;
+}
+
+.dark .bg-gray-700 {
+  background-color: rgb(55 65 81) !important;
+}
+
+.dark .bg-gray-600 {
+  background-color: rgb(75 85 99) !important;
+}
+
+/* Form elements in dark mode */
+.dark input {
+  background-color: rgb(31 41 55) !important;
+  color: rgb(255 255 255) !important;
+  border-color: rgb(75 85 99) !important;
+}
+
+.dark input::placeholder {
+  color: rgb(156 163 175) !important;
+}
+
+.dark textarea {
+  background-color: rgb(31 41 55) !important;
+  color: rgb(255 255 255) !important;
+  border-color: rgb(75 85 99) !important;
+}
+
+.dark textarea::placeholder {
+  color: rgb(156 163 175) !important;
+}
+
+.dark select {
+  background-color: rgb(31 41 55) !important;
+  color: rgb(255 255 255) !important;
+  border-color: rgb(75 85 99) !important;
+}
+
+/* Button variants in dark mode */
+.dark button {
+  border-color: rgb(75 85 99) !important;
+}
+
+.dark .bg-blue-50 {
+  background-color: rgb(29 78 216) !important;
+}
+
+.dark .bg-blue-100 {
+  background-color: rgb(29 78 216) !important;
+}
+
+/* Hover states in dark mode */
+.dark .hover-bg-gray-100:hover {
+  background-color: rgb(55 65 81) !important;
+}
+
+.dark .hover-bg-gray-50:hover {
+  background-color: rgb(55 65 81) !important;
+}
+
+/* Main content area */
+.dark main {
+  background-color: rgb(17 24 39) !important;
+}
+
+/* Container backgrounds */
+.dark .container {
+  background-color: transparent !important;
+}
+
+/* Section backgrounds */
+.dark section {
+  background-color: rgb(17 24 39) !important;
+}
+
+/* Call to action section */
+.dark .bg-gray-100 {
+  background-color: rgb(31 41 55) !important;
+}
+
+.dark .bg-gray-800 {
+  background-color: rgb(31 41 55) !important;
+}
+
+/* Admin specific fixes */
+.dark .bg-white-95 {
+  background-color: rgb(31 41 55) !important;
+}
+
+.dark .bg-gray-50-95 {
+  background-color: rgb(17 24 39) !important;
+}
+
+/* Shadow adjustments for dark mode */
+.dark .shadow-sm {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark .shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Additional comprehensive fixes */
+.dark .flex-1 {
+  background-color: transparent !important;
+}
+
+.dark .min-h-screen {
+  background-color: rgb(17 24 39) !important;
+}
+
+.dark .flex-col {
+  background-color: transparent !important;
+}
+
+/* Fix for any remaining white backgrounds - but exclude images */
+.dark [class*="bg-white"]:not(img):not([src]) {
+  background-color: rgb(31 41 55) !important;
+}
+
+.dark [class*="bg-gray-50"]:not(img):not([src]) {
+  background-color: rgb(17 24 39) !important;
+}
+
+.dark [class*="bg-gray-100"]:not(img):not([src]) {
+  background-color: rgb(31 41 55) !important;
+}
+
+/* Fix text colors - but exclude images */
+.dark [class*="text-gray-800"]:not(img):not([src]) {
+  color: rgb(243 244 246) !important;
+}
+
+.dark [class*="text-gray-900"]:not(img):not([src]) {
+  color: rgb(255 255 255) !important;
+}
+
+.dark [class*="text-gray-600"]:not(img):not([src]) {
+  color: rgb(156 163 175) !important;
+}
+
+.dark [class*="text-gray-700"]:not(img):not([src]) {
+  color: rgb(209 213 219) !important;
+}
+
+/* Ensure images are visible in dark mode */
+.dark img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Fix image containers */
+.dark .relative img {
+  opacity: 1 !important;
+}
+
+.dark .absolute img {
+  opacity: 1 !important;
+}
+
+.dark-mode-toggle:hover {
+  background: rgb(55 65 81);
+}
+
+/* Smooth transitions for theme switching - exclude images */
+*:not(img):not([src]) {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
+
+/* Images should not have forced transitions */
+img {
+  transition: none !important;
+}
+
+/* Next.js Image component fixes */
+.dark img[src] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: transparent !important;
+}
+
+.dark [style*="background-image"] {
+  background-image: inherit !important;
+}
+
+/* Ensure image containers don't hide images */
+.dark .relative img,
+.dark .absolute img,
+.dark .fixed img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Comprehensive image fixes for dark mode */
+.dark img,
+.dark picture img,
+.dark figure img,
+.dark .image img,
+.dark [data-nimg] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: transparent !important;
+  color: inherit !important;
+}
+
+/* Fix any potential z-index issues */
+.dark img {
+  z-index: auto !important;
+  position: relative !important;
+}
+
+/* Ensure image containers maintain proper display */
+.dark .overflow-hidden img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.dark .object-cover img,
+.dark .object-contain img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Bible popup fixes - Proper dark mode support */
+.bg-popup {
+  background-color: white !important;
+}
+
+.dark .bg-popup {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Popup container fixes - Proper dark mode */
+.popup-container {
+  background-color: white !important;
+}
+
+.dark .popup-container {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Force popup content backgrounds - Proper dark mode */
+.dark .bg-popup .prose-content {
+  background-color: rgb(55 65 81) !important; /* gray-700 */
+}
+
+.dark .bg-popup .text-gray-800 {
+  color: rgb(243 244 246) !important; /* gray-100 */
+}
+
+.dark .bg-popup .text-gray-200 {
+  color: rgb(229 231 235) !important; /* gray-200 */
+}
+
+.dark .bg-popup .text-gray-900 {
+  color: rgb(255 255 255) !important; /* white */
+}
+
+.popup-container .prose {
+  background-color: #f9fafb !important;
+}
+
+.dark .popup-container .prose {
+  background-color: rgb(55 65 81) !important; /* gray-700 */
+}
+
+/* Force any element with popup classes to have proper dark mode */
+[class*="popup"] {
+  background-color: white !important;
+}
+
+.dark [class*="popup"] {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Override any transparency in popup elements - Proper dark mode */
+.dark .bg-white {
+  background-color: white !important;
+}
+
+.dark .bg-gray-800 {
+  background-color: rgb(31 41 55) !important;
+}
+
+.dark .bg-gray-700 {
+  background-color: rgb(55 65 81) !important;
+}
+
+/* Specific popup content area fixes - Proper dark mode */
+.dark .p-6 {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+.dark .prose-content {
+  background-color: rgb(55 65 81) !important; /* gray-700 */
+}
+
+.dark .prose-content p {
+  background-color: rgb(55 65 81) !important; /* gray-700 */
+  color: rgb(243 244 246) !important; /* gray-100 */
+}
+
+/* Additional popup background enforcement - Proper dark mode */
+.dark .bg-white.rounded-lg {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+.dark .shadow-xl {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Force popup overlay background transparency but content solid */
+.dark .fixed.inset-0 .bg-white {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+  opacity: 1 !important;
+}
+
+/* Ensure the popup content area is always solid */
+.dark .max-w-2xl.w-full {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+.dark .overflow-y-auto {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Force all text in popup to be readable in dark mode */
+.dark .bg-white .text-gray-900 {
+  color: rgb(255 255 255) !important; /* white */
+}
+
+.dark .bg-white .text-gray-800 {
+  color: rgb(243 244 246) !important; /* gray-100 */
+}
+
+.dark .bg-white .text-gray-600 {
+  color: rgb(156 163 175) !important; /* gray-400 */
+}
+
+.dark .bg-white .text-gray-400 {
+  color: rgb(156 163 175) !important; /* gray-400 */
+}
+
+/* Comprehensive popup background fixes - Proper dark mode */
+/* Temporarily disabled to fix dark overlay issue */
+/*
+.dark .fixed .bg-white {
+  background-color: rgb(31 41 55) !important;
+}
+
+.dark .fixed > .bg-white {
+  background-color: rgb(31 41 55) !important;
+}
+*/
+
+.dark .fixed .bg-white {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+*/
+
+/* Temporarily disabled to fix dark overlay issue */
+/*
+.dark .fixed .p-6 {
+  background-color: rgb(31 41 55) !important;
+}
+
+.dark .fixed .prose-content {
+  background-color: rgb(55 65 81) !important;
+}
+*/
+
+/* Force popup to be proper colors in both modes */
+/* Temporarily disabled to fix dark overlay issue */
+/*
+.bg-white {
+  background-color: white !important;
+}
+
+.dark .bg-white {
+  background-color: rgb(31 41 55) !important;
+}
+*/
+*/
+
+/* Override any inherited dark backgrounds */
+/* Temporarily disabled to fix dark overlay issue */
+/*
+.dark .bg-white * {
+  background-color: inherit !important;
+}
+
+/* Ensure popup text is always readable */
+.bg-white .text-gray-900 {
+  color: rgb(17 24 39) !important;
+}
+*/
+*/
+
+/* Temporarily disabled to fix dark overlay issue */
+/*
+.bg-white .text-gray-800 {
+  color: rgb(31 41 55) !important;
+}
+
+.bg-white .text-gray-600 {
+  color: rgb(75 85 99) !important;
+}
+
+.bg-white .text-gray-400 {
+  color: rgb(156 163 175) !important;
+}
+*/
+*/
+
+/* Final popup background enforcement - override everything */
+/* Temporarily disabled to fix dark overlay issue */
+/*
+.dark .fixed.inset-0 .bg-white.rounded-lg {
+  background-color: rgb(31 41 55) !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+}
+
+.dark .fixed .bg-white {
+  background-color: rgb(31 41 55) !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+}
+*/
+*/
+
+/* Remove any backdrop blur or transparency effects */
+/* Temporarily disabled to fix dark overlay issue */
+/*
+.dark .bg-white {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background-image: none !important;
+  background-color: inherit !important;
+}
+
+.dark .prose-content,
+.dark .prose-content *,
+.dark .p-6,
+.dark .p-6 * {
+  backdrop-filter: none !important;
+}
+*/
+
+/* Fix statements viewer text highlighting in dark mode */
+.dark .bg-gray-900 {
+  background-color: rgb(17 24 39) !important;
+}
+
+.dark .text-gray-300 {
+  color: rgb(209 213 219) !important; /* gray-300 */
+}
+
+.dark .text-gray-400 {
+  color: rgb(156 163 175) !important; /* gray-400 */
+}
+
+/* Remove any background from text content in dark mode */
+.dark .whitespace-pre-line {
+  background-color: transparent !important;
+}
+
+.dark .whitespace-pre-line * {
+  background-color: transparent !important;
+}
+
+/* Fix any prose-related highlighting */
+.dark .prose,
+.dark .prose *,
+.dark .prose-invert,
+.dark .prose-invert * {
+  background-color: transparent !important;
+}
+
+/* Ensure statement content has no highlighting */
+.dark .text-gray-700 {
+  color: rgb(209 213 219) !important; /* gray-300 */
+  background-color: transparent !important;
+}
+
+.dark .text-gray-700 * {
+  background-color: transparent !important;
+}
+
+/* Remove any inline styles that might cause highlighting */
+.dark [style*="background"] {
+  background-color: transparent !important;
+}
+
+/* Additional fixes for statement text highlighting */
+.dark .bg-gray-50 .text-gray-700 {
+  background-color: transparent !important;
+}
+
+.dark .bg-gray-900 .text-gray-300 {
+  background-color: transparent !important;
+}
+
+/* Remove any background from list items and bullet points */
+.dark li,
+.dark ul,
+.dark ol {
+  background-color: transparent !important;
+}
+
+/* Fix any potential highlighting from HTML tags */
+.dark span,
+.dark p,
+.dark div {
+  background-color: inherit !important;
+}
+
+/* Ensure no text has unwanted backgrounds in dark mode */
+.dark .text-gray-300,
+.dark .text-gray-300 *,
+.dark .text-gray-400,
+.dark .text-gray-400 * {
+  background-color: transparent !important;
+}
+
+/* Fix bullet point highlighting specifically */
+.dark .whitespace-pre-line {
+  background-color: transparent !important;
+}
+
+/* Remove background from any text with bullet points or special characters */
+.dark .text-gray-300:contains("⦁"),
+.dark .text-gray-300:contains("•"),
+.dark .text-gray-300:contains("▪") {
+  background-color: transparent !important;
+}
+
+/* Force all text elements to have transparent background in dark mode */
+.dark * {
+  background-image: none !important;
+  background-color: inherit !important;
+}
+
+/* But preserve intentional backgrounds */
+.dark .bg-white,
+.dark .bg-gray-800,
+.dark .bg-gray-700,
+.dark .bg-gray-900 {
+  background-color: inherit !important;
+}
+
+/* Fix popup text highlighting in dark mode */
+.dark .prose-content,
+.dark .prose-content *,
+.dark .prose-content p,
+.dark .prose-content span,
+.dark .prose-content div {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Remove highlighting from popup text specifically */
+.dark .text-gray-800,
+.dark .text-gray-800 *,
+.dark .text-gray-200,
+.dark .text-gray-200 * {
+  background-color: transparent !important;
+}
+
+/* Fix popup verse text highlighting */
+.dark .whitespace-pre-line,
+.dark .whitespace-pre-line * {
+  background-color: transparent !important;
+}
+
+/* Remove any highlighting from popup content */
+.dark .p-6 .text-gray-800,
+.dark .p-6 .text-gray-200,
+.dark .p-6 * {
+  background-color: transparent !important;
+}
+
+/* Ensure popup text has no unwanted backgrounds */
+.dark .fixed .bg-white .text-gray-800,
+.dark .fixed .bg-white .text-gray-200,
+.dark .fixed .bg-white * {
+  background-color: transparent !important;
+}
+
+/* Additional popup text fixes - comprehensive */
+.dark .bg-gray-800 .text-gray-900,
+.dark .bg-gray-800 .text-gray-800,
+.dark .bg-gray-800 .text-gray-200,
+.dark .bg-gray-800 * {
+  background-color: transparent !important;
+}
+
+/* Remove any prose-related highlighting in popup */
+.dark .prose,
+.dark .prose *,
+.dark .prose-invert,
+.dark .prose-invert * {
+  background-color: transparent !important;
+}
+
+/* Force popup text to be clean */
+.dark .max-w-2xl .text-gray-900,
+.dark .max-w-2xl .text-gray-800,
+.dark .max-w-2xl .text-gray-200,
+.dark .max-w-2xl * {
+  background-color: transparent !important;
+}
+
+/* Remove any inline background styles in popup */
+.dark [style*="background"] {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Fix popup transparency in light mode */
+.bg-white {
+  background-color: white !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Ensure popup has solid background in light mode */
+.popup-container {
+  background-color: white !important;
+}
+
+/* Fix popup container transparency - complete solid background */
+.fixed.inset-0 > .bg-white {
+  background-color: white !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+  z-index: 50 !important;
+}
+
+/* Ensure popup overlay blocks content behind */
+.fixed.inset-0 {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  z-index: 50 !important;
+}
+
+/* Force popup to be completely solid in light mode */
+.dark .fixed.inset-0 .bg-white {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Ensure no content shows through popup */
+.bg-white.rounded-lg {
+  background-color: white !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Dark mode popup solid background */
+.dark .bg-white.rounded-lg {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Additional fixes to ensure popup blocks content behind */
+.max-w-2xl.w-full.bg-white {
+  background-color: white !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+}
+
+.dark .max-w-2xl.w-full.bg-white {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Ensure popup content area is completely solid */
+.bg-white .p-6.bg-white {
+  background-color: white !important;
+}
+
+.dark .bg-white .p-6.bg-white {
+  background-color: rgb(31 41 55) !important;
+}
+
+/* Force all popup layers to be solid */
+.fixed .bg-white,
+.fixed .bg-white * {
+  background-image: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Ensure popup z-index is high enough */
+.z-50 {
+  z-index: 9999 !important;
+}
+
+/* Fix popup container transparency - make entire box solid */
+.dark .bg-gray-800 {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+  opacity: 1 !important;
+}
+
+.bg-white {
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+/* Force popup container to be completely solid */
+.fixed .bg-white.dark\:bg-gray-800 {
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+.dark .fixed .bg-white.dark\:bg-gray-800 {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+  opacity: 1 !important;
+}
+
+/* Remove any transparency from popup container */
+.max-w-2xl.w-full {
+  opacity: 1 !important;
+  background-color: white !important;
+}
+
+.dark .max-w-2xl.w-full {
+  opacity: 1 !important;
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Ensure popup rounded container is solid */
+.rounded-lg.shadow-xl {
+  opacity: 1 !important;
+  background-color: white !important;
+}
+
+.dark .rounded-lg.shadow-xl {
+  opacity: 1 !important;
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Fix the popup container transparency - target the actual popup box */
+.dark .bg-gray-800.rounded-lg {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+  opacity: 1 !important;
+}
+
+.bg-white.rounded-lg {
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+/* Force popup container to be solid - more specific targeting */
+.dark .max-w-2xl.w-full.bg-white.dark\:bg-gray-800.rounded-lg {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+  opacity: 1 !important;
+}
+
+.max-w-2xl.w-full.bg-white.dark\:bg-gray-800.rounded-lg {
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+/* Target the popup ref element */
+.dark [ref="popupRef"] {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+  opacity: 1 !important;
+}
+
+[ref="popupRef"] {
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+/* Universal popup container fix - force all popup containers to be solid */
+.dark .fixed > div:last-child {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+  opacity: 1 !important;
+}
+
+.fixed > div:last-child {
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+/* Force any div inside fixed position with popup classes to be solid */
+.dark .fixed div[class*="bg-"] {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+  opacity: 1 !important;
+}
+
+.fixed div[class*="bg-"] {
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+/* Most aggressive fix - target any popup-like container */
+.dark .fixed .rounded-lg {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+  opacity: 1 !important;
+}
+
+.fixed .rounded-lg {
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+.bg-popup {
+  background-color: white !important;
+}
+
+/* Force popup elements to have solid backgrounds */
+.bg-white.rounded-lg {
+  background-color: white !important;
+}
+
+.shadow-xl.bg-white {
+  background-color: white !important;
+}
+
+/* Ensure images are not affected by popup fixes */
+img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+.dark img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Specific image fixes for homepage */
+/* Temporarily disabled to fix dark overlay issue */
+/*
+.dark .object-cover img,
+.dark .object-contain img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+*/
+
+/* Exclude images from universal popup fixes */
+/* Temporarily disabled to fix dark overlay issue */
+/*
+.dark .fixed img,
+.fixed img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  background-color: transparent !important;
+}
+*/
+
+/* Next.js Image component fixes */
+/* Temporarily disabled to fix dark overlay issue */
+/*
+.dark img[src],
+img[src] {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+*/
+
+/* Hero and card image specific fixes */
+/* Temporarily disabled to fix dark overlay issue */
+/*
+.dark .hero img,
+.dark .card img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+*/
+
+/* Additional comprehensive image fixes */
+.dark img,
+img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  background: transparent !important;
+}
+
+/* Next.js specific image fixes */
+.dark img[style],
+img[style] {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Image container fixes */
+.dark .relative img,
+.relative img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Force all images to be visible */
+* img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.dark * img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Additional dark mode specific image fixes */
+.dark img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  background: transparent !important;
+  filter: none !important;
+}
+
+/* Override any dark mode image hiding */
+.dark .object-cover img,
+.dark .object-contain img,
+.dark .absolute img,
+.dark .relative img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+}
+
+/* Next Steps page theme fixes */
+/* Hero section fixes */
+.bg-gray-100 {
+  background-color: rgb(243 244 246) !important; /* gray-100 */
+}
+
+.dark .bg-gray-100 {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Hero text fixes */
+.text-gray-900 {
+  color: rgb(17 24 39) !important; /* gray-900 */
+}
+
+.dark .text-gray-900 {
+  color: rgb(255 255 255) !important; /* white */
+}
+
+.text-gray-700 {
+  color: rgb(55 65 81) !important; /* gray-700 */
+}
+
+.dark .text-gray-700 {
+  color: rgb(229 231 235) !important; /* gray-200 */
+}
+
+/* Main content fixes */
+.bg-white {
+  background-color: white !important;
+}
+
+.dark .bg-white {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Step content text fixes */
+.text-gray-800 {
+  color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+.dark .text-gray-800 {
+  color: rgb(243 244 246) !important; /* gray-100 */
+}
+
+.text-gray-600 {
+  color: rgb(75 85 99) !important; /* gray-600 */
+}
+
+.dark .text-gray-600 {
+  color: rgb(209 213 219) !important; /* gray-300 */
+}
+
+/* Border fixes */
+.border-gray-300 {
+  border-color: rgb(209 213 219) !important; /* gray-300 */
+}
+
+.dark .border-gray-300 {
+  border-color: rgb(75 85 99) !important; /* gray-600 */
+}
+
+/* Next Steps page specific fixes */
+/* Force main content to be dark in dark mode */
+.dark .bg-white {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Ensure step containers are dark in dark mode */
+.dark .bg-white.rounded-lg {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Force all white backgrounds in dark mode to be dark */
+.dark .bg-gray-50 .bg-white {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Next Steps page main content area */
+.dark main .bg-white {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Step content containers */
+.dark .bg-white.shadow-lg {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Ensure proper contrast for step content in dark mode */
+.dark .text-gray-800 {
+  color: rgb(243 244 246) !important; /* gray-100 */
+}
+
+.dark .text-gray-600 {
+  color: rgb(209 213 219) !important; /* gray-300 */
+}
+
+/* More aggressive Next Steps page dark mode fixes */
+/* Force entire main content area to be dark */
+.dark main {
+  background-color: rgb(17 24 39) !important; /* gray-900 */
+}
+
+.dark main * {
+  background-color: inherit !important;
+}
+
+/* Force all containers in main to be dark */
+.dark main .bg-white,
+.dark main .bg-gray-50,
+.dark main div[class*="bg-"] {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Force step containers specifically */
+.dark .space-y-8 > div {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Force all white backgrounds in Next Steps page to be dark */
+.dark .max-w-4xl .bg-white {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Force container and all children to be dark */
+.dark .container .bg-white,
+.dark .container .bg-white * {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Most aggressive - force any element in main to have dark background */
+.dark main * {
+  background-color: rgb(31 41 55) !important;
+}
+
+/* But preserve text colors */
+.dark main .text-gray-800 {
+  color: rgb(243 244 246) !important; /* gray-100 */
+}
+
+.dark main .text-gray-600 {
+  color: rgb(209 213 219) !important; /* gray-300 */
+}
+
+.dark main .text-white {
+  color: rgb(255 255 255) !important; /* white */
+}
+
+/* Fix: Make Next Steps fixes more specific to avoid affecting homepage */
+/* Remove the overly broad rule and replace with specific targeting */
+.dark main * {
+  background-color: inherit !important; /* Reset the overly broad rule */
+}
+
+/* Specific Next Steps page fixes - more targeted */
+.dark main .max-w-4xl .bg-white {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+.dark main .max-w-4xl .bg-white * {
+  background-color: inherit !important;
+}
+
+.dark main .space-y-8 > div {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+.dark main .space-y-8 > div * {
+  background-color: inherit !important;
+}
+
+/* Target Next Steps page specifically by URL path */
+body[href*="/next-steps"] main .bg-white,
+body[href*="/next-steps"] main .bg-white * {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Exclude images from background changes */
+.dark main img,
+.dark main * img {
+  background-color: transparent !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Additional dark mode image fixes for homepage */
+/* Force all images to be visible in dark mode */
+.dark img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  background: transparent !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+/* Homepage specific image fixes */
+.dark .hero img,
+.dark .card img,
+.dark .absolute img,
+.dark .relative img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: transparent !important;
+  filter: none !important;
+}
+
+/* Next.js Image component fixes */
+.dark img[src],
+.dark img[alt],
+.dark img[class] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: transparent !important;
+}
+
+/* Container image fixes */
+.dark .object-cover img,
+.dark .object-contain img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: transparent !important;
+}
+
+/* Override any dark mode image hiding */
+.dark * img,
+.dark * * img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Force image containers to be transparent */
+.dark .object-cover,
+.dark .object-contain {
+  background: transparent !important;
+}
+
+/* Most aggressive image visibility fix */
+.dark img,
+.dark * img,
+.dark html img,
+.dark body img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  background: transparent !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+/* ULTRA AGGRESSIVE - Force homepage images to be visible */
+/* Temporarily disabled to fix dark overlay issue */
+/*
+.dark img[src*="/images/"],
+.dark img[src*="homepage"],
+.dark img[src*="hero"],
+.dark img[src*="card"] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  background: transparent !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Override any CSS that might hide images */
+.dark img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  background: transparent !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Force image containers to show images */
+.dark .absolute img,
+.dark .relative img,
+.dark .object-cover img,
+.dark .object-contain img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  background: transparent !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Remove any conflicting styles */
+.dark * {
+  background-image: none !important;
+}
+
+.dark img {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+/* Hero section service times box transparency in dark mode */
+.dark .bg-transparent {
+  background-color: transparent !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Service times box specific transparency */
+.dark .max-w-xs.bg-transparent,
+.dark .max-w-md.bg-transparent {
+  background-color: transparent !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Force service times container to be transparent */
+.dark .motion-div .bg-transparent {
+  background-color: transparent !important;
+}
+
+/* Any element with service times should be transparent */
+.dark [class*="Service"],
+.dark [class*="service"] {
+  background-color: transparent !important;
+}
+
+.dark [class*="Times"],
+.dark [class*="times"] {
+  background-color: transparent !important;
+}
+
+/* Admin dashboard and pages dark mode fixes */
+/* Card component fixes */
+.bg-card {
+  background-color: white !important;
+}
+
+.dark .bg-card {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+.text-card-foreground {
+  color: rgb(15 23 42) !important; /* gray-900 */
+}
+
+.dark .text-card-foreground {
+  color: rgb(243 244 246) !important; /* gray-100 */
+}
+
+/* Admin dashboard specific fixes */
+.dark .space-y-6 .bg-card,
+.dark .grid .bg-card {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Admin announcements page fixes */
+.dark .max-w-7xl .bg-card,
+.dark .container .bg-card {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Force all admin pages to have dark cards */
+.dark [href*="/admin"] .bg-card,
+.dark [href*="/admin"] * .bg-card {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Admin page text colors */
+.dark .text-muted-foreground {
+  color: rgb(156 163 175) !important; /* gray-400 */
+}
+
+/* Admin page borders */
+.dark .border {
+  border-color: rgb(75 85 99) !important; /* gray-600 */
+}
+
+/* Admin page buttons and interactive elements */
+.dark .bg-white {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+.dark .bg-gray-50 {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+.dark .bg-gray-100 {
+  background-color: rgb(55 65 81) !important; /* gray-700 */
+}
+
+/* Admin page specific container fixes */
+.dark main .bg-white,
+.dark main .bg-gray-50 {
+  background-color: rgb(17 24 39) !important; /* gray-900 */
+}
+
+/* Admin announcements page specific */
+.dark .rounded-lg.border.bg-card {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+  border-color: rgb(75 85 99) !important; /* gray-600 */
+}
+
+/* ULTRA AGGRESSIVE - Force admin dashboard cards to be dark */
+/* Target every possible card combination */
+.dark .bg-card,
+.dark * .bg-card,
+.dark ** .bg-card,
+.dark *** .bg-card {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* FIX: Admin cards should have light text on dark backgrounds */
+.dark .bg-card *,
+.dark * .bg-card *,
+.dark ** .bg-card *,
+.dark *** .bg-card * {
+  color: rgb(243 244 246) !important; /* gray-100 - light text */
+}
+
+/* Admin dashboard specific card targeting */
+.dark .grid .bg-card,
+.dark .grid-cols-1 .bg-card,
+.dark .grid-cols-2 .bg-card,
+.dark .grid-cols-4 .bg-card,
+.dark .md\:grid-cols-2 .bg-card,
+.dark .lg\:grid-cols-4 .bg-card {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* FIX: Light text for dashboard cards */
+.dark .grid .bg-card *,
+.dark .grid-cols-1 .bg-card *,
+.dark .grid-cols-2 .bg-card *,
+.dark .grid-cols-4 .bg-card *,
+.dark .md\:grid-cols-2 .bg-card *,
+.dark .lg\:grid-cols-4 .bg-card * {
+  color: rgb(243 244 246) !important; /* gray-100 - light text */
+}
+
+/* Stats grid specific targeting */
+.dark .space-y-6 .bg-card,
+.dark .gap-6 .bg-card {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* FIX: Light text for stats cards */
+.dark .space-y-6 .bg-card *,
+.dark .gap-6 .bg-card * {
+  color: rgb(243 244 246) !important; /* gray-100 - light text */
+}
+
+/* Card header and content targeting */
+.dark .CardHeader,
+.dark .CardContent,
+.dark .CardHeader *,
+.dark .CardContent * {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* FIX: Light text for card headers and content */
+.dark .CardHeader *,
+.dark .CardContent * {
+  color: rgb(243 244 246) !important; /* gray-100 - light text */
+}
+
+/* Force all card elements in admin to be dark */
+.dark [class*="Card"] *,
+.dark [class*="card"] * {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* FIX: Light text for all card elements */
+.dark [class*="Card"] *,
+.dark [class*="card"] * {
+  color: rgb(243 244 246) !important; /* gray-100 - light text */
+}
+
+/* Admin dashboard page specific */
+.dark main .bg-card,
+.dark main * .bg-card,
+.dark main ** .bg-card {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Override any inline styles that might be setting light backgrounds */
+.dark [style*="background"],
+.dark [style*="background-color"] {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* Most aggressive - force any element that looks like a card to be dark */
+.dark div[class*="rounded"],
+.dark div[class*="border"],
+.dark div[class*="shadow"] {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+.dark .rounded-lg {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+/* MOST AGGRESSIVE - Force admin pages color scheme */
+/* REMOVE overly broad universal selector that affects homepage */
+/* .dark main * { REMOVED - was affecting homepage hero section } */
+
+/* Admin dashboard specific - Temporarily disabled to fix dark overlay issue */
+/*
+.dark body:has([href="/admin/dashboard"]) main *,
+.dark body:has([href="/admin/dashboard"]) main div *,
+.dark body:has([href="/admin/dashboard"]) main p *,
+.dark body:has([href="/admin/dashboard"]) main h1 *,
+.dark body:has([href="/admin/dashboard"]) main h2 *,
+.dark body:has([href="/admin/dashboard"]) main h3 *,
+.dark body:has([href="/admin/dashboard"]) main span * {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+  color: rgb(243 244 246) !important; /* gray-100 - light text */
+}
+*/
+
+/* Admin announcements page specific - ONLY target announcements page */
+/* Temporarily disabled to fix dark overlay issue */
+/*
+.dark body:has([href="/admin/announcements"]) main *,
+.dark body:has([href="/admin/announcements"]) div *,
+.dark body:has([href="/admin/announcements"]) p *,
+.dark body:has([href="/admin/announcements"]) h1 *,
+.dark body:has([href="/admin/announcements"]) h2 *,
+.dark body:has([href="/admin/announcements"]) h3 *,
+.dark body:has([href="/admin/announcements"]) span * {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+  color: rgb(243 244 246) !important; /* gray-100 - light text */
+}
+*/
+
+/* PROTECT homepage hero section from ALL admin fixes */
+.dark body:not(:has([href*="/admin"])) main .relative,
+.dark body:not(:has([href*="/admin"])) main .container,
+.dark body:not(:has([href*="/admin"])) main .absolute,
+.dark body:not(:has([href*="/admin"])) main .animate,
+.dark body:not(:has([href*="/admin"])) main .motion,
+.dark body:not(:has([href*="/admin"])) main [class*="hero"],
+.dark body:not(:has([href*="/admin"])) main [class*="Hero"] {
+  background-color: transparent !important;
+  color: white !important;
+}
+
+/* Explicitly protect hero section text on homepage ONLY */
+/* Temporarily disabled to fix dark overlay issue */
+/*
+.dark body:not(:has([href*="/admin"])) main .text-white,
+.dark body:not(:has([href*="/admin"])) main .drop-shadow,
+.dark body:not(:has([href*="/admin"])) main .text-shadow {
+  background-color: transparent !important;
+  color: white !important;
+}
+*/
+
+/* Admin card fixes - ONLY in admin pages */
+.dark body:has([href*="/admin"]) .bg-card *,
+.dark body:has([href*="/admin"]) * .bg-card *,
+.dark body:has([href*="/admin"]) div[class*="rounded"] * {
+  background-color: rgb(31 41 55) !important; /* gray-800 */
+  color: rgb(243 244 246) !important; /* gray-100 - light text */
+}
+*/
+
+/* Override text colors ONLY in admin pages */
+/*
+.dark body:has([href*="/admin"]) main .text-gray-900,
+.dark body:has([href*="/admin"]) main .text-gray-800,
+.dark body:has([href*="/admin"]) main .text-gray-600,
+.dark body:has([href*="/admin"]) main .text-gray-500,
+.dark body:has([href*="/admin"]) main .text-gray-400 {
+  color: rgb(243 244 246) !important; /* gray-100 - light text */
+}
+*/
+
+/* Force dark mode images to be visible */
+/* Temporarily disabled to fix dark overlay issue */
+/*
+.dark [src*="jpg"],
+.dark [src*="png"],
+.dark [src*="jpeg"],
+.dark [src*="webp"] {
+  opacity: 1 !important;
+.dark * img,
+.dark img,
+.dark .dark img,
+.dark html img,
+.dark body img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  background: transparent !important;
+}
+
+/* Override any inherited dark mode styles for images */
+/*
+.dark * * img,
+.dark * * * img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Force dark mode image containers to be transparent */
+/*
+.dark .object-cover,
+.dark .object-contain,
+.dark .absolute,
+.dark .relative {
+  background: transparent !important;
+}
+
+.dark .object-cover img,
+.dark .object-contain img,
+.dark .absolute img,
+.dark .relative img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Remove any transparency from popup in light mode */
+.bg-white .text-gray-900,
+.bg-white .text-gray-800,
+.bg-white .text-gray-600,
+.bg-white .text-gray-400 {
+  background-color: transparent !important;
+}
+
+/* Ensure popup content area is solid */
+.bg-white .p-6 {
+  background-color: white !important;
+}
+
+.bg-white .prose-content {
+  background-color: white !important;
+}
+
+/* Additional light mode popup fixes */
+.max-w-2xl.bg-white {
+  background-color: white !important;
+}
+
+.fixed .bg-white {
+  background-color: white !important;
+}
+
+/* Ensure popup verse content area is solid */
+.bg-white .bg-gray-700 {
+  background-color: white !important;
+}
+
+/* Force all popup backgrounds to be solid in light mode */
+.bg-white,
+.bg-white *,
+.popup-container,
+.popup-container * {
+  background-image: none !important;
+  backdrop-filter: none !important;
+}
+
+/* But preserve the white background */
+.bg-white {
+  background-color: white !important;
+}
+
+.popup-container {
+  background-color: white !important;
+}

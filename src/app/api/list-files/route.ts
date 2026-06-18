@@ -34,7 +34,7 @@ export async function GET(request: Request) {
     }
 
     // Validate section
-    const validSections = ['general', 'quarterly', 'sunday_bulletins'];
+    const validSections = ['general', 'sunday_bulletins'];
       
     if (!section || !validSections.includes(section)) {
       return new NextResponse('Invalid section', { status: 400 });
@@ -45,13 +45,10 @@ export async function GET(request: Request) {
     
     switch (section) {
       case 'general':
-        uploadDir = UPLOAD_CONFIG.DIRECTORIES.GENERAL;
-        break;
-      case 'quarterly':
-        uploadDir = UPLOAD_CONFIG.DIRECTORIES.QUARTERLY;
+        uploadDir = UPLOAD_CONFIG.DIRECTORIES.ANNOUNCEMENTS;
         break;
       case 'sunday_bulletins':
-        uploadDir = UPLOAD_CONFIG.DIRECTORIES.SUNDAY_BULLETINS;
+        uploadDir = UPLOAD_CONFIG.DIRECTORIES.BULLETIN;
         break;
       default:
         return new NextResponse('Invalid section', { status: 400 });
@@ -108,3 +105,4 @@ export async function GET(request: Request) {
     );
   }
 }
+

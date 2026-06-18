@@ -124,8 +124,8 @@ export default function WhatWeBelieve() {
                 onClick={() => setCurrentView('doctrinal')}
                 className={`px-4 py-2 sm:px-5 sm:py-2.5 text-sm sm:text-base rounded-lg font-medium transition-all duration-200 transform hover:scale-105 ${
                   currentView === 'doctrinal'
-                    ? 'bg-white text-blue-700 shadow-lg dark:bg-blue-600 dark:text-white dark:border-blue-600 font-semibold'
-                    : 'bg-white/20 text-white hover:bg-white/30 border border-white/20 dark:border-gray-500 dark:hover:bg-gray-700/50 backdrop-blur-sm'
+                    ? 'bg-white text-blue-700 shadow-lg dark:bg-blue-600 dark:text-white ring-2 ring-white dark:ring-white font-semibold'
+                    : 'bg-transparent text-white hover:bg-white/10'
                 }`}
               >
                 Doctrinal Statements
@@ -134,8 +134,8 @@ export default function WhatWeBelieve() {
                 onClick={() => setCurrentView('cultural')}
                 className={`px-4 py-2 sm:px-5 sm:py-2.5 text-sm sm:text-base rounded-lg font-medium transition-all duration-200 transform hover:scale-105 ${
                   currentView === 'cultural'
-                    ? 'bg-white text-blue-700 shadow-lg dark:bg-blue-600 dark:text-white dark:border-blue-600 font-semibold'
-                    : 'bg-white/20 text-white hover:bg-white/30 border border-white/20 dark:border-gray-500 dark:hover:bg-gray-700/50 backdrop-blur-sm'
+                    ? 'bg-white text-blue-700 shadow-lg dark:bg-blue-600 dark:text-white ring-2 ring-white dark:ring-white font-semibold'
+                    : 'bg-transparent text-white hover:bg-white/10'
                 }`}
               >
                 Cultural Statements

@@ -11,7 +11,7 @@ interface AnnouncementFile {
   type: 'pdf' | 'image' | 'other';
   size: number;
   modified: Date;
-  section: 'general' | 'sunday_bulletins';
+  section: 'general' | 'bulletins';
   extractedDate?: Date;
   url?: string;
   lastModified?: string;
@@ -19,7 +19,7 @@ interface AnnouncementFile {
 
 interface AnnouncementSections {
   general: AnnouncementFile[];
-  sunday_bulletins: AnnouncementFile[];
+  bulletins: AnnouncementFile[];
 }
 
 type FilterType = 'general' | 'sunday_bulletins';
@@ -41,7 +41,7 @@ export default function AnnouncementsPage() {
   // State
   const [sections, setSections] = useState<AnnouncementSections>({
     general: [],
-    sunday_bulletins: []
+    bulletins: []
   });
   const [activeFilter, setActiveFilter] = useState<FilterType>('general');
   const [isLoading, setIsLoading] = useState(true);
@@ -208,8 +208,8 @@ export default function AnnouncementsPage() {
       description: 'Latest news and updates'
     },
     { 
-      id: 'sunday_bulletins' as const, 
-      label: `Sunday Bulletins (${sections.sunday_bulletins.length})`,
+      id: 'bulletins' as const, 
+      label: `Sunday Bulletins (${sections.bulletins.length})`,
       description: 'Weekly service information'
     },
   ], [sections]);
@@ -250,34 +250,10 @@ export default function AnnouncementsPage() {
   useEffect(() => {
     const fetchAnnouncements = async () => {
       try {
-        // TODO: Replace with actual API call
-        // const response = await fetch('/api/announcements');
-        // const data = await response.json();
-        // setSections(data);
-        
-        // Mock data for now
-        setSections({
-          general: [
-            {
-              name: 'welcome-letter-2023.pdf',
-              path: '/documents/welcome-letter-2023.pdf',
-              type: 'pdf',
-              size: 1024 * 1024 * 2.5, // 2.5MB
-              modified: new Date('2023-01-15'),
-              section: 'general'
-            }
-          ],
-          sunday_bulletins: [
-            {
-              name: 'bulletin-02-05-2023.pdf',
-              path: '/bulletins/bulletin-02-05-2023.pdf',
-              type: 'pdf',
-              size: 1024 * 1024 * 1.2, // 1.2MB
-              modified: new Date('2023-02-05'),
-              section: 'sunday_bulletins'
-            }
-          ]
-        });
+        // Real API call
+        const response = await fetch('/api/announcements');
+        const data = await response.json();
+        setSections(data);
         
         setIsLoading(false);
       } catch (error) {

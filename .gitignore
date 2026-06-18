@@ -24,9 +24,26 @@ yarn-error.log*
 
 # local env files
 /.env*.local
+.env
+.env.production
 
 # vercel
 .vercel
+
+# Databases — stay on server, never in git
+data/users/ohbc_users.db
+data/users/ohbc_users.db-wal
+data/users/ohbc_users.db-shm
+data/bible/bibles.db
+*.db-wal
+*.db-shm
+
+# Uploaded files — stay on server, never in git
+public/uploads/
+
+# Logs
+*.log
+/logs/
 
 # typescript
 *.tsbuildinfo

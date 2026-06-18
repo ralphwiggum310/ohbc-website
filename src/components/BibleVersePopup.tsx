@@ -256,10 +256,16 @@ const BibleVersePopup: React.FC<BibleVersePopupProps> = ({ reference, onCloseAct
     >
       <div 
         ref={popupRef}
-        className="bg-popup rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transition-all duration-200 border border-gray-200 dark:border-gray-700"
+        className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transition-all duration-200 border border-gray-200 dark:border-gray-700"
+        style={{ 
+          backgroundColor: 'white', 
+          backgroundImage: 'none', 
+          backdropFilter: 'none',
+          opacity: '1'
+        }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="p-6">
+        <div className="p-6 bg-white dark:bg-gray-800">
           <div className="flex justify-between items-start mb-4">
             <h3 className="text-xl font-bold text-gray-900 dark:text-white">{reference}</h3>
             <button 
@@ -280,7 +286,7 @@ const BibleVersePopup: React.FC<BibleVersePopupProps> = ({ reference, onCloseAct
                 <span className="ml-2 dark:text-gray-300">Loading...</span>
               </div>
             ) : (
-              <div className="prose-content prose dark:prose-invert max-w-none p-6 rounded-lg">
+              <div className="text-gray-800 dark:text-gray-200 max-w-none p-6 rounded-lg bg-white dark:bg-gray-700">
                 <p className="whitespace-pre-line">{verseText}</p>
               </div>
             )}

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import BibleVersePopup from '../../components/BibleVersePopup';
 
 interface Statement {
@@ -31,9 +31,9 @@ const StatementCard = ({
 }) => {
   const [selectedVerse, setSelectedVerse] = useState<string | null>(null);
 
-  const makeVersesClickable = (verseText: string) => {
+  const clickableVerses = useMemo(() => {
     // First, split by semicolons to handle different passages
-    const passages = verseText.split(';').map(p => p.trim()).filter(Boolean);
+    const passages = verses.split(';').map(p => p.trim()).filter(Boolean);
     
     // Track the current book and chapter for abbreviated references
     let currentBook = '';
@@ -82,13 +82,11 @@ const StatementCard = ({
           .replace(/\s+/g, ' ') // Normalize multiple spaces to single space
           .replace(/(\d+)\s*:\s*(\d+)/g, '$1:$2') // Normalize verse references (e.g., '1:2' instead of '1 : 2')
           .replace(/([A-Za-z]+(?:\s+[A-Za-z]+)*)\s+(\d+):(\d+)/, (_, book, chapter, verse) => {
-            const normalized = `${book} ${chapter}:${verse}`;
-            console.log('Normalized verse reference:', normalized);
-            return normalized;
+            return `${book} ${chapter}:${verse}`;
           }); // Ensure proper spacing in references
         
         const separator = passageIndex < passages.length - 1 || verseIndex < verseArray.length - 1 
-          ? (verseText.includes(';') && verseIndex === verseArray.length - 1 ? '; ' : ', ') 
+          ? (verses.includes(';') && verseIndex === verseArray.length - 1 ? '; ' : ', ') 
           : '';
         
         return (
@@ -104,7 +102,7 @@ const StatementCard = ({
         );
       });
     });
-  };
+  }, [verses]);
 
   return (
     <div className={`p-4 sm:p-6 rounded-lg shadow-md mb-6 sm:mb-8 transition-all duration-300 transform hover:scale-[1.01] ${
@@ -120,7 +118,7 @@ const StatementCard = ({
         <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-3 sm:mt-4">
           <span className="font-semibold text-gray-800 dark:text-gray-200">Key References:</span>{' '}
           <span className="text-blue-600 dark:text-blue-400">
-            {makeVersesClickable(verses)}
+            {clickableVerses}
           </span>
         </div>
       )}

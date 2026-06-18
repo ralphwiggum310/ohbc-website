@@ -1,23 +1,31 @@
 import { NextResponse } from 'next/server';
-import { cookies } from 'next/headers';
 
 export async function POST() {
   try {
-    // Clear the auth cookie
-    const cookieStore = await cookies();
-    cookieStore.delete('auth_token');
-    
-    return NextResponse.json(
-      { success: true, message: 'Logged out successfully' },
-      { 
-        status: 200,
-        headers: {
-          'Cache-Control': 'no-store, no-cache, must-revalidate',
-          'Pragma': 'no-cache',
-          'Expires': '0'
-        }
-      }
-    );
+    // Clear the authentication cookies
+    const response = NextResponse.json({
+      success: true,
+      message: 'Logged out successfully'
+    });
+
+    // Clear cookies by setting them to expire in the past
+    response.cookies.set('accessToken', '', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 0, // Delete the cookie
+      path: '/'
+    });
+
+    response.cookies.set('refreshToken', '', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 0, // Delete the cookie
+      path: '/'
+    });
+
+    return response;
   } catch (error) {
     console.error('Logout error:', error);
     return NextResponse.json(
