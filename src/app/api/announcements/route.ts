@@ -15,11 +15,18 @@ type AnnouncementFile = {
 const ALLOWED_EXTENSIONS = ['.pdf', '.jpg', '.jpeg', '.png', '.gif'];
 const SECTIONS = ['general', 'bulletins'] as const;
 
+// Map logical section names to actual folder names on disk
+const SECTION_DIRS: Record<string, string> = {
+  general: 'announcements',
+  bulletins: 'bulletins',
+};
+
 export async function GET() {
   try {
-    // Use current working directory for both dev and production
-    const baseDir = process.cwd();
-    
+    const baseDir = process.env.UPLOAD_BASE_DIR
+      ? path.resolve(process.env.UPLOAD_BASE_DIR)
+      : path.join(process.cwd(), 'public');
+
     // Process each section
     const sections: Record<typeof SECTIONS[number], AnnouncementFile[]> = {
       general: [],
@@ -27,8 +34,7 @@ export async function GET() {
     };
 
     for (const section of SECTIONS) {
-      // Map section to standardized directory structure
-      const sectionPath = path.join(baseDir, 'public', 'uploads', section);
+      const sectionPath = path.join(baseDir, 'uploads', SECTION_DIRS[section] ?? section);
       
       // Create directory if it doesn't exist
       try {

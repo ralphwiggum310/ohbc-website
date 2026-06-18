@@ -25,14 +25,28 @@ interface AnnouncementSections {
 type FilterType = 'general' | 'sunday_bulletins';
 
 // Helper functions
+const MONTH_MAP: Record<string, number> = {
+  jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
+  jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11,
+};
+
 const extractDateFromFilename = (filename: string): Date => {
-  const dateMatch = filename.match(/(\d{1,2})[-/](\d{1,2})[-/](\d{2,4})/);
-  if (dateMatch) {
-    const [, month, day, year] = dateMatch;
+  // Numeric MM/DD/YYYY or MM-DD-YYYY
+  const numericMatch = filename.match(/(\d{1,2})[-/](\d{1,2})[-/](\d{2,4})/);
+  if (numericMatch) {
+    const [, month, day, year] = numericMatch;
     const fullYear = year.length === 2 ? `20${year}` : year;
     return new Date(parseInt(fullYear), parseInt(month) - 1, parseInt(day));
   }
-  return new Date();
+  // "Apr. 5, 2026" or "Feb 15 2026" or "Jan. 1, 2026"
+  const wordMatch = filename.match(/([A-Za-z]{3})\.?\s+(\d{1,2})[,\s]+(\d{4})/);
+  if (wordMatch) {
+    const monthNum = MONTH_MAP[wordMatch[1].toLowerCase()];
+    if (monthNum !== undefined) {
+      return new Date(parseInt(wordMatch[3]), monthNum, parseInt(wordMatch[2]));
+    }
+  }
+  return new Date(0);
 };
 
 const PDFViewer = dynamic(() => import('@/components/PDFViewer'), { ssr: false });
