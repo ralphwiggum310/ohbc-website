@@ -95,28 +95,27 @@ export default function UserProfileEditor({ params }: { params: Promise<{ id: st
     resolveParams();
   }, []);
 
-  useEffect(() => {
-    const fetchUserProfile = async () => {
-      try {
-        const response = await fetch(`/api/admin/users/${userId}`);
+  const fetchUserProfile = async () => {
+    try {
+      const response = await fetch(`/api/admin/users/${userId}`);
 
-        if (response.ok) {
-          const data = await response.json();
-          setProfile(data.user);
-          setFormData(data.user);
-          // Initialize service roles (mock data for now)
-          setServiceRoles([]);
-        } else {
-          setError('Failed to load user profile');
-        }
-      } catch (error) {
-        console.error('Error fetching user profile:', error);
-        setError('Network error. Please try again.');
-      } finally {
-        setLoading(false);
+      if (response.ok) {
+        const data = await response.json();
+        setProfile(data.user);
+        setFormData(data.user);
+        setServiceRoles([]);
+      } else {
+        setError('Failed to load user profile');
       }
-    };
+    } catch (error) {
+      console.error('Error fetching user profile:', error);
+      setError('Network error. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     if (userId) {
       fetchUserProfile();
     }
