@@ -4,8 +4,9 @@ import fs from 'fs/promises';
 
 type SqliteDb = Database.Database;
 
-// Database paths
-const USERS_DB_PATH = path.join(process.cwd(), 'data', 'users', 'ohbc_users.db');
+// Database paths — USERS_DB_PATH env var lets production bypass cwd issues
+const USERS_DB_PATH = process.env.USERS_DB_PATH
+  || path.join(process.cwd(), 'data', 'users', 'ohbc_users.db');
 const BIBLE_DB_PATH = path.join(process.cwd(), 'data', 'bible', 'bibles.db');
 
 // Database instances

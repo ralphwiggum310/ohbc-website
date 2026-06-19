@@ -6,8 +6,10 @@ import path from 'path';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-in-production';
 
-// Database path
-const USERS_DB_PATH = path.join(process.cwd(), 'data', 'users', 'ohbc_users.db');
+// Database path — env var takes priority so production can use an absolute path
+// regardless of what process.cwd() returns inside the Next.js runtime
+const USERS_DB_PATH = process.env.USERS_DB_PATH
+  || path.join(process.cwd(), 'data', 'users', 'ohbc_users.db');
 
 // Helper function to get database connection
 function getUsersDb() {
