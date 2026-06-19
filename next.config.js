@@ -2,7 +2,6 @@
 const nextConfig = {
   typescript: { ignoreBuildErrors: true },
   reactStrictMode: true,
-  output: 'standalone',
   poweredByHeader: false,
   compress: true,
   trailingSlash: false,
