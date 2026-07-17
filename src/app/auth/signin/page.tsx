@@ -119,6 +119,7 @@ export default function SignInPage() {
                     href="/auth/forgot-password"
                     className="text-xs font-medium hover:underline"
                     style={{ color: '#5c1a1a' }}
+                    tabIndex={-1}
                   >
                     Forgot password?
                   </Link>
